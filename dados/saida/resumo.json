@@ -1,0 +1,400 @@
+{
+  "selecionadas": [
+    {
+      "id": "CJU_BASAR",
+      "nome": "Conj. Serra do Assuruá",
+      "uf": "BA",
+      "tipo": "eolica",
+      "agente": "ENGIE",
+      "disp_max_mw": 819,
+      "energia_perdida_gwh": 336.6,
+      "fracao_meias_horas_com_corte": 0.353
+    },
+    {
+      "id": "CJU_BANHZ",
+      "nome": "Conj. Novo Horizonte",
+      "uf": "BA",
+      "tipo": "eolica",
+      "agente": "COTESA",
+      "disp_max_mw": 423,
+      "energia_perdida_gwh": 254.6,
+      "fracao_meias_horas_com_corte": 0.367
+    },
+    {
+      "id": "CJU_RNRDV",
+      "nome": "Conj. Rio do Vento",
+      "uf": "RN",
+      "tipo": "eolica",
+      "agente": "CVER",
+      "disp_max_mw": 504,
+      "energia_perdida_gwh": 281.4,
+      "fracao_meias_horas_com_corte": 0.432
+    },
+    {
+      "id": "CJU_RNRVE",
+      "nome": "Conj. Rio do Vento Expansão",
+      "uf": "RN",
+      "tipo": "eolica",
+      "agente": "CVER",
+      "disp_max_mw": 537,
+      "energia_perdida_gwh": 268.2,
+      "fracao_meias_horas_com_corte": 0.415
+    },
+    {
+      "id": "CJU_CEITC",
+      "nome": "Conj. Itarema V",
+      "uf": "CE",
+      "tipo": "eolica",
+      "agente": "SIMM",
+      "disp_max_mw": 207,
+      "energia_perdida_gwh": 82.8,
+      "fracao_meias_horas_com_corte": 0.322
+    },
+    {
+      "id": "CJU_BASSD",
+      "nome": "Conj. Sol do Sertão",
+      "uf": "BA",
+      "tipo": "solar",
+      "agente": "COTESA",
+      "disp_max_mw": 415,
+      "energia_perdida_gwh": 240.1,
+      "fracao_meias_horas_com_corte": 0.276
+    },
+    {
+      "id": "CJU_RNASO",
+      "nome": "Conj. Assu Sol",
+      "uf": "RN",
+      "tipo": "solar",
+      "agente": "ENGIE",
+      "disp_max_mw": 753,
+      "energia_perdida_gwh": 190.7,
+      "fracao_meias_horas_com_corte": 0.203
+    },
+    {
+      "id": "CJU_CEMTD",
+      "nome": "Conj. Mauriti",
+      "uf": "CE",
+      "tipo": "solar",
+      "agente": "IQONY",
+      "disp_max_mw": 344,
+      "energia_perdida_gwh": 76.0,
+      "fracao_meias_horas_com_corte": 0.203
+    }
+  ],
+  "chance_corte_dia_util": 0.298,
+  "chance_corte_fim_de_semana_feriado": 0.378,
+  "perda_por_hora_pct": {
+    "eolica": [
+      2.1,
+      1.9,
+      1.9,
+      1.7,
+      1.6,
+      1.5,
+      2.4,
+      5.0,
+      8.0,
+      10.0,
+      10.2,
+      9.5,
+      8.9,
+      7.8,
+      6.2,
+      4.8,
+      2.9,
+      1.2,
+      0.9,
+      1.5,
+      2.3,
+      2.6,
+      2.5,
+      2.4
+    ],
+    "solar": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.9,
+      7.2,
+      12.4,
+      15.1,
+      16.0,
+      15.3,
+      14.3,
+      10.3,
+      5.7,
+      2.3,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "por_mes": {
+    "2025-01": {
+      "eolica": {
+        "energia_perdida_gwh": 465.0,
+        "mw_medios": 625,
+        "chance_corte": 0.144
+      },
+      "solar": {
+        "energia_perdida_gwh": 129.2,
+        "mw_medios": 174,
+        "chance_corte": 0.093
+      }
+    },
+    "2025-02": {
+      "eolica": {
+        "energia_perdida_gwh": 2173.2,
+        "mw_medios": 3234,
+        "chance_corte": 0.37
+      },
+      "solar": {
+        "energia_perdida_gwh": 310.1,
+        "mw_medios": 461,
+        "chance_corte": 0.188
+      }
+    },
+    "2025-03": {
+      "eolica": {
+        "energia_perdida_gwh": 823.4,
+        "mw_medios": 1107,
+        "chance_corte": 0.208
+      },
+      "solar": {
+        "energia_perdida_gwh": 152.6,
+        "mw_medios": 205,
+        "chance_corte": 0.115
+      }
+    },
+    "2025-04": {
+      "eolica": {
+        "energia_perdida_gwh": 519.8,
+        "mw_medios": 722,
+        "chance_corte": 0.173
+      },
+      "solar": {
+        "energia_perdida_gwh": 133.0,
+        "mw_medios": 185,
+        "chance_corte": 0.114
+      }
+    },
+    "2025-05": {
+      "eolica": {
+        "energia_perdida_gwh": 1469.1,
+        "mw_medios": 1975,
+        "chance_corte": 0.37
+      },
+      "solar": {
+        "energia_perdida_gwh": 293.5,
+        "mw_medios": 395,
+        "chance_corte": 0.236
+      }
+    },
+    "2025-06": {
+      "eolica": {
+        "energia_perdida_gwh": 1441.4,
+        "mw_medios": 2002,
+        "chance_corte": 0.355
+      },
+      "solar": {
+        "energia_perdida_gwh": 265.2,
+        "mw_medios": 368,
+        "chance_corte": 0.208
+      }
+    },
+    "2025-07": {
+      "eolica": {
+        "energia_perdida_gwh": 2022.2,
+        "mw_medios": 2718,
+        "chance_corte": 0.432
+      },
+      "solar": {
+        "energia_perdida_gwh": 361.2,
+        "mw_medios": 485,
+        "chance_corte": 0.266
+      }
+    },
+    "2025-08": {
+      "eolica": {
+        "energia_perdida_gwh": 2555.8,
+        "mw_medios": 3435,
+        "chance_corte": 0.526
+      },
+      "solar": {
+        "energia_perdida_gwh": 433.3,
+        "mw_medios": 582,
+        "chance_corte": 0.312
+      }
+    },
+    "2025-09": {
+      "eolica": {
+        "energia_perdida_gwh": 3076.7,
+        "mw_medios": 4273,
+        "chance_corte": 0.569
+      },
+      "solar": {
+        "energia_perdida_gwh": 439.1,
+        "mw_medios": 610,
+        "chance_corte": 0.302
+      }
+    },
+    "2025-10": {
+      "eolica": {
+        "energia_perdida_gwh": 4023.8,
+        "mw_medios": 5408,
+        "chance_corte": 0.633
+      },
+      "solar": {
+        "energia_perdida_gwh": 464.9,
+        "mw_medios": 625,
+        "chance_corte": 0.296
+      }
+    },
+    "2025-11": {
+      "eolica": {
+        "energia_perdida_gwh": 2096.4,
+        "mw_medios": 2912,
+        "chance_corte": 0.47
+      },
+      "solar": {
+        "energia_perdida_gwh": 317.6,
+        "mw_medios": 441,
+        "chance_corte": 0.259
+      }
+    },
+    "2025-12": {
+      "eolica": {
+        "energia_perdida_gwh": 1350.3,
+        "mw_medios": 1815,
+        "chance_corte": 0.389
+      },
+      "solar": {
+        "energia_perdida_gwh": 193.3,
+        "mw_medios": 260,
+        "chance_corte": 0.194
+      }
+    },
+    "2026-01": {
+      "eolica": {
+        "energia_perdida_gwh": 2168.4,
+        "mw_medios": 2915,
+        "chance_corte": 0.447
+      },
+      "solar": {
+        "energia_perdida_gwh": 285.3,
+        "mw_medios": 383,
+        "chance_corte": 0.222
+      }
+    },
+    "2026-02": {
+      "eolica": {
+        "energia_perdida_gwh": 414.9,
+        "mw_medios": 617,
+        "chance_corte": 0.157
+      },
+      "solar": {
+        "energia_perdida_gwh": 94.4,
+        "mw_medios": 140,
+        "chance_corte": 0.112
+      }
+    },
+    "2026-03": {
+      "eolica": {
+        "energia_perdida_gwh": 657.8,
+        "mw_medios": 884,
+        "chance_corte": 0.277
+      },
+      "solar": {
+        "energia_perdida_gwh": 279.5,
+        "mw_medios": 376,
+        "chance_corte": 0.221
+      }
+    },
+    "2026-04": {
+      "eolica": {
+        "energia_perdida_gwh": 1092.2,
+        "mw_medios": 1517,
+        "chance_corte": 0.361
+      },
+      "solar": {
+        "energia_perdida_gwh": 343.2,
+        "mw_medios": 477,
+        "chance_corte": 0.246
+      }
+    },
+    "2026-05": {
+      "eolica": {
+        "energia_perdida_gwh": 1692.9,
+        "mw_medios": 2275,
+        "chance_corte": 0.389
+      },
+      "solar": {
+        "energia_perdida_gwh": 476.9,
+        "mw_medios": 641,
+        "chance_corte": 0.272
+      }
+    },
+    "2026-06": {
+      "eolica": {
+        "energia_perdida_gwh": 1477.2,
+        "mw_medios": 2052,
+        "chance_corte": 0.342
+      },
+      "solar": {
+        "energia_perdida_gwh": 359.1,
+        "mw_medios": 499,
+        "chance_corte": 0.212
+      }
+    },
+    "2026-07": {
+      "eolica": {
+        "energia_perdida_gwh": 2493.0,
+        "mw_medios": 3351,
+        "chance_corte": 0.476
+      },
+      "solar": {
+        "energia_perdida_gwh": 442.8,
+        "mw_medios": 595,
+        "chance_corte": 0.264
+      }
+    },
+    "2026-08": {
+      "eolica": {
+        "energia_perdida_gwh": 3145.6,
+        "mw_medios": 4228,
+        "chance_corte": 0.533
+      },
+      "solar": {
+        "energia_perdida_gwh": 612.0,
+        "mw_medios": 823,
+        "chance_corte": 0.291
+      }
+    },
+    "2026-09": {
+      "eolica": {
+        "energia_perdida_gwh": 2663.6,
+        "mw_medios": 3699,
+        "chance_corte": 0.515
+      },
+      "solar": {
+        "energia_perdida_gwh": 606.7,
+        "mw_medios": 843,
+        "chance_corte": 0.301
+      }
+    }
+  },
+  "janelas": {
+    "total": 614,
+    "confirmadas": 564,
+    "erradas": 50,
+    "fracao_confirmadas": 0.919
+  }
+}

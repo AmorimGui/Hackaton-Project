@@ -1,0 +1,444 @@
+"""Etapa 1 do Vento Cortado: chance de corte por hora e mês + teste retroativo.
+
+Lê os arquivos mensais de constrained-off do ONS (eólica e fotovoltaica),
+mantém as usinas do RN, BA e CE, calcula a chance de corte e testa a previsão
+em meses que o modelo não viu (agosto e setembro de 2026).
+
+Uso:
+    python dados/scripts/etapa1.py [--brutos PASTA]
+
+Lê arquivos .parquet (preferência) ou .csv do ONS. Saídas em dados/saida/.
+"""
+
+import argparse
+import calendar
+import json
+import math
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+RAIZ = Path(__file__).resolve().parents[2]
+SAIDA = RAIZ / "dados" / "saida"
+
+# ---------- Parâmetros (todos declarados antes de olhar o resultado do teste) ----------
+UFS = ["RN", "BA", "CE"]
+LIMIAR_CORTE_MW = 1.0  # meia hora conta como corte se a GNRa do ONS for >= 1 MW médio
+LIMIAR_JANELA = 0.5  # a janela é oferecida quando a chance prevista é >= 50%
+DIAS_PERFIL = 56  # o perfil recente usa as últimas 8 semanas
+ATRASO_PUBLICACAO_DIAS = 7  # o ONS publica com cerca de uma semana de atraso
+SUAVIZACAO = 2  # peso da taxa média da usina quando há poucas observações
+MIN_MEIAS_HORAS_JANELA = 2  # janela mínima de 1 hora
+KW_POR_GPU = 0.85  # H100 com refrigeração (suposição do escopo)
+COTAS = [  # usinas de destaque: as que mais perderam energia em jan–jul/2026
+    ("BA", "eolica", 2), ("RN", "eolica", 2), ("CE", "eolica", 1),
+    ("BA", "solar", 1), ("RN", "solar", 1), ("CE", "solar", 1),
+]
+TESTES = [
+    {"nome": "agosto_2026", "ini": "2026-08-01", "fim": "2026-09-01", "mesmo_mes_ano_anterior": "2025-08"},
+    {"nome": "setembro_2026", "ini": "2026-09-01", "fim": "2026-10-01", "mesmo_mes_ano_anterior": "2025-09"},
+]
+# Feriados nacionais (e Carnaval/Corpus Christi, quando a carga também cai)
+FERIADOS = {
+    "2025-01-01", "2025-03-03", "2025-03-04", "2025-04-18", "2025-04-21", "2025-05-01", "2025-06-19",
+    "2025-09-07", "2025-10-12", "2025-11-02", "2025-11-15", "2025-11-20", "2025-12-25",
+    "2026-01-01", "2026-02-16", "2026-02-17", "2026-04-03", "2026-04-21", "2026-05-01", "2026-06-04",
+    "2026-09-07", "2026-10-12", "2026-11-02", "2026-11-15", "2026-11-20", "2026-12-25",
+}
+RAZOES = {"ENE": 1, "CNF": 2, "REL": 3, "PAR": 4}
+NOME_RAZAO = {v: k for k, v in RAZOES.items()}
+
+# ---------- Eixo do tempo: meias-horas desde 01/01/2025 (horário de Brasília, sem fuso) ----------
+BASE = date(2025, 1, 1)
+N_DIAS = (date(2026, 10, 1) - BASE).days  # até 30/09/2026
+N_SLOTS = N_DIAS * 48
+DIAS = [BASE + timedelta(days=d) for d in range(N_DIAS)]
+TIPO_DIA = np.array([1 if d.weekday() >= 5 or d.isoformat() in FERIADOS else 0 for d in DIAS], dtype=np.int8)
+MES_DO_DIA = np.array([d.month for d in DIAS], dtype=np.int8)
+
+
+def dia_de(iso: str) -> int:
+    return (date.fromisoformat(iso) - BASE).days
+
+
+def iso_do_dia(d: int) -> str:
+    return DIAS[d].isoformat()
+
+
+def hhmm(s: int) -> str:
+    return f"{s // 2:02d}:{'30' if s % 2 else '00'}"
+
+
+def inteiro(x: float) -> int:
+    """Arredonda meio para cima (o round() do Python arredonda meio para o par)."""
+    return math.floor(x + 0.5)
+
+
+def r3(x: float) -> float:
+    return math.floor(x * 1000 + 0.5) / 1000
+
+
+# ---------- Leitura ----------
+COLUNAS = ["id_estado", "nom_usina", "id_ons", "din_instante", "val_disponibilidade",
+           "cod_razaorestricao", "nom_pontoconexao", "nom_agenteoperador", "val_geracaonaorealizadaapurada"]
+
+
+def ler_arquivo(arq: Path) -> pd.DataFrame:
+    if arq.suffix == ".parquet":
+        df = pd.read_parquet(arq, columns=COLUNAS)
+    else:
+        df = pd.read_csv(arq, sep=";", usecols=COLUNAS, encoding="utf-8-sig", dtype=str)
+        df["din_instante"] = pd.to_datetime(df["din_instante"])
+        for c in ("val_disponibilidade", "val_geracaonaorealizadaapurada"):
+            df[c] = pd.to_numeric(df[c])
+    return df[df["id_estado"].isin(UFS)]
+
+
+def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray]:
+    """Retorna o catálogo de usinas e as matrizes [usina, meia-hora] de GNRa e razão do corte."""
+    arquivos: dict[str, Path] = {}
+    for arq in sorted(brutos.glob("RESTRICAO_COFF_*_20??_??.*")):
+        if arq.suffix == ".parquet" or (arq.suffix == ".csv" and arq.stem not in arquivos):
+            arquivos[arq.stem] = arq  # Parquet tem preferência sobre CSV
+    if not arquivos:
+        raise SystemExit(f"nenhum arquivo do ONS em {brutos}")
+
+    meta: dict[str, dict] = {}
+    partes = []
+    for stem in sorted(arquivos):
+        arq = arquivos[stem]
+        tipo = "eolica" if "EOLICA" in stem else "solar"
+        df = ler_arquivo(arq)
+        for row in df.drop_duplicates("id_ons")[["id_ons", "nom_usina", "id_estado", "nom_agenteoperador", "nom_pontoconexao"]].itertuples():
+            meta.setdefault(row.id_ons, {"id": row.id_ons, "nome": row.nom_usina, "uf": row.id_estado, "tipo": tipo,
+                                         "agente": row.nom_agenteoperador, "ponto_conexao": row.nom_pontoconexao})
+        partes.append(df[["id_ons", "din_instante", "val_disponibilidade", "cod_razaorestricao", "val_geracaonaorealizadaapurada"]])
+        print(f"lido {arq.name}", flush=True)
+
+    dados = pd.concat(partes, ignore_index=True)
+    instante = dados["din_instante"]
+    slot = ((instante - pd.Timestamp(BASE)).dt.total_seconds() // 1800).astype(np.int64).to_numpy()
+    ok = (slot >= 0) & (slot < N_SLOTS)
+    dados, slot = dados[ok], slot[ok]
+
+    usinas = list(meta.values())
+    indice = {u["id"]: i for i, u in enumerate(usinas)}
+    linha = dados["id_ons"].map(indice).to_numpy()
+    gnra = np.full((len(usinas), N_SLOTS), np.nan, dtype=np.float32)
+    gnra[linha, slot] = dados["val_geracaonaorealizadaapurada"].fillna(0).to_numpy(dtype=np.float32)  # vazio = sem limitação
+    razao = np.zeros((len(usinas), N_SLOTS), dtype=np.uint8)
+    razao[linha, slot] = dados["cod_razaorestricao"].map(RAZOES).fillna(0).to_numpy(dtype=np.uint8)
+    disp = dados.groupby("id_ons")["val_disponibilidade"].max().fillna(0)
+    for u in usinas:
+        u["disp_max_mw"] = max(0.0, float(disp.get(u["id"], 0)))
+    return usinas, gnra, razao
+
+
+# ---------- Perfil: chance de corte por meia hora do dia e tipo de dia ----------
+def perfil(g: np.ndarray, dia_ini: int, dia_fim: int) -> dict | None:
+    """Usa os dias [dia_ini, dia_fim) da série g (uma usina). Retorna None se não houver dado."""
+    a, b = max(0, dia_ini), min(dia_fim, N_DIAS)
+    if a >= b:
+        return None
+    bloco = g[a * 48:b * 48].reshape(-1, 48).astype(np.float64)
+    valido = ~np.isnan(bloco)
+    corte = valido & (bloco >= LIMIAR_CORTE_MW)
+    td = TIPO_DIA[a:b]
+    n_total, k_total = valido.sum(), corte.sum()
+    if not n_total:
+        return None
+    media = k_total / n_total
+    p = []
+    for tipo in (0, 1):
+        sel = td == tipo
+        n = valido[sel].sum(axis=0)
+        k = corte[sel].sum(axis=0)
+        p.append((k + SUAVIZACAO * media) / (n + SUAVIZACAO))
+    return {"p": p, "media": media}
+
+
+def constante(valor: float) -> dict:
+    return {"p": [np.full(48, valor), np.full(48, valor)], "media": valor}
+
+
+REGRA_FIXA = {"p": [np.where((np.arange(48) >= 16) & (np.arange(48) < 30), 1.0, 0.0)] * 2, "media": 14 / 48}
+
+
+def misturar(a: dict | None, b: dict | None) -> dict | None:
+    if a is None:
+        return b
+    if b is None:
+        return a
+    return {"p": [(a["p"][t] + b["p"][t]) / 2 for t in (0, 1)], "media": (a["media"] + b["media"]) / 2}
+
+
+# ---------- Avaliação ----------
+class Placar:
+    def __init__(self) -> None:
+        self.n = self.vp = self.fp = self.fn = self.vn = 0
+        self.brier = self.energia_total = self.energia_capturada = 0.0
+        self.calib_n = np.zeros(10)
+        self.calib_p = np.zeros(10)
+        self.calib_y = np.zeros(10)
+
+    def pontuar(self, p: np.ndarray, g: np.ndarray) -> None:
+        """p e g: vetores das meias-horas com dado."""
+        y = g >= LIMIAR_CORTE_MW
+        prev = p >= LIMIAR_JANELA
+        self.n += len(p)
+        self.brier += float(((p - y) ** 2).sum())
+        self.vp += int((prev & y).sum())
+        self.fp += int((prev & ~y).sum())
+        self.fn += int((~prev & y).sum())
+        self.vn += int((~prev & ~y).sum())
+        self.energia_total += float(g.sum()) * 0.5
+        self.energia_capturada += float(g[prev].sum()) * 0.5
+        faixa = np.minimum(9, np.floor(p * 10)).astype(int)
+        np.add.at(self.calib_n, faixa, 1)
+        np.add.at(self.calib_p, faixa, p)
+        np.add.at(self.calib_y, faixa, y.astype(np.float64))
+
+    def resumir(self, brier_base: float | None) -> dict:
+        brier = self.brier / self.n
+        return {
+            "meias_horas_avaliadas": self.n,
+            "taxa_real_de_corte": r3((self.vp + self.fn) / self.n),
+            "precisao": r3(self.vp / (self.vp + self.fp or 1)),  # das meias-horas oferecidas, quantas tiveram corte
+            "cobertura": r3(self.vp / (self.vp + self.fn or 1)),  # dos cortes reais, quantos estavam numa janela
+            "energia_capturada": r3(self.energia_capturada / (self.energia_total or 1)),
+            "acerto_geral": r3((self.vp + self.vn) / self.n),
+            "brier": r3(brier),
+            "ganho_sobre_taxa_media": r3(1 - brier / brier_base) if brier_base else None,  # Brier skill score
+            "calibracao": [
+                {"faixa": f"{i * 10}-{i * 10 + 10}%", "n": int(self.calib_n[i]),
+                 "prevista": r3(self.calib_p[i] / self.calib_n[i]), "observada": r3(self.calib_y[i] / self.calib_n[i])}
+                for i in range(10) if self.calib_n[i]
+            ],
+        }
+
+
+def intervalo_do_mes(am: str) -> tuple[int, int]:
+    ano, mes = map(int, am.split("-"))
+    ini = date(ano, mes, 1)
+    fim = date(ano + 1, 1, 1) if mes == 12 else date(ano, mes + 1, 1)
+    return (ini - BASE).days, (fim - BASE).days
+
+
+def modelos(g: np.ndarray, teste: dict) -> dict:
+    """Todos usam só dados que existiriam antes do dia previsto."""
+    ini = dia_de(teste["ini"])
+    fixo = perfil(g, ini - DIAS_PERFIL, ini)  # dados até o fim do mês anterior
+    ano_anterior = perfil(g, *intervalo_do_mes(teste["mesmo_mes_ano_anterior"]))
+    return {
+        "taxa_media": lambda d: constante(fixo["media"]) if fixo else None,  # referência: sem olhar a hora
+        "regra_fixa_8h_15h": lambda d: REGRA_FIXA,  # referência ingênua
+        "perfil_8_semanas": lambda d: fixo,  # "prevendo com dados até o mês anterior"
+        "mesmo_mes_2025": lambda d: ano_anterior if ano_anterior else fixo,
+        "combinado": lambda d: misturar(fixo, ano_anterior),
+        # Versão de produção: todo dia, perfil das 8 semanas mais recentes já publicadas pelo ONS
+        "continuo_com_atraso": lambda d: perfil(g, d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS),
+    }
+
+
+def janelas_do_dia(g: np.ndarray, rz: np.ndarray, prof: dict, d: int) -> list[dict]:
+    """Janelas contínuas com chance >= limiar em um dia, e o que o ONS registrou depois."""
+    p = prof["p"][TIPO_DIA[d]]
+    out, s = [], 0
+    while s < 48:
+        if p[s] < LIMIAR_JANELA:
+            s += 1
+            continue
+        e = s
+        while e < 48 and p[e] >= LIMIAR_JANELA:
+            e += 1
+        if e - s >= MIN_MEIAS_HORAS_JANELA:
+            com_corte = obs = 0
+            mwh = 0.0
+            razoes: dict[str, int] = {}
+            for x in range(s, e):
+                v = g[d * 48 + x]
+                if np.isnan(v):
+                    continue
+                obs += 1
+                mwh += float(v) * 0.5
+                if v >= LIMIAR_CORTE_MW:
+                    com_corte += 1
+                    nome = NOME_RAZAO.get(int(rz[d * 48 + x]), "?")
+                    razoes[nome] = razoes.get(nome, 0) + 1
+            frac = com_corte / obs if obs else None
+            out.append({
+                "data": iso_do_dia(d), "inicio": hhmm(s), "fim": hhmm(e),
+                "chance_prevista": math.floor(float(p[s:e].mean()) * 100 + 0.5) / 100,
+                "resultado_ons": "sem_dado" if frac is None else "confirmado" if frac >= 0.5 else "errado",
+                "fracao_com_corte": None if frac is None else math.floor(frac * 100 + 0.5) / 100,
+                "energia_cortada_mwh": inteiro(mwh),
+                "gpu_horas_equivalentes": inteiro(mwh * 1000 / KW_POR_GPU),  # estimativa, não medição
+                "razoes_do_corte": razoes,
+            })
+        s = e
+    return out
+
+
+def gravar_json(nome: str, obj) -> None:
+    (SAIDA / nome).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+# ---------- Execução ----------
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--brutos", type=Path, default=RAIZ.parent / "dados-ons" / "brutos")
+    args = ap.parse_args()
+
+    usinas, gnra, razao = ler_usinas(args.brutos)
+    SAIDA.mkdir(parents=True, exist_ok=True)
+    jan26, ago26 = dia_de("2026-01-01"), dia_de("2026-08-01")
+
+    # Estatísticas jan–jul/2026 por usina (base da seleção, sem olhar agosto/setembro)
+    trecho = gnra[:, jan26 * 48:ago26 * 48].astype(np.float64)
+    valido = ~np.isnan(trecho)
+    for i, u in enumerate(usinas):
+        obs = valido[i].sum()
+        mwh = np.nansum(trecho[i]) * 0.5
+        cortes = (trecho[i][valido[i]] >= LIMIAR_CORTE_MW).sum()
+        u["jan_jul_2026"] = {"energia_perdida_gwh": math.floor(mwh / 100 + 0.5) / 10,
+                             "fracao_meias_horas_com_corte": r3(cortes / obs) if obs else None}
+    selecionadas = []
+    for uf, tipo, n in COTAS:
+        candidatas = sorted((u for u in usinas if u["uf"] == uf and u["tipo"] == tipo),
+                            key=lambda u: -u["jan_jul_2026"]["energia_perdida_gwh"])
+        selecionadas += [u["id"] for u in candidatas[:n]]
+    idx = {u["id"]: i for i, u in enumerate(usinas)}
+
+    # 1) Tabela aberta: chance de corte por usina, mês e hora (todo o histórico baixado)
+    linhas = ["id_ons;usina;uf;tipo;mes;hora;meias_horas_observadas;chance_corte;perda_media_mw"]
+    mes_hora = ((MES_DO_DIA.astype(int) - 1)[:, None] * 24 + np.arange(48)[None, :] // 2).ravel()
+    for i, u in enumerate(usinas):
+        v = gnra[i].astype(np.float64)
+        ok = ~np.isnan(v)
+        n = np.bincount(mes_hora[ok], minlength=288)
+        k = np.bincount(mes_hora[ok], weights=(v[ok] >= LIMIAR_CORTE_MW), minlength=288)
+        s = np.bincount(mes_hora[ok], weights=v[ok], minlength=288)
+        for c in np.nonzero(n)[0]:
+            linhas.append(f"{u['id']};{u['nome']};{u['uf']};{u['tipo']};{c // 24 + 1};{c % 24};{int(n[c])};{k[c] / n[c]:.3f};{s[c] / n[c]:.1f}")
+    (SAIDA / "chance_corte_por_usina_mes_hora.csv").write_text("\n".join(linhas), encoding="utf-8")
+
+    # 2) Teste retroativo
+    resultado = {
+        "gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), jan/2025 a set/2026",
+        "parametros": {"UFS": UFS, "LIMIAR_CORTE_MW": LIMIAR_CORTE_MW, "LIMIAR_JANELA": LIMIAR_JANELA, "DIAS_PERFIL": DIAS_PERFIL,
+                       "ATRASO_PUBLICACAO_DIAS": ATRASO_PUBLICACAO_DIAS, "SUAVIZACAO": SUAVIZACAO, "MIN_MEIAS_HORAS_JANELA": MIN_MEIAS_HORAS_JANELA},
+        "usinas_avaliadas": 0,
+        "testes": {},
+    }
+    for teste in TESTES:
+        ini, fim = dia_de(teste["ini"]), dia_de(teste["fim"])
+        geral: dict[str, Placar] = {}
+        por_tipo: dict[str, dict[str, Placar]] = {}
+        por_usina: dict[str, dict[str, Placar]] = {}
+        avaliadas = 0
+        for i, u in enumerate(usinas):
+            g = gnra[i]
+            if perfil(g, ini - DIAS_PERFIL, ini) is None:  # só usinas com 8 semanas de histórico
+                continue
+            avaliadas += 1
+            for nome, fn in modelos(g, teste).items():
+                placares = [geral.setdefault(nome, Placar()), por_tipo.setdefault(u["tipo"], {}).setdefault(nome, Placar())]
+                if u["id"] in selecionadas:
+                    placares.append(por_usina.setdefault(u["id"], {}).setdefault(nome, Placar()))
+                ps, gs = [], []
+                for d in range(ini, fim):
+                    prof = fn(d)
+                    if prof is None:
+                        continue
+                    v = g[d * 48:(d + 1) * 48].astype(np.float64)
+                    ok = ~np.isnan(v)
+                    ps.append(prof["p"][TIPO_DIA[d]][ok])
+                    gs.append(v[ok])
+                if ps:
+                    p, v = np.concatenate(ps), np.concatenate(gs)
+                    for pl in placares:
+                        pl.pontuar(p, v)
+
+        def com_base(pl: dict[str, Placar]) -> dict:
+            base = pl["taxa_media"].brier / pl["taxa_media"].n
+            return {nome: x.resumir(base) for nome, x in pl.items()}
+
+        resultado["testes"][teste["nome"]] = {
+            "periodo": f"{teste['ini']} a {iso_do_dia(fim - 1)}",
+            "usinas_avaliadas": avaliadas,
+            "geral": com_base(geral),
+            "por_tipo": {k: com_base(v) for k, v in por_tipo.items()},
+            "usinas_destaque": {k: com_base(v) for k, v in por_usina.items()},
+        }
+        resultado["usinas_avaliadas"] = max(resultado["usinas_avaliadas"], avaliadas)
+    gravar_json("teste_retroativo.json", resultado)
+
+    # 3) Janelas que teriam sido oferecidas em agosto e setembro (modelo de produção) e o veredito do ONS
+    janelas = []
+    for uid in selecionadas:
+        i = idx[uid]
+        u = usinas[i]
+        for d in range(ago26, N_DIAS):
+            prof = perfil(gnra[i], d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS)
+            if prof is None:
+                continue
+            for j in janelas_do_dia(gnra[i], razao[i], prof, d):
+                janelas.append({"id_ons": u["id"], "usina": u["nome"], "uf": u["uf"], "tipo": u["tipo"], **j})
+    gravar_json("janelas_previstas_ago_set_2026.json", {
+        "modelo": "continuo_com_atraso", "limiar": LIMIAR_JANELA,
+        "regra_resultado": "confirmado quando o ONS registrou corte (GNRa >= 1 MW) em pelo menos metade das meias-horas da janela",
+        "janelas": janelas,
+    })
+
+    # 4) Catálogo de usinas do RN, BA e CE
+    catalogo = sorted(usinas, key=lambda u: -u["jan_jul_2026"]["energia_perdida_gwh"])
+    gravar_json("usinas.json", [{**u, "disp_max_mw": inteiro(u["disp_max_mw"]), "destaque": u["id"] in selecionadas} for u in catalogo])
+
+    # 5) Resumos para o relatório
+    resumo = {"selecionadas": [{"id": uid, "nome": usinas[idx[uid]]["nome"], "uf": usinas[idx[uid]]["uf"], "tipo": usinas[idx[uid]]["tipo"],
+                                "agente": usinas[idx[uid]]["agente"], "disp_max_mw": inteiro(usinas[idx[uid]]["disp_max_mw"]),
+                                **usinas[idx[uid]]["jan_jul_2026"]} for uid in selecionadas]}
+    tipos = np.array([u["tipo"] for u in usinas])
+    corte = trecho >= LIMIAR_CORTE_MW
+    td_trecho = np.repeat(TIPO_DIA[jan26:ago26], 48)
+    for nome, tdv in (("chance_corte_dia_util", 0), ("chance_corte_fim_de_semana_feriado", 1)):
+        sel = valido & (td_trecho == tdv)[None, :]
+        resumo[nome] = r3(corte[sel].sum() / sel.sum())
+    hora = np.tile(np.arange(48) // 2, ago26 - jan26)
+    resumo["perda_por_hora_pct"] = {}
+    for tipo in ("eolica", "solar"):
+        v = np.nan_to_num(trecho[tipos == tipo]) * 0.5
+        por_hora = np.bincount(np.broadcast_to(hora, v.shape).ravel(), weights=v.ravel(), minlength=24)
+        resumo["perda_por_hora_pct"][tipo] = [math.floor(x / por_hora.sum() * 1000 + 0.5) / 10 for x in por_hora]
+    resumo["por_mes"] = {}
+    ano_mes = np.array([d.isoformat()[:7] for d in DIAS])
+    for am in dict.fromkeys(ano_mes):
+        dias = np.nonzero(ano_mes == am)[0]
+        bloco = gnra[:, dias[0] * 48:(dias[-1] + 1) * 48].astype(np.float64)
+        horas = calendar.monthrange(int(am[:4]), int(am[5:]))[1] * 24
+        resumo["por_mes"][am] = {}
+        for tipo in ("eolica", "solar"):
+            b = bloco[tipos == tipo]
+            ok = ~np.isnan(b)
+            mwh = np.nansum(b) * 0.5
+            resumo["por_mes"][am][tipo] = {"energia_perdida_gwh": math.floor(mwh / 100 + 0.5) / 10, "mw_medios": inteiro(mwh / horas),
+                                           "chance_corte": r3((b[ok] >= LIMIAR_CORTE_MW).sum() / ok.sum())}
+    conf = sum(j["resultado_ons"] == "confirmado" for j in janelas)
+    resumo["janelas"] = {"total": len(janelas), "confirmadas": conf, "erradas": sum(j["resultado_ons"] == "errado" for j in janelas),
+                         "fracao_confirmadas": r3(conf / (len(janelas) or 1))}
+    gravar_json("resumo.json", resumo)
+
+    # Resumo no terminal
+    print(f"\nusinas: {len(usinas)} | destaque: {', '.join(selecionadas)}")
+    for nome, t in resultado["testes"].items():
+        print(f"\n{nome} ({t['usinas_avaliadas']} usinas)   precisão  cobertura  energia  ganho")
+        for m, x in t["geral"].items():
+            print(f"  {m:<22} {x['precisao']:>7.1%} {x['cobertura']:>9.1%} {x['energia_capturada']:>8.1%} {x['ganho_sobre_taxa_media']:>6.1%}")
+    print(f"\njanelas: {resumo['janelas']}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,25 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Dependências e builds do site (Etapa 2)
+node_modules/
+.next/
+dist/
+
+# Segredos: chaves de carteira e variáveis de ambiente nunca vão para o GitHub
+.env
+.env.*
+*.key
+*keypair*.json
+id.json
+
+# Dados brutos do ONS (baixe com dados/scripts/baixar_ons.py; ficam em ../dados-ons/)
+dados-ons/
+*.parquet
+
+# Editor e sistema
+.vscode/
+.DS_Store
+Thumbs.db

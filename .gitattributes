@@ -1,0 +1,3 @@
+# Guarda texto com LF no repositório; cada sistema converte ao baixar
+* text=auto
+*.parquet binary
