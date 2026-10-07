@@ -14,7 +14,7 @@ import argparse
 import calendar
 import json
 import math
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, timedelta
 from pathlib import Path
 
 import numpy as np
@@ -326,7 +326,8 @@ def main() -> None:
 
     # 2) Teste retroativo
     resultado = {
-        "gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        # data do último dado lido (e não a hora da execução, para o arquivo só mudar quando os dados mudam)
+        "dados_ate": iso_do_dia(int(np.nonzero(~np.isnan(gnra).all(axis=0))[0].max()) // 48),
         "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), jan/2025 a set/2026",
         "parametros": {"UFS": UFS, "LIMIAR_CORTE_MW": LIMIAR_CORTE_MW, "LIMIAR_JANELA": LIMIAR_JANELA, "DIAS_PERFIL": DIAS_PERFIL,
                        "ATRASO_PUBLICACAO_DIAS": ATRASO_PUBLICACAO_DIAS, "SUAVIZACAO": SUAVIZACAO, "MIN_MEIAS_HORAS_JANELA": MIN_MEIAS_HORAS_JANELA},

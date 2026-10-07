@@ -21,15 +21,33 @@ Usando só dados públicos do ONS disponíveis uma semana antes, as janelas prev
 
 ## Como rodar a parte de dados
 
-Requer Python 3.11 ou mais recente.
+Requer Python 3.11 ou mais recente. Na primeira vez, crie o ambiente e instale as bibliotecas:
 
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate    |    Mac/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-python dados/scripts/baixar_ons.py    # ~100 MB em Parquet, salvos em ../dados-ons/brutos
-python dados/scripts/etapa1.py        # ~10 segundos; recria dados/saida/
 ```
+
+Depois, chame o Python do ambiente pelo caminho completo. Isso dispensa "ativar" o ambiente, que o PowerShell do Windows costuma bloquear.
+
+**Windows**
+
+```powershell
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe dados\scripts\baixar_ons.py    # ~100 MB em Parquet, salvos em ..\dados-ons\brutos
+.venv\Scripts\python.exe dados\scripts\etapa1.py        # ~10 segundos; recria dados\saida\
+```
+
+**Mac/Linux**
+
+```bash
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python dados/scripts/baixar_ons.py
+.venv/bin/python dados/scripts/etapa1.py
+```
+
+O download pula os meses que já existem; para buscar meses novos, use `--fim AAAA_MM`. Os arquivos de `dados/saida/` só mudam quando os dados do ONS mudam.
+
+No VS Code, escolha o interpretador em **Ctrl+Shift+P → Python: Select Interpreter → .venv** para rodar com o botão ▶.
 
 ## Estrutura
 
