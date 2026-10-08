@@ -88,7 +88,7 @@
     "nome": "Conj. Sol do Sertão",
     "uf": "BA",
     "tipo": "solar",
-    "agente": "COTESA",
+    "agente": "CHAPADA BRANCA",
     "ponto_conexao": "SOL DO SERTÃO500kVA",
     "disp_max_mw": 415,
     "jan_jul_2026": {
@@ -102,7 +102,7 @@
     "nome": "Conj. Ventos de São Vitor",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "COTESA",
+    "agente": "CHAPADA BRANCA",
     "ponto_conexao": "GENTIO OURO II230kVA",
     "disp_max_mw": 474,
     "jan_jul_2026": {
@@ -116,7 +116,7 @@
     "nome": "Conj. Laranjeiras",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "IQONY",
+    "agente": "SIMM",
     "ponto_conexao": "GENTIO OURO II230kVA",
     "disp_max_mw": 505,
     "jan_jul_2026": {
@@ -256,7 +256,7 @@
     "nome": "Conj. Igaporã III 500 kV",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "ENGELMIG",
+    "agente": "RENOVA ENERGIA",
     "ponto_conexao": "IGAPORA III - 500 kV (A)",
     "disp_max_mw": 228,
     "jan_jul_2026": {
@@ -368,7 +368,7 @@
     "nome": "Conj. Monte do Ronca",
     "uf": "RN",
     "tipo": "eolica",
-    "agente": "ENERFIN",
+    "agente": "STATKRAFT",
     "ponto_conexao": "J. CAMARA III230kVA",
     "disp_max_mw": 256,
     "jan_jul_2026": {
@@ -592,7 +592,7 @@
     "nome": "Conj. Ventos da Bahia",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "COTESA",
+    "agente": "SIMM",
     "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
     "disp_max_mw": 298,
     "jan_jul_2026": {
@@ -676,7 +676,7 @@
     "nome": "Conj. Gentio do Ouro I",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "IQONY",
+    "agente": "SIMM",
     "ponto_conexao": "IRECE - 230 kV (A)",
     "disp_max_mw": 330,
     "jan_jul_2026": {
@@ -704,7 +704,7 @@
     "nome": "Conj. Pindaí II 230 kV",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "ENGELMIG",
+    "agente": "RENOVA ENERGIA",
     "ponto_conexao": "PINDAI II - 230 kV (A)",
     "disp_max_mw": 129,
     "jan_jul_2026": {
@@ -746,7 +746,7 @@
     "nome": "Conj. Juazeiro II 230 kV",
     "uf": "BA",
     "tipo": "solar",
-    "agente": "IQONY",
+    "agente": "ENGIE",
     "ponto_conexao": "JUAZEIRO II - 230 kV (A)",
     "disp_max_mw": 324,
     "jan_jul_2026": {
@@ -984,7 +984,7 @@
     "nome": "Conj. Santo Inácio",
     "uf": "RN",
     "tipo": "eolica",
-    "agente": "CEMIG GT",
+    "agente": "VOLTALIA",
     "ponto_conexao": "MOSSORO IV - 230 kV (A)",
     "disp_max_mw": 170,
     "jan_jul_2026": {
@@ -1110,7 +1110,7 @@
     "nome": "Conj. BW Guirapá I",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "ENERGISA SOLUÇÕES",
+    "agente": "ENERGISA TRANS",
     "ponto_conexao": "PINDAI II - 230 kV (A)",
     "disp_max_mw": 89,
     "jan_jul_2026": {
@@ -1334,7 +1334,7 @@
     "nome": "Conj. BW Guirapá II",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "ENERGISA SOLUÇÕES",
+    "agente": "ENERGISA TRANS",
     "ponto_conexao": "PINDAI II - 230 kV (A)",
     "disp_max_mw": 81,
     "jan_jul_2026": {
@@ -1348,7 +1348,7 @@
     "nome": "Conj. Tamboril II",
     "uf": "BA",
     "tipo": "eolica",
-    "agente": "ENGELMIG",
+    "agente": "RENOVA ENERGIA",
     "ponto_conexao": "IGAPORA III - 230 kV (A)",
     "disp_max_mw": 65,
     "jan_jul_2026": {
@@ -1516,7 +1516,7 @@
     "nome": "Conj. Acauã",
     "uf": "RN",
     "tipo": "eolica",
-    "agente": "CEMIG GT",
+    "agente": "VOLTALIA",
     "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
     "disp_max_mw": 109,
     "jan_jul_2026": {
@@ -1614,7 +1614,7 @@
     "nome": "Conj. Kairos",
     "uf": "RN",
     "tipo": "eolica",
-    "agente": "SIMM",
+    "agente": "VOLTALIA",
     "ponto_conexao": "MOSSORO IV - 230 kV (A)",
     "disp_max_mw": 122,
     "jan_jul_2026": {
@@ -1740,7 +1740,7 @@
     "nome": "Conj. São Pedro",
     "uf": "BA",
     "tipo": "solar",
-    "agente": "IQONY",
+    "agente": "ENGIE",
     "ponto_conexao": "B.JESUS LAPA - 69 kV (A)",
     "disp_max_mw": 72,
     "jan_jul_2026": {
@@ -2160,7 +2160,7 @@
     "nome": "Cataventos do Acaraú I",
     "uf": "CE",
     "tipo": "eolica",
-    "agente": "ENERGISA SOLUÇÕES",
+    "agente": "ENERGISA TRANS",
     "ponto_conexao": "ACARAU II - 230 kV (A)",
     "disp_max_mw": 0,
     "jan_jul_2026": {
@@ -2300,7 +2300,7 @@
     "nome": "Flor de Mandacaru",
     "uf": "RN",
     "tipo": "solar",
-    "agente": "CEMIG GT",
+    "agente": "VOLTALIA",
     "ponto_conexao": "MOSSORO IV - 230 kV (A)",
     "disp_max_mw": 2,
     "jan_jul_2026": {

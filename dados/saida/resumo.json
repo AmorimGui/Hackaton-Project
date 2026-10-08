@@ -55,7 +55,7 @@
       "nome": "Conj. Sol do Sertão",
       "uf": "BA",
       "tipo": "solar",
-      "agente": "COTESA",
+      "agente": "CHAPADA BRANCA",
       "disp_max_mw": 415,
       "energia_perdida_gwh": 240.1,
       "fracao_meias_horas_com_corte": 0.276
@@ -396,5 +396,49 @@
     "confirmadas": 564,
     "erradas": 50,
     "fracao_confirmadas": 0.919
+  },
+  "corte_oficial_ons": {
+    "nota": "soma da GNRa de todas as usinas eólicas e solares do ONS, sem filtro de estado",
+    "nordeste_jan_ago_2026": {
+      "periodo": "2026-01 a 2026-08",
+      "energia_perdida_gwh": 19916,
+      "mw_medios": 3415,
+      "gwh_por_dia": 82.0
+    },
+    "nordeste_jan_set_2026": {
+      "periodo": "2026-01 a 2026-09",
+      "energia_perdida_gwh": 23941,
+      "mw_medios": 3654,
+      "gwh_por_dia": 87.7
+    },
+    "brasil_jan_ago_2026": {
+      "periodo": "2026-01 a 2026-08",
+      "energia_perdida_gwh": 24222,
+      "mw_medios": 4153,
+      "gwh_por_dia": 99.7
+    },
+    "brasil_jan_set_2026": {
+      "periodo": "2026-01 a 2026-09",
+      "energia_perdida_gwh": 29336,
+      "mw_medios": 4477,
+      "gwh_por_dia": 107.5
+    },
+    "nordeste_2025": {
+      "periodo": "2025-01 a 2025-12",
+      "energia_perdida_gwh": 31378,
+      "mw_medios": 3582,
+      "gwh_por_dia": 86.0
+    },
+    "brasil_2025": {
+      "periodo": "2025-01 a 2025-12",
+      "energia_perdida_gwh": 37217,
+      "mw_medios": 4249,
+      "gwh_por_dia": 102.0
+    }
+  },
+  "janelas_proximos_dias": {
+    "periodo": "2026-10-01 a 2026-10-08",
+    "total": 1421,
+    "usinas_com_janela": 153
   }
 }

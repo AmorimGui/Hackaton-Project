@@ -12,6 +12,7 @@ Lê arquivos .parquet (preferência) ou .csv do ONS. Saídas em dados/saida/.
 
 import argparse
 import calendar
+import hashlib
 import json
 import math
 from datetime import date, timedelta
@@ -55,7 +56,13 @@ BASE = date(2025, 1, 1)
 N_DIAS = (date(2026, 10, 1) - BASE).days  # até 30/09/2026
 N_SLOTS = N_DIAS * 48
 DIAS = [BASE + timedelta(days=d) for d in range(N_DIAS)]
-TIPO_DIA = np.array([1 if d.weekday() >= 5 or d.isoformat() in FERIADOS else 0 for d in DIAS], dtype=np.int8)
+def tipo_do_dia(d: int) -> int:
+    """0 = dia útil; 1 = fim de semana ou feriado. Vale também para dias futuros."""
+    dia = BASE + timedelta(days=d)
+    return 1 if dia.weekday() >= 5 or dia.isoformat() in FERIADOS else 0
+
+
+TIPO_DIA = np.array([tipo_do_dia(d) for d in range(N_DIAS)], dtype=np.int8)
 MES_DO_DIA = np.array([d.month for d in DIAS], dtype=np.int8)
 
 
@@ -64,7 +71,7 @@ def dia_de(iso: str) -> int:
 
 
 def iso_do_dia(d: int) -> str:
-    return DIAS[d].isoformat()
+    return (BASE + timedelta(days=d)).isoformat()
 
 
 def hhmm(s: int) -> str:
@@ -81,7 +88,7 @@ def r3(x: float) -> float:
 
 
 # ---------- Leitura ----------
-COLUNAS = ["id_estado", "nom_usina", "id_ons", "din_instante", "val_disponibilidade",
+COLUNAS = ["id_subsistema", "id_estado", "nom_usina", "id_ons", "din_instante", "val_disponibilidade",
            "cod_razaorestricao", "nom_pontoconexao", "nom_agenteoperador", "val_geracaonaorealizadaapurada"]
 
 
@@ -93,11 +100,12 @@ def ler_arquivo(arq: Path) -> pd.DataFrame:
         df["din_instante"] = pd.to_datetime(df["din_instante"])
         for c in ("val_disponibilidade", "val_geracaonaorealizadaapurada"):
             df[c] = pd.to_numeric(df[c])
-    return df[df["id_estado"].isin(UFS)]
+    return df
 
 
-def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray]:
-    """Retorna o catálogo de usinas e as matrizes [usina, meia-hora] de GNRa e razão do corte."""
+def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray, pd.DataFrame]:
+    """Retorna o catálogo de usinas do RN/BA/CE, as matrizes [usina, meia-hora] de GNRa e razão do corte,
+    e a energia perdida por subsistema, estado, tipo e mês (todas as usinas do país)."""
     arquivos: dict[str, Path] = {}
     for arq in sorted(brutos.glob("RESTRICAO_COFF_*_20??_??.*")):
         if arq.suffix == ".parquet" or (arq.suffix == ".csv" and arq.stem not in arquivos):
@@ -106,14 +114,19 @@ def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray]:
         raise SystemExit(f"nenhum arquivo do ONS em {brutos}")
 
     meta: dict[str, dict] = {}
-    partes = []
-    for stem in sorted(arquivos):
+    partes, regiao = [], []
+    for stem in sorted(arquivos):  # ordem cronológica dentro de cada tipo
         arq = arquivos[stem]
         tipo = "eolica" if "EOLICA" in stem else "solar"
         df = ler_arquivo(arq)
-        for row in df.drop_duplicates("id_ons")[["id_ons", "nom_usina", "id_estado", "nom_agenteoperador", "nom_pontoconexao"]].itertuples():
-            meta.setdefault(row.id_ons, {"id": row.id_ons, "nome": row.nom_usina, "uf": row.id_estado, "tipo": tipo,
-                                         "agente": row.nom_agenteoperador, "ponto_conexao": row.nom_pontoconexao})
+        tot = df.groupby(["id_subsistema", "id_estado"])["val_geracaonaorealizadaapurada"].sum().reset_index()
+        tot["tipo"], tot["ano_mes"] = tipo, stem[-7:].replace("_", "-")
+        regiao.append(tot)
+        df = df[df["id_estado"].isin(UFS)]
+        # o arquivo mais recente prevalece: nome e agente operador podem mudar ao longo do tempo
+        for row in df.drop_duplicates("id_ons", keep="last")[["id_ons", "nom_usina", "id_estado", "nom_agenteoperador", "nom_pontoconexao"]].itertuples():
+            meta[row.id_ons] = {"id": row.id_ons, "nome": row.nom_usina, "uf": row.id_estado, "tipo": tipo,
+                                "agente": row.nom_agenteoperador, "ponto_conexao": row.nom_pontoconexao}
         partes.append(df[["id_ons", "din_instante", "val_disponibilidade", "cod_razaorestricao", "val_geracaonaorealizadaapurada"]])
         print(f"lido {arq.name}", flush=True)
 
@@ -133,7 +146,7 @@ def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray]:
     disp = dados.groupby("id_ons")["val_disponibilidade"].max().fillna(0)
     for u in usinas:
         u["disp_max_mw"] = max(0.0, float(disp.get(u["id"], 0)))
-    return usinas, gnra, razao
+    return usinas, gnra, razao, pd.concat(regiao, ignore_index=True)
 
 
 # ---------- Perfil: chance de corte por meia hora do dia e tipo de dia ----------
@@ -150,13 +163,16 @@ def perfil(g: np.ndarray, dia_ini: int, dia_fim: int) -> dict | None:
     if not n_total:
         return None
     media = k_total / n_total
-    p = []
+    perda = np.where(valido, bloco, 0.0)
+    p, mw = [], []
     for tipo in (0, 1):
         sel = td == tipo
         n = valido[sel].sum(axis=0)
         k = corte[sel].sum(axis=0)
         p.append((k + SUAVIZACAO * media) / (n + SUAVIZACAO))
-    return {"p": p, "media": media}
+        # perda média esperada (MW médios) por meia hora; usa todos os dias se faltar o tipo de dia
+        mw.append(perda[sel].sum(axis=0) / n if n.all() else perda.sum(axis=0) / valido.sum(axis=0).clip(1))
+    return {"p": p, "media": media, "mw": mw}
 
 
 def constante(valor: float) -> dict:
@@ -243,8 +259,13 @@ def modelos(g: np.ndarray, teste: dict) -> dict:
 
 
 def janelas_do_dia(g: np.ndarray, rz: np.ndarray, prof: dict, d: int) -> list[dict]:
-    """Janelas contínuas com chance >= limiar em um dia, e o que o ONS registrou depois."""
-    p = prof["p"][TIPO_DIA[d]]
+    """Janelas contínuas com chance >= limiar em um dia, e o que o ONS registrou depois.
+
+    Para dias ainda sem dado publicado (futuros), o resultado fica "aguardando_ons".
+    """
+    td = tipo_do_dia(d)
+    p, mw = prof["p"][td], prof["mw"][td]
+    tem_dado = d < N_DIAS
     out, s = [], 0
     while s < 48:
         if p[s] < LIMIAR_JANELA:
@@ -254,35 +275,56 @@ def janelas_do_dia(g: np.ndarray, rz: np.ndarray, prof: dict, d: int) -> list[di
         while e < 48 and p[e] >= LIMIAR_JANELA:
             e += 1
         if e - s >= MIN_MEIAS_HORAS_JANELA:
-            com_corte = obs = 0
-            mwh = 0.0
-            razoes: dict[str, int] = {}
-            for x in range(s, e):
-                v = g[d * 48 + x]
-                if np.isnan(v):
-                    continue
-                obs += 1
-                mwh += float(v) * 0.5
-                if v >= LIMIAR_CORTE_MW:
-                    com_corte += 1
-                    nome = NOME_RAZAO.get(int(rz[d * 48 + x]), "?")
-                    razoes[nome] = razoes.get(nome, 0) + 1
-            frac = com_corte / obs if obs else None
-            out.append({
+            esperada = float(mw[s:e].sum()) * 0.5  # MWh que o perfil espera perder na janela
+            janela = {
                 "data": iso_do_dia(d), "inicio": hhmm(s), "fim": hhmm(e),
                 "chance_prevista": math.floor(float(p[s:e].mean()) * 100 + 0.5) / 100,
-                "resultado_ons": "sem_dado" if frac is None else "confirmado" if frac >= 0.5 else "errado",
-                "fracao_com_corte": None if frac is None else math.floor(frac * 100 + 0.5) / 100,
-                "energia_cortada_mwh": inteiro(mwh),
-                "gpu_horas_equivalentes": inteiro(mwh * 1000 / KW_POR_GPU),  # estimativa, não medição
-                "razoes_do_corte": razoes,
-            })
+                "energia_esperada_mwh": inteiro(esperada),
+                "gpu_horas_esperadas": inteiro(esperada * 1000 / KW_POR_GPU),  # estimativa, não medição
+            }
+            if not tem_dado:
+                janela.update({"resultado_ons": "aguardando_ons", "fracao_com_corte": None,
+                               "energia_cortada_mwh": None, "gpu_horas_equivalentes": None, "razoes_do_corte": {}})
+            else:
+                com_corte = obs = 0
+                mwh = 0.0
+                razoes: dict[str, int] = {}
+                for x in range(s, e):
+                    v = g[d * 48 + x]
+                    if np.isnan(v):
+                        continue
+                    obs += 1
+                    mwh += float(v) * 0.5
+                    if v >= LIMIAR_CORTE_MW:
+                        com_corte += 1
+                        nome = NOME_RAZAO.get(int(rz[d * 48 + x]), "?")
+                        razoes[nome] = razoes.get(nome, 0) + 1
+                frac = com_corte / obs if obs else None
+                janela.update({
+                    "resultado_ons": "sem_dado" if frac is None else "confirmado" if frac >= 0.5 else "errado",
+                    "fracao_com_corte": None if frac is None else math.floor(frac * 100 + 0.5) / 100,
+                    "energia_cortada_mwh": inteiro(mwh),
+                    "gpu_horas_equivalentes": inteiro(mwh * 1000 / KW_POR_GPU),  # estimativa, não medição
+                    "razoes_do_corte": razoes,
+                })
+            out.append(janela)
         s = e
     return out
 
 
+IMPRESSOES: dict[str, str] = {}
+
+
+def gravar(nome: str, texto: str) -> None:
+    """Grava em UTF-8 com fim de linha LF, para o arquivo ser idêntico em Windows, Mac e Linux,
+    e guarda o SHA-256 para quem quiser conferir que chegou ao mesmo resultado."""
+    dados = (texto if texto.endswith("\n") else texto + "\n").encode("utf-8")
+    (SAIDA / nome).write_bytes(dados)
+    IMPRESSOES[nome] = hashlib.sha256(dados).hexdigest()
+
+
 def gravar_json(nome: str, obj) -> None:
-    (SAIDA / nome).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    gravar(nome, json.dumps(obj, ensure_ascii=False, indent=2))
 
 
 # ---------- Execução ----------
@@ -291,7 +333,8 @@ def main() -> None:
     ap.add_argument("--brutos", type=Path, default=RAIZ.parent / "dados-ons" / "brutos")
     args = ap.parse_args()
 
-    usinas, gnra, razao = ler_usinas(args.brutos)
+    usinas, gnra, razao, regiao = ler_usinas(args.brutos)
+    ultimo_dia = int(np.nonzero(~np.isnan(gnra).all(axis=0))[0].max()) // 48  # último dia com dado publicado
     SAIDA.mkdir(parents=True, exist_ok=True)
     jan26, ago26 = dia_de("2026-01-01"), dia_de("2026-08-01")
 
@@ -322,12 +365,12 @@ def main() -> None:
         s = np.bincount(mes_hora[ok], weights=v[ok], minlength=288)
         for c in np.nonzero(n)[0]:
             linhas.append(f"{u['id']};{u['nome']};{u['uf']};{u['tipo']};{c // 24 + 1};{c % 24};{int(n[c])};{k[c] / n[c]:.3f};{s[c] / n[c]:.1f}")
-    (SAIDA / "chance_corte_por_usina_mes_hora.csv").write_text("\n".join(linhas), encoding="utf-8")
+    gravar("chance_corte_por_usina_mes_hora.csv", "\n".join(linhas))
 
     # 2) Teste retroativo
     resultado = {
         # data do último dado lido (e não a hora da execução, para o arquivo só mudar quando os dados mudam)
-        "dados_ate": iso_do_dia(int(np.nonzero(~np.isnan(gnra).all(axis=0))[0].max()) // 48),
+        "dados_ate": iso_do_dia(ultimo_dia),
         "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), jan/2025 a set/2026",
         "parametros": {"UFS": UFS, "LIMIAR_CORTE_MW": LIMIAR_CORTE_MW, "LIMIAR_JANELA": LIMIAR_JANELA, "DIAS_PERFIL": DIAS_PERFIL,
                        "ATRASO_PUBLICACAO_DIAS": ATRASO_PUBLICACAO_DIAS, "SUAVIZACAO": SUAVIZACAO, "MIN_MEIAS_HORAS_JANELA": MIN_MEIAS_HORAS_JANELA},
@@ -394,6 +437,46 @@ def main() -> None:
         "janelas": janelas,
     })
 
+    # 3b) Próximos dias: previsão real, feita só com dados já publicados. Com o atraso de 7 dias,
+    # dá para prever até 8 dias depois do último dado (e o veredito do ONS chega depois).
+    proximas = []
+    for i, u in enumerate(usinas):
+        for d in range(ultimo_dia + 1, ultimo_dia + ATRASO_PUBLICACAO_DIAS + 2):
+            prof = perfil(gnra[i], d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS)
+            if prof is None:
+                continue
+            for j in janelas_do_dia(gnra[i], razao[i], prof, d):
+                proximas.append({"id_ons": u["id"], "usina": u["nome"], "uf": u["uf"], "tipo": u["tipo"],
+                                 "destaque": u["id"] in selecionadas, **j})
+    gravar_json("janelas_previstas_proximos_dias.json", {
+        "modelo": "continuo_com_atraso", "limiar": LIMIAR_JANELA,
+        "dados_ate": iso_do_dia(ultimo_dia),
+        "periodo": f"{iso_do_dia(ultimo_dia + 1)} a {iso_do_dia(ultimo_dia + ATRASO_PUBLICACAO_DIAS + 1)}",
+        "nota": "previsões reais: usam só dados publicados pelo ONS até 'dados_ate'; o veredito sai quando o ONS publicar o mês",
+        "janelas": proximas,
+    })
+
+    # 3c) Energia perdida por subsistema, estado, tipo e mês, com todas as usinas do país (GNRa do ONS)
+    reg = regiao.groupby(["id_subsistema", "id_estado", "tipo", "ano_mes"], as_index=False)["val_geracaonaorealizadaapurada"].sum()
+    linhas = ["subsistema;uf;tipo;ano_mes;energia_perdida_gwh;mw_medios"]
+    for r in reg.sort_values(["ano_mes", "id_subsistema", "id_estado", "tipo"]).itertuples():
+        horas = calendar.monthrange(int(r.ano_mes[:4]), int(r.ano_mes[5:]))[1] * 24
+        mwh = r.val_geracaonaorealizadaapurada * 0.5
+        linhas.append(f"{r.id_subsistema};{r.id_estado};{r.tipo};{r.ano_mes};{mwh / 1000:.1f};{inteiro(mwh / horas)}")
+    gravar("corte_por_estado_mes.csv", "\n".join(linhas))
+
+    def mw_medios(filtro: pd.Series, ini: str, fim: str) -> dict:
+        """Energia perdida e potência média entre os meses ini e fim (inclusive)."""
+        sel = reg[filtro & (reg["ano_mes"] >= ini) & (reg["ano_mes"] <= fim)]
+        mwh = sel["val_geracaonaorealizadaapurada"].sum() * 0.5
+        horas = (date.fromisoformat(f"{fim}-01").replace(day=calendar.monthrange(int(fim[:4]), int(fim[5:]))[1])
+                 - date.fromisoformat(f"{ini}-01")).days * 24 + 24
+        return {"periodo": f"{ini} a {fim}", "energia_perdida_gwh": inteiro(mwh / 1000), "mw_medios": inteiro(mwh / horas),
+                "gwh_por_dia": math.floor(mwh / horas * 24 / 1000 * 10 + 0.5) / 10}
+
+    ne = reg["id_subsistema"] == "NE"
+    brasil = reg["id_subsistema"].notna()
+
     # 4) Catálogo de usinas do RN, BA e CE
     catalogo = sorted(usinas, key=lambda u: -u["jan_jul_2026"]["energia_perdida_gwh"])
     gravar_json("usinas.json", [{**u, "disp_max_mw": inteiro(u["disp_max_mw"]), "destaque": u["id"] in selecionadas} for u in catalogo])
@@ -430,7 +513,21 @@ def main() -> None:
     conf = sum(j["resultado_ons"] == "confirmado" for j in janelas)
     resumo["janelas"] = {"total": len(janelas), "confirmadas": conf, "erradas": sum(j["resultado_ons"] == "errado" for j in janelas),
                          "fracao_confirmadas": r3(conf / (len(janelas) or 1))}
+    resumo["corte_oficial_ons"] = {
+        "nota": "soma da GNRa de todas as usinas eólicas e solares do ONS, sem filtro de estado",
+        "nordeste_jan_ago_2026": mw_medios(ne, "2026-01", "2026-08"),
+        "nordeste_jan_set_2026": mw_medios(ne, "2026-01", "2026-09"),
+        "brasil_jan_ago_2026": mw_medios(brasil, "2026-01", "2026-08"),
+        "brasil_jan_set_2026": mw_medios(brasil, "2026-01", "2026-09"),
+        "nordeste_2025": mw_medios(ne, "2025-01", "2025-12"),
+        "brasil_2025": mw_medios(brasil, "2025-01", "2025-12"),
+    }
+    resumo["janelas_proximos_dias"] = {"periodo": f"{iso_do_dia(ultimo_dia + 1)} a {iso_do_dia(ultimo_dia + ATRASO_PUBLICACAO_DIAS + 1)}",
+                                      "total": len(proximas), "usinas_com_janela": len({j["id_ons"] for j in proximas})}
     gravar_json("resumo.json", resumo)
+
+    # Impressões digitais: quem rodar o mesmo código com os mesmos dados do ONS deve obter os mesmos SHA-256
+    gravar("impressoes_digitais.txt", "\n".join(f"{h}  {n}" for n, h in sorted(IMPRESSOES.items())))
 
     # Resumo no terminal
     print(f"\nusinas: {len(usinas)} | destaque: {', '.join(selecionadas)}")
@@ -438,7 +535,12 @@ def main() -> None:
         print(f"\n{nome} ({t['usinas_avaliadas']} usinas)   precisão  cobertura  energia  ganho")
         for m, x in t["geral"].items():
             print(f"  {m:<22} {x['precisao']:>7.1%} {x['cobertura']:>9.1%} {x['energia_capturada']:>8.1%} {x['ganho_sobre_taxa_media']:>6.1%}")
-    print(f"\njanelas: {resumo['janelas']}")
+    print(f"\njanelas ago–set: {resumo['janelas']}")
+    print(f"janelas previstas {resumo['janelas_proximos_dias']['periodo']}: {len(proximas)}")
+    for k, v in resumo["corte_oficial_ons"].items():
+        if isinstance(v, dict):
+            print(f"corte {k}: {v['mw_medios']} MW médios ({v['gwh_por_dia']} GWh/dia)")
+    print("\nimpressões digitais (SHA-256) em dados/saida/impressoes_digitais.txt")
 
 
 if __name__ == "__main__":

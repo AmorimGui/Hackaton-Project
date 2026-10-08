@@ -24,9 +24,23 @@ Prevendo só com dados que já estariam publicados, o modelo acertou **89% das m
 
 **Definição usada:** uma meia hora conta como corte quando a GNRa do ONS é de pelo menos 1 MW médio.
 
-## O tamanho do problema (RN, BA e CE)
+## O tamanho do problema
 
-- Jan–jul/2026: **12.277 GWh perdidos**, cerca de **2.410 MW médios** só nesses três estados.
+**Corte oficial, calculado direto do ONS** (soma da GNRa de todas as usinas eólicas e solares, arquivo `corte_por_estado_mes.csv`):
+
+| Recorte | MW médios | GWh por dia | Referência da imprensa |
+| --- | --- | --- | --- |
+| Nordeste, jan–ago/2026 | **3.415** | 82,0 | 3.403 (Canal Solar) |
+| Nordeste, jan–set/2026 | 3.654 | 87,7 | – |
+| Brasil, jan–ago/2026 | **4.153** | 99,7 | 4.122 (Canal Solar) |
+| Brasil, jan–set/2026 | 4.477 | 107,5 | – |
+| Nordeste, 2025 | 3.582 | 86,0 | – |
+
+Os números batem com a imprensa (diferença abaixo de 1%), o que valida o cálculo. Para o pitch: **"3,4 GW médios"**, nunca "3,4 GW por dia".
+
+**Só RN, BA e CE (as usinas modeladas):**
+
+- Jan–jul/2026: **12.277 GWh perdidos**, cerca de **2.410 MW médios**.
 - O corte cresce no segundo semestre: a eólica perdeu 4.228 MW médios em ago/2026 e 3.699 em set/2026, contra 617 em fev/2026. Em 2025, o pico foi em outubro (5.408 MW médios).
 - **Horário:** 61% da perda eólica acontece entre 8h e 14h59, com pico entre 9h e 11h. Na solar, 83% acontece entre 8h e 13h59. A eólica é cortada justamente quando a solar está gerando.
 - **Dia da semana:** a chance de corte é 30% em dias úteis e **38% em fins de semana e feriados**, quando a carga cai. Isso confirma que boa parte do corte é por sobra de energia, e não só por limite de linha.
@@ -64,11 +78,23 @@ Selecionadas antes do teste, pela energia perdida em jan–jul/2026, com cota po
 | Conj. Rio do Vento (CJU_RNRDV) | RN | Eólica | CVER | 281 GWh | 85% / 92% | 111 de 124 |
 | Conj. Rio do Vento Expansão (CJU_RNRVE) | RN | Eólica | CVER | 268 GWh | 86% / 91% | 114 de 124 |
 | Conj. Itarema V (CJU_CEITC) | CE | Eólica | SIMM | 83 GWh | 85% / 83% | 56 de 61 |
-| Conj. Sol do Sertão (CJU_BASSD) | BA | Solar | COTESA | 240 GWh | 92% / 89% | 55 de 61 |
+| Conj. Sol do Sertão (CJU_BASSD) | BA | Solar | CHAPADA BRANCA | 240 GWh | 92% / 89% | 55 de 61 |
 | Conj. Assu Sol (CJU_RNASO) | RN | Solar | ENGIE | 191 GWh | 92% / 82% | 61 de 61 |
 | Conj. Mauriti (CJU_CEMTD) | CE | Solar | IQONY | 76 GWh | 83% / 83% | 51 de 61 |
 
-No total, **564 das 614 janelas (92%) foram confirmadas pelo ONS**. Uma janela é "confirmada" quando houve corte em pelo menos metade das suas meias-horas.
+No total, **564 das 614 janelas (92%) foram confirmadas pelo ONS**. Uma janela é "confirmada" quando houve corte em pelo menos metade das suas meias-horas. O agente operador é o do dado mais recente do ONS.
+
+**Energia esperada por janela.** Cada janela também traz quanta energia o perfil espera que seja cortada (`energia_esperada_mwh`). Somando as janelas, a estimativa ficou 19% abaixo do realizado em agosto e 12% acima em setembro. Serve para o Atlas mostrar o tamanho de cada janela, como **estimativa (±20%)**.
+
+## Janelas previstas para os próximos dias
+
+Como o modelo de produção só usa dados com 7 ou mais dias, ele já prevê de verdade os dias seguintes ao último dado publicado. Com dados até 30/09/2026, o arquivo `janelas_previstas_proximos_dias.json` traz **1.421 janelas de 01/10 a 08/10, em 153 usinas**, todas com resultado `aguardando_ons`. Quando o ONS publicar outubro, basta rodar de novo para preencher o veredito: é a fase 2 do recibo funcionando com dados reais.
+
+## Reprodutibilidade
+
+O script grava os resultados em UTF-8 com fim de linha LF, então os arquivos são **byte a byte iguais em Windows, Mac e Linux**, e lista o SHA-256 de cada um em `impressoes_digitais.txt`. Quem baixar os mesmos arquivos do ONS e rodar o mesmo código deve obter as mesmas impressões digitais. Esta é a resposta ao "oráculo centralizado": *"Phase 2 is a declared oracle v1, but every stamp is reproducible: anyone can recompute it from public ONS data with our open-source code."*
+
+A leitura do CSV e a do Parquet produzem arquivos idênticos, e duas execuções seguidas também.
 
 ## Pontos de honestidade
 
@@ -84,7 +110,7 @@ No total, **564 das 614 janelas (92%) foram confirmadas pelo ONS**. Uma janela �
 
 - **A previsão é viável e defensável** com dados abertos e um método simples. Frase para o pitch: *"Using only public ONS data available a week earlier, our windows captured 90% of the curtailed energy in August and 95% in September 2026, across 154 plants."*
 - **O gargalo do negócio é a demanda, não a energia.** Uma única janela da Serra do Assuruá em 01/08 desperdiçou 3.294 MWh; um container de 10 MW consome cerca de 100 MWh numa janela de 10 horas, ou 3% disso.
-- **A maioria dos cortes é sistêmica (ENE/SIS).** Uma carga em qualquer lugar da rede ajuda a absorver o excesso, dentro dos limites de transmissão entre regiões. O texto seguro do recibo continua sendo: *"executado durante uma janela de corte registrada pelo ONS na usina X"*.
+- **A maioria dos cortes é sistêmica (ENE/SIS).** Uma carga em qualquer lugar da rede ajuda a absorver o excesso, dentro dos limites de transmissão entre regiões. O texto seguro do recibo continua sendo: *"executado durante uma janela de corte registrada pelo ONS na usina X"*. Na demo, o trabalho roda num notebook, então o recibo deve dizer *"replay de uma janela histórica, execução de demonstração"*; afirmar que a demo absorveu energia cortada seria falso.
 - **O recibo em duas fases funciona com uma semana de atraso.** O arquivo de janelas já traz o veredito do ONS para a demo.
 
 ## Arquivos gerados (`dados/saida/`)
@@ -93,7 +119,10 @@ No total, **564 das 614 janelas (92%) foram confirmadas pelo ONS**. Uma janela �
 | --- | --- | --- |
 | `chance_corte_por_usina_mes_hora.csv` | Chance de corte e perda média por usina, mês e hora, para as 166 usinas | Índice aberto (bem público) e gráficos do Atlas |
 | `teste_retroativo.json` | Métricas por modelo, por tipo e por usina de destaque, com calibração | Página pública do teste e pitch |
-| `janelas_previstas_ago_set_2026.json` | 614 janelas oferecidas e o veredito do ONS | Lista de janelas do Atlas e demo do recibo |
+| `janelas_previstas_ago_set_2026.json` | 614 janelas oferecidas, energia esperada e o veredito do ONS | Placar público e demo do recibo |
+| `janelas_previstas_proximos_dias.json` | Janelas reais para os 8 dias após o último dado, em todas as usinas, aguardando o ONS | "Janelas de amanhã" no Atlas |
+| `corte_por_estado_mes.csv` | Energia perdida por subsistema, estado, tipo e mês, em todo o Brasil | Números oficiais do pitch |
+| `impressoes_digitais.txt` | SHA-256 de cada arquivo de saída | Prova de reprodutibilidade |
 | `usinas.json` | Catálogo das 166 usinas com estado, agente, ponto de conexão e perdas | Mapa e filtros do Atlas |
 | `resumo.json` | Totais por mês, perda por hora e efeito do fim de semana | Textos e gráficos |
 

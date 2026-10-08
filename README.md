@@ -17,7 +17,7 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 
 ## Etapa 1 em resumo
 
-Usando só dados públicos do ONS disponíveis uma semana antes, as janelas previstas capturaram **90% da energia cortada em agosto e 95% em setembro de 2026**, em 154 usinas do RN, BA e CE. Detalhes em [`dados/RELATORIO_ETAPA1.md`](dados/RELATORIO_ETAPA1.md).
+O Nordeste deixou de gerar **3,4 GW médios** de eólica e solar em jan–ago/2026 (cálculo direto do ONS). Usando só dados públicos disponíveis uma semana antes, as janelas previstas capturaram **90% da energia cortada em agosto e 95% em setembro de 2026**, em 154 usinas do RN, BA e CE. Detalhes em [`dados/RELATORIO_ETAPA1.md`](dados/RELATORIO_ETAPA1.md).
 
 ## Como rodar a parte de dados
 
@@ -46,6 +46,8 @@ Depois, chame o Python do ambiente pelo caminho completo. Isso dispensa "ativar"
 ```
 
 O download pula os meses que já existem; para buscar meses novos, use `--fim AAAA_MM`. Os arquivos de `dados/saida/` só mudam quando os dados do ONS mudam.
+
+**Conferir o resultado:** os arquivos de saída são byte a byte iguais em qualquer sistema. Depois de rodar, compare `dados/saida/impressoes_digitais.txt` com a versão do repositório (`git diff`): se nada mudou, você chegou exatamente aos mesmos números.
 
 No VS Code, escolha o interpretador em **Ctrl+Shift+P → Python: Select Interpreter → .venv** para rodar com o botão ▶.
 
