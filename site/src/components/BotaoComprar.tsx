@@ -2,7 +2,7 @@
 
 // Botão leve: a biblioteca da Solana só é baixada quando alguém clica em "Comprar".
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useIdioma } from "@/i18n/idioma";
 import type { Cambio, Janela } from "@/lib/tipos";
 
@@ -13,6 +13,8 @@ export type AlvoCompra = { idUsina: string; nomeUsina: string; janela: Janela; c
 export function BotaoComprar(props: AlvoCompra) {
   const { t } = useIdioma();
   const [aberto, setAberto] = useState(false);
+  // Ao sair da página (que o Next.js só esconde), fecha a janela para ela não reaparecer aberta na volta
+  useLayoutEffect(() => () => setAberto(false), []);
   return (
     <>
       <button
