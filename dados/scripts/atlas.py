@@ -66,6 +66,36 @@ def carregar_pld(arquivos: list[Path]) -> tuple[dict[str, float], dict]:
                     "descricao": "PLD horário oficial do submercado Nordeste (CCEE, dados abertos)"}
 
 
+def buscar_ptax() -> dict | None:
+    """Cotação de venda do dólar (PTAX) mais recente, da API pública do Banco Central (Olinda).
+
+    Usada para converter o preço das janelas (R$) em USDC. Sem internet, reaproveita a do atlas.json anterior.
+    """
+    import urllib.request
+    from datetime import date, timedelta
+
+    hoje = date.today()
+    url = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
+           "CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?"
+           f"@dataInicial='{(hoje - timedelta(days=15)):%m-%d-%Y}'&@dataFinalCotacao='{hoje:%m-%d-%Y}'"
+           "&$top=100&$format=json&$select=cotacaoVenda,dataHoraCotacao")
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            cotacoes = json.loads(r.read().decode("utf-8"))["value"]
+        ultima = cotacoes[-1]
+        return {"ptax_venda": ultima["cotacaoVenda"], "data": ultima["dataHoraCotacao"][:10],
+                "fonte": "Banco Central do Brasil, PTAX (API Olinda)"}
+    except Exception as erro:  # sem rede: mantém a última cotação conhecida
+        anterior = SITE_DADOS / "atlas.json"
+        if anterior.exists():
+            cambio = json.loads(anterior.read_text(encoding="utf-8")).get("cambio")
+            if cambio:
+                print(f"aviso: PTAX indisponível ({erro}); usando a de {cambio['data']}")
+                return cambio
+        print(f"aviso: PTAX indisponível ({erro}); compras desativadas no site")
+        return None
+
+
 def pld_x_corte(precos: dict[str, float]) -> dict | None:
     """Cruza o PLD horário do Nordeste com a energia cortada (GNRa) de todas as usinas do subsistema NE.
 
@@ -223,6 +253,7 @@ def main() -> None:
         },
         "pld": {**fonte_pld, "piso_2026_rs_mwh": PLD_PISO_2026, "cruzamento": cruzamento},
         "kw_por_gpu": KW_POR_GPU,
+        "cambio": buscar_ptax(),
         "usinas": plantas,
         "teste": {
             "agosto": {m: metr(t_ago["geral"][m]) for m in modelos},

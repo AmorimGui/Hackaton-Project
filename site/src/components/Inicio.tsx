@@ -7,9 +7,10 @@ import type { Atlas, Janela, Usina } from "@/lib/tipos";
 import { dataCurta, energia, num, pct, reais } from "@/lib/formato";
 import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloTipo } from "./Selos";
+import { BotaoComprar } from "./BotaoComprar";
 import { GraficoHoras, GraficoMensal, GraficoPiso } from "./Graficos";
 
-export type DadosInicio = Pick<Atlas, "manchete" | "previsao" | "pld" | "padroes" | "dados_ate"> & {
+export type DadosInicio = Pick<Atlas, "manchete" | "previsao" | "pld" | "padroes" | "dados_ate" | "cambio"> & {
   placar: Atlas["teste"]["placar"];
   usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "local" | "capacidade_mw" | "proximas">[];
 };
@@ -130,7 +131,12 @@ export function Inicio({ d }: { d: DadosInicio }) {
                             {compacto(j.gpu_horas_esperadas)} {t.common.gpuHours}
                           </div>
                         </td>
-                        <td className="tabular whitespace-nowrap px-4 py-2.5 text-right">{reais(j.valor_referencia_rs ?? 0, L, true)}</td>
+                        <td className="tabular whitespace-nowrap px-4 py-2.5 text-right">
+                          {reais(j.valor_referencia_rs ?? 0, L, true)}
+                          <div className="mt-1">
+                            <BotaoComprar idUsina={u.id} nomeUsina={u.nome} janela={j} cambio={d.cambio} />
+                          </div>
+                        </td>
                       </>
                     ) : (
                       <td colSpan={4} className="px-2 py-2.5 text-muted">

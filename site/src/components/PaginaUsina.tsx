@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useIdioma } from "@/i18n/idioma";
-import type { Usina } from "@/lib/tipos";
+import type { Cambio, Usina } from "@/lib/tipos";
+import { BotaoComprar } from "./BotaoComprar";
 import { dataCurta, energia, num, pct, reais } from "@/lib/formato";
 import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloResultado, SeloTipo } from "./Selos";
 import { MapaCalor } from "./Graficos";
 
-export function PaginaUsina({ u }: { u: Usina }) {
+export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) {
   const { t } = useIdioma();
   const L = t.locale;
   const ponto = {
@@ -66,7 +67,8 @@ export function PaginaUsina({ u }: { u: Usina }) {
               <th className="px-2 py-2 font-medium">{t.common.chance}</th>
               <th className="px-2 py-2 text-right font-medium">{t.common.expected}</th>
               <th className="px-2 py-2 text-right font-medium">{t.common.value}</th>
-              <th className="px-5 py-2 text-right font-medium">ONS</th>
+              <th className="px-2 py-2 text-right font-medium">ONS</th>
+              <th className="px-5 py-2" />
             </tr>
           </thead>
           <tbody>
@@ -81,8 +83,11 @@ export function PaginaUsina({ u }: { u: Usina }) {
                 </td>
                 <td className="tabular whitespace-nowrap px-2 py-2 text-right">~{energia(j.energia_esperada_mwh, L)}</td>
                 <td className="tabular whitespace-nowrap px-2 py-2 text-right">{reais(j.valor_referencia_rs ?? 0, L, true)}</td>
-                <td className="px-5 py-2 text-right">
+                <td className="px-2 py-2 text-right">
                   <SeloResultado resultado={j.resultado_ons} />
+                </td>
+                <td className="px-5 py-2 text-right">
+                  <BotaoComprar idUsina={u.id} nomeUsina={u.nome} janela={j} cambio={cambio} />
                 </td>
               </tr>
             ))}

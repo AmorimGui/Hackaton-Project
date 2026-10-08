@@ -9,6 +9,7 @@ export default function Page() {
     pld: atlas.pld,
     padroes: atlas.padroes,
     dados_ate: atlas.dados_ate,
+    cambio: atlas.cambio,
     placar: atlas.teste.placar,
     usinas: atlas.usinas.map(({ id, nome, uf, tipo, local, capacidade_mw, proximas }) => ({ id, nome, uf, tipo, local, capacidade_mw, proximas })),
   };

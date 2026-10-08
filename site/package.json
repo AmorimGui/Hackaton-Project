@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@solana/web3.js": "^1.99.0",
+    "buffer": "^6.0.3",
     "leaflet": "^1.9.4",
     "next": "16.4.0",
     "react": "19.3.0",

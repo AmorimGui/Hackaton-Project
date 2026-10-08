@@ -17,6 +17,7 @@ export type Janela = {
   gpu_horas_equivalentes: number | null;
   razoes_do_corte: Record<string, number>;
   valor_referencia_rs?: number;
+  pld_medio_rs_mwh?: number | null;
 };
 
 export type Metricas = {
@@ -45,6 +46,8 @@ export type Usina = {
   recentes: Janela[];
   proximas: Janela[];
 };
+
+export type Cambio = { ptax_venda: number; data: string; fonte: string };
 
 export type Atlas = {
   dados_ate: string;
@@ -85,6 +88,7 @@ export type Atlas = {
     } | null;
   };
   kw_por_gpu: number;
+  cambio: Cambio | null;
   usinas: Usina[];
   teste: {
     agosto: Record<string, Metricas>;

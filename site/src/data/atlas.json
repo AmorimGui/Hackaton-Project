@@ -114,6 +114,11 @@
   }
  },
  "kw_por_gpu": 0.85,
+ "cambio": {
+  "ptax_venda": 4.9935,
+  "data": "2026-10-07",
+  "fonte": "Banco Central do Brasil, PTAX (API Olinda)"
+ },
  "usinas": [
   {
    "id": "CJU_BASAR",
