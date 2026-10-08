@@ -2,7 +2,18 @@
 //
 // Confere a compra na blockchain, emite o que faltar (recibo da fase 1 e, se o ONS já publicou
 // o dado da janela, o carimbo da fase 2) e devolve tudo. Pode ser chamado de novo sem duplicar nada.
-import { assinaturaValida, chaves, conexao, emitirCarimbo, emitirRecibo, lerCompra, registros, veredito, vereditoDoCarimbo } from "@/lib/recibo";
+import {
+  assinaturaValida,
+  chaves,
+  conexao,
+  emitirCarimbo,
+  emitirRecibo,
+  execucao,
+  lerCompra,
+  registros,
+  veredito,
+  vereditoDoCarimbo,
+} from "@/lib/recibo";
 import { explorador } from "@/lib/solana";
 
 export const maxDuration = 60;
@@ -21,7 +32,8 @@ export async function POST(request: Request) {
   }
 
   const v = veredito(compra);
-  let { recibo, carimbo } = await registros(c, assinatura);
+  const [regs, exec] = await Promise.all([registros(c, assinatura), execucao(c, compra)]);
+  let { recibo, carimbo } = regs;
   const k = chaves();
   try {
     if (k && !recibo) recibo = await emitirRecibo(c, k, compra);
@@ -34,6 +46,7 @@ export async function POST(request: Request) {
         erro: semSol ? "sem_sol_plataforma" : `falha ao gravar na blockchain: ${msg}`,
         compra: { ...compra, explorador: explorador(assinatura) },
         recibo,
+        execucao: exec,
         carimbo,
         veredito: v,
         aguardando_ons: !v,
@@ -46,6 +59,7 @@ export async function POST(request: Request) {
   return Response.json({
     compra: { ...compra, explorador: explorador(assinatura) },
     recibo,
+    execucao: exec,
     carimbo,
     // depois de carimbado, vale o que o carimbo gravou (arquivo e SHA-256 daquela versão do ONS)
     veredito: (carimbo && vereditoDoCarimbo(carimbo.memo)) ?? v,

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useIdioma } from "@/i18n/idioma";
 import { dataCurta, num, pct } from "@/lib/formato";
-import type { RegistroCadeia, RespostaRecibo } from "@/lib/tipos";
+import type { RegistroCadeia, RespostaRecibo, ResultadoTrabalho } from "@/lib/tipos";
 import { Cartao } from "./Selos";
 
 const URL_ONS = (arquivo: string) =>
@@ -72,7 +72,7 @@ export function Verificacao({ nomes }: { nomes: Record<string, string> }) {
       )}
 
       {dados?.compra && (
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           <Cartao>
             <h2 className="font-semibold">{v.payment}</h2>
             <p className="mt-1 text-sm font-medium text-ok">✓ {t.buy.success}</p>
@@ -98,6 +98,8 @@ export function Verificacao({ nomes }: { nomes: Record<string, string> }) {
               <p className="mt-2 text-sm text-muted">{dados.chaves_configuradas === false ? v.receiptMissing : v.receiptNotYet}</p>
             )}
           </Cartao>
+
+          <CartaoExecucao exec={dados.execucao ?? null} mwh={dados.compra.mwh} quando={quando} />
 
           <Cartao>
             <h2 className="font-semibold">{v.stamp}</h2>
@@ -145,6 +147,102 @@ export function Verificacao({ nomes }: { nomes: Record<string, string> }) {
         </Cartao>
       )}
     </div>
+  );
+}
+
+function CartaoExecucao({
+  exec,
+  mwh,
+  quando,
+}: {
+  exec: NonNullable<RespostaRecibo["execucao"]> | null;
+  mwh: number;
+  quando: (s: number | null) => string;
+}) {
+  const { t } = useIdioma();
+  const v = t.verify;
+  const L = t.locale;
+  const [resultado, setResultado] = useState<{ arquivo: string; r: ResultadoTrabalho } | null>(null);
+  const arquivo = exec?.arquivo;
+
+  // O resultado fica num arquivo publicado pelo operador (pode levar um minuto para aparecer depois da execução)
+  useEffect(() => {
+    if (!arquivo) return;
+    let vivo = true;
+    fetch(arquivo)
+      .then((x) => (x.ok ? (x.json() as Promise<ResultadoTrabalho>) : null))
+      .then((r) => vivo && r && setResultado({ arquivo, r }))
+      .catch(() => {});
+    return () => {
+      vivo = false;
+    };
+  }, [arquivo]);
+
+  if (!exec) {
+    return (
+      <Cartao>
+        <h2 className="font-semibold">{v.execution}</h2>
+        <p className="mt-2 text-sm text-muted">{v.awaitingOperator}</p>
+      </Cartao>
+    );
+  }
+  const r = resultado && resultado.arquivo === arquivo ? resultado.r : null;
+  const pt = L.startsWith("pt");
+  return (
+    <Cartao>
+      <h2 className="font-semibold">{v.execution}</h2>
+      {exec.modo === "replay" ? (
+        <p className="mt-1 text-sm font-medium text-wait">{v.replayRun}</p>
+      ) : (
+        <p className={`mt-1 text-sm font-semibold ${exec.dentro_da_janela ? "text-ok" : "text-cut"}`}>
+          {exec.dentro_da_janela ? `✓ ${v.inside}` : `✗ ${v.outside}`}
+        </p>
+      )}
+      <p className="mt-1 text-sm text-muted">{v.executionLead}</p>
+      <dl className="mt-3 space-y-1.5 text-sm">
+        <Linha rotulo={v.started} valor={quando(exec.inicio?.horario ?? null)} />
+        <Linha rotulo={v.finished} valor={quando(exec.fim.horario)} />
+      </dl>
+      <p className="mt-1 text-xs text-muted">
+        {v.jobEnergy(num(exec.duracao_s, L), num(exec.energia_wh, L, 2), num(exec.watts, L))} · {num(mwh, L, 1)} MWh
+      </p>
+      {r && (
+        <div className="mt-3 rounded-lg bg-paper p-3 text-sm">
+          <div className="font-medium">{v.found}</div>
+          <p className="mt-1 text-xs text-muted">{v.foundLead(r.periodo_dos_dados.replace(" a ", " – "))}</p>
+          <ul className="mt-2 space-y-1">
+            {r.causas.slice(0, 3).map((c) => (
+              <li key={c.causa} className="flex justify-between gap-3">
+                <span>{pt ? c.pt : c.en}</span>
+                <span className="tabular font-semibold">{pct(c.fracao_energia, L)}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-[11px] text-muted">
+            {r.modelo} · {v.agreement(pct(r.conferencia_palavras_chave.fracao_meias_horas_iguais, L))}
+          </p>
+        </div>
+      )}
+      <div className="mt-3 space-y-0.5 break-all font-mono text-[11px] text-muted">
+        <div>in sha256 {exec.entrada_sha256}</div>
+        <div>out sha256 {exec.resultado_sha256}</div>
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 text-sm">
+        {exec.inicio && (
+          <a href={exec.inicio.explorador} target="_blank" rel="noreferrer" className="font-medium underline">
+            {v.started} ↗
+          </a>
+        )}
+        <a href={exec.fim.explorador} target="_blank" rel="noreferrer" className="font-medium underline">
+          {v.finished} ↗
+        </a>
+        {r && (
+          <a href={exec.arquivo} download className="font-medium underline">
+            {v.resultFile}
+          </a>
+        )}
+      </div>
+    </Cartao>
   );
 }
 

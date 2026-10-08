@@ -21,6 +21,7 @@ const PREFIXO_COMPRA = "vento-cortado v1 |";
 const PREFIXO_RECIBO = "vento-cortado recibo v1";
 const PREFIXO_CARIMBO = "vento-cortado carimbo v1";
 const PREFIXO_PREVISAO = "vento-cortado previsao v1";
+const PREFIXO_EXECUCAO = "vento-cortado execucao v1";
 
 export const assinaturaValida = (s: unknown): s is string => typeof s === "string" && /^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(s);
 
@@ -205,6 +206,64 @@ export function vereditoDoCarimbo(memoCarimbo: string): (Veredito & { sha256: st
   const m = memoCarimbo.match(/\| (confirmado|errado) \| (\d+)% das meias-horas com corte \| (\d+) MWh cortados \| ONS (\S+) \| sha256 ([0-9a-f]{64})/);
   if (!m) return null;
   return { resultado: m[1], fracao_com_corte: Number(m[2]) / 100, energia_cortada_mwh: Number(m[3]), razoes: {}, fonte: m[4], sha256: m[5] };
+}
+
+// ---------- Execução do trabalho (registrada pelo operador: operador/operador.py) ----------
+
+export type Execucao = {
+  inicio: Registro | null;
+  fim: Registro;
+  modo: string;
+  duracao_s: number;
+  energia_wh: number;
+  watts: number;
+  entrada_sha256: string;
+  resultado_sha256: string;
+  /** só para execução "ao vivo": os dois registros caem entre o início e o fim da janela (horário do bloco) */
+  dentro_da_janela: boolean | null;
+  arquivo: string;
+};
+
+/** Horário (Unix) de "AAAA-MM-DD" + "HH:MM" em Brasília (UTC-3); "24:00" é a meia-noite seguinte. */
+const unixBrasilia = (dia: string, hhmm: string) => {
+  const [a, m, d] = dia.split("-").map(Number);
+  const [h, mi] = hhmm.split(":").map(Number);
+  return Date.UTC(a, m - 1, d, h + 3, mi) / 1000;
+};
+
+/** O registro de fim de execução desta compra (e o de início que veio antes dele), no histórico do operador. */
+export async function execucao(c: Connection, compra: Compra): Promise<Execucao | null> {
+  const operador = DESTINATARIOS.find((d) => d.papel === "operador")!.carteira;
+  const lista = await c.getSignaturesForAddress(operador, { limit: 1000 }, "confirmed");
+  const ref = `compra ${compra.assinatura}`;
+  const fim = acharEm(lista, [PREFIXO_EXECUCAO, ref, " | fim | "]);
+  if (!fim) return null;
+  const m = fim.memo.match(
+    /\| fim \| (ao vivo|replay) \| (\d+) s \| ~([\d.]+) Wh \(([\d.]+) W declarados\) \| entrada sha256 ([0-9a-f]{64}) \| resultado sha256 ([0-9a-f]{64})/,
+  );
+  if (!m) return null;
+  // o início mais recente gravado antes do fim (a lista vem do mais novo ao mais velho)
+  const s = lista.find(
+    (x) => !x.err && x.memo?.includes(PREFIXO_EXECUCAO) && x.memo.includes(ref) && x.memo.includes(" | inicio | ") && (x.blockTime ?? 0) <= (fim.horario ?? 0),
+  );
+  const inicio = s
+    ? { assinatura: s.signature, memo: s.memo!.replace(/^\[\d+\]\s*/, ""), horario: s.blockTime ?? null, explorador: explorador(s.signature) }
+    : null;
+  const ini = unixBrasilia(compra.data, compra.inicio);
+  const fimJanela = unixBrasilia(compra.data, compra.fim);
+  return {
+    inicio,
+    fim,
+    modo: m[1],
+    duracao_s: Number(m[2]),
+    energia_wh: Number(m[3]),
+    watts: Number(m[4]),
+    entrada_sha256: m[5],
+    resultado_sha256: m[6],
+    dentro_da_janela:
+      m[1] === "ao vivo" ? !!inicio?.horario && inicio.horario >= ini && !!fim.horario && fim.horario <= fimJanela : null,
+    arquivo: `/execucoes/${compra.assinatura}.json`,
+  };
 }
 
 // ---------- Previsão publicada ----------

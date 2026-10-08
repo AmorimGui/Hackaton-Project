@@ -71,10 +71,32 @@ export type RespostaRecibo = {
     explorador: string;
   };
   recibo?: RegistroCadeia | null;
+  execucao?: {
+    inicio: RegistroCadeia | null;
+    fim: RegistroCadeia;
+    modo: string;
+    duracao_s: number;
+    energia_wh: number;
+    watts: number;
+    entrada_sha256: string;
+    resultado_sha256: string;
+    dentro_da_janela: boolean | null;
+    arquivo: string;
+  } | null;
   carimbo?: RegistroCadeia | null;
   veredito?: { resultado: string; fracao_com_corte: number; energia_cortada_mwh: number; razoes: Record<string, number>; fonte: string; sha256: string } | null;
   aguardando_ons?: boolean;
   chaves_configuradas?: boolean;
+};
+
+/** Resultado do trabalho de demonstração (operador/trabalho.py), publicado em /execucoes/<compra>.json */
+export type ResultadoTrabalho = {
+  periodo_dos_dados: string;
+  modelo: string;
+  meias_horas_com_corte: number;
+  energia_cortada_mwh: number;
+  causas: { causa: string; en: string; pt: string; energia_mwh: number; fracao_energia: number; meias_horas: number }[];
+  conferencia_palavras_chave: { textos_iguais: string; fracao_meias_horas_iguais: number };
 };
 
 export type Cambio = { ptax_venda: number; data: string; fonte: string };
