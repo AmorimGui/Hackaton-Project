@@ -21,6 +21,16 @@ python dados/scripts/atlas.py
 
 Os textos das duas línguas ficam em `src/i18n/dicionarios.ts`.
 
+### Preço da energia (PLD)
+
+A CCEE bloqueia download automático, então o PLD horário é baixado pelo navegador:
+
+1. Em [dadosabertos.ccee.org.br](https://dadosabertos.ccee.org.br), abra o conjunto **PLD horário** e baixe o CSV do ano (ex.: `pld_horario_2026.csv`).
+2. Salve em `../dados-ccee/` (ao lado do repositório, como `../dados-ons/`).
+3. Rode `python dados/scripts/atlas.py`.
+
+Com o arquivo, o valor das janelas usa o PLD do Nordeste hora a hora e o site mostra o cruzamento preço × corte. Sem ele, usa o piso de 2026 (R$ 57,31/MWh) como premissa declarada.
+
 ## Rodar
 
 ```bash

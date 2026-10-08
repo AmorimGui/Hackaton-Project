@@ -63,15 +63,55 @@
   "periodo": "2026-01 a 2026-08",
   "brasil_mw_medios": 4153,
   "valor_anual_piso_rs": 1714000000.0,
+  "valor_pld_real_rs": 2547000000.0,
+  "valor_pld_real_periodo": "2026-01-01 a 2026-09-30",
   "energia_capturada_ago": 0.903,
   "energia_capturada_set": 0.948,
   "usinas_avaliadas": 154
  },
  "pld": {
-  "tipo": "premissa",
-  "valor_rs_mwh": 57.31,
-  "descricao": "piso regulatório do PLD em 2026; o PLD horário oficial da CCEE substitui esta premissa quando disponível",
-  "piso_2026_rs_mwh": 57.31
+  "tipo": "ccee_pld_horario",
+  "arquivos": [
+   "pld_horario_2026.csv"
+  ],
+  "periodo": "2026-01-01 a 2026-10-08",
+  "descricao": "PLD horário oficial do submercado Nordeste (CCEE, dados abertos)",
+  "piso_2026_rs_mwh": 57.31,
+  "cruzamento": {
+   "periodo": "2026-01-01 a 2026-09-30",
+   "energia_cortada_gwh": 23941.0,
+   "fracao_energia_com_pld_no_piso": 0.646,
+   "pld_medio_ponderado_rs_mwh": 106.39,
+   "valor_ao_pld_real_rs": 2547000000.0,
+   "valor_ao_piso_rs": 1372000000.0,
+   "fracao_horas_no_piso": 0.296,
+   "piso_por_hora_pct": [
+    8.0,
+    15.0,
+    17.0,
+    17.0,
+    17.0,
+    14.0,
+    20.0,
+    41.0,
+    67.0,
+    75.0,
+    76.0,
+    75.0,
+    75.0,
+    66.0,
+    55.0,
+    32.0,
+    12.0,
+    3.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    5.0,
+    5.0
+   ]
+  }
  },
  "kw_por_gpu": 0.85,
  "usinas": [
@@ -715,8 +755,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 91352.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 104185.0,
+     "pld_medio_rs_mwh": 65.36
     },
     {
      "id_ons": "CJU_BASAR",
@@ -735,8 +775,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 90779.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 123306.0,
+     "pld_medio_rs_mwh": 77.84
     },
     {
      "id_ons": "CJU_BASAR",
@@ -1775,8 +1815,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 112500.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 150456.0,
+     "pld_medio_rs_mwh": 76.65
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1795,8 +1835,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 40117.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 137938.0,
+     "pld_medio_rs_mwh": 197.05
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1815,8 +1855,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 111697.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 165200.0,
+     "pld_medio_rs_mwh": 84.76
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1835,8 +1875,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 36908.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 108981.0,
+     "pld_medio_rs_mwh": 169.23
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1895,7 +1935,7 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 180527.0,
+     "valor_referencia_rs": 180526.0,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -2075,8 +2115,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 33526.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 34273.0,
+     "pld_medio_rs_mwh": 58.59
     }
    ]
   },
@@ -2996,8 +3036,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 127343.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 170307.0,
+     "pld_medio_rs_mwh": 76.65
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3016,8 +3056,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 56049.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 192718.0,
+     "pld_medio_rs_mwh": 197.05
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3036,8 +3076,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 125280.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 185288.0,
+     "pld_medio_rs_mwh": 84.76
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3056,8 +3096,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 55247.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 317147.0,
+     "pld_medio_rs_mwh": 328.99
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3236,8 +3276,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 54215.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 54858.0,
+     "pld_medio_rs_mwh": 57.99
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3276,8 +3316,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 53470.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 58364.0,
+     "pld_medio_rs_mwh": 62.56
     }
    ]
   },
@@ -3921,8 +3961,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 61322.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 69936.0,
+     "pld_medio_rs_mwh": 65.36
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3941,8 +3981,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 61264.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 83216.0,
+     "pld_medio_rs_mwh": 77.84
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -4706,8 +4746,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 70778.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 73327.0,
+     "pld_medio_rs_mwh": 59.37
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4726,8 +4766,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 69230.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 92079.0,
+     "pld_medio_rs_mwh": 76.22
     },
     {
      "id_ons": "CJU_BASSD",
@@ -5504,8 +5544,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 134908.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 165956.0,
+     "pld_medio_rs_mwh": 70.5
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5524,8 +5564,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 133074.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 188006.0,
+     "pld_medio_rs_mwh": 80.97
     },
     {
      "id_ons": "CJU_RNASO",
@@ -6291,8 +6331,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 26191.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 28212.0,
+     "pld_medio_rs_mwh": 61.73
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6311,8 +6351,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 27337.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 36229.0,
+     "pld_medio_rs_mwh": 75.95
     },
     {
      "id_ons": "CJU_CEITC",
@@ -7095,8 +7135,8 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 14557.0,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 18234.0,
+     "pld_medio_rs_mwh": 71.79
     },
     {
      "id_ons": "CJU_CEMTD",

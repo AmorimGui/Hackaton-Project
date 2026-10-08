@@ -49,6 +49,39 @@ export function GraficoHoras({ eolica, solar }: { eolica: number[]; solar: numbe
   );
 }
 
+/** Fração das horas com o PLD do Nordeste no piso, por hora do dia; destaca o pico do corte (8h–14h). */
+export function GraficoPiso({ pct: valores }: { pct: number[] }) {
+  const { t } = useIdioma();
+  const W = 720, H = 200, esq = 40, base = 170, topo = 12;
+  const y = (v: number) => base - (v / 100) * (base - topo);
+  const passo = (W - esq - 8) / 24;
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={t.home.floorChart}>
+      <rect x={esq + 8 * passo} y={topo} width={7 * passo} height={base - topo} fill="var(--color-cut-soft)" opacity="0.6" />
+      {[0, 50, 100].map((v) => (
+        <g key={v}>
+          <line x1={esq} x2={W - 8} y1={y(v)} y2={y(v)} stroke={GRADE} />
+          <text x={esq - 6} y={y(v) + 4} textAnchor="end" fontSize="11" fill={EIXO}>
+            {v}%
+          </text>
+        </g>
+      ))}
+      {valores.map((v, h) => (
+        <g key={h}>
+          <rect x={esq + h * passo + passo * 0.15} y={y(v)} width={passo * 0.7} height={base - y(v)} fill="var(--color-ink)" rx="1.5">
+            <title>{`${h}h: ${num(v, t.locale)}%`}</title>
+          </rect>
+          {h % 3 === 0 && (
+            <text x={esq + h * passo + passo / 2} y={base + 16} textAnchor="middle" fontSize="11" fill={EIXO}>
+              {h}h
+            </text>
+          )}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 /** Potência média cortada no Nordeste por mês (eólica + solar empilhadas). */
 export function GraficoMensal({ meses }: { meses: { mes: string; eolica: number; solar: number }[] }) {
   const { t } = useIdioma();

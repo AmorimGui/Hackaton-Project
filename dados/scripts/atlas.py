@@ -5,12 +5,13 @@ energia (PLD) num único arquivo que o site lê: site/src/data/atlas.json.
 Também copia os dados abertos para download em site/public/data/.
 
 Uso:
-    python dados/scripts/atlas.py [--pld ARQUIVO_CSV]
+    python dados/scripts/atlas.py [--pld ARQUIVO_CSV ...]
 
-Preço da energia: se houver um CSV de PLD horário da CCEE (dados abertos,
-dataset pld_horario), usa o PLD do submercado Nordeste hora a hora. Sem ele,
-usa o piso regulatório de 2026 (R$ 57,31/MWh), declarado como premissa: é o
-valor em que o PLD do Nordeste costuma ficar nas horas de corte.
+Preço da energia: lê o PLD horário da CCEE (dados abertos, dataset pld_horario)
+salvo em ../dados-ccee/pld_horario_*.csv e usa o submercado Nordeste hora a hora.
+A CCEE bloqueia download automático, então o CSV é baixado pelo navegador.
+Sem o arquivo, usa o piso regulatório de 2026 (R$ 57,31/MWh), declarado como premissa.
+Com o PLD e os dados brutos do ONS, também calcula quanto vale a energia cortada.
 """
 
 import argparse
@@ -41,35 +42,71 @@ def arred(x: float, casas: int = 0) -> float:
     return math.floor(x * f + 0.5) / f
 
 
-def carregar_pld(arquivo: Path | None) -> tuple[dict[str, float], dict]:
-    """Retorna {"AAAA-MM-DD HH": R$/MWh} do Nordeste e a descrição da fonte.
+def carregar_pld(arquivos: list[Path]) -> tuple[dict[str, float], dict]:
+    """Retorna {"AAAA-MM-DD HH": R$/MWh} do submercado Nordeste e a descrição da fonte.
 
-    Aceita o CSV de PLD horário da CCEE (colunas com submercado, data, hora e valor).
+    Lê o CSV de PLD horário dos dados abertos da CCEE (dataset pld_horario), com as colunas
+    MES_REFERENCIA (AAAAMM); SUBMERCADO; PERIODO_COMERCIALIZACAO; DIA; HORA; PLD_HORA.
     """
-    if arquivo is None or not arquivo.exists():
+    if not arquivos:
         return {}, {"tipo": "premissa", "valor_rs_mwh": PLD_PISO_2026,
                     "descricao": "piso regulatório do PLD em 2026; o PLD horário oficial da CCEE substitui esta premissa quando disponível"}
     precos: dict[str, float] = {}
-    with arquivo.open(encoding="utf-8-sig") as f:
-        amostra = f.read(4096)
-        f.seek(0)
-        leitor = csv.DictReader(f, dialect=csv.Sniffer().sniff(amostra, delimiters=";,"))
-        cols = {c.lower(): c for c in leitor.fieldnames or []}
-        c_sub = next(cols[c] for c in cols if "submercado" in c)
-        c_data = next(cols[c] for c in cols if "dia" in c or "data" in c or "din" in c)
-        c_hora = next(cols[c] for c in cols if "hora" in c)
-        c_valor = next(cols[c] for c in cols if "pld" in c or "valor" in c)
-        for linha in leitor:
-            if "NORDESTE" not in linha[c_sub].upper() and linha[c_sub].strip().upper() != "NE":
-                continue
-            data = linha[c_data].strip()[:10]
-            if "/" in data:  # dd/mm/aaaa
-                d, m, a = data.split("/")
-                data = f"{a}-{m}-{d}"
-            hora = int(float(linha[c_hora]))
-            precos[f"{data} {hora:02d}"] = float(linha[c_valor].replace(",", "."))
-    return precos, {"tipo": "ccee_pld_horario", "arquivo": arquivo.name,
+    for arquivo in arquivos:
+        with arquivo.open(encoding="utf-8-sig") as f:
+            for linha in csv.DictReader(f, delimiter=";"):
+                if linha["SUBMERCADO"].strip().upper() != "NORDESTE":
+                    continue
+                mes = linha["MES_REFERENCIA"].strip()
+                data = f"{mes[:4]}-{mes[4:6]}-{int(linha['DIA']):02d}"
+                precos[f"{data} {int(linha['HORA']):02d}"] = float(linha["PLD_HORA"].replace(",", "."))
+    horas = sorted(precos)
+    return precos, {"tipo": "ccee_pld_horario", "arquivos": [a.name for a in arquivos],
+                    "periodo": f"{horas[0][:10]} a {horas[-1][:10]}",
                     "descricao": "PLD horário oficial do submercado Nordeste (CCEE, dados abertos)"}
+
+
+def pld_x_corte(precos: dict[str, float]) -> dict | None:
+    """Cruza o PLD horário do Nordeste com a energia cortada (GNRa) de todas as usinas do subsistema NE.
+
+    Usa os arquivos brutos do ONS (../dados-ons/brutos). Retorna None se não houver PLD ou dados.
+    """
+    brutos = RAIZ.parent / "dados-ons" / "brutos"
+    if not precos or not brutos.exists():
+        return None
+    import pandas as pd  # só necessário aqui
+
+    meses = sorted({h[:7] for h in precos})
+    partes = []
+    for am in meses:
+        for tipo in ("EOLICA", "FOTOVOLTAICA"):
+            arq = brutos / f"RESTRICAO_COFF_{tipo}_{am.replace('-', '_')}.parquet"
+            if arq.exists():
+                d = pd.read_parquet(arq, columns=["id_subsistema", "din_instante", "val_geracaonaorealizadaapurada"])
+                partes.append(d[d["id_subsistema"] == "NE"])
+    if not partes:
+        return None
+    o = pd.concat(partes)
+    o["mwh"] = o["val_geracaonaorealizadaapurada"].fillna(0) * 0.5
+    o["hora"] = o["din_instante"].dt.strftime("%Y-%m-%d %H")
+    por_hora = o.groupby("hora")["mwh"].sum()
+    pld = por_hora.index.map(precos.get)
+    ok = pld.notna()
+    mwh, pld = por_hora[ok].to_numpy(), pld[ok].to_numpy(dtype=float)
+    no_piso = pld <= PLD_PISO_2026 + 1e-9
+    todas = sorted(precos)
+    piso_por_hora = [arred(100 * sum(precos[h] <= PLD_PISO_2026 + 1e-9 for h in todas if h.endswith(f" {x:02d}"))
+                           / max(1, sum(h.endswith(f" {x:02d}") for h in todas))) for x in range(24)]
+    return {
+        "periodo": f"{por_hora[ok].index[0][:10]} a {por_hora[ok].index[-1][:10]}",
+        "energia_cortada_gwh": arred(mwh.sum() / 1000),
+        "fracao_energia_com_pld_no_piso": arred(mwh[no_piso].sum() / mwh.sum(), 3),
+        "pld_medio_ponderado_rs_mwh": arred((mwh * pld).sum() / mwh.sum(), 2),
+        "valor_ao_pld_real_rs": arred((mwh * pld).sum(), -6),
+        "valor_ao_piso_rs": arred(mwh.sum() * PLD_PISO_2026, -6),
+        "fracao_horas_no_piso": arred(sum(p <= PLD_PISO_2026 + 1e-9 for p in precos.values()) / len(precos), 3),
+        "piso_por_hora_pct": piso_por_hora,
+    }
 
 
 def valor_janela(janela: dict, mw_por_meia_hora: float | None, precos: dict[str, float]) -> float:
@@ -89,12 +126,11 @@ def valor_janela(janela: dict, mw_por_meia_hora: float | None, precos: dict[str,
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--pld", type=Path, default=None, help="CSV de PLD horário da CCEE (opcional)")
+    ap.add_argument("--pld", type=Path, nargs="*", default=None, help="CSVs de PLD horário da CCEE (padrão: ../dados-ccee/*.csv)")
     args = ap.parse_args()
-    if args.pld is None:
-        candidatos = sorted((RAIZ.parent / "dados-ccee").glob("*.csv"))
-        args.pld = candidatos[-1] if candidatos else None
-    precos, fonte_pld = carregar_pld(args.pld)
+    arquivos_pld = args.pld if args.pld is not None else sorted((RAIZ.parent / "dados-ccee").glob("pld_horario_*.csv"))
+    precos, fonte_pld = carregar_pld(arquivos_pld)
+    cruzamento = pld_x_corte(precos)
 
     usinas = ler_json("usinas.json")
     resumo = ler_json("resumo.json")
@@ -178,11 +214,14 @@ def main() -> None:
             "brasil_mw_medios": oficial["brasil_jan_ago_2026"]["mw_medios"],
             # valor anual da energia cortada no Nordeste, mesmo ao preço mínimo do mercado
             "valor_anual_piso_rs": arred(ne["mw_medios"] * 8760 * PLD_PISO_2026, -6),
+            # valor da energia cortada no Nordeste ao PLD real de cada hora (None sem o arquivo da CCEE)
+            "valor_pld_real_rs": cruzamento["valor_ao_pld_real_rs"] if cruzamento else None,
+            "valor_pld_real_periodo": cruzamento["periodo"] if cruzamento else None,
             "energia_capturada_ago": t_ago["geral"]["continuo_com_atraso"]["energia_capturada"],
             "energia_capturada_set": t_set["geral"]["continuo_com_atraso"]["energia_capturada"],
             "usinas_avaliadas": t_ago["usinas_avaliadas"],
         },
-        "pld": {**fonte_pld, "piso_2026_rs_mwh": PLD_PISO_2026},
+        "pld": {**fonte_pld, "piso_2026_rs_mwh": PLD_PISO_2026, "cruzamento": cruzamento},
         "kw_por_gpu": KW_POR_GPU,
         "usinas": plantas,
         "teste": {

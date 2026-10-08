@@ -7,7 +7,7 @@ import type { Atlas, Janela, Usina } from "@/lib/tipos";
 import { dataCurta, energia, num, pct, reais } from "@/lib/formato";
 import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloTipo } from "./Selos";
-import { GraficoHoras, GraficoMensal } from "./Graficos";
+import { GraficoHoras, GraficoMensal, GraficoPiso } from "./Graficos";
 
 export type DadosInicio = Pick<Atlas, "manchete" | "previsao" | "pld" | "padroes" | "dados_ate"> & {
   placar: Atlas["teste"]["placar"];
@@ -19,6 +19,7 @@ export function Inicio({ d }: { d: DadosInicio }) {
   const L = t.locale;
   const [dia, setDia] = useState(d.previsao.dias[d.previsao.dias.length - 1]);
   const doDia = d.previsao.por_dia[dia];
+  const piso = `R$ ${num(d.pld.piso_2026_rs_mwh, L, 2)}`;
   const compacto = (x: number) => new Intl.NumberFormat(L, { notation: "compact", maximumFractionDigits: 1 }).format(x);
 
   const linhas = d.usinas.flatMap((u): { u: (typeof d.usinas)[number]; j: Janela | null }[] => {
@@ -56,7 +57,11 @@ export function Inicio({ d }: { d: DadosInicio }) {
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Numero valor={`${num(d.manchete.nordeste_mw_medios, L)} MW`} rotulo={t.home.statCut} destaque />
         <Numero valor={`${num(d.manchete.nordeste_gwh_dia, L)} GWh`} rotulo={t.home.statDay} />
-        <Numero valor={reais(d.manchete.valor_anual_piso_rs, L, true)} rotulo={t.home.statValue} />
+        {d.manchete.valor_pld_real_rs ? (
+          <Numero valor={reais(d.manchete.valor_pld_real_rs, L, true)} rotulo={t.home.statValueReal} />
+        ) : (
+          <Numero valor={reais(d.manchete.valor_anual_piso_rs, L, true)} rotulo={t.home.statValue} />
+        )}
         <Numero valor={`${pct(d.manchete.energia_capturada_ago, L)} / ${pct(d.manchete.energia_capturada_set, L)}`} rotulo={t.home.statCapture} />
       </section>
 
@@ -143,7 +148,9 @@ export function Inicio({ d }: { d: DadosInicio }) {
             {t.home.allPlantsLine(num(doDia.janelas, L), num(doDia.usinas, L), energia(doDia.energia_esperada_mwh, L))}
           </p>
         )}
-        <p className="text-xs text-muted">{t.home.valueNote(`R$ ${num(d.pld.piso_2026_rs_mwh, L, 2)}`)}</p>
+        <p className="text-xs text-muted">
+          {d.pld.cruzamento ? t.home.valueNoteReal(piso) : t.home.valueNote(piso)}
+        </p>
       </section>
 
       {/* Por que acontece */}
@@ -172,6 +179,22 @@ export function Inicio({ d }: { d: DadosInicio }) {
             <p className="mt-4 text-sm text-muted">{t.home.weekNote}</p>
           </Cartao>
         </div>
+        {d.pld.cruzamento && (
+          <Cartao>
+            <h3 className="font-medium">{t.home.floorTitle}</h3>
+            <p className="mt-1 text-sm text-muted">{t.home.floorChart}</p>
+            <div className="mt-3">
+              <GraficoPiso pct={d.pld.cruzamento.piso_por_hora_pct} />
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              {t.home.floorNote(
+                pct(Math.min(...d.pld.cruzamento.piso_por_hora_pct.slice(9, 13)) / 100, L),
+                pct(d.pld.cruzamento.fracao_energia_com_pld_no_piso, L),
+                piso,
+              )}
+            </p>
+          </Cartao>
+        )}
         <Cartao>
           <h3 className="font-medium">{t.home.monthTitle}</h3>
           <div className="mt-3">

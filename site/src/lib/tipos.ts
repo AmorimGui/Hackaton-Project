@@ -61,11 +61,29 @@ export type Atlas = {
     periodo: string;
     brasil_mw_medios: number;
     valor_anual_piso_rs: number;
+    valor_pld_real_rs: number | null;
+    valor_pld_real_periodo: string | null;
     energia_capturada_ago: number;
     energia_capturada_set: number;
     usinas_avaliadas: number;
   };
-  pld: { tipo: string; descricao: string; piso_2026_rs_mwh: number; valor_rs_mwh?: number; arquivo?: string };
+  pld: {
+    tipo: string;
+    descricao: string;
+    piso_2026_rs_mwh: number;
+    valor_rs_mwh?: number;
+    periodo?: string;
+    cruzamento: {
+      periodo: string;
+      energia_cortada_gwh: number;
+      fracao_energia_com_pld_no_piso: number;
+      pld_medio_ponderado_rs_mwh: number;
+      valor_ao_pld_real_rs: number;
+      valor_ao_piso_rs: number;
+      fracao_horas_no_piso: number;
+      piso_por_hora_pct: number[];
+    } | null;
+  };
   kw_por_gpu: number;
   usinas: Usina[];
   teste: {

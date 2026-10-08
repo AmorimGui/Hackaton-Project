@@ -37,6 +37,7 @@ const en = {
     statCut: "average power curtailed in the Northeast, Jan–Aug 2026",
     statDay: "of clean energy wasted per day",
     statValue: "per year, even at the minimum market price",
+    statValueReal: "worth of clean energy curtailed in the Northeast in Jan–Sep 2026, at the actual hourly market price",
     statCapture: "of the curtailed energy fell inside our forecast windows (Aug / Sep 2026)",
     forecastTitle: "Forecast windows",
     forecastLead: (ate: string) =>
@@ -48,6 +49,12 @@ const en = {
     noWindow: "No window above 50% chance",
     valueNote: (pld: string) =>
       `Market value = expected energy × PLD (Brazil's spot price). During curtailment hours the Northeast PLD sits at its regulatory floor of ${pld}/MWh, which we use until the hourly CCEE series is loaded.`,
+    valueNoteReal: (piso: string) =>
+      `Market value = expected energy × the official hourly PLD (Brazil's spot price) for the Northeast, which CCEE publishes the day before. In most curtailment hours it sits at the regulatory floor of ${piso}/MWh.`,
+    floorTitle: "The price hits the floor exactly when energy is curtailed",
+    floorChart: "Share of hours with the Northeast PLD at its floor, by hour of day (Jan 1–Oct 8, 2026). Shaded: peak curtailment hours (8:00–14:59).",
+    floorNote: (pico: string, energia: string, piso: string) =>
+      `Between 9:00 and 12:59, the Northeast spot price sat at its ${piso}/MWh floor in ${pico} of hours. ${energia} of the energy curtailed in 2026 was cut while the price was already at the minimum: there is so much clean power that not even the lowest price finds a buyer.`,
     whyTitle: "Why it happens",
     hourTitle: "Curtailed energy by hour of day (Jan–Jul 2026)",
     hourNote: "Wind is curtailed precisely when solar is producing: 61% of lost wind energy falls between 8:00 and 14:59.",
@@ -124,11 +131,12 @@ const en = {
       "Curtailment data from the ONS (half-hourly, per plant group, Jan 2025–Sep 2026).",
       "Forecasts and backtest computed from that data; parameters fixed before the test.",
       "Forecast windows for the coming days, awaiting the ONS verdict.",
+      "Hourly PLD for the Northeast submarket (CCEE open data, Jan 1–Oct 8, 2026).",
     ],
     estTitle: "Estimated",
     est: [
       "Expected energy per window (±20% against the realized values of Aug–Sep).",
-      "Market value at the PLD floor (R$ 57.31/MWh in 2026) until the hourly CCEE series is loaded.",
+      "Window value spreads the expected energy evenly across the window's hours, priced at each hour's PLD.",
       "GPU-hour equivalence (0.85 kW per H100 with cooling), illustrative only.",
     ],
     simTitle: "Simulated in the MVP",
@@ -167,7 +175,7 @@ const en = {
     codeLink: "Source code on GitHub",
   },
   footer: {
-    data: "Data: ONS open data (CC-BY). Prices: CCEE / ANEEL.",
+    data: "Data: ONS open data (CC-BY). Prices: CCEE open data (hourly PLD).",
     team: "Built by team Nomos for the Colosseum Crypto World's Fair 2026.",
   },
 };
@@ -211,6 +219,7 @@ const pt: Dicionario = {
     statCut: "de potência média cortada no Nordeste, jan–ago/2026",
     statDay: "de energia limpa desperdiçada por dia",
     statValue: "por ano, mesmo ao preço mínimo de mercado",
+    statValueReal: "em energia limpa cortada no Nordeste em jan–set/2026, ao preço real de mercado hora a hora",
     statCapture: "da energia cortada caiu nas nossas janelas previstas (ago / set 2026)",
     forecastTitle: "Janelas previstas",
     forecastLead: (ate: string) =>
@@ -222,6 +231,12 @@ const pt: Dicionario = {
     noWindow: "Nenhuma janela acima de 50% de chance",
     valueNote: (pld: string) =>
       `Valor de mercado = energia esperada × PLD (o preço de curto prazo). Nas horas de corte, o PLD do Nordeste fica no piso regulatório de ${pld}/MWh, que usamos até carregar a série horária da CCEE.`,
+    valueNoteReal: (piso: string) =>
+      `Valor de mercado = energia esperada × o PLD horário oficial do Nordeste (preço de curto prazo), que a CCEE publica na véspera. Na maioria das horas de corte, ele fica no piso regulatório de ${piso}/MWh.`,
+    floorTitle: "O preço vai ao piso justamente quando a energia é cortada",
+    floorChart: "Fração das horas com o PLD do Nordeste no piso, por hora do dia (1º/jan a 8/out/2026). Em destaque: horário de pico do corte (8h às 14h59).",
+    floorNote: (pico: string, energia: string, piso: string) =>
+      `Entre 9h e 12h59, o preço de curto prazo do Nordeste ficou no piso de ${piso}/MWh em ${pico} das horas. ${energia} da energia cortada em 2026 foi desligada com o preço já no mínimo: sobra tanta energia limpa que nem o menor preço encontra comprador.`,
     whyTitle: "Por que acontece",
     hourTitle: "Energia cortada por hora do dia (jan–jul/2026)",
     hourNote: "A eólica é cortada justamente quando a solar está gerando: 61% da perda eólica fica entre 8h e 14h59.",
@@ -298,11 +313,12 @@ const pt: Dicionario = {
       "Dados de corte do ONS (a cada meia hora, por conjunto de usinas, jan/2025–set/2026).",
       "Previsões e teste retroativo calculados a partir desses dados; parâmetros fixados antes do teste.",
       "Janelas previstas para os próximos dias, aguardando o veredito do ONS.",
+      "PLD horário do submercado Nordeste (dados abertos da CCEE, 1º/jan a 8/out/2026).",
     ],
     estTitle: "Estimado",
     est: [
       "Energia esperada por janela (±20% frente ao realizado em ago–set).",
-      "Valor de mercado no piso do PLD (R$ 57,31/MWh em 2026) até carregar a série horária da CCEE.",
+      "O valor da janela distribui a energia esperada igualmente pelas horas da janela, a preço do PLD de cada hora.",
       "Equivalência em horas de GPU (0,85 kW por H100 com refrigeração), apenas ilustrativa.",
     ],
     simTitle: "Simulado no MVP",
@@ -341,7 +357,7 @@ const pt: Dicionario = {
     codeLink: "Código-fonte no GitHub",
   },
   footer: {
-    data: "Dados: ONS, dados abertos (CC-BY). Preços: CCEE / ANEEL.",
+    data: "Dados: ONS, dados abertos (CC-BY). Preços: CCEE, dados abertos (PLD horário).",
     team: "Feito pelo time Nomos para o Colosseum Crypto World's Fair 2026.",
   },
 };
