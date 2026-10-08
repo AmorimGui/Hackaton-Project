@@ -68,10 +68,11 @@ function transferir(origem: PublicKey, destino: PublicKey, dono: PublicKey, micr
   });
 }
 
-const memo = (texto: string, signatario: PublicKey) =>
+/** Memo gravado na transação. O programa de memo exige que todas as contas listadas assinem. */
+export const memo = (texto: string, ...signatarios: PublicKey[]) =>
   new TransactionInstruction({
     programId: PROGRAMA_MEMO,
-    keys: [{ pubkey: signatario, isSigner: true, isWritable: false }],
+    keys: signatarios.map((pubkey) => ({ pubkey, isSigner: true, isWritable: false })),
     data: Buffer.from(texto, "utf8"),
   });
 

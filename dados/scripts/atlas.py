@@ -16,6 +16,7 @@ Com o PLD e os dados brutos do ONS, também calcula quanto vale a energia cortad
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import shutil
@@ -218,7 +219,8 @@ def main() -> None:
             "teste": {"agosto": metr(t_ago["usinas_destaque"][u["id"]]["continuo_com_atraso"]),
                       "setembro": metr(t_set["usinas_destaque"][u["id"]]["continuo_com_atraso"])},
             "placar": {"janelas": len(hist_u), "confirmadas": conf},
-            "recentes": [j for j in hist_u if j["data"] in recentes],
+            # janelas históricas com preço: podem ser compradas em "replay" (o veredito do ONS já existe)
+            "recentes": [enriquecer(j) for j in hist_u if j["data"] in recentes],
             "proximas": [j for j in prox_destaque if j["id_ons"] == u["id"]],
         })
 
@@ -274,6 +276,33 @@ def main() -> None:
     }
 
     SITE_DADOS.mkdir(parents=True, exist_ok=True)
+
+    # Vereditos do ONS por janela (usinas de destaque), para o carimbo da fase 2 do recibo.
+    # Cada veredito aponta para o arquivo oficial do ONS e sua impressão digital (SHA-256),
+    # para qualquer pessoa baixar o mesmo arquivo e refazer a conta.
+    brutos = RAIZ.parent / "dados-ons" / "brutos"
+    fontes: dict[str, str] = {}
+
+    def fonte_ons(j: dict) -> str:
+        nome = f"RESTRICAO_COFF_{'EOLICA' if j['tipo'] == 'eolica' else 'FOTOVOLTAICA'}_{j['data'][:4]}_{j['data'][5:7]}.parquet"
+        if nome not in fontes and (brutos / nome).exists():
+            fontes[nome] = hashlib.sha256((brutos / nome).read_bytes()).hexdigest()
+        return nome
+
+    veredictos = {}
+    for j in list(historico["janelas"]) + list(proximas["janelas"]):
+        if j["id_ons"] not in ids or j["resultado_ons"] not in ("confirmado", "errado"):
+            continue
+        veredictos[f"{j['id_ons']}|{j['data']}|{j['inicio']}-{j['fim']}"] = {
+            "resultado": j["resultado_ons"], "fracao_com_corte": j["fracao_com_corte"],
+            "energia_cortada_mwh": j["energia_cortada_mwh"], "razoes": j["razoes_do_corte"], "fonte": fonte_ons(j),
+        }
+    (SITE_DADOS / "veredictos.json").write_bytes((json.dumps({
+        "regra": historico["regra_resultado"],
+        "fontes_ons": fontes,
+        "url_fontes": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_{eolica|fotovoltaica}_tm/<arquivo>",
+        "janelas": veredictos,
+    }, ensure_ascii=False, indent=1) + "\n").encode("utf-8"))
     (SITE_DADOS / "atlas.json").write_bytes((json.dumps(atlas, ensure_ascii=False, indent=1) + "\n").encode("utf-8"))
 
     # Dados abertos para download no site

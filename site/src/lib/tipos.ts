@@ -47,6 +47,33 @@ export type Usina = {
   proximas: Janela[];
 };
 
+/** Resposta de POST /api/recibo. */
+export type RegistroCadeia = { assinatura: string; memo: string; horario: number | null; explorador: string };
+export type RespostaRecibo = {
+  erro?: string;
+  compra?: {
+    assinatura: string;
+    comprador: string;
+    idUsina: string;
+    data: string;
+    inicio: string;
+    fim: string;
+    mwh: number;
+    pld: number;
+    ptax: number;
+    totalUsdc: number;
+    partesUsdc: Record<"usina" | "operador" | "plataforma", number>;
+    horario: number | null;
+    memo: string;
+    explorador: string;
+  };
+  recibo?: RegistroCadeia | null;
+  carimbo?: RegistroCadeia | null;
+  veredito?: { resultado: string; fracao_com_corte: number; energia_cortada_mwh: number; razoes: Record<string, number>; fonte: string; sha256: string } | null;
+  aguardando_ons?: boolean;
+  chaves_configuradas?: boolean;
+};
+
 export type Cambio = { ptax_venda: number; data: string; fonte: string };
 
 export type Atlas = {

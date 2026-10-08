@@ -115,8 +115,8 @@
  },
  "kw_por_gpu": 0.85,
  "cambio": {
-  "ptax_venda": 4.9935,
-  "data": "2026-10-07",
+  "ptax_venda": 5.0119,
+  "data": "2026-10-08",
   "fonte": "Banco Central do Brasil, PTAX (API Olinda)"
  },
  "usinas": [
@@ -491,7 +491,9 @@
      "gpu_horas_equivalentes": 3560357,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 90378.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -510,7 +512,9 @@
      "gpu_horas_equivalentes": 3299504,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 87914.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -529,7 +533,9 @@
      "gpu_horas_equivalentes": 5144184,
      "razoes_do_corte": {
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 158027.0,
+     "pld_medio_rs_mwh": 59.97
     },
     {
      "id_ons": "CJU_BASAR",
@@ -548,7 +554,9 @@
      "gpu_horas_equivalentes": 4818570,
      "razoes_do_corte": {
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 150875.0,
+     "pld_medio_rs_mwh": 62.37
     },
     {
      "id_ons": "CJU_BASAR",
@@ -567,7 +575,9 @@
      "gpu_horas_equivalentes": 559100,
      "razoes_do_corte": {
       "ENE": 13
-     }
+     },
+     "valor_referencia_rs": 84819.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -587,7 +597,9 @@
      "razoes_do_corte": {
       "REL": 4,
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 84876.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -606,7 +618,9 @@
      "gpu_horas_equivalentes": 6980,
      "razoes_do_corte": {
       "ENE": 2
-     }
+     },
+     "valor_referencia_rs": 84991.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -625,7 +639,9 @@
      "gpu_horas_equivalentes": 920155,
      "razoes_do_corte": {
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 85507.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -644,7 +660,9 @@
      "gpu_horas_equivalentes": 1098287,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 89461.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -663,7 +681,9 @@
      "gpu_horas_equivalentes": 1015934,
      "razoes_do_corte": {
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 122101.0,
+     "pld_medio_rs_mwh": 59.24
     },
     {
      "id_ons": "CJU_BASAR",
@@ -682,7 +702,9 @@
      "gpu_horas_equivalentes": 4051474,
      "razoes_do_corte": {
       "ENE": 21
-     }
+     },
+     "valor_referencia_rs": 141281.0,
+     "pld_medio_rs_mwh": 60.35
     },
     {
      "id_ons": "CJU_BASAR",
@@ -701,7 +723,9 @@
      "gpu_horas_equivalentes": 826060,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 93358.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASAR",
@@ -720,7 +744,9 @@
      "gpu_horas_equivalentes": 429063,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 97322.0,
+     "pld_medio_rs_mwh": 59.6
     },
     {
      "id_ons": "CJU_BASAR",
@@ -739,7 +765,9 @@
      "gpu_horas_equivalentes": 337368,
      "razoes_do_corte": {
       "ENE": 13
-     }
+     },
+     "valor_referencia_rs": 93587.0,
+     "pld_medio_rs_mwh": 57.31
     }
    ],
    "proximas": [
@@ -1277,7 +1305,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 113784.0,
+     "pld_medio_rs_mwh": 58.02
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1296,7 +1326,9 @@
      "gpu_horas_equivalentes": 1074015,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 111219.0,
+     "pld_medio_rs_mwh": 168.26
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1316,7 +1348,9 @@
      "razoes_do_corte": {
       "CNF": 8,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 108207.0,
+     "pld_medio_rs_mwh": 57.77
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1335,7 +1369,9 @@
      "gpu_horas_equivalentes": 1088366,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 104984.0,
+     "pld_medio_rs_mwh": 157.87
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1355,7 +1391,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 220193.0,
+     "pld_medio_rs_mwh": 61.59
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1374,7 +1412,9 @@
      "gpu_horas_equivalentes": 1787943,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 77246.0,
+     "pld_medio_rs_mwh": 104.39
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1394,7 +1434,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 209132.0,
+     "pld_medio_rs_mwh": 61.42
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1413,7 +1455,9 @@
      "gpu_horas_equivalentes": 2212732,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 81242.0,
+     "pld_medio_rs_mwh": 115.4
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1433,7 +1477,9 @@
      "razoes_do_corte": {
       "CNF": 14,
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 114545.0,
+     "pld_medio_rs_mwh": 62.73
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1452,7 +1498,9 @@
      "gpu_horas_equivalentes": 828216,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 106596.0,
+     "pld_medio_rs_mwh": 167.6
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1473,7 +1521,9 @@
       "CNF": 17,
       "REL": 1,
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 140646.0,
+     "pld_medio_rs_mwh": 76.56
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1492,7 +1542,9 @@
      "gpu_horas_equivalentes": 353776,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 181956.0,
+     "pld_medio_rs_mwh": 277.8
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1512,7 +1564,9 @@
      "razoes_do_corte": {
       "CNF": 3,
       "ENE": 6
-     }
+     },
+     "valor_referencia_rs": 151871.0,
+     "pld_medio_rs_mwh": 83.4
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1531,7 +1585,9 @@
      "gpu_horas_equivalentes": 197333,
      "razoes_do_corte": {
       "CNF": 6
-     }
+     },
+     "valor_referencia_rs": 202629.0,
+     "pld_medio_rs_mwh": 308.89
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1551,7 +1607,9 @@
      "razoes_do_corte": {
       "CNF": 4,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 148975.0,
+     "pld_medio_rs_mwh": 81.81
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1570,7 +1628,9 @@
      "gpu_horas_equivalentes": 679118,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 92755.0,
+     "pld_medio_rs_mwh": 138.03
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1590,7 +1650,9 @@
      "razoes_do_corte": {
       "CNF": 3,
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 147467.0,
+     "pld_medio_rs_mwh": 78.31
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1609,7 +1671,9 @@
      "gpu_horas_equivalentes": 961615,
      "razoes_do_corte": {
       "CNF": 11
-     }
+     },
+     "valor_referencia_rs": 118055.0,
+     "pld_medio_rs_mwh": 164.19
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1629,7 +1693,9 @@
      "razoes_do_corte": {
       "CNF": 5,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 218292.0,
+     "pld_medio_rs_mwh": 67.29
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1648,7 +1714,9 @@
      "gpu_horas_equivalentes": 247144,
      "razoes_do_corte": {
       "CNF": 6
-     }
+     },
+     "valor_referencia_rs": 65822.0,
+     "pld_medio_rs_mwh": 94.03
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1668,7 +1736,9 @@
      "razoes_do_corte": {
       "CNF": 6,
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 211419.0,
+     "pld_medio_rs_mwh": 63.17
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1687,7 +1757,9 @@
      "gpu_horas_equivalentes": 833209,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 66289.0,
+     "pld_medio_rs_mwh": 94.16
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1707,7 +1779,9 @@
      "razoes_do_corte": {
       "CNF": 3,
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 131983.0,
+     "pld_medio_rs_mwh": 67.0
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1724,7 +1798,9 @@
      "fracao_com_corte": 0.0,
      "energia_cortada_mwh": 0,
      "gpu_horas_equivalentes": 0,
-     "razoes_do_corte": {}
+     "razoes_do_corte": {},
+     "valor_referencia_rs": 138132.0,
+     "pld_medio_rs_mwh": 186.41
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1743,7 +1819,9 @@
      "gpu_horas_equivalentes": 530168,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 144349.0,
+     "pld_medio_rs_mwh": 72.03
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1760,7 +1838,9 @@
      "fracao_com_corte": 0.0,
      "energia_cortada_mwh": 0,
      "gpu_horas_equivalentes": 0,
-     "razoes_do_corte": {}
+     "razoes_do_corte": {},
+     "valor_referencia_rs": 163032.0,
+     "pld_medio_rs_mwh": 226.43
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1780,7 +1860,9 @@
      "razoes_do_corte": {
       "CNF": 2,
       "ENE": 3
-     }
+     },
+     "valor_referencia_rs": 141392.0,
+     "pld_medio_rs_mwh": 71.05
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -1799,7 +1881,9 @@
      "gpu_horas_equivalentes": 5074,
      "razoes_do_corte": {
       "CNF": 1
-     }
+     },
+     "valor_referencia_rs": 171901.0,
+     "pld_medio_rs_mwh": 239.75
     }
    ],
    "proximas": [
@@ -2497,7 +2581,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 125562.0,
+     "pld_medio_rs_mwh": 58.02
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2516,7 +2602,9 @@
      "gpu_horas_equivalentes": 1286579,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 156833.0,
+     "pld_medio_rs_mwh": 172.91
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2536,7 +2624,9 @@
      "razoes_do_corte": {
       "CNF": 6,
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 121668.0,
+     "pld_medio_rs_mwh": 57.77
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2555,7 +2645,9 @@
      "gpu_horas_equivalentes": 1445574,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 146871.0,
+     "pld_medio_rs_mwh": 159.3
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2575,7 +2667,9 @@
      "razoes_do_corte": {
       "CNF": 14,
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 232210.0,
+     "pld_medio_rs_mwh": 63.1
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2594,7 +2688,9 @@
      "gpu_horas_equivalentes": 2093006,
      "razoes_do_corte": {
       "CNF": 11
-     }
+     },
+     "valor_referencia_rs": 96908.0,
+     "pld_medio_rs_mwh": 106.38
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2614,7 +2710,9 @@
      "razoes_do_corte": {
       "CNF": 14,
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 220100.0,
+     "pld_medio_rs_mwh": 62.92
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2633,7 +2731,9 @@
      "gpu_horas_equivalentes": 2658170,
      "razoes_do_corte": {
       "CNF": 11
-     }
+     },
+     "valor_referencia_rs": 103151.0,
+     "pld_medio_rs_mwh": 117.75
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2653,7 +2753,9 @@
      "razoes_do_corte": {
       "CNF": 14,
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 129412.0,
+     "pld_medio_rs_mwh": 62.73
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2672,7 +2774,9 @@
      "gpu_horas_equivalentes": 1324943,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 167290.0,
+     "pld_medio_rs_mwh": 186.92
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2692,7 +2796,9 @@
      "razoes_do_corte": {
       "CNF": 16,
       "ENE": 9
-     }
+     },
+     "valor_referencia_rs": 159633.0,
+     "pld_medio_rs_mwh": 76.56
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2711,7 +2817,9 @@
      "gpu_horas_equivalentes": 906473,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 324191.0,
+     "pld_medio_rs_mwh": 350.86
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2731,7 +2839,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 4
-     }
+     },
+     "valor_referencia_rs": 172054.0,
+     "pld_medio_rs_mwh": 83.4
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2750,7 +2860,9 @@
      "gpu_horas_equivalentes": 466140,
      "razoes_do_corte": {
       "CNF": 6
-     }
+     },
+     "valor_referencia_rs": 350294.0,
+     "pld_medio_rs_mwh": 378.7
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2770,7 +2882,9 @@
      "razoes_do_corte": {
       "CNF": 4,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 168773.0,
+     "pld_medio_rs_mwh": 81.81
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2789,7 +2903,9 @@
      "gpu_horas_equivalentes": 1250434,
      "razoes_do_corte": {
       "CNF": 10
-     }
+     },
+     "valor_referencia_rs": 137030.0,
+     "pld_medio_rs_mwh": 144.24
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2809,7 +2925,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 167463.0,
+     "pld_medio_rs_mwh": 77.64
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2828,7 +2946,9 @@
      "gpu_horas_equivalentes": 1862273,
      "razoes_do_corte": {
       "CNF": 11
-     }
+     },
+     "valor_referencia_rs": 163043.0,
+     "pld_medio_rs_mwh": 164.19
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2848,7 +2968,9 @@
      "razoes_do_corte": {
       "CNF": 7,
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 226639.0,
+     "pld_medio_rs_mwh": 68.14
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2867,7 +2989,9 @@
      "gpu_horas_equivalentes": 702074,
      "razoes_do_corte": {
       "CNF": 8
-     }
+     },
+     "valor_referencia_rs": 84953.0,
+     "pld_medio_rs_mwh": 95.03
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2887,7 +3011,9 @@
      "razoes_do_corte": {
       "CNF": 11,
       "ENE": 21
-     }
+     },
+     "valor_referencia_rs": 216749.0,
+     "pld_medio_rs_mwh": 63.98
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2906,7 +3032,9 @@
      "gpu_horas_equivalentes": 2020146,
      "razoes_do_corte": {
       "CNF": 11
-     }
+     },
+     "valor_referencia_rs": 85616.0,
+     "pld_medio_rs_mwh": 94.81
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2926,7 +3054,9 @@
      "razoes_do_corte": {
       "CNF": 3,
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 149594.0,
+     "pld_medio_rs_mwh": 66.69
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2945,7 +3075,9 @@
      "gpu_horas_equivalentes": 547619,
      "razoes_do_corte": {
       "CNF": 9
-     }
+     },
+     "valor_referencia_rs": 189582.0,
+     "pld_medio_rs_mwh": 186.41
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2964,7 +3096,9 @@
      "gpu_horas_equivalentes": 631020,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 168012.0,
+     "pld_medio_rs_mwh": 72.33
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -2981,7 +3115,9 @@
      "fracao_com_corte": 0.0,
      "energia_cortada_mwh": 0,
      "gpu_horas_equivalentes": 0,
-     "razoes_do_corte": {}
+     "razoes_do_corte": {},
+     "valor_referencia_rs": 225754.0,
+     "pld_medio_rs_mwh": 226.43
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3001,7 +3137,9 @@
      "razoes_do_corte": {
       "CNF": 7,
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 159155.0,
+     "pld_medio_rs_mwh": 71.05
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3020,7 +3158,9 @@
      "gpu_horas_equivalentes": 253167,
      "razoes_do_corte": {
       "CNF": 7
-     }
+     },
+     "valor_referencia_rs": 239751.0,
+     "pld_medio_rs_mwh": 239.75
     }
    ],
    "proximas": [
@@ -3697,7 +3837,9 @@
      "gpu_horas_equivalentes": 1775565,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 65219.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3716,7 +3858,9 @@
      "gpu_horas_equivalentes": 1685999,
      "razoes_do_corte": {
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 62697.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3735,7 +3879,9 @@
      "gpu_horas_equivalentes": 2576581,
      "razoes_do_corte": {
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 86561.0,
+     "pld_medio_rs_mwh": 62.63
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3754,7 +3900,9 @@
      "gpu_horas_equivalentes": 1645284,
      "razoes_do_corte": {
       "ENE": 21
-     }
+     },
+     "valor_referencia_rs": 80818.0,
+     "pld_medio_rs_mwh": 62.6
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3773,7 +3921,9 @@
      "gpu_horas_equivalentes": 119051,
      "razoes_do_corte": {
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 60863.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3793,7 +3943,9 @@
      "razoes_do_corte": {
       "REL": 4,
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 60863.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3812,7 +3964,9 @@
      "gpu_horas_equivalentes": 8025,
      "razoes_do_corte": {
       "ENE": 1
-     }
+     },
+     "valor_referencia_rs": 59774.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3831,7 +3985,9 @@
      "gpu_horas_equivalentes": 556008,
      "razoes_do_corte": {
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 60176.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3850,7 +4006,9 @@
      "gpu_horas_equivalentes": 751610,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 62239.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3869,7 +4027,9 @@
      "gpu_horas_equivalentes": 343244,
      "razoes_do_corte": {
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 69053.0,
+     "pld_medio_rs_mwh": 61.0
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3888,7 +4048,9 @@
      "gpu_horas_equivalentes": 1568015,
      "razoes_do_corte": {
       "ENE": 21
-     }
+     },
+     "valor_referencia_rs": 76095.0,
+     "pld_medio_rs_mwh": 60.49
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3907,7 +4069,9 @@
      "gpu_horas_equivalentes": 428450,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 64302.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3926,7 +4090,9 @@
      "gpu_horas_equivalentes": 136561,
      "razoes_do_corte": {
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 65438.0,
+     "pld_medio_rs_mwh": 59.6
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -3945,7 +4111,9 @@
      "gpu_horas_equivalentes": 81001,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 62353.0,
+     "pld_medio_rs_mwh": 57.31
     }
    ],
    "proximas": [
@@ -4482,7 +4650,9 @@
      "gpu_horas_equivalentes": 1452872,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 74732.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4501,7 +4671,9 @@
      "gpu_horas_equivalentes": 1693774,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 73758.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4520,7 +4692,9 @@
      "gpu_horas_equivalentes": 2317178,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 104820.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4539,7 +4713,9 @@
      "gpu_horas_equivalentes": 2992668,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 109176.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4558,7 +4734,9 @@
      "gpu_horas_equivalentes": 850735,
      "razoes_do_corte": {
       "ENE": 13
-     }
+     },
+     "valor_referencia_rs": 71064.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4578,7 +4756,9 @@
      "razoes_do_corte": {
       "REL": 4,
       "ENE": 9
-     }
+     },
+     "valor_referencia_rs": 70778.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4597,7 +4777,9 @@
      "gpu_horas_equivalentes": 4651,
      "razoes_do_corte": {
       "ENE": 1
-     }
+     },
+     "valor_referencia_rs": 72383.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4616,7 +4798,9 @@
      "gpu_horas_equivalentes": 608075,
      "razoes_do_corte": {
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 71179.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4635,7 +4819,9 @@
      "gpu_horas_equivalentes": 558137,
      "razoes_do_corte": {
       "ENE": 13
-     }
+     },
+     "valor_referencia_rs": 74274.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4654,7 +4840,9 @@
      "gpu_horas_equivalentes": 1332255,
      "razoes_do_corte": {
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 106998.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4673,7 +4861,9 @@
      "gpu_horas_equivalentes": 1970560,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 109577.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4692,7 +4882,9 @@
      "gpu_horas_equivalentes": 298010,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 75649.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4711,7 +4903,9 @@
      "gpu_horas_equivalentes": 90681,
      "razoes_do_corte": {
       "ENE": 4
-     }
+     },
+     "valor_referencia_rs": 73643.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_BASSD",
@@ -4730,7 +4924,9 @@
      "gpu_horas_equivalentes": 43519,
      "razoes_do_corte": {
       "ENE": 2
-     }
+     },
+     "valor_referencia_rs": 73701.0,
+     "pld_medio_rs_mwh": 57.31
     }
    ],
    "proximas": [
@@ -5268,7 +5464,9 @@
      "razoes_do_corte": {
       "ENE": 16,
       "CNF": 3
-     }
+     },
+     "valor_referencia_rs": 107129.0,
+     "pld_medio_rs_mwh": 58.25
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5287,7 +5485,9 @@
      "gpu_horas_equivalentes": 2822194,
      "razoes_do_corte": {
       "ENE": 17
-     }
+     },
+     "valor_referencia_rs": 112992.0,
+     "pld_medio_rs_mwh": 57.97
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5307,7 +5507,9 @@
      "razoes_do_corte": {
       "ENE": 17,
       "REL": 3
-     }
+     },
+     "valor_referencia_rs": 156112.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5326,7 +5528,9 @@
      "gpu_horas_equivalentes": 3900381,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 161672.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5346,7 +5550,9 @@
      "razoes_do_corte": {
       "REL": 6,
       "ENE": 12
-     }
+     },
+     "valor_referencia_rs": 114276.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5367,7 +5573,9 @@
       "CNF": 3,
       "REL": 7,
       "ENE": 8
-     }
+     },
+     "valor_referencia_rs": 127566.0,
+     "pld_medio_rs_mwh": 61.24
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5387,7 +5595,9 @@
      "razoes_do_corte": {
       "CNF": 13,
       "ENE": 4
-     }
+     },
+     "valor_referencia_rs": 135065.0,
+     "pld_medio_rs_mwh": 63.47
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5407,7 +5617,9 @@
      "razoes_do_corte": {
       "ENE": 13,
       "CNF": 2
-     }
+     },
+     "valor_referencia_rs": 134205.0,
+     "pld_medio_rs_mwh": 62.28
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5427,7 +5639,9 @@
      "razoes_do_corte": {
       "ENE": 14,
       "CNF": 4
-     }
+     },
+     "valor_referencia_rs": 142538.0,
+     "pld_medio_rs_mwh": 63.43
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5448,7 +5662,9 @@
       "REL": 1,
       "ENE": 17,
       "CNF": 2
-     }
+     },
+     "valor_referencia_rs": 163620.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5468,7 +5684,9 @@
      "razoes_do_corte": {
       "REL": 1,
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 170497.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5488,7 +5706,9 @@
      "razoes_do_corte": {
       "ENE": 13,
       "CNF": 4
-     }
+     },
+     "valor_referencia_rs": 141585.0,
+     "pld_medio_rs_mwh": 61.37
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5508,7 +5728,9 @@
      "razoes_do_corte": {
       "ENE": 5,
       "CNF": 13
-     }
+     },
+     "valor_referencia_rs": 151167.0,
+     "pld_medio_rs_mwh": 63.57
     },
     {
      "id_ons": "CJU_RNASO",
@@ -5528,7 +5750,9 @@
      "razoes_do_corte": {
       "ENE": 8,
       "CNF": 13
-     }
+     },
+     "valor_referencia_rs": 146662.0,
+     "pld_medio_rs_mwh": 61.6
     }
    ],
    "proximas": [
@@ -6065,7 +6289,9 @@
      "gpu_horas_equivalentes": 1132246,
      "razoes_do_corte": {
       "ENE": 16
-     }
+     },
+     "valor_referencia_rs": 26878.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6084,7 +6310,9 @@
      "gpu_horas_equivalentes": 1256786,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 24987.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6103,7 +6331,9 @@
      "gpu_horas_equivalentes": 1652885,
      "razoes_do_corte": {
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 61891.0,
+     "pld_medio_rs_mwh": 59.97
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6122,7 +6352,9 @@
      "gpu_horas_equivalentes": 1770956,
      "razoes_do_corte": {
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 63013.0,
+     "pld_medio_rs_mwh": 59.96
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6142,7 +6374,9 @@
      "razoes_do_corte": {
       "ENE": 10,
       "REL": 3
-     }
+     },
+     "valor_referencia_rs": 24758.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6161,7 +6395,9 @@
      "gpu_horas_equivalentes": 181315,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 26019.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6180,7 +6416,9 @@
      "gpu_horas_equivalentes": 54655,
      "razoes_do_corte": {
       "ENE": 5
-     }
+     },
+     "valor_referencia_rs": 25274.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6199,7 +6437,9 @@
      "gpu_horas_equivalentes": 921592,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 26305.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6218,7 +6458,9 @@
      "gpu_horas_equivalentes": 847138,
      "razoes_do_corte": {
       "ENE": 15
-     }
+     },
+     "valor_referencia_rs": 26363.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6237,7 +6479,9 @@
      "gpu_horas_equivalentes": 1532398,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 63533.0,
+     "pld_medio_rs_mwh": 59.16
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6256,7 +6500,9 @@
      "gpu_horas_equivalentes": 1768442,
      "razoes_do_corte": {
       "ENE": 22
-     }
+     },
+     "valor_referencia_rs": 66969.0,
+     "pld_medio_rs_mwh": 58.9
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6275,7 +6521,9 @@
      "gpu_horas_equivalentes": 977461,
      "razoes_do_corte": {
       "ENE": 14
-     }
+     },
+     "valor_referencia_rs": 28827.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6295,7 +6543,9 @@
      "razoes_do_corte": {
       "ENE": 11,
       "REL": 4
-     }
+     },
+     "valor_referencia_rs": 28082.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6315,7 +6565,9 @@
      "razoes_do_corte": {
       "ENE": 9,
       "REL": 3
-     }
+     },
+     "valor_referencia_rs": 26649.0,
+     "pld_medio_rs_mwh": 57.31
     }
    ],
    "proximas": [
@@ -6852,7 +7104,9 @@
      "gpu_horas_equivalentes": 850544,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 11405.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6871,7 +7125,9 @@
      "gpu_horas_equivalentes": 1053782,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 11004.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6890,7 +7146,9 @@
      "gpu_horas_equivalentes": 1660134,
      "razoes_do_corte": {
       "ENE": 18
-     }
+     },
+     "valor_referencia_rs": 76967.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6909,7 +7167,9 @@
      "gpu_horas_equivalentes": 2149905,
      "razoes_do_corte": {
       "ENE": 19
-     }
+     },
+     "valor_referencia_rs": 78629.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6928,7 +7188,9 @@
      "gpu_horas_equivalentes": 608148,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 9915.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6947,7 +7209,9 @@
      "gpu_horas_equivalentes": 19428,
      "razoes_do_corte": {
       "CNF": 6
-     }
+     },
+     "valor_referencia_rs": 10373.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6966,7 +7230,9 @@
      "gpu_horas_equivalentes": 2943,
      "razoes_do_corte": {
       "ENE": 1
-     }
+     },
+     "valor_referencia_rs": 11004.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -6985,7 +7251,9 @@
      "gpu_horas_equivalentes": 1057807,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 11462.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7004,7 +7272,9 @@
      "gpu_horas_equivalentes": 465637,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 12207.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7023,7 +7293,9 @@
      "gpu_horas_equivalentes": 1730514,
      "razoes_do_corte": {
       "ENE": 18
-     }
+     },
+     "valor_referencia_rs": 77139.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7042,7 +7314,9 @@
      "gpu_horas_equivalentes": 1482188,
      "razoes_do_corte": {
       "ENE": 20
-     }
+     },
+     "valor_referencia_rs": 77827.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7061,7 +7335,9 @@
      "gpu_horas_equivalentes": 415274,
      "razoes_do_corte": {
       "ENE": 10
-     }
+     },
+     "valor_referencia_rs": 13124.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7080,7 +7356,9 @@
      "gpu_horas_equivalentes": 33755,
      "razoes_do_corte": {
       "ENE": 3
-     }
+     },
+     "valor_referencia_rs": 13411.0,
+     "pld_medio_rs_mwh": 57.31
     },
     {
      "id_ons": "CJU_CEMTD",
@@ -7099,7 +7377,9 @@
      "gpu_horas_equivalentes": 23571,
      "razoes_do_corte": {
       "ENE": 4
-     }
+     },
+     "valor_referencia_rs": 13296.0,
+     "pld_medio_rs_mwh": 57.31
     }
    ],
    "proximas": [

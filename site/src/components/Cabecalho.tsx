@@ -11,6 +11,7 @@ export function Cabecalho() {
     { href: "/", rotulo: t.nav.atlas, ativo: rota === "/" || rota.startsWith("/plants") },
     { href: "/track-record", rotulo: t.nav.track, ativo: rota.startsWith("/track-record") },
     { href: "/method", rotulo: t.nav.method, ativo: rota.startsWith("/method") },
+    { href: "/verify", rotulo: t.verify.nav, ativo: rota.startsWith("/verify") },
   ];
 
   return (

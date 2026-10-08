@@ -117,7 +117,8 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
                 <th className="px-2 py-2 font-medium">{t.common.chance}</th>
                 <th className="px-2 py-2 text-right font-medium">{t.plant.lost}</th>
                 <th className="px-2 py-2 font-medium">{t.plant.reasons}</th>
-                <th className="px-5 py-2 text-right font-medium">ONS</th>
+                <th className="px-2 py-2 text-right font-medium">ONS</th>
+                <th className="px-5 py-2" />
               </tr>
             </thead>
             <tbody>
@@ -130,8 +131,11 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
                   <td className="tabular px-2 py-2">{pct(j.chance_prevista, L)}</td>
                   <td className="tabular whitespace-nowrap px-2 py-2 text-right">{energia(j.energia_cortada_mwh ?? 0, L)}</td>
                   <td className="px-2 py-2 text-xs text-muted">{Object.keys(j.razoes_do_corte).join(", ") || "—"}</td>
-                  <td className="px-5 py-2 text-right">
+                  <td className="px-2 py-2 text-right">
                     <SeloResultado resultado={j.resultado_ons} />
+                  </td>
+                  <td className="px-5 py-2 text-right">
+                    <BotaoComprar idUsina={u.id} nomeUsina={u.nome} janela={j} cambio={cambio} replay />
                   </td>
                 </tr>
               ))}

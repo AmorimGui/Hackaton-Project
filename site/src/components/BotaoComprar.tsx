@@ -8,7 +8,7 @@ import type { Cambio, Janela } from "@/lib/tipos";
 
 const CompraJanela = dynamic(() => import("./CompraJanela"), { ssr: false });
 
-export type AlvoCompra = { idUsina: string; nomeUsina: string; janela: Janela; cambio: Cambio | null };
+export type AlvoCompra = { idUsina: string; nomeUsina: string; janela: Janela; cambio: Cambio | null; replay?: boolean };
 
 export function BotaoComprar(props: AlvoCompra) {
   const { t } = useIdioma();
@@ -22,7 +22,7 @@ export function BotaoComprar(props: AlvoCompra) {
         onClick={() => setAberto(true)}
         className="rounded-md bg-ink px-2.5 py-1 text-xs font-medium text-white hover:bg-ink/85"
       >
-        {t.buy.button}
+        {props.replay ? t.buy.replayButton : t.buy.button}
       </button>
       {aberto && <CompraJanela {...props} fechar={() => setAberto(false)} />}
     </>

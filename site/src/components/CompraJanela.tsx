@@ -20,7 +20,9 @@ import {
   usdc,
   type Compra,
 } from "@/lib/solana";
+import type { RespostaRecibo } from "@/lib/tipos";
 import type { AlvoCompra } from "./BotaoComprar";
+import Link from "next/link";
 
 type Estado =
   | { fase: "inicio" }
@@ -30,7 +32,7 @@ type Estado =
   | { fase: "pago"; assinatura: string }
   | { fase: "erro"; mensagem: string; rede?: boolean };
 
-export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fechar }: AlvoCompra & { fechar: () => void }) {
+export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, replay, fechar }: AlvoCompra & { fechar: () => void }) {
   const { t } = useIdioma();
   const L = t.locale;
   const b = t.buy;
@@ -39,6 +41,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
   const [carteira, setCarteira] = useState<PublicKey | null>(() => phantom()?.publicKey ?? null);
   const [saldo, setSaldo] = useState<{ sol: number; usdc: bigint } | null>(null);
   const [estado, setEstado] = useState<Estado>({ fase: "inicio" });
+  const [recibo, setRecibo] = useState<RespostaRecibo | "emitindo" | "falhou" | null>(null);
 
   // PLD médio da janela (R$/MWh), calculado pelo atlas.py com o PLD horário da CCEE
   const pldArred = Math.round((janela.pld_medio_rs_mwh ?? 0) * 100) / 100;
@@ -100,6 +103,12 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
       const r = await conexao.confirmTransaction({ signature, blockhash, lastValidBlockHeight }, "confirmed");
       if (r.value.err) throw new Error(JSON.stringify(r.value.err));
       setEstado({ fase: "pago", assinatura: signature });
+      // Fase 1 (e fase 2, se o ONS já publicou): o servidor confere a compra e grava o recibo
+      setRecibo("emitindo");
+      fetch("/api/recibo", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ assinatura: signature }) })
+        .then((r) => r.json() as Promise<RespostaRecibo>)
+        .then((r) => setRecibo(r.recibo ? r : "falhou"))
+        .catch(() => setRecibo("falhou"));
     } catch (e) {
       const erro = e as { code?: number; message?: string };
       console.error("Vento Cortado: falha no pagamento", e);
@@ -144,6 +153,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
         </div>
 
         <p className="mt-3 rounded-lg bg-wait-soft px-3 py-2 text-xs text-wait">{b.devnet}</p>
+        {replay && <p className="mt-2 rounded-lg bg-sun-soft px-3 py-2 text-xs text-sun">{b.replayNote}</p>}
 
         {!cambio || !preco ? (
           <p className="mt-4 text-sm text-cut">{b.unavailable}</p>
@@ -156,7 +166,32 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
               <div className="font-medium">{b.memo}</div>
               <code className="mt-1 block break-words text-muted">{textoMemo(compra!)}</code>
             </div>
-            <a href={explorador(estado.assinatura)} target="_blank" rel="noreferrer" className="block rounded-lg bg-ink px-4 py-2.5 text-center text-sm font-medium text-white">
+            <div className="rounded-lg border border-line p-3 text-sm">
+              {recibo === "emitindo" || recibo === null ? (
+                <p className="text-muted">{b.receiptIssuing}</p>
+              ) : recibo === "falhou" ? (
+                <p className="text-muted">{b.receiptFailed}</p>
+              ) : (
+                <>
+                  <p className="font-medium text-ok">✓ {b.receiptOk}</p>
+                  {recibo.carimbo && recibo.veredito ? (
+                    <p className="mt-1 font-medium text-ok">
+                      ✓ {b.stampOk(recibo.veredito.resultado === "confirmado" ? t.verify.confirmed : t.verify.wrong)}
+                    </p>
+                  ) : (
+                    <p className="mt-1 text-muted">{b.stampPending}</p>
+                  )}
+                </>
+              )}
+            </div>
+            <Link
+              href={`/verify?tx=${estado.assinatura}`}
+              onClick={fechar}
+              className="block rounded-lg bg-ink px-4 py-2.5 text-center text-sm font-medium text-white"
+            >
+              {b.viewProof} →
+            </Link>
+            <a href={explorador(estado.assinatura)} target="_blank" rel="noreferrer" className="block text-center text-sm text-muted underline">
               {b.explorer} ↗
             </a>
           </div>
