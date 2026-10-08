@@ -1,0 +1,71 @@
+{
+ "trabalho": "causas-ons v1",
+ "usina": "CJU_RNRVE",
+ "janela": "2026-10-08",
+ "periodo_dos_dados": "2026-08-06 a 2026-09-30",
+ "modelo": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ONNX, CPU)",
+ "metodo": "few-shot: cada texto do ONS recebe a causa do exemplo rotulado mais parecido",
+ "meias_horas_com_corte": 2076,
+ "energia_cortada_mwh": 194212,
+ "causas": [
+  {
+   "causa": "linha",
+   "en": "Transmission line limit",
+   "pt": "Limite de linha de transmissão",
+   "energia_mwh": 117564,
+   "fracao_energia": 0.605,
+   "meias_horas": 1200,
+   "texto_mais_comum": "Controle de inequação: LIMITAÇÃO DA TRANSMISSÃO NA LT 500 KV AÇU III / JAGUARUANA II – C1(V7) - IO-ON.NE.5NE"
+  },
+  {
+   "causa": "frequencia",
+   "en": "Energy surplus: system frequency control",
+   "pt": "Sobra de energia: controle de frequência do sistema",
+   "energia_mwh": 76362,
+   "fracao_energia": 0.393,
+   "meias_horas": 872,
+   "texto_mais_comum": "Controle de frequência do SIN."
+  },
+  {
+   "causa": "exportacao",
+   "en": "Export limit between regions (Northeast → Southeast/North)",
+   "pt": "Limite de exportação entre regiões (Nordeste → Sudeste/Norte)",
+   "energia_mwh": 286,
+   "fracao_energia": 0.001,
+   "meias_horas": 4,
+   "texto_mais_comum": "Controle do fluxo: FNEN # Fluxo Nordeste/Norte - Conforme SGI 41.698-26"
+  }
+ ],
+ "textos_classificados": [
+  {
+   "texto": "Controle de frequência do SIN.",
+   "causa": "frequencia",
+   "meias_horas": 872
+  },
+  {
+   "texto": "Controle de inequação: LIMITAÇÃO DA TRANSMISSÃO NA LT 500 KV AÇU III / JAGUARUANA II – C1(V7) - IO-ON.NE.5NE",
+   "causa": "linha",
+   "meias_horas": 1172
+  },
+  {
+   "texto": "Controle de inequação: LIMITAÇÃO DA TRANSMISSÃO NA LT 500 KV JAGUARUANA II / PACATUBA – C1(L1) - IO-ON.NE.5NE",
+   "causa": "linha",
+   "meias_horas": 3
+  },
+  {
+   "texto": "Controle de inequação: LIMITAÇÃO DA TRANSMISSÃO NAS LTS 500 KV AÇU III / QUIXADÁ – C1(V2), AÇU III / MILAGRES II – C1(C2) E AÇU III / JAGUARUANA II – C1(V7) - IO-ON.NE.5NE",
+   "causa": "linha",
+   "meias_horas": 25
+  },
+  {
+   "texto": "Controle do fluxo: FNEN # Fluxo Nordeste/Norte - Conforme SGI 41.698-26",
+   "causa": "exportacao",
+   "meias_horas": 4
+  }
+ ],
+ "conferencia_palavras_chave": {
+  "textos_iguais": "5 de 5",
+  "fracao_meias_horas_iguais": 1.0
+ },
+ "entrada_sha256": "3ec13044ad31970d10aba137245fce457747891be22a4cb70410b7aacc21d069"
+}
