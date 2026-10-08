@@ -14,7 +14,7 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 | 2. Atlas (site) | Concluída (`site/`) |
 | 3. Pagamento na Solana (devnet) | Concluída (`site/src/lib/solana.ts`) |
 | 4. Recibo em duas fases e verificação pública | Concluída (`site/src/lib/recibo.ts`, página `/verify`) |
-| 5. Trabalho em lote | A fazer |
+| 5. Dados ao vivo e trabalho em lote | Em andamento (`operador/`, atualização diária) |
 | 6. Entrega | A fazer |
 
 ## Etapa 1 em resumo
@@ -39,6 +39,36 @@ A página [`/verify`](https://hackaton-project-liart.vercel.app/verify) lê tudo
 **Ciclo completo (replay de 29/09/2026, janela confirmada pelo ONS):** [pagamento, recibo e carimbo](https://hackaton-project-liart.vercel.app/verify?tx=5pxHxeJt42bGkPxLN1pK78m8znCgBLgZMRNSqjuZVjM6SLu4EVSB6QqNkPrK5r71sPCNa8PYwxnaf14afkmuRcuN).
 
 Para testar sem Phantom, `node scripts/compra-teste.mjs CJU_BASAR 2026-09-29` (na pasta `site/`) faz a mesma compra com uma carteira de teste e pede o recibo ao site.
+
+## Dados ao vivo e atualização diária (Etapa 5)
+
+O ONS publica o dado de cada dia por volta das 12h do dia seguinte. Todo dia, depois disso, a [atualização diária](.github/workflows/atualizacao-diaria.yml) (GitHub Actions) faz o seguinte:
+
+1. baixa os arquivos novos do ONS;
+2. recalcula a previsão, o placar ao vivo e os vereditos;
+3. publica o site;
+4. grava na Solana o SHA-256 da previsão do dia, que prova que ela existia antes dos dias previstos;
+5. carimba as compras cujas janelas o ONS acabou de publicar.
+
+O teste de agosto e setembro continua congelado. De 1º/10 em diante, o placar **ao vivo** mostra cada janela prevista e o veredito do ONS, com os erros incluídos.
+
+## Operador de computação (Etapa 5)
+
+O operador de demonstração roda num notebook. Ele lê as compras na Solana, espera a janela começar e roda um trabalho real de IA:
+
+- **O modelo:** um modelo pequeno de embeddings multilíngues, que roda na CPU.
+- **O que ele faz:** classifica os motivos que o ONS registrou para os cortes da usina comprada, nas 8 semanas que a previsão usou, e diz por que aquela usina é cortada.
+- **O que fica gravado:** o operador grava na Solana o **início** e o **fim** da execução, com o SHA-256 da entrada e do resultado. Os horários dos blocos mostram que o trabalho rodou dentro da janela.
+- **Onde fica o resultado:** em `site/public/execucoes/<compra>.json`.
+- **Janela que já passou:** a execução fica marcada como *replay*.
+
+```bash
+.venv\Scripts\python.exe -m pip install -r operadorequirements.txt   # uma vez (modelo de ~220 MB baixado na 1ª execução)
+.venv\Scripts\python.exe operador\operador.py                         # fica esperando janelas; Ctrl+C para parar
+.venv\Scripts\python.exe operador	rabalho.py CJU_BASAR 2026-09-29     # só o trabalho, para conferir o SHA-256
+```
+
+A chave do operador fica fora do repositório (`../carteiras-teste/operador.json`). A demo não roda na usina, então não absorve energia cortada; a energia do notebook é estimada pela potência declarada.
 
 ## Atlas (site)
 
@@ -75,7 +105,7 @@ Depois, chame o Python do ambiente pelo caminho completo. Isso dispensa "ativar"
 .venv/bin/python dados/scripts/etapa1.py
 ```
 
-O download pula os meses que já existem; para buscar meses novos, use `--fim AAAA_MM`. Os arquivos de `dados/saida/` só mudam quando os dados do ONS mudam.
+O download vai até o mês atual e sempre confere de novo os dois meses mais recentes, porque o ONS publica o mês corrente dia a dia e às vezes republica o anterior. Os meses antigos só são baixados se faltarem. O PLD horário da CCEE fica em `dados/ccee/`: a CCEE bloqueia download automático, então o arquivo é baixado pelo navegador. Os arquivos de `dados/saida/` só mudam quando os dados do ONS mudam.
 
 **Conferir o resultado:** os arquivos de saída são byte a byte iguais em qualquer sistema. Depois de rodar, compare `dados/saida/impressoes_digitais.txt` com a versão do repositório (`git diff`): se nada mudou, você chegou exatamente aos mesmos números.
 
@@ -92,7 +122,12 @@ dados/
     atlas.py                junta os resultados, a localização e o preço para o site
   config/                   localização aproximada das usinas de destaque
   saida/                    resultados usados pelo site (Atlas) e pelo pitch
+  ccee/                     PLD horário da CCEE (dados abertos)
+operador/
+  trabalho.py               trabalho de IA de demonstração (causas do corte, por usina)
+  operador.py               roda o trabalho dentro da janela comprada e grava a prova na Solana
 site/                       o Atlas (Next.js)
+.github/workflows/          atualização diária (ONS → site → Solana)
 ```
 
 ## Dados

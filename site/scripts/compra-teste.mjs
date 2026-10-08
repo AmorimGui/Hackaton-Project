@@ -4,6 +4,7 @@
 // Uso (na pasta site/):
 //   node scripts/compra-teste.mjs CJU_BASAR 2026-09-29            # 0.1 MWh, site publicado
 //   node scripts/compra-teste.mjs CJU_BASAR 2026-09-29 0.5 http://localhost:3000
+//   node scripts/compra-teste.mjs CJU_RNRVE 2026-10-08T18:30      # dia com mais de uma janela: indique o início
 // (o Node avisa que lê o solana.ts como módulo ES; o aviso é inofensivo)
 //
 // O comprador é uma carteira de teste em ../../carteiras-teste/comprador.json (fora do Git; criada
@@ -18,9 +19,10 @@ import { RPC, contaUsdc, criarContaSeFaltar, explorador, montarTransacao, precif
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const CHAVES = path.resolve(AQUI, "..", "..", "..", "carteiras-teste");
-const [idUsina, data, mwhTexto = "0.1", site = "https://hackaton-project-liart.vercel.app"] = process.argv.slice(2);
+const [idUsina, dataHora, mwhTexto = "0.1", site = "https://hackaton-project-liart.vercel.app"] = process.argv.slice(2);
+const [data, hora] = (dataHora ?? "").split("T");
 if (!idUsina || !data) {
-  console.error("uso: node scripts/compra-teste.mjs <ID_USINA> <AAAA-MM-DD> [MWh] [URL do site]");
+  console.error("uso: node scripts/compra-teste.mjs <ID_USINA> <AAAA-MM-DD[THH:MM]> [MWh] [URL do site]");
   process.exit(1);
 }
 
@@ -29,8 +31,8 @@ if (!idUsina || !data) {
 const atlas = JSON.parse(fs.readFileSync(path.join(AQUI, "..", "src", "data", "atlas.json"), "utf8"));
 const usina = atlas.usinas.find((u) => u.id === idUsina);
 if (!usina) throw new Error(`usina ${idUsina} não está no atlas`);
-const janela = [...usina.recentes, ...usina.proximas].find((j) => j.data === data);
-if (!janela) throw new Error(`nenhuma janela de ${idUsina} em ${data}`);
+const janela = [...usina.recentes, ...usina.proximas].find((j) => j.data === data && (!hora || j.inicio === hora));
+if (!janela) throw new Error(`nenhuma janela de ${idUsina} em ${dataHora}`);
 const compra = {
   idUsina,
   data,
