@@ -36,7 +36,7 @@ export const MWH_MINIMO = 0.1;
 export const contaUsdc = (dono: PublicKey) =>
   PublicKey.findProgramAddressSync([dono.toBuffer(), PROGRAMA_TOKEN.toBuffer(), USDC_DEVNET.toBuffer()], PROGRAMA_CONTA_ASSOCIADA)[0];
 
-function criarContaSeFaltar(pagador: PublicKey, dono: PublicKey) {
+export function criarContaSeFaltar(pagador: PublicKey, dono: PublicKey) {
   return new TransactionInstruction({
     programId: PROGRAMA_CONTA_ASSOCIADA,
     keys: [
@@ -51,7 +51,7 @@ function criarContaSeFaltar(pagador: PublicKey, dono: PublicKey) {
   });
 }
 
-function transferir(origem: PublicKey, destino: PublicKey, dono: PublicKey, microUsdc: bigint) {
+export function transferir(origem: PublicKey, destino: PublicKey, dono: PublicKey, microUsdc: bigint) {
   const dados = Buffer.alloc(10);
   dados.writeUInt8(12, 0); // 12 = TransferChecked (confere o token e as casas decimais)
   dados.writeBigUInt64LE(microUsdc, 1);

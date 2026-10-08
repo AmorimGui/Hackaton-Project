@@ -23,3 +23,6 @@ dados-ons/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Exceção: cópias exatas dos arquivos do ONS citados nos carimbos (para a verificação pública)
+!site/public/ons/**/*.parquet

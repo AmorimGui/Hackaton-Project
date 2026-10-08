@@ -112,10 +112,17 @@ export function Verificacao({ nomes }: { nomes: Record<string, string> }) {
                 </ul>
                 <div className="mt-3 text-xs">
                   <div className="font-medium">{v.onsFile}</div>
-                  <a href={URL_ONS(dados.veredito.fonte)} className="break-all text-wind underline">
-                    {dados.veredito.fonte}
-                  </a>
+                  <div className="break-all">{dados.veredito.fonte}</div>
                   <div className="mt-1 break-all font-mono text-muted">sha256 {dados.veredito.sha256}</div>
+                  <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
+                    {/* Cópia exata guardada pelo atlas.py: o ONS pode republicar o mês e mudar o SHA-256 */}
+                    <a href={`/ons/${dados.veredito.sha256}/${dados.veredito.fonte}`} download className="text-wind underline">
+                      {v.archived}
+                    </a>
+                    <a href={URL_ONS(dados.veredito.fonte)} className="text-wind underline">
+                      {v.onsCurrent}
+                    </a>
+                  </div>
                 </div>
                 <Fase registro={dados.carimbo} lead={v.stampLead} quando={quando} />
               </>

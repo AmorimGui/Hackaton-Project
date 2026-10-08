@@ -28,6 +28,7 @@ SAIDA_ETAPA1 = RAIZ / "dados" / "saida"
 CONFIG = RAIZ / "dados" / "config"
 SITE_DADOS = RAIZ / "site" / "src" / "data"
 SITE_PUBLICO = RAIZ / "site" / "public" / "data"
+SITE_ARQUIVO_ONS = RAIZ / "site" / "public" / "ons"  # cópias exatas dos arquivos do ONS citados nos carimbos
 
 PLD_PISO_2026 = 57.31  # R$/MWh, limite mínimo do PLD em 2026 (ANEEL)
 KW_POR_GPU = 0.85
@@ -280,6 +281,9 @@ def main() -> None:
     # Vereditos do ONS por janela (usinas de destaque), para o carimbo da fase 2 do recibo.
     # Cada veredito aponta para o arquivo oficial do ONS e sua impressão digital (SHA-256),
     # para qualquer pessoa baixar o mesmo arquivo e refazer a conta.
+    # O ONS às vezes republica um mês com mudanças editoriais (em 08/10/2026 renomeou usinas nos
+    # arquivos de setembro), o que muda o SHA-256. Por isso o site guarda uma cópia exata de cada
+    # versão carimbada em public/ons/<sha256>/<arquivo>; versões antigas nunca são apagadas.
     brutos = RAIZ.parent / "dados-ons" / "brutos"
     fontes: dict[str, str] = {}
 
@@ -287,6 +291,10 @@ def main() -> None:
         nome = f"RESTRICAO_COFF_{'EOLICA' if j['tipo'] == 'eolica' else 'FOTOVOLTAICA'}_{j['data'][:4]}_{j['data'][5:7]}.parquet"
         if nome not in fontes and (brutos / nome).exists():
             fontes[nome] = hashlib.sha256((brutos / nome).read_bytes()).hexdigest()
+            copia = SITE_ARQUIVO_ONS / fontes[nome] / nome
+            if not copia.exists():
+                copia.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(brutos / nome, copia)
         return nome
 
     veredictos = {}

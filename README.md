@@ -13,7 +13,7 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 | 1. Dados reais do ONS e teste retroativo | Concluída (`dados/`) |
 | 2. Atlas (site) | Concluída (`site/`) |
 | 3. Pagamento na Solana (devnet) | Concluída (`site/src/lib/solana.ts`) |
-| 4. Recibo em duas fases | A fazer |
+| 4. Recibo em duas fases e verificação pública | Concluída (`site/src/lib/recibo.ts`, página `/verify`) |
 | 5. Trabalho em lote | A fazer |
 | 6. Entrega | A fazer |
 
@@ -26,6 +26,19 @@ O Nordeste deixou de gerar **3,4 GW médios** de eólica e solar em jan–ago/20
 Cada janela prevista tem um botão **Comprar**: o comprador escolhe os MWh, o preço sai do PLD da janela convertido em USDC pela PTAX do Banco Central, e **uma única transação** assinada na Phantom paga usina (70%), operador (25%) e plataforma (5%) e grava um memo com o que foi comprado. A plataforma nunca segura o dinheiro. Roda na **devnet** com USDC de teste; usina e operador são carteiras de teste.
 
 **Primeira compra (08/10/2026):** 0,5 MWh da Serra do Assuruá por 5,73846 USDC — [ver no Solana Explorer](https://explorer.solana.com/tx/5bRw4an8rY7hpYxVnoo217MN85dGUfycp5t6Q6mGQkFDubDdbLE2MABiYVGecacT9SkLoTL1ijtTrj9NjULy5Bg9?cluster=devnet).
+
+## Recibo em duas fases (Etapa 4)
+
+Depois do pagamento, o site grava dois registros na Solana, cada um citando a transação da compra:
+
+1. **Recibo (fase 1):** a usina e o operador assinam um memo reconhecendo a venda (a plataforma paga a taxa).
+2. **Carimbo do ONS (fase 2):** quando o ONS publica o dado da janela (cerca de uma semana depois), a plataforma, como oráculo declarado (v1), grava o veredito, *confirmado* ou *errado*, com o arquivo oficial do ONS e seu SHA-256.
+
+A página [`/verify`](https://hackaton-project-liart.vercel.app/verify) lê tudo direto da blockchain e ensina a conferir sem confiar no site. O site guarda uma cópia exata de cada arquivo do ONS citado num carimbo (`site/public/ons/<sha256>/`), porque o ONS às vezes republica um mês: em 08/10/2026 ele renomeou usinas nos arquivos de setembro. Os números não mudaram, mas o SHA-256 mudou.
+
+**Ciclo completo (replay de 29/09/2026, janela confirmada pelo ONS):** [pagamento, recibo e carimbo](https://hackaton-project-liart.vercel.app/verify?tx=5pxHxeJt42bGkPxLN1pK78m8znCgBLgZMRNSqjuZVjM6SLu4EVSB6QqNkPrK5r71sPCNa8PYwxnaf14afkmuRcuN).
+
+Para testar sem Phantom, `node scripts/compra-teste.mjs CJU_BASAR 2026-09-29` (na pasta `site/`) faz a mesma compra com uma carteira de teste e pede o recibo ao site.
 
 ## Atlas (site)
 
