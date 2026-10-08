@@ -62,7 +62,10 @@ export function Inicio({ d }: { d: DadosInicio }) {
         <Numero valor={`${num(d.manchete.nordeste_mw_medios, L)} MW`} rotulo={t.home.statCut} destaque />
         <Numero valor={`${num(d.manchete.nordeste_gwh_dia, L)} GWh`} rotulo={t.home.statDay} />
         {d.manchete.valor_pld_real_rs ? (
-          <Numero valor={reais(d.manchete.valor_pld_real_rs, L, true)} rotulo={t.home.statValueReal} />
+          <Numero
+            valor={reais(d.manchete.valor_pld_real_rs, L, true)}
+            rotulo={t.home.statValueReal(dataCurta((d.manchete.valor_pld_real_periodo ?? "").slice(-10), L, true))}
+          />
         ) : (
           <Numero valor={reais(d.manchete.valor_anual_piso_rs, L, true)} rotulo={t.home.statValue} />
         )}
@@ -197,7 +200,7 @@ export function Inicio({ d }: { d: DadosInicio }) {
         {d.pld.cruzamento && (
           <Cartao>
             <h3 className="font-medium">{t.home.floorTitle}</h3>
-            <p className="mt-1 text-sm text-muted">{t.home.floorChart}</p>
+            <p className="mt-1 text-sm text-muted">{t.home.floorChart(dataCurta((d.pld.periodo ?? "").slice(-10), L, true))}</p>
             <div className="mt-3">
               <GraficoPiso pct={d.pld.cruzamento.piso_por_hora_pct} />
             </div>

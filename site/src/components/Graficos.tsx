@@ -56,7 +56,7 @@ export function GraficoPiso({ pct: valores }: { pct: number[] }) {
   const y = (v: number) => base - (v / 100) * (base - topo);
   const passo = (W - esq - 8) / 24;
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={t.home.floorChart}>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={t.home.floorTitle}>
       <rect x={esq + 8 * passo} y={topo} width={7 * passo} height={base - topo} fill="var(--color-cut-soft)" opacity="0.6" />
       {[0, 50, 100].map((v) => (
         <g key={v}>

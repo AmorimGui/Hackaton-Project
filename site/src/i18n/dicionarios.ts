@@ -40,7 +40,7 @@ const en = {
     statCut: "average power curtailed in the Northeast, Jan–Aug 2026",
     statDay: "of clean energy wasted per day",
     statValue: "per year, even at the minimum market price",
-    statValueReal: "worth of clean energy curtailed in the Northeast in Jan–Sep 2026, at the actual hourly market price",
+    statValueReal: (ate: string) => `worth of clean energy curtailed in the Northeast from Jan 1 to ${ate}, at the actual hourly market price`,
     statCapture: "of the curtailed energy fell inside our forecast windows (Aug / Sep 2026)",
     forecastTitle: "Forecast windows",
     forecastLead: (ate: string) =>
@@ -57,7 +57,8 @@ const en = {
     valueNoteReal: (piso: string) =>
       `Market value = expected energy × the official hourly PLD (Brazil's spot price) for the Northeast, which CCEE publishes the day before. In most curtailment hours it sits at the regulatory floor of ${piso}/MWh.`,
     floorTitle: "The price hits the floor exactly when energy is curtailed",
-    floorChart: "Share of hours with the Northeast PLD at its floor, by hour of day (Jan 1–Oct 8, 2026). Shaded: peak curtailment hours (8:00–14:59).",
+    floorChart: (ate: string) =>
+      `Share of hours with the Northeast PLD at its floor, by hour of day (Jan 1 to ${ate}). Shaded: peak curtailment hours (8:00–14:59).`,
     floorNote: (pico: string, energia: string, piso: string) =>
       `Between 9:00 and 12:59, the Northeast spot price sat at its ${piso}/MWh floor in ${pico} of hours. ${energia} of the energy curtailed in 2026 was cut while the price was already at the minimum: there is so much clean power that not even the lowest price finds a buyer.`,
     whyTitle: "Why it happens",
@@ -340,7 +341,7 @@ const pt: Dicionario = {
     statCut: "de potência média cortada no Nordeste, jan–ago/2026",
     statDay: "de energia limpa desperdiçada por dia",
     statValue: "por ano, mesmo ao preço mínimo de mercado",
-    statValueReal: "em energia limpa cortada no Nordeste em jan–set/2026, ao preço real de mercado hora a hora",
+    statValueReal: (ate: string) => `em energia limpa cortada no Nordeste de 1º/jan a ${ate}, ao preço real de mercado hora a hora`,
     statCapture: "da energia cortada caiu nas nossas janelas previstas (ago / set 2026)",
     forecastTitle: "Janelas previstas",
     forecastLead: (ate: string) =>
@@ -357,7 +358,8 @@ const pt: Dicionario = {
     valueNoteReal: (piso: string) =>
       `Valor de mercado = energia esperada × o PLD horário oficial do Nordeste (preço de curto prazo), que a CCEE publica na véspera. Na maioria das horas de corte, ele fica no piso regulatório de ${piso}/MWh.`,
     floorTitle: "O preço vai ao piso justamente quando a energia é cortada",
-    floorChart: "Fração das horas com o PLD do Nordeste no piso, por hora do dia (1º/jan a 8/out/2026). Em destaque: horário de pico do corte (8h às 14h59).",
+    floorChart: (ate: string) =>
+      `Fração das horas com o PLD do Nordeste no piso, por hora do dia (1º/jan a ${ate}). Em destaque: horário de pico do corte (8h às 14h59).`,
     floorNote: (pico: string, energia: string, piso: string) =>
       `Entre 9h e 12h59, o preço de curto prazo do Nordeste ficou no piso de ${piso}/MWh em ${pico} das horas. ${energia} da energia cortada em 2026 foi desligada com o preço já no mínimo: sobra tanta energia limpa que nem o menor preço encontra comprador.`,
     whyTitle: "Por que acontece",
