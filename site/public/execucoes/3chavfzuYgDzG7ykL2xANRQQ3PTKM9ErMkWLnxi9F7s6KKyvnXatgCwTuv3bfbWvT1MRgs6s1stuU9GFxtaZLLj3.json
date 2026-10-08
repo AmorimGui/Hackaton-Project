@@ -1,0 +1,125 @@
+{
+ "trabalho": "causas-ons v1",
+ "usina": "CJU_BASAR",
+ "janela": "2026-10-08",
+ "periodo_dos_dados": "2026-08-06 a 2026-09-30",
+ "modelo": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ONNX, CPU)",
+ "metodo": "few-shot: cada texto do ONS recebe a causa do exemplo rotulado mais parecido",
+ "meias_horas_com_corte": 972,
+ "energia_cortada_mwh": 96753,
+ "causas": [
+  {
+   "causa": "frequencia",
+   "en": "Energy surplus: system frequency control",
+   "pt": "Sobra de energia: controle de frequência do sistema",
+   "energia_mwh": 84574,
+   "fracao_energia": 0.874,
+   "meias_horas": 892,
+   "texto_mais_comum": "Controle de frequência do SIN."
+  },
+  {
+   "causa": "exportacao",
+   "en": "Export limit between regions (Northeast → Southeast/North)",
+   "pt": "Limite de exportação entre regiões (Nordeste → Sudeste/Norte)",
+   "energia_mwh": 10742,
+   "fracao_energia": 0.111,
+   "meias_horas": 55,
+   "texto_mais_comum": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 46.480-26"
+  },
+  {
+   "causa": "linha",
+   "en": "Transmission line limit",
+   "pt": "Limite de linha de transmissão",
+   "energia_mwh": 1215,
+   "fracao_energia": 0.013,
+   "meias_horas": 21,
+   "texto_mais_comum": "Controle de inequação: LIMITAÇÃO DO FLUXO BAHIA SUDOESTE - Conforme SGI 43.140-26"
+  },
+  {
+   "causa": "transformador",
+   "en": "Transformer or substation loading",
+   "pt": "Carregamento de transformador ou subestação",
+   "energia_mwh": 222,
+   "fracao_energia": 0.002,
+   "meias_horas": 4,
+   "texto_mais_comum": "Controle de inequação: LIMITAÇÃO DO FLUXO BAHIA SUDOESTE - IO-ON.NE.5NE"
+  }
+ ],
+ "textos_classificados": [
+  {
+   "texto": "Controle de frequência do SIN.",
+   "causa": "frequencia",
+   "meias_horas": 892
+  },
+  {
+   "texto": "Controle de inequação: LIMITAÇÃO DO FLUXO BAHIA SUDOESTE - Conforme SGI 43.140-26",
+   "causa": "linha",
+   "meias_horas": 16
+  },
+  {
+   "texto": "Controle de inequação: LIMITAÇÃO DO FLUXO BAHIA SUDOESTE - IO-ON.NE.5NE",
+   "causa": "transformador",
+   "meias_horas": 4
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 225-26",
+   "causa": "exportacao",
+   "meias_horas": 6
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 43.159-26",
+   "causa": "exportacao",
+   "meias_horas": 1
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 43.225-26",
+   "causa": "exportacao",
+   "meias_horas": 1
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 45.184-26",
+   "causa": "exportacao",
+   "meias_horas": 1
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 46.480-26",
+   "causa": "exportacao",
+   "meias_horas": 30
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 47467-26",
+   "causa": "exportacao",
+   "meias_horas": 6
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 49.641-26",
+   "causa": "exportacao",
+   "meias_horas": 3
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 50526-26",
+   "causa": "exportacao",
+   "meias_horas": 1
+  },
+  {
+   "texto": "Controle do fluxo: FNESE # Fluxo Nordeste/Sudeste - Conforme SGI 67.632-25",
+   "causa": "exportacao",
+   "meias_horas": 6
+  },
+  {
+   "texto": "Controle do fluxo: FNESE_FJUSC_0.25*(FJUSC-K) # Redução do Limite FNESE em função do FJUSC para FNXG > 1000 MW - Conforme SGI 67632-25",
+   "causa": "linha",
+   "meias_horas": 4
+  },
+  {
+   "texto": "Controle do fluxo: FNESE_FJUSC_2.7*(FJUSC-K) # Redução do Limite FNESE em função do FJUSC para Bipolo Xingu < 5000 MW e FNXG > 0 MW - Conforme SGI 67.632-25",
+   "causa": "linha",
+   "meias_horas": 1
+  }
+ ],
+ "conferencia_palavras_chave": {
+  "textos_iguais": "10 de 14",
+  "fracao_meias_horas_iguais": 0.974
+ },
+ "entrada_sha256": "e7ad34cc07cb2e39a175d11bf0449d49c352f7c311e1c16c1845ed8ad11dfd22"
+}
