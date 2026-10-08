@@ -1,0 +1,90 @@
+# Atualização diária do Vento Cortado: dados novos do ONS → site → registros na Solana.
+#
+# O ONS publica o dado de cada dia por volta das 12h (Brasília) do dia seguinte. Depois disso:
+#   1. baixa os arquivos do ONS e recalcula previsão, placar ao vivo e vereditos (Python, como no README);
+#   2. se algo mudou, faz o commit, e a Vercel publica o site novo;
+#   3. com o site novo no ar, grava na Solana o SHA-256 da previsão do dia e os carimbos das compras
+#      cujas janelas o ONS acabou de publicar.
+# Tudo é idempotente: rodar de novo não duplica nada.
+
+name: Atualização diária
+
+on:
+  schedule:
+    - cron: "40 15 * * *" # 12h40 em Brasília
+    - cron: "10 21 * * *" # 18h10, repescagem se o ONS atrasar
+  workflow_dispatch:
+  push: # roda uma vez quando este arquivo muda, para testar
+    branches: [main]
+    paths: [".github/workflows/atualizacao-diaria.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizacao-diaria
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SITE: https://hackaton-project-liart.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # Os meses antigos do ONS não mudam; o cache evita baixar ~100 MB todo dia
+      - uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/../dados-ons/brutos
+          key: ons-${{ github.run_id }}
+          restore-keys: ons-
+
+      - name: Baixar os dados do ONS e recalcular
+        run: |
+          python dados/scripts/baixar_ons.py
+          python dados/scripts/etapa1.py
+          python dados/scripts/atlas.py
+
+      - name: Publicar, se algo mudou
+        id: publicar
+        env:
+          DONO: ${{ github.repository_owner }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nada mudou"
+            echo "mudou=nao" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Autor = dono do repositório (e-mail noreply do GitHub), para a Vercel aceitar o deploy
+          id=$(curl -s -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/users/$DONO" | jq .id)
+          git -c user.name="$DONO (atualização diária)" -c user.email="$id+$DONO@users.noreply.github.com" \
+            commit -q -m "Atualização diária: dados do ONS até $(jq -r .dados_ate site/src/data/previsao_atual.json)"
+          git push || (git pull --rebase -q && git push)
+          echo "mudou=sim" >> "$GITHUB_OUTPUT"
+
+      - name: Esperar o site novo entrar no ar
+        if: steps.publicar.outputs.mudou == 'sim'
+        run: |
+          alvo=$(jq -r .sha256 site/src/data/previsao_atual.json)
+          for i in $(seq 1 40); do
+            curl -s "$SITE/api/previsao" | grep -q "$alvo" && exit 0
+            sleep 15
+          done
+          echo "o site não atualizou em 10 minutos"
+          exit 1
+
+      - name: Registrar a previsão e carimbar as compras na Solana
+        run: |
+          curl -s --fail-with-body -X POST "$SITE/api/previsao"; echo
+          curl -s --fail-with-body -X POST "$SITE/api/carimbar"; echo

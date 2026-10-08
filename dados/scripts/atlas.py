@@ -8,8 +8,9 @@ Uso:
     python dados/scripts/atlas.py [--pld ARQUIVO_CSV ...]
 
 Preço da energia: lê o PLD horário da CCEE (dados abertos, dataset pld_horario)
-salvo em ../dados-ccee/pld_horario_*.csv e usa o submercado Nordeste hora a hora.
-A CCEE bloqueia download automático, então o CSV é baixado pelo navegador.
+salvo em dados/ccee/pld_horario_*.csv e usa o submercado Nordeste hora a hora.
+A CCEE bloqueia download automático, então o CSV é baixado pelo navegador e guardado
+no repositório (dados abertos da CCEE); a atualização diária usa a versão do repositório.
 Sem o arquivo, usa o piso regulatório de 2026 (R$ 57,31/MWh), declarado como premissa.
 Com o PLD e os dados brutos do ONS, também calcula quanto vale a energia cortada.
 """
@@ -166,9 +167,9 @@ def valor_janela(janela: dict, mw_por_meia_hora: float | None, precos: dict[str,
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--pld", type=Path, nargs="*", default=None, help="CSVs de PLD horário da CCEE (padrão: ../dados-ccee/*.csv)")
+    ap.add_argument("--pld", type=Path, nargs="*", default=None, help="CSVs de PLD horário da CCEE (padrão: dados/ccee/*.csv)")
     args = ap.parse_args()
-    arquivos_pld = args.pld if args.pld is not None else sorted((RAIZ.parent / "dados-ccee").glob("pld_horario_*.csv"))
+    arquivos_pld = args.pld if args.pld is not None else sorted((RAIZ / "dados" / "ccee").glob("pld_horario_*.csv"))
     precos, fonte_pld = carregar_pld(arquivos_pld)
     cruzamento = pld_x_corte(precos)
 

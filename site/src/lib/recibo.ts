@@ -11,7 +11,7 @@
 // A plataforma também grava, uma vez por previsão publicada, o SHA-256 do arquivo de janelas previstas:
 // prova de que a previsão existia antes de o dia começar.
 import "server-only";
-import { Connection, Keypair, Transaction, type ParsedInstruction } from "@solana/web3.js";
+import { Connection, Keypair, Transaction, type ConfirmedSignatureInfo, type ParsedInstruction } from "@solana/web3.js";
 import veredictos from "@/data/veredictos.json";
 import { DESTINATARIOS, RPC, USDC_DEVNET, contaUsdc, explorador, memo, type Papel } from "./solana";
 
@@ -119,16 +119,53 @@ export function veredito(c: Compra): (Veredito & { sha256: string }) | null {
   return { ...v, sha256: (veredictos.fontes_ons as Record<string, string>)[v.fonte] ?? "" };
 }
 
-/** Procura no histórico da carteira da plataforma o primeiro registro cujo memo contém todos os trechos. */
-async function acharNaPlataforma(c: Connection, ...trechos: string[][]): Promise<(Registro | null)[]> {
+/** Histórico da carteira da plataforma, do mais novo ao mais velho (compras, recibos, carimbos e previsões). */
+export async function historicoPlataforma(c: Connection) {
   const plataforma = DESTINATARIOS.find((d) => d.papel === "plataforma")!.carteira;
-  const lista = await c.getSignaturesForAddress(plataforma, { limit: 1000 }, "confirmed");
-  return trechos.map((t) => {
-    const s = lista.findLast((x) => !x.err && t.every((parte) => x.memo?.includes(parte))); // a lista vem do mais novo ao mais velho
-    return s
-      ? { assinatura: s.signature, memo: s.memo!.replace(/^\[\d+\]\s*/, ""), horario: s.blockTime ?? null, explorador: explorador(s.signature) }
-      : null;
-  });
+  return c.getSignaturesForAddress(plataforma, { limit: 1000 }, "confirmed");
+}
+
+/** O registro mais antigo do histórico cujo memo contém todos os trechos. */
+function acharEm(lista: ConfirmedSignatureInfo[], trechos: string[]): Registro | null {
+  const s = lista.findLast((x) => !x.err && trechos.every((parte) => x.memo?.includes(parte)));
+  return s
+    ? { assinatura: s.signature, memo: s.memo!.replace(/^\[\d+\]\s*/, ""), horario: s.blockTime ?? null, explorador: explorador(s.signature) }
+    : null;
+}
+
+async function acharNaPlataforma(c: Connection, ...trechos: string[][]): Promise<(Registro | null)[]> {
+  const lista = await historicoPlataforma(c);
+  return trechos.map((t) => acharEm(lista, t));
+}
+
+/**
+ * Emite o que faltar (recibo e, com o dado do ONS, carimbo) para as compras no histórico da plataforma.
+ * Usado pela atualização diária. Para antes de `prazoMs` para caber no limite da função.
+ */
+export async function carimbarPendentes(c: Connection, k: Record<Papel, Keypair>, prazoMs: number) {
+  const inicio = Date.now();
+  const lista = await historicoPlataforma(c);
+  const compras = lista.filter((x) => !x.err && x.memo?.includes(PREFIXO_COMPRA)).reverse(); // mais antigas primeiro
+  const feitos: { compra: string; recibo?: string; carimbo?: string; erro?: string }[] = [];
+  for (const x of compras) {
+    if (Date.now() - inicio > prazoMs) break;
+    const ref = `compra ${x.signature}`;
+    let recibo = acharEm(lista, [PREFIXO_RECIBO, ref]);
+    const carimbo = acharEm(lista, [PREFIXO_CARIMBO, ref]);
+    if (recibo && carimbo) continue;
+    try {
+      const compra = await lerCompra(c, x.signature);
+      const v = veredito(compra);
+      if (!recibo) {
+        recibo = await emitirRecibo(c, k, compra);
+        feitos.push({ compra: x.signature, recibo: recibo.assinatura });
+      }
+      if (v) feitos.push({ compra: x.signature, carimbo: (await emitirCarimbo(c, k, compra, v)).assinatura });
+    } catch (e) {
+      feitos.push({ compra: x.signature, erro: (e as Error).message });
+    }
+  }
+  return { compras: compras.length, feitos };
 }
 
 /** Procura o recibo e o carimbo já gravados para esta compra (histórico da carteira da plataforma). */
