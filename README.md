@@ -4,6 +4,8 @@ Mercado de flexibilidade para o excesso de energia renovável do Nordeste brasil
 
 Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypto World's Fair 2026.
 
+**Site:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) — publicado na Vercel; cada `git push` na `main` atualiza o site.
+
 ## Estado
 
 | Etapa | Situação |
