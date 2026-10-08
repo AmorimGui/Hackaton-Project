@@ -2,7 +2,7 @@
 //
 // Confere a compra na blockchain, emite o que faltar (recibo da fase 1 e, se o ONS já publicou
 // o dado da janela, o carimbo da fase 2) e devolve tudo. Pode ser chamado de novo sem duplicar nada.
-import { assinaturaValida, chaves, conexao, emitirCarimbo, emitirRecibo, lerCompra, registros, veredito } from "@/lib/recibo";
+import { assinaturaValida, chaves, conexao, emitirCarimbo, emitirRecibo, lerCompra, registros, veredito, vereditoDoCarimbo } from "@/lib/recibo";
 import { explorador } from "@/lib/solana";
 
 export const maxDuration = 60;
@@ -47,7 +47,8 @@ export async function POST(request: Request) {
     compra: { ...compra, explorador: explorador(assinatura) },
     recibo,
     carimbo,
-    veredito: v,
+    // depois de carimbado, vale o que o carimbo gravou (arquivo e SHA-256 daquela versão do ONS)
+    veredito: (carimbo && vereditoDoCarimbo(carimbo.memo)) ?? v,
     aguardando_ons: !v,
     chaves_configuradas: !!k,
   });

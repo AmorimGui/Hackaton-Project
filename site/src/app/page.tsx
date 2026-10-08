@@ -11,6 +11,7 @@ export default function Page() {
     dados_ate: atlas.dados_ate,
     cambio: atlas.cambio,
     placar: atlas.teste.placar,
+    ao_vivo: atlas.ao_vivo,
     usinas: atlas.usinas.map(({ id, nome, uf, tipo, local, capacidade_mw, proximas }) => ({ id, nome, uf, tipo, local, capacidade_mw, proximas })),
   };
   return <Inicio d={dados} />;

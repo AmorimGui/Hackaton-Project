@@ -29,6 +29,7 @@ CONFIG = RAIZ / "dados" / "config"
 SITE_DADOS = RAIZ / "site" / "src" / "data"
 SITE_PUBLICO = RAIZ / "site" / "public" / "data"
 SITE_ARQUIVO_ONS = RAIZ / "site" / "public" / "ons"  # cópias exatas dos arquivos do ONS citados nos carimbos
+SITE_PREVISOES = RAIZ / "site" / "public" / "previsoes"  # cada previsão publicada, como saiu (nunca reescrita)
 
 PLD_PISO_2026 = 57.31  # R$/MWh, limite mínimo do PLD em 2026 (ANEEL)
 KW_POR_GPU = 0.85
@@ -141,8 +142,15 @@ def pld_x_corte(precos: dict[str, float]) -> dict | None:
     }
 
 
+def pld_conhecido(janela: dict, precos: dict[str, float]) -> bool:
+    """True se a CCEE já publicou o PLD de todas as horas da janela (senão, o valor usa o piso como estimativa)."""
+    ini, fim = int(janela["inicio"][:2]), int(janela["fim"][:2]) + (janela["fim"][3:] == "30")
+    return all(f"{janela['data']} {h:02d}" in precos for h in range(ini, max(ini + 1, fim)))
+
+
 def valor_janela(janela: dict, mw_por_meia_hora: float | None, precos: dict[str, float]) -> float:
-    """Valor de referência (R$) da energia esperada na janela, ao PLD de cada hora."""
+    """Valor de referência (R$) da energia esperada na janela, ao PLD de cada hora.
+    Hora sem PLD publicado (a CCEE publica um dia antes) entra pelo piso, como estimativa."""
     energia = janela["energia_esperada_mwh"]
     if not precos:
         return energia * PLD_PISO_2026
@@ -168,6 +176,7 @@ def main() -> None:
     resumo = ler_json("resumo.json")
     teste = ler_json("teste_retroativo.json")
     historico = ler_json("janelas_previstas_ago_set_2026.json")
+    ao_vivo = ler_json("janelas_ao_vivo.json")
     proximas = ler_json("janelas_previstas_proximos_dias.json")
     local = json.loads((CONFIG / "localizacao_usinas.json").read_text(encoding="utf-8"))["usinas"]
 
@@ -183,7 +192,8 @@ def main() -> None:
 
     def enriquecer(j: dict) -> dict:
         valor = valor_janela(j, None, precos)
-        return {**j, "valor_referencia_rs": arred(valor), "pld_medio_rs_mwh": arred(valor / j["energia_esperada_mwh"], 2) if j["energia_esperada_mwh"] else None}
+        return {**j, "valor_referencia_rs": arred(valor), "pld_estimado": not pld_conhecido(j, precos),
+                "pld_medio_rs_mwh": arred(valor / j["energia_esperada_mwh"], 2) if j["energia_esperada_mwh"] else None}
 
     # Janelas previstas (próximos dias): todas as usinas para contagem, detalhe das de destaque
     prox_destaque = [enriquecer(j) for j in proximas["janelas"] if j["id_ons"] in ids]
@@ -195,9 +205,12 @@ def main() -> None:
         d["energia_esperada_mwh"] += j["energia_esperada_mwh"]
     dias = sorted(por_dia)
 
-    # Histórico ago–set: placar e as janelas mais recentes de cada usina de destaque
+    # Histórico ago–set (placar congelado) e ao vivo (outubro em diante): as janelas mais recentes de cada
+    # usina de destaque já com o veredito do ONS
     hist_destaque = [j for j in historico["janelas"] if j["id_ons"] in ids]
-    datas_hist = sorted({j["data"] for j in hist_destaque})
+    vivo_destaque = [j for j in ao_vivo["janelas"] if j["id_ons"] in ids and j["resultado_ons"] in ("confirmado", "errado")]
+    com_veredito = hist_destaque + vivo_destaque
+    datas_hist = sorted({j["data"] for j in com_veredito})
     recentes = set(datas_hist[-DIAS_RECENTES:])
 
     t_ago, t_set = teste["testes"]["agosto_2026"], teste["testes"]["setembro_2026"]
@@ -210,6 +223,7 @@ def main() -> None:
     for u in destaque:
         hist_u = [j for j in hist_destaque if j["id_ons"] == u["id"]]
         conf = sum(j["resultado_ons"] == "confirmado" for j in hist_u)
+        vivo_u = [j for j in vivo_destaque if j["id_ons"] == u["id"]]
         plantas.append({
             "id": u["id"], "nome": u["nome"], "uf": u["uf"], "tipo": u["tipo"], "agente": u["agente"],
             "ponto_conexao": u["ponto_conexao"], "capacidade_mw": u["disp_max_mw"],
@@ -220,8 +234,9 @@ def main() -> None:
             "teste": {"agosto": metr(t_ago["usinas_destaque"][u["id"]]["continuo_com_atraso"]),
                       "setembro": metr(t_set["usinas_destaque"][u["id"]]["continuo_com_atraso"])},
             "placar": {"janelas": len(hist_u), "confirmadas": conf},
-            # janelas históricas com preço: podem ser compradas em "replay" (o veredito do ONS já existe)
-            "recentes": [enriquecer(j) for j in hist_u if j["data"] in recentes],
+            "placar_ao_vivo": {"janelas": len(vivo_u), "confirmadas": sum(j["resultado_ons"] == "confirmado" for j in vivo_u)},
+            # janelas com veredito e preço: podem ser compradas em "replay" (o veredito do ONS já existe)
+            "recentes": [enriquecer(j) for j in hist_u + vivo_u if j["data"] in recentes],
             "proximas": [j for j in prox_destaque if j["id_ons"] == u["id"]],
         })
 
@@ -266,6 +281,8 @@ def main() -> None:
             "parametros": teste["parametros"],
             "placar": resumo["janelas"],
         },
+        # Acompanhamento ao vivo (outubro em diante), separado do teste retroativo congelado
+        "ao_vivo": {**resumo["janelas_ao_vivo"], "publicada_antes_desde": ao_vivo["publicada_antes_desde"]},
         "padroes": {
             "perda_por_hora_pct": resumo["perda_por_hora_pct"],
             "chance_dia_util": resumo["chance_corte_dia_util"],
@@ -298,7 +315,7 @@ def main() -> None:
         return nome
 
     veredictos = {}
-    for j in list(historico["janelas"]) + list(proximas["janelas"]):
+    for j in list(historico["janelas"]) + list(ao_vivo["janelas"]) + list(proximas["janelas"]):
         if j["id_ons"] not in ids or j["resultado_ons"] not in ("confirmado", "errado"):
             continue
         veredictos[f"{j['id_ons']}|{j['data']}|{j['inicio']}-{j['fim']}"] = {
@@ -316,8 +333,20 @@ def main() -> None:
     # Dados abertos para download no site
     SITE_PUBLICO.mkdir(parents=True, exist_ok=True)
     for nome in ("chance_corte_por_usina_mes_hora.csv", "corte_por_estado_mes.csv", "janelas_previstas_ago_set_2026.json",
-                 "janelas_previstas_proximos_dias.json", "teste_retroativo.json", "usinas.json", "impressoes_digitais.txt"):
+                 "janelas_ao_vivo.json", "janelas_previstas_proximos_dias.json", "teste_retroativo.json", "usinas.json",
+                 "impressoes_digitais.txt"):
         shutil.copyfile(SAIDA_ETAPA1 / nome, SITE_PUBLICO / nome)
+
+    # Cada previsão fica guardada como foi publicada (a primeira versão de cada "dados_ate" vale).
+    # O site carimba o SHA-256 dela na Solana, o que prova que a previsão existia antes do dia.
+    SITE_PREVISOES.mkdir(parents=True, exist_ok=True)
+    guardada = SITE_PREVISOES / f"previsao_{proximas['dados_ate']}.json"
+    if not guardada.exists():
+        shutil.copyfile(SAIDA_ETAPA1 / "janelas_previstas_proximos_dias.json", guardada)
+    (SITE_DADOS / "previsao_atual.json").write_bytes((json.dumps({
+        "dados_ate": proximas["dados_ate"], "periodo": proximas["periodo"], "arquivo": f"previsoes/{guardada.name}",
+        "sha256": hashlib.sha256(guardada.read_bytes()).hexdigest(),
+    }, ensure_ascii=False, indent=1) + "\n").encode("utf-8"))
 
     print(f"atlas.json: {len(plantas)} usinas de destaque, {len(prox_destaque)} janelas previstas, "
           f"{len(dias)} dias ({dias[0]} a {dias[-1]}), PLD: {fonte_pld['tipo']}")

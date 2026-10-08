@@ -20,7 +20,7 @@ import {
   usdc,
   type Compra,
 } from "@/lib/solana";
-import type { RespostaRecibo } from "@/lib/tipos";
+import { PLD_PISO_2026, type RespostaRecibo } from "@/lib/tipos";
 import type { AlvoCompra } from "./BotaoComprar";
 import Link from "next/link";
 
@@ -223,6 +223,9 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
                 R$ {num(preco.valorRs, L, 2)} · {b.atPld(`R$ ${num(pldArred, L, 2)}`)}
               </div>
               <p className="mt-2 text-[11px] leading-snug text-muted">{b.rate(num(cambio.ptax_venda, L, 4), dataCurta(cambio.data, L, true))}</p>
+              {janela.pld_estimado && (
+                <p className="mt-1 text-[11px] leading-snug text-muted">{b.pldEstNote(`R$ ${num(PLD_PISO_2026, L, 2)}`)}</p>
+              )}
             </div>
 
             <div>

@@ -18,5 +18,5 @@ export default async function Page({ params }: PageProps<"/plants/[id]">) {
   const { id } = await params;
   const u = atlas.usinas.find((x) => x.id === id);
   if (!u) notFound();
-  return <PaginaUsina u={u} cambio={atlas.cambio} />;
+  return <PaginaUsina u={u} cambio={atlas.cambio} dadosAte={atlas.dados_ate} />;
 }

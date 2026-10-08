@@ -18,6 +18,8 @@ export type Janela = {
   razoes_do_corte: Record<string, number>;
   valor_referencia_rs?: number;
   pld_medio_rs_mwh?: number | null;
+  /** true se alguma hora da janela ainda não tem PLD publicado pela CCEE (valor pelo piso, estimado) */
+  pld_estimado?: boolean;
 };
 
 export type Metricas = {
@@ -43,6 +45,7 @@ export type Usina = {
   calor: (number | null)[][];
   teste: { agosto: Metricas; setembro: Metricas };
   placar: { janelas: number; confirmadas: number };
+  placar_ao_vivo: { janelas: number; confirmadas: number };
   recentes: Janela[];
   proximas: Janela[];
 };
@@ -125,6 +128,7 @@ export type Atlas = {
     parametros: Record<string, unknown>;
     placar: { total: number; confirmadas: number; erradas: number; fracao_confirmadas: number };
   };
+  ao_vivo: PlacarVivo & { periodo: string; publicadas_antes: PlacarVivo; publicada_antes_desde: string };
   padroes: {
     perda_por_hora_pct: { eolica: number[]; solar: number[] };
     chance_dia_util: number;
@@ -133,5 +137,10 @@ export type Atlas = {
   };
   impressoes: string[];
 };
+
+export type PlacarVivo = { total: number; confirmadas: number; erradas: number; fracao_confirmadas: number | null };
+
+/** Piso regulatório do PLD em 2026 (R$/MWh): usado quando a CCEE ainda não publicou o preço da hora. */
+export const PLD_PISO_2026 = 57.31;
 
 export const REPOSITORIO = "https://github.com/AmorimGui/Hackaton-Project";

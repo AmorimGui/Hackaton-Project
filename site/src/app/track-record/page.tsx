@@ -11,7 +11,9 @@ export default function Page() {
         teste: atlas.teste,
         manchete: atlas.manchete,
         impressoes: atlas.impressoes,
-        usinas: atlas.usinas.map(({ id, nome, uf, tipo, teste, placar }) => ({ id, nome, uf, tipo, teste, placar })),
+        ao_vivo: atlas.ao_vivo,
+        dados_ate: atlas.dados_ate,
+        usinas: atlas.usinas.map(({ id, nome, uf, tipo, teste, placar, placar_ao_vivo }) => ({ id, nome, uf, tipo, teste, placar, placar_ao_vivo })),
       }}
     />
   );

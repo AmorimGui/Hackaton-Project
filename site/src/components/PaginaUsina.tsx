@@ -9,7 +9,9 @@ import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloResultado, SeloTipo } from "./Selos";
 import { MapaCalor } from "./Graficos";
 
-export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) {
+const INICIO_AO_VIVO = "2026-10-01"; // depois do teste de agosto e setembro
+
+export function PaginaUsina({ u, cambio, dadosAte }: { u: Usina; cambio: Cambio | null; dadosAte: string }) {
   const { t } = useIdioma();
   const L = t.locale;
   const ponto = {
@@ -82,7 +84,14 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
                   <BarraChance valor={j.chance_prevista} />
                 </td>
                 <td className="tabular whitespace-nowrap px-2 py-2 text-right">~{energia(j.energia_esperada_mwh, L)}</td>
-                <td className="tabular whitespace-nowrap px-2 py-2 text-right">{reais(j.valor_referencia_rs ?? 0, L, true)}</td>
+                <td className="tabular whitespace-nowrap px-2 py-2 text-right">
+                  {reais(j.valor_referencia_rs ?? 0, L, true)}
+                  {j.pld_estimado && (
+                    <span title={t.common.pldEstTitle} className="ml-1 cursor-help text-[10px] text-muted underline decoration-dotted">
+                      {t.common.pldEst}
+                    </span>
+                  )}
+                </td>
                 <td className="px-2 py-2 text-right">
                   <SeloResultado resultado={j.resultado_ons} />
                 </td>
@@ -97,7 +106,7 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
 
       <Cartao>
         <h2 className="text-lg font-semibold">{t.plant.heatTitle}</h2>
-        <p className="mt-1 text-sm text-muted">{t.plant.heatNote}</p>
+        <p className="mt-1 text-sm text-muted">{t.plant.heatNote(dataCurta(dadosAte, L, true))}</p>
         <div className="mt-4">
           <MapaCalor calor={u.calor} />
         </div>
@@ -124,7 +133,10 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
             <tbody>
               {[...u.recentes].reverse().map((j) => (
                 <tr key={`${j.data}-${j.inicio}`} className="border-b border-line/70 last:border-0">
-                  <td className="whitespace-nowrap px-5 py-2">{dataCurta(j.data, L)}</td>
+                  <td className="whitespace-nowrap px-5 py-2">
+                    {dataCurta(j.data, L)}
+                    {j.data >= INICIO_AO_VIVO && <span className="ml-1.5 text-[10px] font-medium uppercase text-ok">{t.common.live}</span>}
+                  </td>
                   <td className="tabular whitespace-nowrap px-2 py-2">
                     {j.inicio}–{j.fim}
                   </td>
@@ -145,6 +157,11 @@ export function PaginaUsina({ u, cambio }: { u: Usina; cambio: Cambio | null }) 
         <Cartao>
           <h2 className="text-lg font-semibold">{t.plant.backtestTitle}</h2>
           <p className="mt-1 text-sm text-muted">{t.plant.scoreboard(num(u.placar.confirmadas, L), num(u.placar.janelas, L))}</p>
+          {u.placar_ao_vivo.janelas > 0 && (
+            <p className="text-sm font-medium text-ok">
+              {t.plant.scoreboardLive(num(u.placar_ao_vivo.confirmadas, L), num(u.placar_ao_vivo.janelas, L))}
+            </p>
+          )}
           {(["agosto", "setembro"] as const).map((mes) => (
             <div key={mes} className="mt-4">
               <div className="text-xs uppercase tracking-wide text-muted">{mes === "agosto" ? t.plant.months[7] : t.plant.months[8]} 2026</div>

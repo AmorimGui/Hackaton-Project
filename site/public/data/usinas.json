@@ -104,7 +104,7 @@
     "tipo": "eolica",
     "agente": "CHAPADA BRANCA",
     "ponto_conexao": "GENTIO OURO II230kVA",
-    "disp_max_mw": 474,
+    "disp_max_mw": 480,
     "jan_jul_2026": {
       "energia_perdida_gwh": 236.9,
       "fracao_meias_horas_com_corte": 0.36
@@ -1555,7 +1555,7 @@
   },
   {
     "id": "CJU_CEAPA",
-    "nome": "Conj. Jaguaruana II 230kV",
+    "nome": "Conj. Jaguaruana II 230 kV",
     "uf": "CE",
     "tipo": "solar",
     "agente": "VOLTALIA",
@@ -1975,7 +1975,7 @@
   },
   {
     "id": "CEUCZ",
-    "nome": "Eol Icaraizinho",
+    "nome": "Icaraizinho",
     "uf": "CE",
     "tipo": "eolica",
     "agente": "CPFL ENERGIAS",
@@ -2092,7 +2092,7 @@
     "tipo": "solar",
     "agente": "ENGIE",
     "ponto_conexao": "ACU II - 138 kV (A)",
-    "disp_max_mw": 33,
+    "disp_max_mw": 34,
     "jan_jul_2026": {
       "energia_perdida_gwh": 10.2,
       "fracao_meias_horas_com_corte": 0.221
@@ -2115,7 +2115,7 @@
   },
   {
     "id": "CJU_BA4FBMC",
-    "nome": "Conj. Fot. Brotas de Macaúbas 230 kV",
+    "nome": "Conj. Brotas de Macaúbas 230 kV",
     "uf": "BA",
     "tipo": "solar",
     "agente": "STATKRAFT",
@@ -2255,12 +2255,12 @@
   },
   {
     "id": "CJU_BAECLA",
-    "nome": "Conj. Campo Largo 230kV",
+    "nome": "Conj. Campo Largo 230 kV",
     "uf": "BA",
     "tipo": "eolica",
     "agente": "ENGIE",
     "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
-    "disp_max_mw": 1031,
+    "disp_max_mw": 1083,
     "jan_jul_2026": {
       "energia_perdida_gwh": 0.0,
       "fracao_meias_horas_com_corte": null
@@ -2311,12 +2311,12 @@
   },
   {
     "id": "CJU_BAVSES",
-    "nome": "Conj. Fot. Ventos Santa Eugênia",
+    "nome": "Conj. Ventos Santa Eugênia",
     "uf": "BA",
     "tipo": "solar",
     "agente": "STATKRAFT",
     "ponto_conexao": "GENTIO OURO II500kVA",
-    "disp_max_mw": 130,
+    "disp_max_mw": 153,
     "jan_jul_2026": {
       "energia_perdida_gwh": 0.0,
       "fracao_meias_horas_com_corte": null

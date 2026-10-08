@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useIdioma } from "@/i18n/idioma";
 import type { Atlas, Usina } from "@/lib/tipos";
-import { num, pct } from "@/lib/formato";
+import { dataCurta, num, pct } from "@/lib/formato";
 import { Cartao, SeloTipo } from "./Selos";
 import { GraficoCalibracao } from "./Graficos";
 
@@ -11,7 +11,9 @@ export type DadosPlacar = {
   teste: Atlas["teste"];
   manchete: Atlas["manchete"];
   impressoes: string[];
-  usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "teste" | "placar">[];
+  ao_vivo: Atlas["ao_vivo"];
+  dados_ate: string;
+  usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "teste" | "placar" | "placar_ao_vivo">[];
 };
 
 const ORDEM = ["taxa_media", "regra_fixa_8h_15h", "mesmo_mes_2025", "perfil_8_semanas", "combinado", "continuo_com_atraso"];
@@ -33,6 +35,28 @@ export function Placar({ d }: { d: DadosPlacar }) {
         </p>
         <p className="mt-2 text-muted">{t.home.trackCtaLead(num(d.teste.placar.confirmadas, L), num(d.teste.placar.total, L))}</p>
       </header>
+
+      {/* Ao vivo: o mesmo modelo, depois do teste congelado; erros incluídos */}
+      <Cartao className="border-l-4 border-l-ok">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-lg font-semibold">{t.track.liveTitle}</h2>
+          <span className="text-xs font-medium uppercase tracking-wide text-ok">● {t.common.live}</span>
+        </div>
+        <p className="mt-1 max-w-3xl text-sm text-muted">{t.track.liveLead(dataCurta(d.dados_ate, L, true))}</p>
+        <p className="mt-3 text-2xl font-semibold">
+          {t.track.liveScore(num(d.ao_vivo.confirmadas, L), num(d.ao_vivo.total, L), pct(d.ao_vivo.fracao_confirmadas ?? 0, L))}
+        </p>
+        <p className="mt-1 text-sm">
+          {d.ao_vivo.publicadas_antes.total
+            ? t.track.liveBefore(num(d.ao_vivo.publicadas_antes.confirmadas, L), num(d.ao_vivo.publicadas_antes.total, L))
+            : t.track.liveBeforeNone}
+        </p>
+        <div className="mt-4 max-w-3xl rounded-lg bg-sun-soft/60 p-3 text-sm">
+          <div className="font-semibold">{t.track.liveWhyTitle}</div>
+          <p className="mt-1 leading-relaxed">{t.track.liveWhy}</p>
+        </div>
+        <p className="mt-3 max-w-3xl text-xs text-muted">{t.track.liveNote}</p>
+      </Cartao>
 
       <Cartao className="overflow-x-auto p-0">
         <h2 className="px-5 pt-5 text-lg font-semibold">{t.track.tableTitle}</h2>
@@ -101,6 +125,13 @@ export function Placar({ d }: { d: DadosPlacar }) {
           </dl>
           <h3 className="mt-6 text-sm font-semibold">{t.home.featured}</h3>
           <table className="mt-2 w-full text-sm">
+            <thead className="text-xs text-muted">
+              <tr>
+                <th />
+                <th className="py-1 text-right font-medium">{t.track.backtestCol}</th>
+                <th className="py-1 pl-4 text-right font-medium">{t.track.liveCol}</th>
+              </tr>
+            </thead>
             <tbody>
               {d.usinas.map((u) => (
                 <tr key={u.id} className="border-b border-line/70 last:border-0">
@@ -112,6 +143,9 @@ export function Placar({ d }: { d: DadosPlacar }) {
                   </td>
                   <td className="tabular py-1.5 text-right text-muted">
                     {num(u.placar.confirmadas, L)}/{num(u.placar.janelas, L)}
+                  </td>
+                  <td className="tabular py-1.5 pl-4 text-right text-muted">
+                    {u.placar_ao_vivo.janelas ? `${num(u.placar_ao_vivo.confirmadas, L)}/${num(u.placar_ao_vivo.janelas, L)}` : "—"}
                   </td>
                 </tr>
               ))}

@@ -8,17 +8,20 @@ import { dataCurta, energia, num, pct, reais } from "@/lib/formato";
 import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloTipo } from "./Selos";
 import { BotaoComprar } from "./BotaoComprar";
+import { SeloPrevisao } from "./SeloPrevisao";
 import { GraficoHoras, GraficoMensal, GraficoPiso } from "./Graficos";
 
 export type DadosInicio = Pick<Atlas, "manchete" | "previsao" | "pld" | "padroes" | "dados_ate" | "cambio"> & {
   placar: Atlas["teste"]["placar"];
+  ao_vivo: Atlas["ao_vivo"];
   usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "local" | "capacidade_mw" | "proximas">[];
 };
 
 export function Inicio({ d }: { d: DadosInicio }) {
   const { t } = useIdioma();
   const L = t.locale;
-  const [dia, setDia] = useState(d.previsao.dias[d.previsao.dias.length - 1]);
+  // o primeiro dia previsto é o dia seguinte ao último dado do ONS, ou seja, normalmente hoje
+  const [dia, setDia] = useState(d.previsao.dias[0]);
   const doDia = d.previsao.por_dia[dia];
   const piso = `R$ ${num(d.pld.piso_2026_rs_mwh, L, 2)}`;
   const compacto = (x: number) => new Intl.NumberFormat(L, { notation: "compact", maximumFractionDigits: 1 }).format(x);
@@ -71,6 +74,7 @@ export function Inicio({ d }: { d: DadosInicio }) {
         <div className="max-w-3xl">
           <h2 className="text-2xl font-semibold tracking-tight">{t.home.forecastTitle}</h2>
           <p className="mt-2 text-muted">{t.home.forecastLead(dataCurta(d.dados_ate, L, true))}</p>
+          <SeloPrevisao />
         </div>
 
         <div className="flex flex-wrap gap-1.5" role="tablist" aria-label={t.home.day}>
@@ -133,6 +137,11 @@ export function Inicio({ d }: { d: DadosInicio }) {
                         </td>
                         <td className="tabular whitespace-nowrap px-4 py-2.5 text-right">
                           {reais(j.valor_referencia_rs ?? 0, L, true)}
+                          {j.pld_estimado && (
+                            <span title={t.common.pldEstTitle} className="ml-1 cursor-help text-[10px] text-muted underline decoration-dotted">
+                              {t.common.pldEst}
+                            </span>
+                          )}
                           <div className="mt-1">
                             <BotaoComprar idUsina={u.id} nomeUsina={u.nome} janela={j} cambio={d.cambio} />
                           </div>
@@ -213,6 +222,11 @@ export function Inicio({ d }: { d: DadosInicio }) {
       <Link href="/track-record" className="block rounded-xl bg-ink p-6 text-white transition hover:bg-ink/90">
         <div className="text-xl font-semibold">{t.home.trackCta} →</div>
         <div className="mt-1 text-white/75">{t.home.trackCtaLead(num(d.placar.confirmadas, L), num(d.placar.total, L))}</div>
+        {d.ao_vivo.total > 0 && (
+          <div className="text-white/75">
+            {t.home.liveLine(num(d.ao_vivo.confirmadas, L), num(d.ao_vivo.total, L), pct(d.ao_vivo.fracao_confirmadas ?? 0, L))}
+          </div>
+        )}
       </Link>
     </div>
   );

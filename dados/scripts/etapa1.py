@@ -2,7 +2,8 @@
 
 Lê os arquivos mensais de constrained-off do ONS (eólica e fotovoltaica),
 mantém as usinas do RN, BA e CE, calcula a chance de corte e testa a previsão
-em meses que o modelo não viu (agosto e setembro de 2026).
+em meses que o modelo não viu (agosto e setembro de 2026). De outubro em diante,
+acompanha ao vivo as janelas previstas e o veredito do ONS, até o último dia publicado.
 
 Uso:
     python dados/scripts/etapa1.py [--brutos PASTA]
@@ -29,7 +30,9 @@ UFS = ["RN", "BA", "CE"]
 LIMIAR_CORTE_MW = 1.0  # meia hora conta como corte se a GNRa do ONS for >= 1 MW médio
 LIMIAR_JANELA = 0.5  # a janela é oferecida quando a chance prevista é >= 50%
 DIAS_PERFIL = 56  # o perfil recente usa as últimas 8 semanas
-ATRASO_PUBLICACAO_DIAS = 7  # o ONS publica com cerca de uma semana de atraso
+# Atraso de publicação assumido pelo modelo. Foi fixado antes do teste, quando supúnhamos uma semana;
+# o ONS publica com cerca de um dia, então a previsão usa dados mais velhos do que poderia (conservadora).
+ATRASO_PUBLICACAO_DIAS = 7
 SUAVIZACAO = 2  # peso da taxa média da usina quando há poucas observações
 MIN_MEIAS_HORAS_JANELA = 2  # janela mínima de 1 hora
 KW_POR_GPU = 0.85  # H100 com refrigeração (suposição do escopo)
@@ -48,22 +51,33 @@ FERIADOS = {
     "2026-01-01", "2026-02-16", "2026-02-17", "2026-04-03", "2026-04-21", "2026-05-01", "2026-06-04",
     "2026-09-07", "2026-10-12", "2026-11-02", "2026-11-15", "2026-11-20", "2026-12-25",
 }
+INICIO_AO_VIVO = "2026-10-01"  # depois do teste retroativo: acompanhamento contínuo
+# Primeiro dia cuja previsão foi publicada antes de o dia começar (commit fb86b88, 07/10/2026 23:19)
+PUBLICADA_ANTES_DESDE = "2026-10-08"
 RAZOES = {"ENE": 1, "CNF": 2, "REL": 3, "PAR": 4}
 NOME_RAZAO = {v: k for k, v in RAZOES.items()}
 
 # ---------- Eixo do tempo: meias-horas desde 01/01/2025 (horário de Brasília, sem fuso) ----------
+# O eixo vai até o último dia completo publicado pelo ONS; definir_eixo() o ajusta depois da leitura.
 BASE = date(2025, 1, 1)
-N_DIAS = (date(2026, 10, 1) - BASE).days  # até 30/09/2026
-N_SLOTS = N_DIAS * 48
-DIAS = [BASE + timedelta(days=d) for d in range(N_DIAS)]
+N_DIAS = N_SLOTS = 0
+DIAS: list[date] = []
+TIPO_DIA = MES_DO_DIA = np.zeros(0, dtype=np.int8)
+
+
 def tipo_do_dia(d: int) -> int:
     """0 = dia útil; 1 = fim de semana ou feriado. Vale também para dias futuros."""
     dia = BASE + timedelta(days=d)
     return 1 if dia.weekday() >= 5 or dia.isoformat() in FERIADOS else 0
 
 
-TIPO_DIA = np.array([tipo_do_dia(d) for d in range(N_DIAS)], dtype=np.int8)
-MES_DO_DIA = np.array([d.month for d in DIAS], dtype=np.int8)
+def definir_eixo(ultimo: date) -> None:
+    global N_DIAS, N_SLOTS, DIAS, TIPO_DIA, MES_DO_DIA
+    N_DIAS = (ultimo - BASE).days + 1
+    N_SLOTS = N_DIAS * 48
+    DIAS = [BASE + timedelta(days=d) for d in range(N_DIAS)]
+    TIPO_DIA = np.array([tipo_do_dia(d) for d in range(N_DIAS)], dtype=np.int8)
+    MES_DO_DIA = np.array([d.month for d in DIAS], dtype=np.int8)
 
 
 def dia_de(iso: str) -> int:
@@ -132,6 +146,9 @@ def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray, pd.Dat
 
     dados = pd.concat(partes, ignore_index=True)
     instante = dados["din_instante"]
+    # último dia completo (o ONS publica o mês corrente dia a dia; um dia pela metade fica de fora)
+    fim = instante.max()
+    definir_eixo(fim.date() if (fim.hour, fim.minute) == (23, 30) else fim.date() - timedelta(days=1))
     slot = ((instante - pd.Timestamp(BASE)).dt.total_seconds() // 1800).astype(np.int64).to_numpy()
     ok = (slot >= 0) & (slot < N_SLOTS)
     dados, slot = dados[ok], slot[ok]
@@ -371,7 +388,7 @@ def main() -> None:
     resultado = {
         # data do último dado lido (e não a hora da execução, para o arquivo só mudar quando os dados mudam)
         "dados_ate": iso_do_dia(ultimo_dia),
-        "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), jan/2025 a set/2026",
+        "fonte": f"ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), 2025-01-01 a {iso_do_dia(ultimo_dia)}",
         "parametros": {"UFS": UFS, "LIMIAR_CORTE_MW": LIMIAR_CORTE_MW, "LIMIAR_JANELA": LIMIAR_JANELA, "DIAS_PERFIL": DIAS_PERFIL,
                        "ATRASO_PUBLICACAO_DIAS": ATRASO_PUBLICACAO_DIAS, "SUAVIZACAO": SUAVIZACAO, "MIN_MEIAS_HORAS_JANELA": MIN_MEIAS_HORAS_JANELA},
         "usinas_avaliadas": 0,
@@ -421,20 +438,36 @@ def main() -> None:
     gravar_json("teste_retroativo.json", resultado)
 
     # 3) Janelas que teriam sido oferecidas em agosto e setembro (modelo de produção) e o veredito do ONS
-    janelas = []
-    for uid in selecionadas:
-        i = idx[uid]
-        u = usinas[i]
-        for d in range(ago26, N_DIAS):
-            prof = perfil(gnra[i], d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS)
-            if prof is None:
-                continue
-            for j in janelas_do_dia(gnra[i], razao[i], prof, d):
-                janelas.append({"id_ons": u["id"], "usina": u["nome"], "uf": u["uf"], "tipo": u["tipo"], **j})
+    regra = "confirmado quando o ONS registrou corte (GNRa >= 1 MW) em pelo menos metade das meias-horas da janela"
+    vivo26 = dia_de(INICIO_AO_VIVO)
+
+    def janelas_entre(ini: int, fim: int) -> list[dict]:
+        out = []
+        for uid in selecionadas:
+            i = idx[uid]
+            u = usinas[i]
+            for d in range(ini, fim):
+                prof = perfil(gnra[i], d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS)
+                if prof is None:
+                    continue
+                for j in janelas_do_dia(gnra[i], razao[i], prof, d):
+                    out.append({"id_ons": u["id"], "usina": u["nome"], "uf": u["uf"], "tipo": u["tipo"], **j})
+        return out
+
+    janelas = janelas_entre(ago26, vivo26)
     gravar_json("janelas_previstas_ago_set_2026.json", {
-        "modelo": "continuo_com_atraso", "limiar": LIMIAR_JANELA,
-        "regra_resultado": "confirmado quando o ONS registrou corte (GNRa >= 1 MW) em pelo menos metade das meias-horas da janela",
-        "janelas": janelas,
+        "modelo": "continuo_com_atraso", "limiar": LIMIAR_JANELA, "regra_resultado": regra, "janelas": janelas,
+    })
+
+    # 3a) Ao vivo: de outubro em diante, as janelas do modelo de produção e o veredito do ONS
+    # (dias já publicados). O teste de agosto e setembro continua congelado.
+    vivas = [{**j, "publicada_antes": j["data"] >= PUBLICADA_ANTES_DESDE} for j in janelas_entre(vivo26, ultimo_dia + 1)]
+    gravar_json("janelas_ao_vivo.json", {
+        "modelo": "continuo_com_atraso", "limiar": LIMIAR_JANELA, "regra_resultado": regra,
+        "inicio": INICIO_AO_VIVO, "dados_ate": iso_do_dia(ultimo_dia), "publicada_antes_desde": PUBLICADA_ANTES_DESDE,
+        "nota": "fora da amostra: cada dia é previsto só com dados até 7 dias antes. As previsões de 01 a 07/10 foram "
+                "publicadas em 07/10; a partir de 08/10, antes de o dia começar (histórico no GitHub)",
+        "janelas": vivas,
     })
 
     # 3b) Próximos dias: previsão real, feita só com dados já publicados. Com o atraso de 7 dias,
@@ -459,8 +492,16 @@ def main() -> None:
     # 3c) Energia perdida por subsistema, estado, tipo e mês, com todas as usinas do país (GNRa do ONS)
     reg = regiao.groupby(["id_subsistema", "id_estado", "tipo", "ano_mes"], as_index=False)["val_geracaonaorealizadaapurada"].sum()
     linhas = ["subsistema;uf;tipo;ano_mes;energia_perdida_gwh;mw_medios"]
+    ultimo = BASE + timedelta(days=ultimo_dia)
+
+    def horas_do_mes(am: str) -> int:
+        """Horas do mês com dado publicado (o mês corrente vai só até o último dia)."""
+        if am == f"{ultimo:%Y-%m}":
+            return ultimo.day * 24
+        return calendar.monthrange(int(am[:4]), int(am[5:]))[1] * 24
+
     for r in reg.sort_values(["ano_mes", "id_subsistema", "id_estado", "tipo"]).itertuples():
-        horas = calendar.monthrange(int(r.ano_mes[:4]), int(r.ano_mes[5:]))[1] * 24
+        horas = horas_do_mes(r.ano_mes)
         mwh = r.val_geracaonaorealizadaapurada * 0.5
         linhas.append(f"{r.id_subsistema};{r.id_estado};{r.tipo};{r.ano_mes};{mwh / 1000:.1f};{inteiro(mwh / horas)}")
     gravar("corte_por_estado_mes.csv", "\n".join(linhas))
@@ -502,7 +543,7 @@ def main() -> None:
     for am in dict.fromkeys(ano_mes):
         dias = np.nonzero(ano_mes == am)[0]
         bloco = gnra[:, dias[0] * 48:(dias[-1] + 1) * 48].astype(np.float64)
-        horas = calendar.monthrange(int(am[:4]), int(am[5:]))[1] * 24
+        horas = len(dias) * 24  # o mês corrente pode estar parcial
         resumo["por_mes"][am] = {}
         for tipo in ("eolica", "solar"):
             b = bloco[tipos == tipo]
@@ -513,6 +554,15 @@ def main() -> None:
     conf = sum(j["resultado_ons"] == "confirmado" for j in janelas)
     resumo["janelas"] = {"total": len(janelas), "confirmadas": conf, "erradas": sum(j["resultado_ons"] == "errado" for j in janelas),
                          "fracao_confirmadas": r3(conf / (len(janelas) or 1))}
+
+    def placar_vivo(lista: list[dict]) -> dict:
+        com_veredito = [j for j in lista if j["resultado_ons"] in ("confirmado", "errado")]
+        c = sum(j["resultado_ons"] == "confirmado" for j in com_veredito)
+        return {"total": len(com_veredito), "confirmadas": c, "erradas": len(com_veredito) - c,
+                "fracao_confirmadas": r3(c / len(com_veredito)) if com_veredito else None}
+
+    resumo["janelas_ao_vivo"] = {"periodo": f"{INICIO_AO_VIVO} a {iso_do_dia(ultimo_dia)}", **placar_vivo(vivas),
+                                 "publicadas_antes": placar_vivo([j for j in vivas if j["publicada_antes"]])}
     resumo["corte_oficial_ons"] = {
         "nota": "soma da GNRa de todas as usinas eólicas e solares do ONS, sem filtro de estado",
         "nordeste_jan_ago_2026": mw_medios(ne, "2026-01", "2026-08"),
@@ -536,6 +586,8 @@ def main() -> None:
         for m, x in t["geral"].items():
             print(f"  {m:<22} {x['precisao']:>7.1%} {x['cobertura']:>9.1%} {x['energia_capturada']:>8.1%} {x['ganho_sobre_taxa_media']:>6.1%}")
     print(f"\njanelas ago–set: {resumo['janelas']}")
+    print(f"janelas ao vivo {resumo['janelas_ao_vivo']['periodo']}: {resumo['janelas_ao_vivo']['confirmadas']} de "
+          f"{resumo['janelas_ao_vivo']['total']} confirmadas")
     print(f"janelas previstas {resumo['janelas_proximos_dias']['periodo']}: {len(proximas)}")
     for k, v in resumo["corte_oficial_ons"].items():
         if isinstance(v, dict):

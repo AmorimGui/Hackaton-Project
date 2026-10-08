@@ -7,6 +7,9 @@
 //
 // Os dois registros são pagos pela carteira da plataforma, e o memo de cada um cita a compra.
 // Para achá-los, basta ler o histórico da plataforma (o RPC devolve o memo de cada transação).
+//
+// A plataforma também grava, uma vez por previsão publicada, o SHA-256 do arquivo de janelas previstas:
+// prova de que a previsão existia antes de o dia começar.
 import "server-only";
 import { Connection, Keypair, Transaction, type ParsedInstruction } from "@solana/web3.js";
 import veredictos from "@/data/veredictos.json";
@@ -17,6 +20,7 @@ export const conexao = () => new Connection(RPC, "confirmed");
 const PREFIXO_COMPRA = "vento-cortado v1 |";
 const PREFIXO_RECIBO = "vento-cortado recibo v1";
 const PREFIXO_CARIMBO = "vento-cortado carimbo v1";
+const PREFIXO_PREVISAO = "vento-cortado previsao v1";
 
 export const assinaturaValida = (s: unknown): s is string => typeof s === "string" && /^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(s);
 
@@ -115,17 +119,23 @@ export function veredito(c: Compra): (Veredito & { sha256: string }) | null {
   return { ...v, sha256: (veredictos.fontes_ons as Record<string, string>)[v.fonte] ?? "" };
 }
 
-/** Procura o recibo e o carimbo já gravados para esta compra (histórico da carteira da plataforma). */
-export async function registros(c: Connection, assinaturaCompra: string) {
+/** Procura no histórico da carteira da plataforma o primeiro registro cujo memo contém todos os trechos. */
+async function acharNaPlataforma(c: Connection, ...trechos: string[][]): Promise<(Registro | null)[]> {
   const plataforma = DESTINATARIOS.find((d) => d.papel === "plataforma")!.carteira;
   const lista = await c.getSignaturesForAddress(plataforma, { limit: 1000 }, "confirmed");
-  const achar = (prefixo: string): Registro | null => {
-    const s = lista.find((x) => !x.err && x.memo?.includes(prefixo) && x.memo.includes(`compra ${assinaturaCompra}`));
+  return trechos.map((t) => {
+    const s = lista.findLast((x) => !x.err && t.every((parte) => x.memo?.includes(parte))); // a lista vem do mais novo ao mais velho
     return s
       ? { assinatura: s.signature, memo: s.memo!.replace(/^\[\d+\]\s*/, ""), horario: s.blockTime ?? null, explorador: explorador(s.signature) }
       : null;
-  };
-  return { recibo: achar(PREFIXO_RECIBO), carimbo: achar(PREFIXO_CARIMBO) };
+  });
+}
+
+/** Procura o recibo e o carimbo já gravados para esta compra (histórico da carteira da plataforma). */
+export async function registros(c: Connection, assinaturaCompra: string) {
+  const compra = `compra ${assinaturaCompra}`;
+  const [recibo, carimbo] = await acharNaPlataforma(c, [PREFIXO_RECIBO, compra], [PREFIXO_CARIMBO, compra]);
+  return { recibo, carimbo };
 }
 
 async function enviar(c: Connection, tx: Transaction, assinantes: Keypair[]) {
@@ -147,6 +157,32 @@ export async function emitirRecibo(c: Connection, k: Record<Papel, Keypair>, com
     ` | demo: execucao fora da usina, nao absorve energia cortada`;
   const tx = new Transaction().add(memo(texto, k.usina.publicKey, k.operador.publicKey));
   const assinatura = await enviar(c, tx, [k.plataforma, k.usina, k.operador]);
+  return { assinatura, memo: texto, horario: Math.floor(Date.now() / 1000), explorador: explorador(assinatura) };
+}
+
+/**
+ * O veredito como foi carimbado (lido do memo). Vale mais que o veredictos.json atual: se o ONS republicar
+ * o mês, o arquivo e o SHA-256 citados no carimbo continuam sendo os que foram usados.
+ */
+export function vereditoDoCarimbo(memoCarimbo: string): (Veredito & { sha256: string }) | null {
+  const m = memoCarimbo.match(/\| (confirmado|errado) \| (\d+)% das meias-horas com corte \| (\d+) MWh cortados \| ONS (\S+) \| sha256 ([0-9a-f]{64})/);
+  if (!m) return null;
+  return { resultado: m[1], fracao_com_corte: Number(m[2]) / 100, energia_cortada_mwh: Number(m[3]), razoes: {}, fonte: m[4], sha256: m[5] };
+}
+
+// ---------- Previsão publicada ----------
+
+export type Previsao = { dados_ate: string; periodo: string; arquivo: string; sha256: string };
+
+/** Registro na Solana do SHA-256 desta previsão, se já foi gravado. */
+export async function registroPrevisao(c: Connection, p: Previsao): Promise<Registro | null> {
+  return (await acharNaPlataforma(c, [PREFIXO_PREVISAO, `sha256 ${p.sha256}`]))[0];
+}
+
+/** Grava o SHA-256 do arquivo da previsão (assinado pela plataforma). */
+export async function emitirPrevisao(c: Connection, k: Record<Papel, Keypair>, p: Previsao): Promise<Registro> {
+  const texto = `${PREFIXO_PREVISAO} | dados ONS ate ${p.dados_ate} | janelas ${p.periodo} | sha256 ${p.sha256} | ${p.arquivo}`;
+  const assinatura = await enviar(c, new Transaction().add(memo(texto, k.plataforma.publicKey)), [k.plataforma]);
   return { assinatura, memo: texto, horario: Math.floor(Date.now() / 1000), explorador: explorador(assinatura) };
 }
 

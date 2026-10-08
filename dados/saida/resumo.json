@@ -389,6 +389,18 @@
         "mw_medios": 843,
         "chance_corte": 0.301
       }
+    },
+    "2026-10": {
+      "eolica": {
+        "energia_perdida_gwh": 526.1,
+        "mw_medios": 3131,
+        "chance_corte": 0.445
+      },
+      "solar": {
+        "energia_perdida_gwh": 106.0,
+        "mw_medios": 631,
+        "chance_corte": 0.251
+      }
     }
   },
   "janelas": {
@@ -396,6 +408,19 @@
     "confirmadas": 564,
     "erradas": 50,
     "fracao_confirmadas": 0.919
+  },
+  "janelas_ao_vivo": {
+    "periodo": "2026-10-01 a 2026-10-07",
+    "total": 69,
+    "confirmadas": 40,
+    "erradas": 29,
+    "fracao_confirmadas": 0.58,
+    "publicadas_antes": {
+      "total": 0,
+      "confirmadas": 0,
+      "erradas": 0,
+      "fracao_confirmadas": null
+    }
   },
   "corte_oficial_ons": {
     "nota": "soma da GNRa de todas as usinas eólicas e solares do ONS, sem filtro de estado",
@@ -437,8 +462,8 @@
     }
   },
   "janelas_proximos_dias": {
-    "periodo": "2026-10-01 a 2026-10-08",
-    "total": 1421,
-    "usinas_com_janela": 153
+    "periodo": "2026-10-08 a 2026-10-15",
+    "total": 1435,
+    "usinas_com_janela": 154
   }
 }
