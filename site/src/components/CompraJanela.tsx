@@ -15,6 +15,7 @@ import {
   phantom,
   precificar,
   saldos,
+  simular,
   textoMemo,
   usdc,
   type Compra,
@@ -82,8 +83,18 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
     const p = phantom();
     if (!p || !carteira || !compra) return;
     setEstado({ fase: "assinando" });
+    let blockhash = "";
     try {
-      const { tx, blockhash, lastValidBlockHeight } = await montarTransacao(conexao, carteira, compra);
+      const montada = await montarTransacao(conexao, carteira, compra);
+      blockhash = montada.blockhash;
+      const { tx, lastValidBlockHeight } = montada;
+      // 1) simula antes de abrir a Phantom: mostra o motivo real se a transação não passaria
+      const falha = await simular(conexao, tx);
+      if (falha) {
+        setEstado({ fase: "erro", mensagem: `${b.simFailed} ${falha}` });
+        return;
+      }
+      // 2) a Phantom assina e envia (o blockhash vale ~1 minuto)
       const { signature } = await p.signAndSendTransaction(tx);
       setEstado({ fase: "confirmando", assinatura: signature });
       const r = await conexao.confirmTransaction({ signature, blockhash, lastValidBlockHeight }, "confirmed");
@@ -91,7 +102,14 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
       setEstado({ fase: "pago", assinatura: signature });
     } catch (e) {
       const erro = e as { code?: number; message?: string };
-      if (erro.code === 4001 || /reject|cancel/i.test(erro.message ?? "")) setEstado({ fase: "erro", mensagem: b.canceled });
+      console.error("Vento Cortado: falha no pagamento", e);
+      if (erro.code === 4001 || /reject|cancel/i.test(erro.message ?? "")) {
+        setEstado({ fase: "erro", mensagem: b.canceled });
+        return;
+      }
+      // 3) se o blockhash venceu enquanto a Phantom estava aberta, diz isso com clareza
+      const valido = blockhash ? await conexao.isBlockhashValid(blockhash, { commitment: "confirmed" }).then((r) => r.value, () => true) : true;
+      if (!valido) setEstado({ fase: "erro", mensagem: b.expired });
       else setEstado({ fase: "erro", mensagem: `${b.failed} ${erro.message ?? String(e)}`, rede: true });
     }
   }
@@ -210,6 +228,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, fecha
                 >
                   {estado.fase === "assinando" ? b.signing : estado.fase === "confirmando" ? b.confirming : b.pay(usd(preco.total))}
                 </button>
+                <p className="text-center text-[11px] text-muted">{b.timeHint}</p>
               </div>
             )}
 

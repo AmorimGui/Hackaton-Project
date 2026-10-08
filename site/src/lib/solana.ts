@@ -8,7 +8,7 @@
 // As instruções são montadas à mão (são simples) para não depender da biblioteca spl-token.
 
 import { Buffer } from "buffer";
-import { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from "@solana/web3.js";
+import { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction, VersionedTransaction } from "@solana/web3.js";
 
 export const REDE = "devnet";
 export const RPC = "https://api.devnet.solana.com";
@@ -115,6 +115,21 @@ export async function montarTransacao(conexao: Connection, comprador: PublicKey,
   tx.recentBlockhash = blockhash;
   tx.feePayer = comprador;
   return { tx, blockhash, lastValidBlockHeight };
+}
+
+/**
+ * Simula a transação na devnet antes de pedir a assinatura. Devolve null se ela passaria,
+ * ou um resumo do motivo da falha (as últimas linhas do log do programa).
+ */
+export async function simular(conexao: Connection, tx: Transaction): Promise<string | null> {
+  const r = await conexao.simulateTransaction(new VersionedTransaction(tx.compileMessage()), {
+    sigVerify: false,
+    replaceRecentBlockhash: true,
+    commitment: "confirmed",
+  });
+  if (!r.value.err) return null;
+  const logs = (r.value.logs ?? []).filter((l) => /error|failed|insufficient/i.test(l)).slice(-2);
+  return `${JSON.stringify(r.value.err)}${logs.length ? ` — ${logs.join(" | ")}` : ""}`;
 }
 
 /** Saldos do comprador na devnet: SOL (para taxas) e USDC (para pagar). */
