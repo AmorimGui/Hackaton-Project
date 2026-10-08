@@ -63,9 +63,9 @@ O operador de demonstração roda num notebook. Ele lê as compras na Solana, es
 - **Janela que já passou:** a execução fica marcada como *replay*.
 
 ```bash
-.venv\Scripts\python.exe -m pip install -r operadorequirements.txt   # uma vez (modelo de ~220 MB baixado na 1ª execução)
+.venv\Scripts\python.exe -m pip install -r operador\requirements.txt   # uma vez (modelo de ~220 MB baixado na 1ª execução)
 .venv\Scripts\python.exe operador\operador.py                         # fica esperando janelas; Ctrl+C para parar
-.venv\Scripts\python.exe operador	rabalho.py CJU_BASAR 2026-09-29     # só o trabalho, para conferir o SHA-256
+.venv\Scripts\python.exe operador\trabalho.py CJU_BASAR 2026-09-29     # só o trabalho, para conferir o SHA-256
 ```
 
 A chave do operador fica fora do repositório (`../carteiras-teste/operador.json`). A demo não roda na usina, então não absorve energia cortada; a energia do notebook é estimada pela potência declarada.
