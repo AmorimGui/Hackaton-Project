@@ -1,0 +1,13 @@
+{
+  "nota": "Localização aproximada: centro do município principal de cada conjunto (o ONS não publica coordenadas). Fontes: sites das empresas e imprensa, consultados em 07/10/2026.",
+  "usinas": {
+    "CJU_BASAR": { "municipio": "Gentio do Ouro", "uf": "BA", "lat": -11.429, "lon": -42.509, "fonte": "https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/" },
+    "CJU_BANHZ": { "municipio": "Novo Horizonte", "uf": "BA", "lat": -12.808, "lon": -42.168, "fonte": "https://www.gov.br/mme/pt-br/assuntos/noticias/alexandre-silveira-inaugura-complexo-eolico-para-abastecer-ate-um-milhao-de-residencias-no-pais" },
+    "CJU_BASSD": { "municipio": "Oliveira dos Brejinhos", "uf": "BA", "lat": -12.313, "lon": -42.896, "fonte": "https://megawhat.energy/news/144370/complexo-solar-sol-do-sertao-recebe-aval-para-operacao-comercial-de-todas-usinas-sem-restricoes" },
+    "CJU_RNRDV": { "municipio": "Caiçara do Rio do Vento", "uf": "RN", "lat": -5.765, "lon": -35.994, "fonte": "https://www.casadosventos.com.br/a-casa-dos-ventos/rio-do-vento" },
+    "CJU_RNRVE": { "municipio": "Riachuelo", "uf": "RN", "lat": -5.822, "lon": -35.820, "fonte": "https://www.casadosventos.com.br/a-casa-dos-ventos/rio-do-vento" },
+    "CJU_RNASO": { "municipio": "Assú", "uf": "RN", "lat": -5.577, "lon": -36.909, "fonte": "https://www.engie.com.br/en/imprensa/press-releases/assu-sol-photovoltaic-complex-engies-largest-solar-energy-asset-worldwide-now-operating-at-full-commercial-capacity/" },
+    "CJU_CEITC": { "municipio": "Itarema", "uf": "CE", "lat": -2.921, "lon": -39.916, "fonte": "ponto de conexão Acaraú II (ONS); nome comercial não confirmado em fonte pública" },
+    "CJU_CEMTD": { "municipio": "Mauriti", "uf": "CE", "lat": -7.390, "lon": -38.774, "fonte": "https://www.ceara.gov.br/2023/03/23/powerchina-anuncia-investimento-de-r-15-bilhao-na-construcao-de-parque-solar-em-mauriti/" }
+  }
+}

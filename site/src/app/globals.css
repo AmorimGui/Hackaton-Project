@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f7f4;
+  --color-card: #ffffff;
+  --color-ink: #0f1b2d;
+  --color-muted: #5b6676;
+  --color-line: #e3e6e1;
+  --color-wind: #0f766e;
+  --color-wind-soft: #ccebe6;
+  --color-sun: #c2410c;
+  --color-sun-soft: #fde4d3;
+  --color-cut: #be123c;
+  --color-cut-soft: #fde2e7;
+  --color-ok: #15803d;
+  --color-ok-soft: #dcfce7;
+  --color-wait: #6d28d9;
+  --color-wait-soft: #ede9fe;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Leaflet: mantém o mapa abaixo do cabeçalho fixo */
+.leaflet-container {
+  font-family: var(--font-sans);
+  z-index: 0;
+}

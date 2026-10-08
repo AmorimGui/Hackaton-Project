@@ -3,3 +3,4 @@
 *.parquet binary
 # Resultados ficam byte a byte iguais em qualquer sistema (conferidos por SHA-256)
 dados/saida/** -text
+site/public/data/** -text

@@ -1,0 +1,2326 @@
+[
+  {
+    "id": "CJU_BASAR",
+    "nome": "Conj. Serra do Assuruá",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "GENTIO OURO II230kVA",
+    "disp_max_mw": 819,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 336.6,
+      "fracao_meias_horas_com_corte": 0.353
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_RNRDV",
+    "nome": "Conj. Rio do Vento",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CVER",
+    "ponto_conexao": "CEARA MIRIM 2500kVA",
+    "disp_max_mw": 504,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 281.4,
+      "fracao_meias_horas_com_corte": 0.432
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_RNRVE",
+    "nome": "Conj. Rio do Vento Expansão",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CVER",
+    "ponto_conexao": "CEARA MIRIM 2500kVA",
+    "disp_max_mw": 537,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 268.2,
+      "fracao_meias_horas_com_corte": 0.415
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_RNCAJ1",
+    "nome": "Conj. Caju",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 686,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 265.2,
+      "fracao_meias_horas_com_corte": 0.365
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSAG",
+    "nome": "Conj. Santo Agostinho",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "MONTE VERDE500kVA",
+    "disp_max_mw": 434,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 264.8,
+      "fracao_meias_horas_com_corte": 0.511
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BANHZ",
+    "nome": "Conj. Novo Horizonte",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "COTESA",
+    "ponto_conexao": "SOL DO SERTÃO500kVA",
+    "disp_max_mw": 423,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 254.6,
+      "fracao_meias_horas_com_corte": 0.367
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_BASSD",
+    "nome": "Conj. Sol do Sertão",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "CHAPADA BRANCA",
+    "ponto_conexao": "SOL DO SERTÃO500kVA",
+    "disp_max_mw": 415,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 240.1,
+      "fracao_meias_horas_com_corte": 0.276
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_BASVT",
+    "nome": "Conj. Ventos de São Vitor",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CHAPADA BRANCA",
+    "ponto_conexao": "GENTIO OURO II230kVA",
+    "disp_max_mw": 474,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 236.9,
+      "fracao_meias_horas_com_corte": 0.36
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BALRA",
+    "nome": "Conj. Laranjeiras",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "GENTIO OURO II230kVA",
+    "disp_max_mw": 505,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 226.2,
+      "fracao_meias_horas_com_corte": 0.349
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABRD",
+    "nome": "Conj. Barreiras II 500 kV",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "BARREIRAS II500kVA",
+    "disp_max_mw": 390,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 222.5,
+      "fracao_meias_horas_com_corte": 0.269
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAIGD",
+    "nome": "Conj. Igaporã II",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ELERA RENOVAVEIS",
+    "ponto_conexao": "IGAPORA II - 69 kV (A)",
+    "disp_max_mw": 294,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 211.3,
+      "fracao_meias_horas_com_corte": 0.386
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNEMVD",
+    "nome": "Conj. Monte Verde",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "EDP BRASIL",
+    "ponto_conexao": "MONTE VERDE500kVA",
+    "disp_max_mw": 610,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 206.5,
+      "fracao_meias_horas_com_corte": 0.368
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAVSE",
+    "nome": "Conj. Eol. Ventos Santa Eugênia",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "GENTIO OURO II500kVA",
+    "disp_max_mw": 649,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 204.1,
+      "fracao_meias_horas_com_corte": 0.326
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNASO",
+    "nome": "Conj. Assu Sol",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 753,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 190.7,
+      "fracao_meias_horas_com_corte": 0.203
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_BABBC",
+    "nome": "Conj. Babilônia Centro",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CVER",
+    "ponto_conexao": "OUROLANDIA II500kVA",
+    "disp_max_mw": 554,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 190.2,
+      "fracao_meias_horas_com_corte": 0.293
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAUBN",
+    "nome": "Conj. Umburanas",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 360,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 182.0,
+      "fracao_meias_horas_com_corte": 0.339
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAE4CLA",
+    "nome": "Conj. Campo Largo",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 685,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 177.0,
+      "fracao_meias_horas_com_corte": 0.293
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNJER",
+    "nome": "Conj. Jerusalém",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "MONTE VERDE500kVA",
+    "disp_max_mw": 271,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 171.2,
+      "fracao_meias_horas_com_corte": 0.485
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA5EIGT",
+    "nome": "Conj. Igaporã III 500 kV",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "RENOVA ENERGIA",
+    "ponto_conexao": "IGAPORA III - 500 kV (A)",
+    "disp_max_mw": 228,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 166.0,
+      "fracao_meias_horas_com_corte": 0.414
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCUT",
+    "nome": "Conj. Cutia",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "TOUROS - 230 kV (A)",
+    "disp_max_mw": 296,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 165.4,
+      "fracao_meias_horas_com_corte": 0.436
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACTN",
+    "nome": "Conj. Caetité Norte",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "IGAPORA III - 230 kV (A)",
+    "disp_max_mw": 193,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 159.7,
+      "fracao_meias_horas_com_corte": 0.378
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNUVT",
+    "nome": "Conj. União dos Ventos",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "EOL POTIGUAR",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 235,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 157.0,
+      "fracao_meias_horas_com_corte": 0.47
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCMR",
+    "nome": "Conj. Cumaru",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "J. CAMARA III230kVA",
+    "disp_max_mw": 206,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 156.9,
+      "fracao_meias_horas_com_corte": 0.488
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAFFUT",
+    "nome": "Conj. Futura",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENEVA",
+    "ponto_conexao": "FUTURA500kVA",
+    "disp_max_mw": 692,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 155.6,
+      "fracao_meias_horas_com_corte": 0.22
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BASDB",
+    "nome": "Conj. Serra da Babilônia",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "COTESA",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 376,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 146.7,
+      "fracao_meias_horas_com_corte": 0.331
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RN4EMSD",
+    "nome": "Conj. Mossoró II",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "MOSSORO II - 230 kV (A)",
+    "disp_max_mw": 401,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 144.2,
+      "fracao_meias_horas_com_corte": 0.381
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMNR",
+    "nome": "Conj. Monte do Ronca",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "J. CAMARA III230kVA",
+    "disp_max_mw": 256,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 143.4,
+      "fracao_meias_horas_com_corte": 0.486
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNBP1",
+    "nome": "Conj. Brisa Potiguar I",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 186,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 138.9,
+      "fracao_meias_horas_com_corte": 0.501
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RN5ESMA",
+    "nome": "Conj. Serra do Mel A",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 587,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 135.1,
+      "fracao_meias_horas_com_corte": 0.316
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMEND",
+    "nome": "Conj. Açú III 230 kV",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "ENGEPAT",
+    "ponto_conexao": "ACU III230kVA",
+    "disp_max_mw": 452,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 133.3,
+      "fracao_meias_horas_com_corte": 0.24
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAEMS2",
+    "nome": "Conj. Morro do Chapéu Sul II",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "MORRO CHAPEU II500kVA",
+    "disp_max_mw": 378,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 132.0,
+      "fracao_meias_horas_com_corte": 0.27
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAOUR",
+    "nome": "Conj. Ourolândia II",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "OUROLANDIA II500kVA",
+    "disp_max_mw": 542,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 131.6,
+      "fracao_meias_horas_com_corte": 0.216
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNBFJ",
+    "nome": "Conj. Baixa do Feijão",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "EDP BRASIL",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 210,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 125.5,
+      "fracao_meias_horas_com_corte": 0.5
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RN5ESMB",
+    "nome": "Conj. Serra do Mel B",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 479,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 124.4,
+      "fracao_meias_horas_com_corte": 0.332
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABBS",
+    "nome": "Conj. Babilônia Sul",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CVER",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 360,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 120.6,
+      "fracao_meias_horas_com_corte": 0.293
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAARA",
+    "nome": "Conj. Araçás",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "IGAPORA II - 230 kV (B)",
+    "disp_max_mw": 168,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 117.9,
+      "fracao_meias_horas_com_corte": 0.396
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BATBV",
+    "nome": "Conj. Ituverava",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENEL",
+    "ponto_conexao": "TABOCAS - 230 kV (A)",
+    "disp_max_mw": 196,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 114.5,
+      "fracao_meias_horas_com_corte": 0.271
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BATQN",
+    "nome": "Conj. Tanque Novo",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "IGAPORA III - 230 kV (A)",
+    "disp_max_mw": 180,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 112.0,
+      "fracao_meias_horas_com_corte": 0.361
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSDMC",
+    "nome": "Conj. Serra do Mel C",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 542,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 100.0,
+      "fracao_meias_horas_com_corte": 0.216
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNREN",
+    "nome": "Conj. Renascença",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ELERA RENOVAVEIS",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 152,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 97.9,
+      "fracao_meias_horas_com_corte": 0.473
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSTC",
+    "nome": "Conj. Santa Clara",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "JOAO CAMARA 269kVA",
+    "disp_max_mw": 188,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 96.4,
+      "fracao_meias_horas_com_corte": 0.408
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABMC",
+    "nome": "Conj. Eol. Brotas de Macaúbas",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "BROT.MACAUBAS - 230 kV (A)",
+    "disp_max_mw": 182,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 94.8,
+      "fracao_meias_horas_com_corte": 0.371
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAVBA",
+    "nome": "Conj. Ventos da Bahia",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 298,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 91.8,
+      "fracao_meias_horas_com_corte": 0.324
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSAB",
+    "nome": "Conj. Asa Branca",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CHAPADA BRANCA",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 162,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 90.4,
+      "fracao_meias_horas_com_corte": 0.495
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCPD",
+    "nome": "Conj. Cabeço Preto II",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 146,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 89.5,
+      "fracao_meias_horas_com_corte": 0.455
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNBSL",
+    "nome": "Conj. Bloco Sul",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 155,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 88.7,
+      "fracao_meias_horas_com_corte": 0.42
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAFLA",
+    "nome": "Conj. Folha Larga",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "COTESA",
+    "ponto_conexao": "SR.BONFIM II - 230 kV (A)",
+    "disp_max_mw": 344,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 87.7,
+      "fracao_meias_horas_com_corte": 0.289
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAGPX",
+    "nome": "Conj. GPEXPAN",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AXIA NORDESTE",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 136,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 84.3,
+      "fracao_meias_horas_com_corte": 0.412
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAGOI",
+    "nome": "Conj. Gentio do Ouro I",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "IRECE - 230 kV (A)",
+    "disp_max_mw": 330,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 83.8,
+      "fracao_meias_horas_com_corte": 0.32
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEITC",
+    "nome": "Conj. Itarema V",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "ACARAU II - 230 kV (A)",
+    "disp_max_mw": 207,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 82.8,
+      "fracao_meias_horas_com_corte": 0.322
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_BA4EPND",
+    "nome": "Conj. Pindaí II 230 kV",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "RENOVA ENERGIA",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 129,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 82.4,
+      "fracao_meias_horas_com_corte": 0.396
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMVD",
+    "nome": "Conj. Morro dos Ventos",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 172,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 82.4,
+      "fracao_meias_horas_com_corte": 0.414
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BATUC",
+    "nome": "Conj. Tucano",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "OLINDINA - 500 kV (A)",
+    "disp_max_mw": 322,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 81.6,
+      "fracao_meias_horas_com_corte": 0.295
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA4FJZD",
+    "nome": "Conj. Juazeiro II 230 kV",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "JUAZEIRO II - 230 kV (A)",
+    "disp_max_mw": 324,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 77.6,
+      "fracao_meias_horas_com_corte": 0.225
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CESERA",
+    "nome": "Conj. Serrote A",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 206,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 77.3,
+      "fracao_meias_horas_com_corte": 0.29
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMVS",
+    "nome": "Conj. Monte Verde Solar",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "EDP BRASIL",
+    "ponto_conexao": "MONTE VERDE500kVA",
+    "disp_max_mw": 212,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 77.2,
+      "fracao_meias_horas_com_corte": 0.251
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAMOR",
+    "nome": "Conj. Morrão",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "IGAPORA II - 230 kV (B)",
+    "disp_max_mw": 118,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 76.3,
+      "fracao_meias_horas_com_corte": 0.382
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEMTD",
+    "nome": "Conj. Mauriti",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "IQONY",
+    "ponto_conexao": "MAURITI II230kVA",
+    "disp_max_mw": 344,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 76.0,
+      "fracao_meias_horas_com_corte": 0.203
+    },
+    "destaque": true
+  },
+  {
+    "id": "CJU_RNCNB",
+    "nome": "Conj. Carnaúbas",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "TOUROS - 230 kV (A)",
+    "disp_max_mw": 109,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 70.7,
+      "fracao_meias_horas_com_corte": 0.447
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNODA",
+    "nome": "Conj. Olho d'Água",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 94,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 70.3,
+      "fracao_meias_horas_com_corte": 0.462
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CETRA",
+    "nome": "Conj. Trairí",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 212,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 69.3,
+      "fracao_meias_horas_com_corte": 0.305
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAMCS",
+    "nome": "Conj. Morro do Chapéu Sul",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 172,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 68.7,
+      "fracao_meias_horas_com_corte": 0.283
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEPTN",
+    "nome": "Conj. Banabuiú",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "SPIC BRASIL ENERGIA",
+    "ponto_conexao": "BANABUIU - 230 kV (A)",
+    "disp_max_mw": 230,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 67.2,
+      "fracao_meias_horas_com_corte": 0.239
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNJDA",
+    "nome": "Conj. Jandaíra I",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "J. CAMARA III230kVA",
+    "disp_max_mw": 87,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 66.3,
+      "fracao_meias_horas_com_corte": 0.488
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNAVD",
+    "nome": "Conj. Aventura",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 105,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 65.4,
+      "fracao_meias_horas_com_corte": 0.458
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CELAV",
+    "nome": "Conj. Lavras",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "VISUS ENGENHARIA",
+    "ponto_conexao": "CAUIPE - 230 kV (A)",
+    "disp_max_mw": 203,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 65.1,
+      "fracao_meias_horas_com_corte": 0.248
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEFSA",
+    "nome": "Conj. Faísa",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 218,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 62.7,
+      "fracao_meias_horas_com_corte": 0.304
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCDV",
+    "nome": "Conj. Campo dos Ventos",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 106,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 62.7,
+      "fracao_meias_horas_com_corte": 0.453
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNRIA",
+    "nome": "Conj. Riachão",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "EXTREMOZ II - 230 kV (A)",
+    "disp_max_mw": 143,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 61.6,
+      "fracao_meias_horas_com_corte": 0.44
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAARI",
+    "nome": "Conj. Arizona",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "PEDRA BRANCA",
+    "ponto_conexao": "U.SOBRADINHO - 500 kV (A)",
+    "disp_max_mw": 246,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 60.9,
+      "fracao_meias_horas_com_corte": 0.293
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEESTI",
+    "nome": "Conj. Santo Inácio",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "MOSSORO IV - 230 kV (A)",
+    "disp_max_mw": 170,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 59.0,
+      "fracao_meias_horas_com_corte": 0.379
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABAB",
+    "nome": "Conj. Babilônia",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CYMI",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 137,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 57.9,
+      "fracao_meias_horas_com_corte": 0.319
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNJDT",
+    "nome": "Conj. Jandaíra III",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AF ENERGIA",
+    "ponto_conexao": "JANDAIRA II500kVA",
+    "disp_max_mw": 63,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 57.3,
+      "fracao_meias_horas_com_corte": 0.497
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEUFAL",
+    "nome": "Conj. Alex",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "ELERA RENOVAVEIS",
+    "ponto_conexao": "ALEX230kVA",
+    "disp_max_mw": 278,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 55.8,
+      "fracao_meias_horas_com_corte": 0.217
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNAFB",
+    "nome": "Conj. Afonso Bezerra",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 160,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 55.7,
+      "fracao_meias_horas_com_corte": 0.335
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACAE",
+    "nome": "Conj. Caetité 123",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "NEO REN",
+    "ponto_conexao": "IGAPORA II - 230 kV (B)",
+    "disp_max_mw": 94,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 55.3,
+      "fracao_meias_horas_com_corte": 0.33
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA3FIRE",
+    "nome": "Conj. Irecê 138 kV",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "IQONY",
+    "ponto_conexao": "IRECE - 138 kV (A)",
+    "disp_max_mw": 133,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 53.7,
+      "fracao_meias_horas_com_corte": 0.238
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEICR",
+    "nome": "Conj. Icaraí",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "SOBRAL III - 230 kV (A)",
+    "disp_max_mw": 133,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 52.0,
+      "fracao_meias_horas_com_corte": 0.317
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMNV",
+    "nome": "Conj. Mundo Novo",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "TOUROS - 230 kV (A)",
+    "disp_max_mw": 354,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 51.3,
+      "fracao_meias_horas_com_corte": 0.387
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABW1",
+    "nome": "Conj. BW Guirapá I",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENERGISA TRANS",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 89,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 50.3,
+      "fracao_meias_horas_com_corte": 0.348
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMVT",
+    "nome": "Conj. Morro dos Ventos II",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 90,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 50.2,
+      "fracao_meias_horas_com_corte": 0.422
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BASSB",
+    "nome": "Conj. Sertão Solar Barreiras",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "BARREIRAS - 69 kV (A)",
+    "disp_max_mw": 112,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 49.8,
+      "fracao_meias_horas_com_corte": 0.262
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACTE",
+    "nome": "Conj. Caetité",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 59,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 49.7,
+      "fracao_meias_horas_com_corte": 0.354
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CESEM",
+    "nome": "Conj. Serra do Mato",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 122,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 49.4,
+      "fracao_meias_horas_com_corte": 0.279
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA4FBBC",
+    "nome": "Conj. Babilônia Centro",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "CVER",
+    "ponto_conexao": "OUROLANDIA II500kVA",
+    "disp_max_mw": 200,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 48.3,
+      "fracao_meias_horas_com_corte": 0.23
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNTSN",
+    "nome": "Conj. Terra Santa",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COTESA",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 92,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 47.5,
+      "fracao_meias_horas_com_corte": 0.466
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACFO",
+    "nome": "Conj. Campo Formoso",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "CAMPO FORMOSO - 230 kV (A)",
+    "disp_max_mw": 180,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 47.3,
+      "fracao_meias_horas_com_corte": 0.274
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAHZT",
+    "nome": "Conj. Horizonte",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENEL",
+    "ponto_conexao": "TABOCAS - 230 kV (A)",
+    "disp_max_mw": 80,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 47.2,
+      "fracao_meias_horas_com_corte": 0.265
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAFLS",
+    "nome": "Conj. Folha Larga Sul",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CVER",
+    "ponto_conexao": "SR.BONFIM II - 230 kV (A)",
+    "disp_max_mw": 151,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 47.1,
+      "fracao_meias_horas_com_corte": 0.324
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSPC",
+    "nome": "Conj. Simplice",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "COTESA",
+    "ponto_conexao": "SE SIMPLICE230kVA",
+    "disp_max_mw": 118,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 47.1,
+      "fracao_meias_horas_com_corte": 0.27
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEAB2",
+    "nome": "Conj. Abaiara 230 kV",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "ABAIARA230kVA",
+    "disp_max_mw": 164,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 46.0,
+      "fracao_meias_horas_com_corte": 0.201
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACRL",
+    "nome": "Conj. Cristalândia",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "BRUMADO II - 230 kV (A)",
+    "disp_max_mw": 90,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 45.5,
+      "fracao_meias_horas_com_corte": 0.344
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSMG",
+    "nome": "Conj. São Miguel",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "EOL POTIGUAR",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 425,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 45.1,
+      "fracao_meias_horas_com_corte": 0.502
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BADFN",
+    "nome": "Conj. Delfina",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "JUAZEIRO II - 230 kV (A)",
+    "disp_max_mw": 207,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 44.8,
+      "fracao_meias_horas_com_corte": 0.229
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BASSDB",
+    "nome": "Conj. Serra da Babilônia",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "COTESA",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 376,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 44.8,
+      "fracao_meias_horas_com_corte": 0.237
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABW2",
+    "nome": "Conj. BW Guirapá II",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENERGISA TRANS",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 81,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 44.6,
+      "fracao_meias_horas_com_corte": 0.347
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BATBD",
+    "nome": "Conj. Tamboril II",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "RENOVA ENERGIA",
+    "ponto_conexao": "IGAPORA III - 230 kV (A)",
+    "disp_max_mw": 65,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 44.4,
+      "fracao_meias_horas_com_corte": 0.387
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMSC",
+    "nome": "Conj. Mangue Seco",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "ACU II - 138 kV (A)",
+    "disp_max_mw": 214,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 44.3,
+      "fracao_meias_horas_com_corte": 0.369
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNANE",
+    "nome": "Conj. Anemus",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COTESA",
+    "ponto_conexao": "CURR NOVOS II230kVA",
+    "disp_max_mw": 139,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 43.5,
+      "fracao_meias_horas_com_corte": 0.295
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAPBR",
+    "nome": "Conj. Pedra Branca",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "PEDRA BRANCA",
+    "ponto_conexao": "U.SOBRADINHO - 230 kV (A)",
+    "disp_max_mw": 249,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 42.8,
+      "fracao_meias_horas_com_corte": 0.285
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CESRO",
+    "nome": "Conj. Santa Rosália",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "IBIAPINA II - 230 kV (A)",
+    "disp_max_mw": 141,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 42.6,
+      "fracao_meias_horas_com_corte": 0.311
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNREV",
+    "nome": "Conj. Renascença V",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 60,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 42.4,
+      "fracao_meias_horas_com_corte": 0.459
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CELINS",
+    "nome": "Conj. Lins",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "COBRA BRASIL",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 182,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 42.3,
+      "fracao_meias_horas_com_corte": 0.195
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BASAZ",
+    "nome": "Conj. Serra Azul",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 110,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 42.2,
+      "fracao_meias_horas_com_corte": 0.312
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACTA",
+    "nome": "Conj. Caetité A",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "IGAPORA II - 230 kV (B)",
+    "disp_max_mw": 55,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 40.8,
+      "fracao_meias_horas_com_corte": 0.31
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMAC",
+    "nome": "Conj. Macacos",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "J. CAMARA III - 500 kV (A)",
+    "disp_max_mw": 78,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 40.5,
+      "fracao_meias_horas_com_corte": 0.424
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEARD",
+    "nome": "Conj. Aracati II",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "RUSSAS II - 230 kV (A)",
+    "disp_max_mw": 140,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 40.4,
+      "fracao_meias_horas_com_corte": 0.337
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEJAN",
+    "nome": "Conj. Jandaia",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "VISUS ENGENHARIA",
+    "ponto_conexao": "RUSSAS II - 230 kV (A)",
+    "disp_max_mw": 123,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 38.7,
+      "fracao_meias_horas_com_corte": 0.342
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNACA",
+    "nome": "Conj. Acauã",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 109,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 37.7,
+      "fracao_meias_horas_com_corte": 0.318
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAPEL",
+    "nome": "Conj. Pelourinho",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "PINDAI II - 230 kV (A)",
+    "disp_max_mw": 42,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 36.4,
+      "fracao_meias_horas_com_corte": 0.349
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEPPG",
+    "nome": "Conj. Papagaios",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "ENERGIMP",
+    "ponto_conexao": "ACARAU II - 230 kV (A)",
+    "disp_max_mw": 87,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 36.0,
+      "fracao_meias_horas_com_corte": 0.298
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEAPA",
+    "nome": "Conj. Jaguaruana II 230kV",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "JAGUARUANA II230kVA",
+    "disp_max_mw": 200,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 35.1,
+      "fracao_meias_horas_com_corte": 0.19
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSMN",
+    "nome": "Conj. Santa Rosa Mundo Novo",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "COPEL-GT",
+    "ponto_conexao": "PARAISO138kVA",
+    "disp_max_mw": 155,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 33.0,
+      "fracao_meias_horas_com_corte": 0.27
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNUERU",
+    "nome": "Rei dos Ventos 1",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 58,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 32.6,
+      "fracao_meias_horas_com_corte": 0.391
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA4FBBS",
+    "nome": "Conj. Babilônia Sul",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "CVER",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 106,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 32.6,
+      "fracao_meias_horas_com_corte": 0.211
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEKW2W",
+    "nome": "Conj. Kairos",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "MOSSORO IV - 230 kV (A)",
+    "disp_max_mw": 122,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 32.5,
+      "fracao_meias_horas_com_corte": 0.313
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEPTM",
+    "nome": "Conj. Pitombeira",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "AF ENERGIA",
+    "ponto_conexao": "RUSSAS II - 230 kV (A)",
+    "disp_max_mw": 99,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 31.6,
+      "fracao_meias_horas_com_corte": 0.318
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNUES3",
+    "nome": "Miassaba 3",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 68,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 31.1,
+      "fracao_meias_horas_com_corte": 0.372
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACRI",
+    "nome": "Conj. Cristal",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "MORRO CHAPEU2 - 230 kV (A)",
+    "disp_max_mw": 170,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 30.9,
+      "fracao_meias_horas_com_corte": 0.281
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABJU",
+    "nome": "Conj. Bom Jesus",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "B.JESUS LAPA - 69 kV (A)",
+    "disp_max_mw": 66,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 29.7,
+      "fracao_meias_horas_com_corte": 0.284
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNUAD",
+    "nome": "Alegria II",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "NEW ENERGY",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 99,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 29.6,
+      "fracao_meias_horas_com_corte": 0.372
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEFSEM",
+    "nome": "Conj. Serra do Mato",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 201,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 29.3,
+      "fracao_meias_horas_com_corte": 0.217
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACVN",
+    "nome": "Conj. Curva dos Ventos",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "IGAPORA II - 230 kV (B)",
+    "disp_max_mw": 56,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 28.9,
+      "fracao_meias_horas_com_corte": 0.291
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNUERT",
+    "nome": "Rei dos Ventos 3",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 57,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 28.9,
+      "fracao_meias_horas_com_corte": 0.366
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BASPD",
+    "nome": "Conj. São Pedro",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "B.JESUS LAPA - 69 kV (A)",
+    "disp_max_mw": 72,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 28.2,
+      "fracao_meias_horas_com_corte": 0.282
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCA3",
+    "nome": "Conj. Calango 3",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "NEO REN",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 84,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 27.7,
+      "fracao_meias_horas_com_corte": 0.295
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CEAUD",
+    "nome": "Conj. Acaraú II",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "CEMIG GT",
+    "ponto_conexao": "ACARAU II - 230 kV (A)",
+    "disp_max_mw": 72,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 27.5,
+      "fracao_meias_horas_com_corte": 0.288
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RN2ESSA",
+    "nome": "Conj. Serra de Santana",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 202,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 27.5,
+      "fracao_meias_horas_com_corte": 0.261
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BALAP",
+    "nome": "Conj. Lapa",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "B.JESUS LAPA - 230 kV (A)",
+    "disp_max_mw": 66,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 26.4,
+      "fracao_meias_horas_com_corte": 0.218
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNGAM",
+    "nome": "Conj. Gameleira",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "TOUROS - 230 kV (A)",
+    "disp_max_mw": 82,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 25.6,
+      "fracao_meias_horas_com_corte": 0.35
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CECAL",
+    "nome": "Conj. Calcário",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "ENGEPAT",
+    "ponto_conexao": "QUIXERE - 230 kV (A)",
+    "disp_max_mw": 132,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 25.4,
+      "fracao_meias_horas_com_corte": 0.188
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BABJL",
+    "nome": "Conj. BJL",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "VISUS ENGENHARIA",
+    "ponto_conexao": "B.JESUS LAPA - 69 kV (A)",
+    "disp_max_mw": 40,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 25.0,
+      "fracao_meias_horas_com_corte": 0.299
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CE4FICO",
+    "nome": "Conj. Icó 230 kV",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "ICO230kVA",
+    "disp_max_mw": 189,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 23.7,
+      "fracao_meias_horas_com_corte": 0.166
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNMOD",
+    "nome": "Conj. Modelo",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ENEL",
+    "ponto_conexao": "JOAO CAMARA 269kVA",
+    "disp_max_mw": 55,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 23.0,
+      "fracao_meias_horas_com_corte": 0.425
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CECBS",
+    "nome": "Conj. Cacimbas",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "IQONY",
+    "ponto_conexao": "IBIAPINA II - 230 kV (A)",
+    "disp_max_mw": 86,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 22.7,
+      "fracao_meias_horas_com_corte": 0.288
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CETBA",
+    "nome": "Conj. Taíba",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "SIMM",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 57,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 22.0,
+      "fracao_meias_horas_com_corte": 0.295
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEUFM",
+    "nome": "Praia Formosa",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "SOBRAL III - 230 kV (A)",
+    "disp_max_mw": 105,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 21.0,
+      "fracao_meias_horas_com_corte": 0.277
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEUPTM",
+    "nome": "Pitombeira",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "AF ENERGIA",
+    "ponto_conexao": "RUSSAS II - 230 kV (A)",
+    "disp_max_mw": 47,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 20.2,
+      "fracao_meias_horas_com_corte": 0.237
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACAN",
+    "nome": "Conj. Canudos I",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "JEREMOABO500kVA",
+    "disp_max_mw": 99,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 20.0,
+      "fracao_meias_horas_com_corte": 0.214
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCA2",
+    "nome": "Conj. Calango 2",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "NEO REN",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 90,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 18.9,
+      "fracao_meias_horas_com_corte": 0.258
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CECHE",
+    "nome": "Conj. Pedra Cheirosa",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "SOBRAL III - 230 kV (A)",
+    "disp_max_mw": 48,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 18.2,
+      "fracao_meias_horas_com_corte": 0.243
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEUCZ",
+    "nome": "Eol Icaraizinho",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "CPFL ENERGIAS",
+    "ponto_conexao": "SOBRAL III - 230 kV (A)",
+    "disp_max_mw": 55,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 18.2,
+      "fracao_meias_horas_com_corte": 0.28
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNUAU",
+    "nome": "Alegria I",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "NEW ENERGY",
+    "ponto_conexao": "ACU II - 230 kV (A)",
+    "disp_max_mw": 51,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 17.9,
+      "fracao_meias_horas_com_corte": 0.359
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CESDF",
+    "nome": "Conj. Sol do Futuro",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "AQUIRAZ II - 69 kV (A)",
+    "disp_max_mw": 81,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 16.9,
+      "fracao_meias_horas_com_corte": 0.198
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNABR",
+    "nome": "Conj. Areia Branca",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "MOSSORO II - 230 kV (A)",
+    "disp_max_mw": 50,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 14.3,
+      "fracao_meias_horas_com_corte": 0.326
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNFLO",
+    "nome": "Conj. Floresta",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "AUREN OPERAÇÕES",
+    "ponto_conexao": "MOSSORO II - 230 kV (A)",
+    "disp_max_mw": 86,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 12.3,
+      "fracao_meias_horas_com_corte": 0.13
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNCA1",
+    "nome": "Conj. Calango 1",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "NEO REN",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 86,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 12.0,
+      "fracao_meias_horas_com_corte": 0.234
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACND",
+    "nome": "Conj. Casa Nova",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "AXIA NORDESTE",
+    "ponto_conexao": "U.SOBRADINHO - 230 kV (A)",
+    "disp_max_mw": 86,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 11.2,
+      "fracao_meias_horas_com_corte": 0.204
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_CE4FRSD",
+    "nome": "Conj. Russas II 230 kV",
+    "uf": "CE",
+    "tipo": "solar",
+    "agente": "CGN BRASIL",
+    "ponto_conexao": "RUSSAS II - 230 kV (A)",
+    "disp_max_mw": 165,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 11.1,
+      "fracao_meias_horas_com_corte": 0.198
+    },
+    "destaque": false
+  },
+  {
+    "id": "RNFVAE",
+    "nome": "Assú V",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "ENGIE",
+    "ponto_conexao": "ACU II - 138 kV (A)",
+    "disp_max_mw": 33,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 10.2,
+      "fracao_meias_horas_com_corte": 0.221
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEEMAU",
+    "nome": "Malhadinha 1",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "IQONY",
+    "ponto_conexao": "IBIAPINA II - 230 kV (A)",
+    "disp_max_mw": 23,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 6.6,
+      "fracao_meias_horas_com_corte": 0.213
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BA4FBMC",
+    "nome": "Conj. Fot. Brotas de Macaúbas 230 kV",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "BROT.MACAUBAS - 230 kV (A)",
+    "disp_max_mw": 65,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.2,
+      "fracao_meias_horas_com_corte": 0.333
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACLA",
+    "nome": "Conj. Campo Largo",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 324,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BACLA2",
+    "nome": "Conj. Campo Largo 2",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 361,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEECVA",
+    "nome": "Cataventos do Acaraú I",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "ENERGISA TRANS",
+    "ponto_conexao": "ACARAU II - 230 kV (A)",
+    "disp_max_mw": 0,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": 0.0
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSS2",
+    "nome": "Conj. Serra de Santana 1 e 2",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 86,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSS3",
+    "nome": "Conj. Serra de Santana 3",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "LAGOA NOVA II - 230 kV (A)",
+    "disp_max_mw": 96,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSDMA",
+    "nome": "Conj. Serra do Mel A",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 384,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSDMB",
+    "nome": "Conj. Serra do Mel B",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 273,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSM2A",
+    "nome": "Conj. Serra do Mel II A",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 211,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_RNSM2B",
+    "nome": "Conj. Serra do Mel II B",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "ECHOENERGIA",
+    "ponto_conexao": "ACU III500kVA",
+    "disp_max_mw": 206,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAECLA",
+    "nome": "Conj. Campo Largo 230kV",
+    "uf": "BA",
+    "tipo": "eolica",
+    "agente": "ENGIE",
+    "ponto_conexao": "OUROLANDIA II - 230 kV (A)",
+    "disp_max_mw": 1031,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAJZS",
+    "nome": "Conj. Juazeiro Solar",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "IQONY",
+    "ponto_conexao": "JUAZEIRO II - 230 kV (A)",
+    "disp_max_mw": 156,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAJZS2",
+    "nome": "Conj. Juazeiro Solar 2",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "IQONY",
+    "ponto_conexao": "JUAZEIRO II - 230 kV (A)",
+    "disp_max_mw": 169,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
+    "id": "CEFFDM",
+    "nome": "Flor de Mandacaru",
+    "uf": "RN",
+    "tipo": "solar",
+    "agente": "VOLTALIA",
+    "ponto_conexao": "MOSSORO IV - 230 kV (A)",
+    "disp_max_mw": 2,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": 0.0
+    },
+    "destaque": false
+  },
+  {
+    "id": "CJU_BAVSES",
+    "nome": "Conj. Fot. Ventos Santa Eugênia",
+    "uf": "BA",
+    "tipo": "solar",
+    "agente": "STATKRAFT",
+    "ponto_conexao": "GENTIO OURO II500kVA",
+    "disp_max_mw": 130,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  }
+]

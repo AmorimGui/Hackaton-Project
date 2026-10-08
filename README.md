@@ -9,7 +9,7 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 | Etapa | Situação |
 | --- | --- |
 | 1. Dados reais do ONS e teste retroativo | Concluída (`dados/`) |
-| 2. Atlas (site) | A fazer |
+| 2. Atlas (site) | Concluída (`site/`) |
 | 3. Pagamento na Solana | A fazer |
 | 4. Recibo em duas fases | A fazer |
 | 5. Trabalho em lote | A fazer |
@@ -18,6 +18,15 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 ## Etapa 1 em resumo
 
 O Nordeste deixou de gerar **3,4 GW médios** de eólica e solar em jan–ago/2026 (cálculo direto do ONS). Usando só dados públicos disponíveis uma semana antes, as janelas previstas capturaram **90% da energia cortada em agosto e 95% em setembro de 2026**, em 154 usinas do RN, BA e CE. Detalhes em [`dados/RELATORIO_ETAPA1.md`](dados/RELATORIO_ETAPA1.md).
+
+## Atlas (site)
+
+Site bilíngue (inglês e português) com o mapa das usinas, as janelas previstas, o placar público e o método. Veja [`site/README.md`](site/README.md).
+
+```bash
+python dados/scripts/atlas.py     # prepara os dados do site
+cd site && npm install && npm run dev
+```
 
 ## Como rodar a parte de dados
 
@@ -59,7 +68,10 @@ dados/
   scripts/
     baixar_ons.py           baixa os arquivos mensais de constrained-off do ONS
     etapa1.py               chance de corte por usina/mês/hora e teste retroativo
+    atlas.py                junta os resultados, a localização e o preço para o site
+  config/                   localização aproximada das usinas de destaque
   saida/                    resultados usados pelo site (Atlas) e pelo pitch
+site/                       o Atlas (Next.js)
 ```
 
 ## Dados
