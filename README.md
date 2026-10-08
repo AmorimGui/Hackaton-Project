@@ -12,7 +12,7 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 | --- | --- |
 | 1. Dados reais do ONS e teste retroativo | Concluída (`dados/`) |
 | 2. Atlas (site) | Concluída (`site/`) |
-| 3. Pagamento na Solana | A fazer |
+| 3. Pagamento na Solana (devnet) | Concluída (`site/src/lib/solana.ts`) |
 | 4. Recibo em duas fases | A fazer |
 | 5. Trabalho em lote | A fazer |
 | 6. Entrega | A fazer |
@@ -20,6 +20,12 @@ Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypt
 ## Etapa 1 em resumo
 
 O Nordeste deixou de gerar **3,4 GW médios** de eólica e solar em jan–ago/2026 (cálculo direto do ONS). Usando só dados públicos disponíveis uma semana antes, as janelas previstas capturaram **90% da energia cortada em agosto e 95% em setembro de 2026**, em 154 usinas do RN, BA e CE. Detalhes em [`dados/RELATORIO_ETAPA1.md`](dados/RELATORIO_ETAPA1.md).
+
+## Pagamento na Solana (Etapa 3)
+
+Cada janela prevista tem um botão **Comprar**: o comprador escolhe os MWh, o preço sai do PLD da janela convertido em USDC pela PTAX do Banco Central, e **uma única transação** assinada na Phantom paga usina (70%), operador (25%) e plataforma (5%) e grava um memo com o que foi comprado. A plataforma nunca segura o dinheiro. Roda na **devnet** com USDC de teste; usina e operador são carteiras de teste.
+
+**Primeira compra (08/10/2026):** 0,5 MWh da Serra do Assuruá por 5,73846 USDC — [ver no Solana Explorer](https://explorer.solana.com/tx/5bRw4an8rY7hpYxVnoo217MN85dGUfycp5t6Q6mGQkFDubDdbLE2MABiYVGecacT9SkLoTL1ijtTrj9NjULy5Bg9?cluster=devnet).
 
 ## Atlas (site)
 
