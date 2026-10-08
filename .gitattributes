@@ -5,3 +5,4 @@
 dados/saida/** -text
 site/public/data/** -text
 site/public/previsoes/** -text
+site/public/execucoes/** -text

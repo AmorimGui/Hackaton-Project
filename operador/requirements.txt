@@ -1,0 +1,4 @@
+# O operador de demonstração (Etapa 5): o modelo de IA e a assinatura na Solana
+-r ../requirements.txt
+fastembed==0.9.0
+solders==0.29.0
