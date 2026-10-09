@@ -3,7 +3,7 @@
   "limiar": 0.5,
   "regra_resultado": "confirmado quando o ONS registrou corte (GNRa >= 1 MW) em pelo menos metade das meias-horas da janela",
   "inicio": "2026-10-01",
-  "dados_ate": "2026-10-07",
+  "dados_ate": "2026-10-08",
   "publicada_antes_desde": "2026-10-08",
   "nota": "fora da amostra: cada dia é previsto só com dados até 7 dias antes. As previsões de 01 a 07/10 foram publicadas em 07/10; a partir de 08/10, antes de o dia começar (histórico no GitHub)",
   "janelas": [
@@ -100,8 +100,8 @@
       "gpu_horas_esperadas": 1733313,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.94,
-      "energia_cortada_mwh": 1178,
-      "gpu_horas_equivalentes": 1385328,
+      "energia_cortada_mwh": 1333,
+      "gpu_horas_equivalentes": 1568548,
       "razoes_do_corte": {
         "ENE": 16
       },
@@ -120,8 +120,8 @@
       "gpu_horas_esperadas": 1681114,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 1.0,
-      "energia_cortada_mwh": 933,
-      "gpu_horas_equivalentes": 1097248,
+      "energia_cortada_mwh": 930,
+      "gpu_horas_equivalentes": 1093635,
       "razoes_do_corte": {
         "ENE": 16
       },
@@ -140,12 +140,32 @@
       "gpu_horas_esperadas": 1622117,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.94,
-      "energia_cortada_mwh": 1369,
-      "gpu_horas_equivalentes": 1610466,
+      "energia_cortada_mwh": 1359,
+      "gpu_horas_equivalentes": 1598965,
       "razoes_do_corte": {
         "ENE": 15
       },
       "publicada_antes": false
+    },
+    {
+      "id_ons": "CJU_BASAR",
+      "usina": "Conj. Serra do Assuruá",
+      "uf": "BA",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "07:30",
+      "fim": "15:30",
+      "chance_prevista": 0.85,
+      "energia_esperada_mwh": 1360,
+      "gpu_horas_esperadas": 1599988,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 683,
+      "gpu_horas_equivalentes": 804028,
+      "razoes_do_corte": {
+        "ENE": 16
+      },
+      "publicada_antes": true
     },
     {
       "id_ons": "CJU_BANHZ",
@@ -286,6 +306,26 @@
         "ENE": 15
       },
       "publicada_antes": false
+    },
+    {
+      "id_ons": "CJU_BANHZ",
+      "usina": "Conj. Novo Horizonte",
+      "uf": "BA",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "07:30",
+      "fim": "15:30",
+      "chance_prevista": 0.84,
+      "energia_esperada_mwh": 919,
+      "gpu_horas_esperadas": 1081620,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 254,
+      "gpu_horas_equivalentes": 298925,
+      "razoes_do_corte": {
+        "ENE": 16
+      },
+      "publicada_antes": true
     },
     {
       "id_ons": "CJU_RNRDV",
@@ -554,6 +594,46 @@
       "publicada_antes": false
     },
     {
+      "id_ons": "CJU_RNRDV",
+      "usina": "Conj. Rio do Vento",
+      "uf": "RN",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "00:00",
+      "fim": "15:00",
+      "chance_prevista": 0.77,
+      "energia_esperada_mwh": 1829,
+      "gpu_horas_esperadas": 2152045,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.5,
+      "energia_cortada_mwh": 1037,
+      "gpu_horas_equivalentes": 1219940,
+      "razoes_do_corte": {
+        "ENE": 15
+      },
+      "publicada_antes": true
+    },
+    {
+      "id_ons": "CJU_RNRDV",
+      "usina": "Conj. Rio do Vento",
+      "uf": "RN",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "19:30",
+      "fim": "24:00",
+      "chance_prevista": 0.79,
+      "energia_esperada_mwh": 585,
+      "gpu_horas_esperadas": 688675,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.56,
+      "energia_cortada_mwh": 46,
+      "gpu_horas_equivalentes": 53945,
+      "razoes_do_corte": {
+        "CNF": 5
+      },
+      "publicada_antes": true
+    },
+    {
       "id_ons": "CJU_RNRVE",
       "usina": "Conj. Rio do Vento Expansão",
       "uf": "RN",
@@ -809,6 +889,46 @@
       "publicada_antes": false
     },
     {
+      "id_ons": "CJU_RNRVE",
+      "usina": "Conj. Rio do Vento Expansão",
+      "uf": "RN",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "00:00",
+      "fim": "15:00",
+      "chance_prevista": 0.8,
+      "energia_esperada_mwh": 2078,
+      "gpu_horas_esperadas": 2444748,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.57,
+      "energia_cortada_mwh": 1586,
+      "gpu_horas_equivalentes": 1865696,
+      "razoes_do_corte": {
+        "ENE": 17
+      },
+      "publicada_antes": true
+    },
+    {
+      "id_ons": "CJU_RNRVE",
+      "usina": "Conj. Rio do Vento Expansão",
+      "uf": "RN",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "18:30",
+      "fim": "24:00",
+      "chance_prevista": 0.81,
+      "energia_esperada_mwh": 933,
+      "gpu_horas_esperadas": 1097853,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.82,
+      "energia_cortada_mwh": 427,
+      "gpu_horas_equivalentes": 502085,
+      "razoes_do_corte": {
+        "CNF": 9
+      },
+      "publicada_antes": true
+    },
+    {
       "id_ons": "CJU_CEITC",
       "usina": "Conj. Itarema V",
       "uf": "CE",
@@ -840,11 +960,11 @@
       "energia_esperada_mwh": 477,
       "gpu_horas_esperadas": 560877,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.73,
-      "energia_cortada_mwh": 152,
-      "gpu_horas_equivalentes": 179206,
+      "fracao_com_corte": 0.67,
+      "energia_cortada_mwh": 106,
+      "gpu_horas_equivalentes": 124395,
       "razoes_do_corte": {
-        "ENE": 11
+        "ENE": 10
       },
       "publicada_antes": false
     },
@@ -860,11 +980,11 @@
       "energia_esperada_mwh": 1161,
       "gpu_horas_esperadas": 1365375,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.82,
-      "energia_cortada_mwh": 758,
-      "gpu_horas_equivalentes": 891929,
+      "fracao_com_corte": 0.73,
+      "energia_cortada_mwh": 649,
+      "gpu_horas_equivalentes": 764025,
       "razoes_do_corte": {
-        "ENE": 18
+        "ENE": 16
       },
       "publicada_antes": false
     },
@@ -881,8 +1001,8 @@
       "gpu_horas_esperadas": 1446689,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 1.0,
-      "energia_cortada_mwh": 1683,
-      "gpu_horas_equivalentes": 1980122,
+      "energia_cortada_mwh": 1608,
+      "gpu_horas_equivalentes": 1891512,
       "razoes_do_corte": {
         "ENE": 22
       },
@@ -901,8 +1021,8 @@
       "gpu_horas_esperadas": 578180,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.93,
-      "energia_cortada_mwh": 828,
-      "gpu_horas_equivalentes": 974478,
+      "energia_cortada_mwh": 778,
+      "gpu_horas_equivalentes": 915390,
       "razoes_do_corte": {
         "ENE": 14
       },
@@ -945,6 +1065,26 @@
       "gpu_horas_equivalentes": 0,
       "razoes_do_corte": {},
       "publicada_antes": false
+    },
+    {
+      "id_ons": "CJU_CEITC",
+      "usina": "Conj. Itarema V",
+      "uf": "CE",
+      "tipo": "eolica",
+      "data": "2026-10-08",
+      "inicio": "07:30",
+      "fim": "15:00",
+      "chance_prevista": 0.8,
+      "energia_esperada_mwh": 492,
+      "gpu_horas_esperadas": 579053,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 776,
+      "gpu_horas_equivalentes": 913507,
+      "razoes_do_corte": {
+        "ENE": 15
+      },
+      "publicada_antes": true
     },
     {
       "id_ons": "CJU_BASSD",
@@ -1088,6 +1228,26 @@
       "publicada_antes": false
     },
     {
+      "id_ons": "CJU_BASSD",
+      "usina": "Conj. Sol do Sertão",
+      "uf": "BA",
+      "tipo": "solar",
+      "data": "2026-10-08",
+      "inicio": "07:00",
+      "fim": "14:30",
+      "chance_prevista": 0.78,
+      "energia_esperada_mwh": 1068,
+      "gpu_horas_esperadas": 1256492,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 1203,
+      "gpu_horas_equivalentes": 1414791,
+      "razoes_do_corte": {
+        "ENE": 15
+      },
+      "publicada_antes": true
+    },
+    {
       "id_ons": "CJU_RNASO",
       "usina": "Conj. Assu Sol",
       "uf": "RN",
@@ -1181,8 +1341,8 @@
       "gpu_horas_esperadas": 2682171,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.9,
-      "energia_cortada_mwh": 3196,
-      "gpu_horas_equivalentes": 3760489,
+      "energia_cortada_mwh": 3219,
+      "gpu_horas_equivalentes": 3786872,
       "razoes_do_corte": {
         "CNF": 6,
         "ENE": 13
@@ -1229,6 +1389,27 @@
         "CNF": 6
       },
       "publicada_antes": false
+    },
+    {
+      "id_ons": "CJU_RNASO",
+      "usina": "Conj. Assu Sol",
+      "uf": "RN",
+      "tipo": "solar",
+      "data": "2026-10-08",
+      "inicio": "06:30",
+      "fim": "17:00",
+      "chance_prevista": 0.85,
+      "energia_esperada_mwh": 2275,
+      "gpu_horas_esperadas": 2676119,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.95,
+      "energia_cortada_mwh": 3468,
+      "gpu_horas_equivalentes": 4080533,
+      "razoes_do_corte": {
+        "ENE": 17,
+        "CNF": 3
+      },
+      "publicada_antes": true
     },
     {
       "id_ons": "CJU_CEMTD",
@@ -1369,6 +1550,26 @@
         "ENE": 10
       },
       "publicada_antes": false
+    },
+    {
+      "id_ons": "CJU_CEMTD",
+      "usina": "Conj. Mauriti",
+      "uf": "CE",
+      "tipo": "solar",
+      "data": "2026-10-08",
+      "inicio": "09:00",
+      "fim": "14:00",
+      "chance_prevista": 0.69,
+      "energia_esperada_mwh": 256,
+      "gpu_horas_esperadas": 300662,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 716,
+      "gpu_horas_equivalentes": 842145,
+      "razoes_do_corte": {
+        "ENE": 10
+      },
+      "publicada_antes": true
     }
   ]
 }
