@@ -392,14 +392,14 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 636.3,
-        "mw_medios": 3314,
-        "chance_corte": 0.464
+        "energia_perdida_gwh": 708.0,
+        "mw_medios": 3278,
+        "chance_corte": 0.466
       },
       "solar": {
-        "energia_perdida_gwh": 130.6,
-        "mw_medios": 680,
-        "chance_corte": 0.265
+        "energia_perdida_gwh": 144.2,
+        "mw_medios": 667,
+        "chance_corte": 0.266
       }
     }
   },
@@ -410,14 +410,14 @@
     "fracao_confirmadas": 0.919
   },
   "janelas_ao_vivo": {
-    "periodo": "2026-10-01 a 2026-10-08",
-    "total": 79,
-    "confirmadas": 50,
+    "periodo": "2026-10-01 a 2026-10-09",
+    "total": 89,
+    "confirmadas": 60,
     "erradas": 29,
-    "fracao_confirmadas": 0.633,
+    "fracao_confirmadas": 0.674,
     "publicadas_antes": {
-      "total": 10,
-      "confirmadas": 10,
+      "total": 20,
+      "confirmadas": 20,
       "erradas": 0,
       "fracao_confirmadas": 1.0
     }
@@ -462,8 +462,8 @@
     }
   },
   "janelas_proximos_dias": {
-    "periodo": "2026-10-09 a 2026-10-16",
-    "total": 1435,
+    "periodo": "2026-10-10 a 2026-10-17",
+    "total": 1444,
     "usinas_com_janela": 154
   }
 }
