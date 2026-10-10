@@ -5,8 +5,8 @@
   "RESTRICAO_COFF_EOLICA_2026_09.parquet": "ac7750210a8798038f9cf8fa0ddd043b2edee94f0590b30e5fd063fb4bda5772",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_08.parquet": "7c609a08af4aece39f0cf42583b7713ab64d73cd347ab572d49124ad592fa791",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_09.parquet": "3c038ed2d4906d7ec8c9aab7e6aba2c35f5217121a06123b396623593b5aaf5b",
-  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "295a2813713fb25e60002896a10a7e20f61d58e94305ea1c9dacca7e2fda5caa",
-  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "d6bcd60d5c10f3aa6cc796b83da9ef756844a607ba0e6a5adb7b16e5de437b92"
+  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "823860bc137440e1ef2043792b072a8ea375420fca6316f81896bdf4e812a0c7",
+  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "4a34925b2010c9648890a8371c2645f7e8f1580baea3c2195bd40a7359a71c75"
  },
  "url_fontes": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_{eolica|fotovoltaica}_tm/<arquivo>",
  "janelas": {
@@ -6184,7 +6184,7 @@
   "CJU_CEITC|2026-10-08|07:30-15:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 1.0,
-   "energia_cortada_mwh": 776,
+   "energia_cortada_mwh": 1012,
    "razoes": {
     "ENE": 15
    },
@@ -6248,7 +6248,7 @@
   "CJU_BASSD|2026-10-07|07:00-14:30": {
    "resultado": "confirmado",
    "fracao_com_corte": 1.0,
-   "energia_cortada_mwh": 1133,
+   "energia_cortada_mwh": 1129,
    "razoes": {
     "ENE": 15
    },

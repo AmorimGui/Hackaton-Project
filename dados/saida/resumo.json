@@ -392,14 +392,14 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 626.5,
-        "mw_medios": 3263,
-        "chance_corte": 0.462
+        "energia_perdida_gwh": 636.3,
+        "mw_medios": 3314,
+        "chance_corte": 0.464
       },
       "solar": {
-        "energia_perdida_gwh": 129.5,
-        "mw_medios": 674,
-        "chance_corte": 0.263
+        "energia_perdida_gwh": 130.6,
+        "mw_medios": 680,
+        "chance_corte": 0.265
       }
     }
   },
@@ -463,7 +463,7 @@
   },
   "janelas_proximos_dias": {
     "periodo": "2026-10-09 a 2026-10-16",
-    "total": 1436,
+    "total": 1435,
     "usinas_com_janela": 154
   }
 }

@@ -1079,8 +1079,8 @@
       "gpu_horas_esperadas": 579053,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 1.0,
-      "energia_cortada_mwh": 776,
-      "gpu_horas_equivalentes": 913507,
+      "energia_cortada_mwh": 1012,
+      "gpu_horas_equivalentes": 1190744,
       "razoes_do_corte": {
         "ENE": 15
       },
@@ -1220,8 +1220,8 @@
       "gpu_horas_esperadas": 1313375,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 1.0,
-      "energia_cortada_mwh": 1133,
-      "gpu_horas_equivalentes": 1332642,
+      "energia_cortada_mwh": 1129,
+      "gpu_horas_equivalentes": 1327781,
       "razoes_do_corte": {
         "ENE": 15
       },
