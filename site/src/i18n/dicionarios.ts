@@ -213,6 +213,8 @@ const en = {
     files: {
       "chance_corte_por_usina_mes_hora.csv": "Open curtailment index: chance and average loss by plant, month and hour",
       "corte_por_estado_mes.csv": "Curtailed energy by subsystem, state, type and month (all of Brazil)",
+      "corte_por_razao_mes.csv": "Curtailed energy by ONS reason (ENE, CNF, REL), subsystem, state, type and month",
+      "janelas_ao_vivo.json": "Live forecast windows since Oct 1 with the ONS verdict",
       "janelas_previstas_ago_set_2026.json": "Backtest windows with the ONS verdict",
       "janelas_previstas_proximos_dias.json": "Forecast windows for the coming days",
       "teste_retroativo.json": "Full backtest metrics",
@@ -555,6 +557,8 @@ const pt: Dicionario = {
     files: {
       "chance_corte_por_usina_mes_hora.csv": "Índice aberto de corte: chance e perda média por usina, mês e hora",
       "corte_por_estado_mes.csv": "Energia cortada por subsistema, estado, tipo e mês (Brasil inteiro)",
+      "corte_por_razao_mes.csv": "Energia cortada por razão do ONS (ENE, CNF, REL), subsistema, estado, tipo e mês",
+      "janelas_ao_vivo.json": "Janelas previstas ao vivo desde 1º/10, com o veredito do ONS",
       "janelas_previstas_ago_set_2026.json": "Janelas do teste retroativo com o veredito do ONS",
       "janelas_previstas_proximos_dias.json": "Janelas previstas para os próximos dias",
       "teste_retroativo.json": "Métricas completas do teste retroativo",
