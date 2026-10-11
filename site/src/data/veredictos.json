@@ -5,7 +5,7 @@
   "RESTRICAO_COFF_EOLICA_2026_09.parquet": "ac7750210a8798038f9cf8fa0ddd043b2edee94f0590b30e5fd063fb4bda5772",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_08.parquet": "7c609a08af4aece39f0cf42583b7713ab64d73cd347ab572d49124ad592fa791",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_09.parquet": "3c038ed2d4906d7ec8c9aab7e6aba2c35f5217121a06123b396623593b5aaf5b",
-  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "d0d9dd4a6266cde222f2941fbc35630565af18cda04a58ac7015225d9a705ada",
+  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "cbe1e0f0ce36e744af800ce8094293af966c195d16de47b4ad3e8b8e096e4140",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "5e753cacc96445ef0860c9c98ad96a9c0872a4a4eb51b55180596b4def93414b"
  },
  "url_fontes": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_{eolica|fotovoltaica}_tm/<arquivo>",
