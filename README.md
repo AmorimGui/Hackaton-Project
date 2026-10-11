@@ -6,7 +6,7 @@
 
 Built by Emmanuel Stein and Guilherme Amorim, university students in Brazil, for the Colosseum Crypto World's Fair 2026.
 
-**Live app:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) (English by default, PT button in the header). No login or install is needed to explore it.
+**Live app:** [nomos-energy.vercel.app](https://nomos-energy.vercel.app) (English by default, PT button in the header). No login or install is needed to explore it.
 
 ## The problem
 
@@ -36,9 +36,9 @@ Hour-by-hour clean-energy claims are where large buyers are heading: Google's 24
 
 ## Try it in two minutes
 
-1. **[Track record](https://hackaton-project-liart.vercel.app/track-record):** the backtest, the live scoreboard and the three kinds of curtailment.
-2. **[A plant page](https://hackaton-project-liart.vercel.app/plants/CJU_BASAR):** why it is curtailed, the forecast windows and the history with the ONS verdict.
-3. **[A complete live cycle](https://hackaton-project-liart.vercel.app/verify?tx=5MHPTtL3KopV1hAZd2cd4cNZUB79FvdiVo2RZnJFNRTjkshaZC7atmyibwsokAKNYv4boUNx2G85Kxnuc4ofWhBv):**
+1. **[Track record](https://nomos-energy.vercel.app/track-record):** the backtest, the live scoreboard and the three kinds of curtailment.
+2. **[A plant page](https://nomos-energy.vercel.app/plants/CJU_BASAR):** why it is curtailed, the forecast windows and the history with the ONS verdict.
+3. **[A complete live cycle](https://nomos-energy.vercel.app/verify?tx=5MHPTtL3KopV1hAZd2cd4cNZUB79FvdiVo2RZnJFNRTjkshaZC7atmyibwsokAKNYv4boUNx2G85Kxnuc4ofWhBv):**
     - the forecast was published on Oct 7;
     - the window was reserved at 4 pm on Oct 8;
     - the AI job ran inside the window at 6:30 pm;

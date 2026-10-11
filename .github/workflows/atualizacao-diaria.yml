@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      SITE: https://hackaton-project-liart.vercel.app
+      SITE: https://nomos-energy.vercel.app
     steps:
       - uses: actions/checkout@v4
 

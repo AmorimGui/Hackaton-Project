@@ -6,7 +6,7 @@ Mercado de flexibilidade para o excesso de energia renovável do Nordeste brasil
 
 Projeto de Emmanuel Stein e Guilherme Amorim (Nomos) para o Colosseum Crypto World's Fair 2026.
 
-**Site:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) — publicado na Vercel; cada `git push` na `main` atualiza o site.
+**Site:** [nomos-energy.vercel.app](https://nomos-energy.vercel.app) — publicado na Vercel; cada `git push` na `main` atualiza o site.
 
 ## Estado
 
@@ -36,9 +36,9 @@ Depois do pagamento, o site grava dois registros na Solana, cada um citando a tr
 1. **Recibo (fase 1):** a usina e o operador assinam um memo reconhecendo a venda (a plataforma paga a taxa).
 2. **Carimbo do ONS (fase 2):** quando o ONS publica o dado da janela (cerca de uma semana depois), a plataforma, como oráculo declarado (v1), grava o veredito, *confirmado* ou *errado*, com o arquivo oficial do ONS e seu SHA-256.
 
-A página [`/verify`](https://hackaton-project-liart.vercel.app/verify) lê tudo direto da blockchain e ensina a conferir sem confiar no site. O site guarda uma cópia exata de cada arquivo do ONS citado num carimbo (`site/public/ons/<sha256>/`), porque o ONS às vezes republica um mês: em 08/10/2026 ele renomeou usinas nos arquivos de setembro. Os números não mudaram, mas o SHA-256 mudou.
+A página [`/verify`](https://nomos-energy.vercel.app/verify) lê tudo direto da blockchain e ensina a conferir sem confiar no site. O site guarda uma cópia exata de cada arquivo do ONS citado num carimbo (`site/public/ons/<sha256>/`), porque o ONS às vezes republica um mês: em 08/10/2026 ele renomeou usinas nos arquivos de setembro. Os números não mudaram, mas o SHA-256 mudou.
 
-**Ciclo completo (replay de 29/09/2026, janela confirmada pelo ONS):** [pagamento, recibo e carimbo](https://hackaton-project-liart.vercel.app/verify?tx=5pxHxeJt42bGkPxLN1pK78m8znCgBLgZMRNSqjuZVjM6SLu4EVSB6QqNkPrK5r71sPCNa8PYwxnaf14afkmuRcuN).
+**Ciclo completo (replay de 29/09/2026, janela confirmada pelo ONS):** [pagamento, recibo e carimbo](https://nomos-energy.vercel.app/verify?tx=5pxHxeJt42bGkPxLN1pK78m8znCgBLgZMRNSqjuZVjM6SLu4EVSB6QqNkPrK5r71sPCNa8PYwxnaf14afkmuRcuN).
 
 Para testar sem Phantom, `node scripts/compra-teste.mjs CJU_BASAR 2026-09-29` (na pasta `site/`) faz a mesma compra com uma carteira de teste e pede o recibo ao site.
 

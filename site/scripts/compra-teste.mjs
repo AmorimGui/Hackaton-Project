@@ -19,7 +19,7 @@ import { RPC, contaUsdc, criarContaSeFaltar, explorador, montarTransacao, precif
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const CHAVES = path.resolve(AQUI, "..", "..", "..", "carteiras-teste");
-const [idUsina, dataHora, mwhTexto = "0.1", site = "https://hackaton-project-liart.vercel.app"] = process.argv.slice(2);
+const [idUsina, dataHora, mwhTexto = "0.1", site = "https://nomos-energy.vercel.app"] = process.argv.slice(2);
 const [data, hora] = (dataHora ?? "").split("T");
 if (!idUsina || !data) {
   console.error("uso: node scripts/compra-teste.mjs <ID_USINA> <AAAA-MM-DD[THH:MM]> [MWh] [URL do site]");

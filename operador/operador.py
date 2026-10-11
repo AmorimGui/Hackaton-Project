@@ -41,7 +41,7 @@ import trabalho
 
 RAIZ = Path(__file__).resolve().parents[1]
 RPC = "https://api.devnet.solana.com"
-SITE = "https://hackaton-project-liart.vercel.app"
+SITE = "https://nomos-energy.vercel.app"
 OPERADOR = Pubkey.from_string("8ufcDYFKXRjNsVa4PCzvwBa55y73NqAFmvMPVoPnx9BZ")  # o mesmo de site/src/lib/solana.ts
 MEMO = Pubkey.from_string("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr")
 CHAVE = RAIZ.parent / "carteiras-teste" / "operador.json"  # fora do Git
