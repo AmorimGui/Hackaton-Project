@@ -46,6 +46,8 @@ export type Usina = {
   teste: { agosto: Metricas; setembro: Metricas };
   placar: { janelas: number; confirmadas: number };
   placar_ao_vivo: { janelas: number; confirmadas: number };
+  /** energia cortada em 2026 e a fração por razão do ONS (ENE, CNF, REL…) */
+  razoes_2026: { gwh: number; fracao: Record<string, number> };
   recentes: Janela[];
   proximas: Janela[];
 };
@@ -149,6 +151,11 @@ export type Atlas = {
     calibracao_agosto: { faixa: string; n: number; prevista: number; observada: number }[];
     parametros: Record<string, unknown>;
     placar: { total: number; confirmadas: number; erradas: number; fracao_confirmadas: number };
+  };
+  razoes: {
+    nordeste_2026: { periodo: string; fracao: Record<string, number>; twh: Record<string, number> };
+    nordeste_por_mes: Record<string, Record<string, number>>;
+    captura: Record<"teste_ago_set" | "ao_vivo", Record<string, { fracao_do_corte: number; capturado: number }>>;
   };
   ao_vivo: PlacarVivo & { periodo: string; publicadas_antes: PlacarVivo; publicada_antes_desde: string };
   padroes: {

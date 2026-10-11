@@ -5,18 +5,77 @@ import { useIdioma } from "@/i18n/idioma";
 import type { Atlas, Usina } from "@/lib/tipos";
 import { dataCurta, num, pct } from "@/lib/formato";
 import { Cartao, SeloTipo } from "./Selos";
-import { GraficoCalibracao } from "./Graficos";
+import { BarraRazoes, GraficoCalibracao, GraficoRazoesMes } from "./Graficos";
+
+const DICIONARIO_ONS =
+  "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_eolica_tm/DicionarioDados_RestricaoContrainedoff_UsiEolicas.pdf";
 
 export type DadosPlacar = {
   teste: Atlas["teste"];
   manchete: Atlas["manchete"];
   impressoes: string[];
   ao_vivo: Atlas["ao_vivo"];
+  razoes: Atlas["razoes"];
   dados_ate: string;
   usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "teste" | "placar" | "placar_ao_vivo">[];
 };
 
 const ORDEM = ["taxa_media", "regra_fixa_8h_15h", "mesmo_mes_2025", "perfil_8_semanas", "combinado", "continuo_com_atraso"];
+
+/** Os três tipos de corte do ONS, quanto cada um pesa e quanto a previsão captura de cada um. */
+function TiposDeCorte({ r }: { r: Atlas["razoes"] }) {
+  const { t } = useIdioma();
+  const L = t.locale;
+  const ne = r.nordeste_2026;
+  const tipos = ["ENE", "CNF", "REL"].filter((k) => ne.fracao[k]);
+  const fora = tipos.filter((k) => k !== "REL").reduce((s, k) => s + ne.fracao[k], 0);
+  const ate = dataCurta(ne.periodo.slice(-10), L, true);
+  const cap = (periodo: "teste_ago_set" | "ao_vivo", k: string) => (r.captura[periodo][k] ? pct(r.captura[periodo][k].capturado, L) : "—");
+  return (
+    <Cartao className="overflow-x-auto">
+      <h2 className="text-lg font-semibold">{t.reasons.title}</h2>
+      <p className="mt-1 max-w-3xl text-sm text-muted">{t.reasons.lead(pct(ne.fracao.ENE ?? 0, L), ate)}</p>
+      <div className="mt-4 max-w-3xl">
+        <BarraRazoes fracao={ne.fracao} />
+      </div>
+      <table className="mt-5 w-full text-sm">
+        <thead className="border-b border-line text-left text-xs uppercase tracking-wide text-muted">
+          <tr>
+            <th className="py-2 pr-3 font-medium">{t.reasons.type}</th>
+            <th className="px-2 py-2 font-medium">{t.reasons.code}</th>
+            <th className="px-2 py-2 text-right font-medium">{t.reasons.share}</th>
+            <th className="px-2 py-2 text-right font-medium">{t.reasons.capTest}</th>
+            <th className="px-2 py-2 text-right font-medium">{t.reasons.capLive}</th>
+            <th className="py-2 pl-2 text-right font-medium">{t.reasons.ess}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tipos.map((k) => (
+            <tr key={k} className="border-b border-line/70 last:border-0">
+              <td className="py-2 pr-3">{t.reasons.names[k]}</td>
+              <td className="px-2 py-2 font-mono text-xs">{k}</td>
+              <td className="tabular px-2 py-2 text-right font-semibold">{pct(ne.fracao[k], L)}</td>
+              <td className="tabular px-2 py-2 text-right">{cap("teste_ago_set", k)}</td>
+              <td className="tabular px-2 py-2 text-right">{cap("ao_vivo", k)}</td>
+              <td className={`py-2 pl-2 text-right ${k === "REL" ? "font-semibold text-ok" : "text-muted"}`}>{k === "REL" ? t.reasons.yes : t.reasons.no}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="mt-3 max-w-3xl text-xs text-muted">
+        {t.reasons.essNote(pct(fora, L))}{" "}
+        <a href={DICIONARIO_ONS} className="underline">
+          {t.reasons.dictionary} ↗
+        </a>
+      </p>
+      <h3 className="mt-6 text-sm font-semibold">{t.reasons.byMonth}</h3>
+      <div className="mt-2 max-w-3xl">
+        <GraficoRazoesMes meses={r.nordeste_por_mes} />
+      </div>
+      <p className="mt-1 max-w-3xl text-xs text-muted">{t.reasons.monthNote}</p>
+    </Cartao>
+  );
+}
 
 export function Placar({ d }: { d: DadosPlacar }) {
   const { t } = useIdioma();
@@ -57,6 +116,8 @@ export function Placar({ d }: { d: DadosPlacar }) {
         </div>
         <p className="mt-3 max-w-3xl text-xs text-muted">{t.track.liveNote}</p>
       </Cartao>
+
+      <TiposDeCorte r={d.razoes} />
 
       <Cartao className="overflow-x-auto p-0">
         <h2 className="px-5 pt-5 text-lg font-semibold">{t.track.tableTitle}</h2>

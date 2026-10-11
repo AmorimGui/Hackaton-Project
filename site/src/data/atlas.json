@@ -477,6 +477,14 @@
     "janelas": 9,
     "confirmadas": 9
    },
+   "razoes_2026": {
+    "gwh": 456.2,
+    "fracao": {
+     "ENE": 0.656,
+     "REL": 0.277,
+     "CNF": 0.066
+    }
+   },
    "recentes": [
     {
      "id_ons": "CJU_BASAR",
@@ -1323,6 +1331,14 @@
    "placar_ao_vivo": {
     "janelas": 18,
     "confirmadas": 6
+   },
+   "razoes_2026": {
+    "gwh": 468.7,
+    "fracao": {
+     "ENE": 0.529,
+     "CNF": 0.455,
+     "REL": 0.016
+    }
    },
    "recentes": [
     {
@@ -2664,6 +2680,14 @@
     "janelas": 17,
     "confirmadas": 9
    },
+   "razoes_2026": {
+    "gwh": 495.1,
+    "fracao": {
+     "CNF": 0.544,
+     "ENE": 0.446,
+     "REL": 0.011
+    }
+   },
    "recentes": [
     {
      "id_ons": "CJU_RNRVE",
@@ -3929,6 +3953,14 @@
     "janelas": 9,
     "confirmadas": 8
    },
+   "razoes_2026": {
+    "gwh": 328.1,
+    "fracao": {
+     "ENE": 0.568,
+     "REL": 0.337,
+     "CNF": 0.095
+    }
+   },
    "recentes": [
     {
      "id_ons": "CJU_BANHZ",
@@ -4775,6 +4807,14 @@
    "placar_ao_vivo": {
     "janelas": 9,
     "confirmadas": 6
+   },
+   "razoes_2026": {
+    "gwh": 330.7,
+    "fracao": {
+     "ENE": 0.753,
+     "REL": 0.174,
+     "CNF": 0.073
+    }
    },
    "recentes": [
     {
@@ -5623,6 +5663,14 @@
    "placar_ao_vivo": {
     "janelas": 9,
     "confirmadas": 7
+   },
+   "razoes_2026": {
+    "gwh": 365.2,
+    "fracao": {
+     "ENE": 0.775,
+     "CNF": 0.184,
+     "REL": 0.04
+    }
    },
    "recentes": [
     {
@@ -6482,6 +6530,14 @@
     "janelas": 9,
     "confirmadas": 8
    },
+   "razoes_2026": {
+    "gwh": 134.5,
+    "fracao": {
+     "ENE": 0.848,
+     "CNF": 0.104,
+     "REL": 0.047
+    }
+   },
    "recentes": [
     {
      "id_ons": "CJU_CEITC",
@@ -7329,6 +7385,14 @@
     "janelas": 9,
     "confirmadas": 7
    },
+   "razoes_2026": {
+    "gwh": 121.9,
+    "fracao": {
+     "ENE": 0.937,
+     "CNF": 0.043,
+     "REL": 0.02
+    }
+   },
    "recentes": [
     {
      "id_ons": "CJU_CEMTD",
@@ -8021,6 +8085,103 @@
    "fracao_confirmadas": 0.919
   }
  },
+ "razoes": {
+  "nordeste_2026": {
+   "periodo": "2026-01-01 a 2026-10-09",
+   "fracao": {
+    "ENE": 0.664,
+    "CNF": 0.238,
+    "REL": 0.098
+   },
+   "twh": {
+    "CNF": 5.94,
+    "ENE": 16.6,
+    "REL": 2.46
+   }
+  },
+  "nordeste_por_mes": {
+   "2026-01": {
+    "CNF": 0.467,
+    "ENE": 0.294,
+    "REL": 0.239
+   },
+   "2026-02": {
+    "ENE": 0.717,
+    "REL": 0.169,
+    "CNF": 0.114
+   },
+   "2026-03": {
+    "ENE": 0.829,
+    "CNF": 0.091,
+    "REL": 0.08
+   },
+   "2026-04": {
+    "ENE": 0.765,
+    "CNF": 0.13,
+    "REL": 0.105
+   },
+   "2026-05": {
+    "ENE": 0.744,
+    "REL": 0.161,
+    "CNF": 0.095
+   },
+   "2026-06": {
+    "ENE": 0.632,
+    "CNF": 0.204,
+    "REL": 0.164
+   },
+   "2026-07": {
+    "ENE": 0.744,
+    "CNF": 0.229,
+    "REL": 0.027
+   },
+   "2026-08": {
+    "ENE": 0.649,
+    "CNF": 0.285,
+    "REL": 0.066
+   },
+   "2026-09": {
+    "ENE": 0.7,
+    "CNF": 0.268,
+    "REL": 0.032
+   },
+   "2026-10": {
+    "ENE": 0.763,
+    "CNF": 0.225,
+    "REL": 0.013
+   }
+  },
+  "captura": {
+   "teste_ago_set": {
+    "ENE": {
+     "fracao_do_corte": 0.622,
+     "capturado": 0.95
+    },
+    "CNF": {
+     "fracao_do_corte": 0.332,
+     "capturado": 0.891
+    },
+    "REL": {
+     "fracao_do_corte": 0.047,
+     "capturado": 0.812
+    }
+   },
+   "ao_vivo": {
+    "ENE": {
+     "fracao_do_corte": 0.713,
+     "capturado": 0.954
+    },
+    "CNF": {
+     "fracao_do_corte": 0.275,
+     "capturado": 0.966
+    },
+    "REL": {
+     "fracao_do_corte": 0.011,
+     "capturado": 0.858
+    }
+   }
+  }
+ },
  "ao_vivo": {
   "periodo": "2026-10-01 a 2026-10-09",
   "total": 89,
@@ -8247,10 +8408,11 @@
  "impressoes": [
   "3a8e54cd7da19eed8c3eb688cc3059fe6e97ba8a118a13b3b569aa53445da814  chance_corte_por_usina_mes_hora.csv",
   "13ac16bf9b0e149b301d31afc84adfc381003408f290c12de566ede3c58efe21  corte_por_estado_mes.csv",
+  "50c6017fd89a22bbab5c068b52a26c0b846e65fa77baf291e854acbe6e8f0bcc  corte_por_razao_mes.csv",
   "c459292ed85553c103f6d7e3055dc7d5f3185b64d22a3bd217e1b8942b6232c6  janelas_ao_vivo.json",
   "23380cbc8bd55eb44c59d22826a0f23ca69b606d312b2c058b2180109d822638  janelas_previstas_ago_set_2026.json",
   "0a3e6a0a7b7523ef933cf0152eddeb3bffd715c12ae5fb75e80cb9c49fdf0d3a  janelas_previstas_proximos_dias.json",
-  "a03c3c3195cdaf83fa6a3e3fc276538dceeb5ab8d70210910ae85eaade7bceb7  resumo.json",
+  "567ccff425ac944d6e4914aa941122439b6eca5877779a02ff7e73527a9cc821  resumo.json",
   "63cbcb778fc2dd1ef231628b0254b0eba848b5de4283439f4bbcfcf000bb506a  teste_retroativo.json",
   "8aea086d4e4e9c457b2c240cd9ee79688adc4e7f81fdb5746c1716a6b0ab6306  usinas.json"
  ]

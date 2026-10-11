@@ -5,7 +5,7 @@ import { Connection, type PublicKey } from "@solana/web3.js";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useIdioma } from "@/i18n/idioma";
-import { dataCurta, num } from "@/lib/formato";
+import { dataCurta, energia, num } from "@/lib/formato";
 import {
   DESTINATARIOS,
   MWH_MINIMO,
@@ -49,6 +49,13 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
     ? { idUsina, data: janela.data, inicio: janela.inicio, fim: janela.fim, mwh, pldRsMwh: pldArred, ptax: cambio.ptax_venda }
     : null;
   const preco = compra ? precificar(compra) : null;
+  // Potencial de corte da janela x capacidade: quantos MW de computadores absorveriam tudo
+  const minutos = (hhmm: string) => Number(hhmm.slice(0, 2)) * 60 + Number(hhmm.slice(3, 5));
+  const horas = (minutos(janela.fim) - minutos(janela.inicio)) / 60;
+  const capacidade =
+    horas > 0 && janela.energia_esperada_mwh > 0
+      ? b.capacity(energia(janela.energia_esperada_mwh, L), num(horas, L, 1), num(Math.round(janela.energia_esperada_mwh / horas), L))
+      : null;
 
   // Fecha com Esc
   useEffect(() => {
@@ -154,6 +161,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
 
         <p className="mt-3 rounded-lg bg-wait-soft px-3 py-2 text-xs text-wait">{b.devnet}</p>
         {replay && <p className="mt-2 rounded-lg bg-sun-soft px-3 py-2 text-xs text-sun">{b.replayNote}</p>}
+        <p className="mt-3 text-sm leading-snug">{b.receive}</p>
 
         {!cambio || !preco ? (
           <p className="mt-4 text-sm text-cut">{b.unavailable}</p>
@@ -212,6 +220,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
                 />
                 <span className="tabular w-24 shrink-0 whitespace-nowrap text-right font-semibold">{num(mwh, L, 1)} MWh</span>
               </div>
+              {capacidade && <p className="mt-1 text-[11px] leading-snug text-muted">{capacidade}</p>}
             </label>
 
             <div className="rounded-lg bg-paper p-3">
@@ -222,7 +231,8 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
               <div className="tabular text-right text-xs text-muted">
                 R$ {num(preco.valorRs, L, 2)} · {b.atPld(`R$ ${num(pldArred, L, 2)}`)}
               </div>
-              <p className="mt-2 text-[11px] leading-snug text-muted">{b.rate(num(cambio.ptax_venda, L, 4), dataCurta(cambio.data, L, true))}</p>
+              <p className="mt-2 text-[11px] leading-snug text-muted">{b.demoPrice}</p>
+              <p className="mt-1 text-[11px] leading-snug text-muted">{b.rate(num(cambio.ptax_venda, L, 4), dataCurta(cambio.data, L, true))}</p>
               {janela.pld_estimado && (
                 <p className="mt-1 text-[11px] leading-snug text-muted">{b.pldEstNote(`R$ ${num(PLD_PISO_2026, L, 2)}`)}</p>
               )}

@@ -236,6 +236,7 @@ def main() -> None:
                       "setembro": metr(t_set["usinas_destaque"][u["id"]]["continuo_com_atraso"])},
             "placar": {"janelas": len(hist_u), "confirmadas": conf},
             "placar_ao_vivo": {"janelas": len(vivo_u), "confirmadas": sum(j["resultado_ons"] == "confirmado" for j in vivo_u)},
+            "razoes_2026": resumo["razoes"]["por_usina_2026"][u["id"]],
             # janelas com veredito e preço: podem ser compradas em "replay" (o veredito do ONS já existe)
             "recentes": [enriquecer(j) for j in hist_u + vivo_u if j["data"] in recentes],
             "proximas": [j for j in prox_destaque if j["id_ons"] == u["id"]],
@@ -282,6 +283,8 @@ def main() -> None:
             "parametros": teste["parametros"],
             "placar": resumo["janelas"],
         },
+        # Corte por razão (códigos do ONS) e quanto a previsão captura de cada uma
+        "razoes": {k: v for k, v in resumo["razoes"].items() if k != "por_usina_2026"},
         # Acompanhamento ao vivo (outubro em diante), separado do teste retroativo congelado
         "ao_vivo": {**resumo["janelas_ao_vivo"], "publicada_antes_desde": ao_vivo["publicada_antes_desde"]},
         "padroes": {
@@ -335,6 +338,7 @@ def main() -> None:
     SITE_PUBLICO.mkdir(parents=True, exist_ok=True)
     for nome in ("chance_corte_por_usina_mes_hora.csv", "corte_por_estado_mes.csv", "janelas_previstas_ago_set_2026.json",
                  "janelas_ao_vivo.json", "janelas_previstas_proximos_dias.json", "teste_retroativo.json", "usinas.json",
+                 "corte_por_razao_mes.csv",
                  "impressoes_digitais.txt"):
         shutil.copyfile(SAIDA_ETAPA1 / nome, SITE_PUBLICO / nome)
 

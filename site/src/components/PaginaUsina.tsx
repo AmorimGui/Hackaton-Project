@@ -7,7 +7,7 @@ import { BotaoComprar } from "./BotaoComprar";
 import { dataCurta, energia, num, pct, reais } from "@/lib/formato";
 import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloResultado, SeloTipo } from "./Selos";
-import { MapaCalor } from "./Graficos";
+import { BarraRazoes, MapaCalor } from "./Graficos";
 
 const INICIO_AO_VIVO = "2026-10-01"; // depois do teste de agosto e setembro
 
@@ -105,6 +105,20 @@ export function PaginaUsina({ u, cambio, dadosAte }: { u: Usina; cambio: Cambio 
       </Cartao>
 
       <Cartao>
+        <h2 className="text-lg font-semibold">{t.reasons.plantTitle}</h2>
+        <p className="mt-1 text-sm text-muted">
+          {t.reasons.plantLead(
+            `${num(u.razoes_2026.gwh, L)} GWh`,
+            pct(u.razoes_2026.fracao.ENE ?? 0, L),
+            pct(u.razoes_2026.fracao.REL ?? 0, L),
+          )}
+        </p>
+        <div className="mt-4">
+          <BarraRazoes fracao={u.razoes_2026.fracao} />
+        </div>
+      </Cartao>
+
+      <Cartao>
         <h2 className="text-lg font-semibold">{t.plant.heatTitle}</h2>
         <p className="mt-1 text-sm text-muted">{t.plant.heatNote(dataCurta(dadosAte, L, true))}</p>
         <div className="mt-4">
@@ -153,6 +167,7 @@ export function PaginaUsina({ u, cambio, dadosAte }: { u: Usina; cambio: Cambio 
               ))}
             </tbody>
           </table>
+          <p className="px-5 py-3 text-xs text-muted">{t.reasons.legend}</p>
         </Cartao>
         <Cartao>
           <h2 className="text-lg font-semibold">{t.plant.backtestTitle}</h2>

@@ -9,11 +9,12 @@ import { MapaCarregado } from "./MapaCarregado";
 import { BarraChance, Cartao, Numero, SeloTipo } from "./Selos";
 import { BotaoComprar } from "./BotaoComprar";
 import { SeloPrevisao } from "./SeloPrevisao";
-import { GraficoHoras, GraficoMensal, GraficoPiso } from "./Graficos";
+import { BarraRazoes, GraficoHoras, GraficoMensal, GraficoPiso } from "./Graficos";
 
 export type DadosInicio = Pick<Atlas, "manchete" | "previsao" | "pld" | "padroes" | "dados_ate" | "cambio"> & {
   placar: Atlas["teste"]["placar"];
   ao_vivo: Atlas["ao_vivo"];
+  razoes_nordeste: Record<string, number>;
   usinas: Pick<Usina, "id" | "nome" | "uf" | "tipo" | "local" | "capacidade_mw" | "proximas">[];
 };
 
@@ -197,6 +198,16 @@ export function Inicio({ d }: { d: DadosInicio }) {
             <p className="mt-4 text-sm text-muted">{t.home.weekNote}</p>
           </Cartao>
         </div>
+        <Cartao>
+          <h3 className="font-medium">{t.reasons.title}</h3>
+          <p className="mt-1 text-sm text-muted">{t.reasons.homeLead(pct(d.razoes_nordeste.ENE ?? 0, L))}</p>
+          <div className="mt-3">
+            <BarraRazoes fracao={d.razoes_nordeste} />
+          </div>
+          <Link href="/track-record" className="mt-3 inline-block text-sm font-medium underline">
+            {t.reasons.homeLink} →
+          </Link>
+        </Cartao>
         {d.pld.cruzamento && (
           <Cartao>
             <h3 className="font-medium">{t.home.floorTitle}</h3>

@@ -133,7 +133,7 @@ def ler_usinas(brutos: Path) -> tuple[list[dict], np.ndarray, np.ndarray, pd.Dat
         arq = arquivos[stem]
         tipo = "eolica" if "EOLICA" in stem else "solar"
         df = ler_arquivo(arq)
-        tot = df.groupby(["id_subsistema", "id_estado"])["val_geracaonaorealizadaapurada"].sum().reset_index()
+        tot = df.groupby(["id_subsistema", "id_estado", "cod_razaorestricao"], dropna=False)["val_geracaonaorealizadaapurada"].sum().reset_index()
         tot["tipo"], tot["ano_mes"] = tipo, stem[-7:].replace("_", "-")
         regiao.append(tot)
         df = df[df["id_estado"].isin(UFS)]
@@ -506,6 +506,61 @@ def main() -> None:
         linhas.append(f"{r.id_subsistema};{r.id_estado};{r.tipo};{r.ano_mes};{mwh / 1000:.1f};{inteiro(mwh / horas)}")
     gravar("corte_por_estado_mes.csv", "\n".join(linhas))
 
+    # 3d) Corte por razão (códigos do ONS): ENE energética, CNF confiabilidade, REL indisponibilidade externa,
+    # PAR parecer de acesso. Só os cortes REL entram no cálculo do ressarcimento (ESS) que o ONS envia à CCEE.
+    rz = regiao.assign(razao=regiao["cod_razaorestricao"].fillna("sem"))
+    rz = rz.groupby(["id_subsistema", "id_estado", "tipo", "ano_mes", "razao"], as_index=False)["val_geracaonaorealizadaapurada"].sum()
+    linhas = ["subsistema;uf;tipo;ano_mes;razao;energia_perdida_gwh"]
+    for r in rz[rz["val_geracaonaorealizadaapurada"] > 0].sort_values(["ano_mes", "id_subsistema", "id_estado", "tipo", "razao"]).itertuples():
+        linhas.append(f"{r.id_subsistema};{r.id_estado};{r.tipo};{r.ano_mes};{r.razao};{r.val_geracaonaorealizadaapurada * 0.5 / 1000:.2f}")
+    gravar("corte_por_razao_mes.csv", "\n".join(linhas))
+
+    def fracoes(valores: dict) -> dict:
+        soma = sum(valores.values()) or 1
+        return {k: r3(v / soma) for k, v in sorted(valores.items(), key=lambda x: -x[1]) if v > 0}
+
+    ne26 = rz[(rz["id_subsistema"] == "NE") & (rz["ano_mes"] >= "2026-01")]
+    mwh_razao = (ne26.groupby("razao")["val_geracaonaorealizadaapurada"].sum() * 0.5).to_dict()
+    razoes = {
+        "nordeste_2026": {"periodo": f"2026-01-01 a {iso_do_dia(ultimo_dia)}", "fracao": fracoes(mwh_razao),
+                          "twh": {k: math.floor(v / 1e4 + 0.5) / 100 for k, v in mwh_razao.items() if v > 0}},
+        "nordeste_por_mes": {am: fracoes(g.groupby("razao")["val_geracaonaorealizadaapurada"].sum().to_dict())
+                             for am, g in ne26.groupby("ano_mes")},
+    }
+
+    def captura_por_razao(ini: int, fim: int) -> dict:
+        """Energia cortada por razão e quanto dela caiu dentro das janelas do modelo de produção (todas as usinas)."""
+        total: dict[str, float] = {}
+        dentro: dict[str, float] = {}
+        for i in range(len(usinas)):
+            g = gnra[i]
+            if perfil(g, ini - DIAS_PERFIL, ini) is None:
+                continue
+            for d in range(ini, fim):
+                prof = perfil(g, d - ATRASO_PUBLICACAO_DIAS - DIAS_PERFIL, d - ATRASO_PUBLICACAO_DIAS)
+                if prof is None:
+                    continue
+                p = prof["p"][TIPO_DIA[d]]
+                v = g[d * 48:(d + 1) * 48].astype(np.float64)
+                for x in np.nonzero(~np.isnan(v) & (v >= LIMIAR_CORTE_MW))[0]:
+                    k = NOME_RAZAO.get(int(razao[i][d * 48 + x]), "sem")
+                    total[k] = total.get(k, 0.0) + v[x] * 0.5
+                    if p[x] >= LIMIAR_JANELA:
+                        dentro[k] = dentro.get(k, 0.0) + v[x] * 0.5
+        soma = sum(total.values()) or 1
+        return {k: {"fracao_do_corte": r3(total[k] / soma), "capturado": r3(dentro.get(k, 0.0) / total[k])}
+                for k in sorted(total, key=lambda x: -total[x])}
+
+    razoes["captura"] = {"teste_ago_set": captura_por_razao(ago26, vivo26), "ao_vivo": captura_por_razao(vivo26, ultimo_dia + 1)}
+    # por usina de destaque, 2026 até o último dado
+    razoes["por_usina_2026"] = {}
+    for uid in selecionadas:
+        i = idx[uid]
+        v = np.nan_to_num(gnra[i, jan26 * 48:(ultimo_dia + 1) * 48].astype(np.float64))
+        r = razao[i, jan26 * 48:(ultimo_dia + 1) * 48]
+        por = {NOME_RAZAO.get(int(k), "sem"): float(v[r == k].sum()) * 0.5 for k in np.unique(r[v > 0])}
+        razoes["por_usina_2026"][uid] = {"gwh": math.floor(sum(por.values()) / 100 + 0.5) / 10, "fracao": fracoes(por)}
+
     def mw_medios(filtro: pd.Series, ini: str, fim: str) -> dict:
         """Energia perdida e potência média entre os meses ini e fim (inclusive)."""
         sel = reg[filtro & (reg["ano_mes"] >= ini) & (reg["ano_mes"] <= fim)]
@@ -574,6 +629,7 @@ def main() -> None:
     }
     resumo["janelas_proximos_dias"] = {"periodo": f"{iso_do_dia(ultimo_dia + 1)} a {iso_do_dia(ultimo_dia + ATRASO_PUBLICACAO_DIAS + 1)}",
                                       "total": len(proximas), "usinas_com_janela": len({j["id_ons"] for j in proximas})}
+    resumo["razoes"] = razoes
     gravar_json("resumo.json", resumo)
 
     # Impressões digitais: quem rodar o mesmo código com os mesmos dados do ONS deve obter os mesmos SHA-256
@@ -586,6 +642,9 @@ def main() -> None:
         for m, x in t["geral"].items():
             print(f"  {m:<22} {x['precisao']:>7.1%} {x['cobertura']:>9.1%} {x['energia_capturada']:>8.1%} {x['ganho_sobre_taxa_media']:>6.1%}")
     print(f"\njanelas ago–set: {resumo['janelas']}")
+    print(f"corte no Nordeste por razão ({razoes['nordeste_2026']['periodo']}): {razoes['nordeste_2026']['fracao']}")
+    for nome_p, c in razoes["captura"].items():
+        print(f"captura por razão, {nome_p}: " + ", ".join(f"{k} {x['capturado']:.1%} ({x['fracao_do_corte']:.0%} do corte)" for k, x in c.items()))
     print(f"janelas ao vivo {resumo['janelas_ao_vivo']['periodo']}: {resumo['janelas_ao_vivo']['confirmadas']} de "
           f"{resumo['janelas_ao_vivo']['total']} confirmadas")
     print(f"janelas previstas {resumo['janelas_proximos_dias']['periodo']}: {len(proximas)}")

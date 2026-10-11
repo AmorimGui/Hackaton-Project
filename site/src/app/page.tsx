@@ -12,6 +12,7 @@ export default function Page() {
     cambio: atlas.cambio,
     placar: atlas.teste.placar,
     ao_vivo: atlas.ao_vivo,
+    razoes_nordeste: atlas.razoes.nordeste_2026.fracao,
     usinas: atlas.usinas.map(({ id, nome, uf, tipo, local, capacidade_mw, proximas }) => ({ id, nome, uf, tipo, local, capacidade_mw, proximas })),
   };
   return <Inicio d={dados} />;

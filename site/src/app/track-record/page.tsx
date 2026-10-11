@@ -12,6 +12,7 @@ export default function Page() {
         manchete: atlas.manchete,
         impressoes: atlas.impressoes,
         ao_vivo: atlas.ao_vivo,
+        razoes: atlas.razoes,
         dados_ate: atlas.dados_ate,
         usinas: atlas.usinas.map(({ id, nome, uf, tipo, teste, placar, placar_ao_vivo }) => ({ id, nome, uf, tipo, teste, placar, placar_ao_vivo })),
       }}

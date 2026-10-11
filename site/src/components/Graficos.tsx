@@ -5,6 +5,89 @@ import { useIdioma } from "@/i18n/idioma";
 import { num, pct } from "@/lib/formato";
 
 const EIXO = "var(--color-muted)";
+
+/** Cores e ordem das razões do corte (códigos do ONS). */
+export const COR_RAZAO: Record<string, string> = {
+  ENE: "var(--color-wind)",
+  CNF: "var(--color-sun)",
+  REL: "var(--color-cut)",
+  PAR: "var(--color-wait)",
+  sem: "var(--color-muted)",
+};
+export const ORDEM_RAZAO = ["ENE", "CNF", "REL", "PAR", "sem"];
+
+/** Uma barra com a fração da energia cortada por razão, e a legenda com os números. */
+export function BarraRazoes({ fracao }: { fracao: Record<string, number> }) {
+  const { t } = useIdioma();
+  const L = t.locale;
+  const itens = ORDEM_RAZAO.filter((k) => (fracao[k] ?? 0) > 0);
+  return (
+    <figure>
+      <div
+        className="flex h-4 w-full overflow-hidden rounded-full bg-line"
+        role="img"
+        aria-label={itens.map((k) => `${t.reasons.names[k]} ${pct(fracao[k], L)}`).join(", ")}
+      >
+        {itens.map((k) => (
+          <div key={k} style={{ width: `${fracao[k] * 100}%`, background: COR_RAZAO[k] }} title={`${t.reasons.names[k]}: ${pct(fracao[k], L)}`} />
+        ))}
+      </div>
+      <figcaption className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+        {itens.map((k) => (
+          <span key={k} className="flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ background: COR_RAZAO[k] }} />
+            {t.reasons.names[k]} <span className="text-muted">({k})</span>
+            <span className="tabular font-semibold">{pct(fracao[k], L)}</span>
+          </span>
+        ))}
+      </figcaption>
+    </figure>
+  );
+}
+
+/** Composição do corte por razão, mês a mês (colunas de 100%). */
+export function GraficoRazoesMes({ meses }: { meses: Record<string, Record<string, number>> }) {
+  const { t } = useIdioma();
+  const lista = Object.entries(meses).sort(([a], [b]) => a.localeCompare(b));
+  const W = 720, H = 200, esq = 40, base = 172, topo = 10;
+  const passo = (W - esq - 8) / lista.length;
+  const y = (v: number) => base - v * (base - topo);
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={t.reasons.byMonth}>
+      {[0, 0.5, 1].map((v) => (
+        <g key={v}>
+          <line x1={esq} x2={W - 8} y1={y(v)} y2={y(v)} stroke={GRADE} />
+          <text x={esq - 6} y={y(v) + 4} textAnchor="end" fontSize="11" fill={EIXO}>
+            {v * 100}%
+          </text>
+        </g>
+      ))}
+      {lista.map(([mes, fr], i) => {
+        const x = esq + i * passo + passo * 0.15;
+        const w = passo * 0.7;
+        let acumulado = 0;
+        return (
+          <g key={mes}>
+            <title>{`${t.plant.months[Number(mes.slice(5, 7)) - 1]}: ${ORDEM_RAZAO.filter((k) => fr[k]).map((k) => `${k} ${pct(fr[k], t.locale)}`).join(" · ")}`}</title>
+            {ORDEM_RAZAO.filter((k) => fr[k]).map((k) => {
+              const y0 = y(acumulado);
+              acumulado += fr[k];
+              return <rect key={k} x={x} y={y(acumulado)} width={w} height={y0 - y(acumulado)} fill={COR_RAZAO[k]} />;
+            })}
+            {fr.ENE >= 0.12 && (
+              <text x={x + w / 2} y={base - 6} textAnchor="middle" fontSize="11" fontWeight="600" fill="#fff">
+                {Math.round(fr.ENE * 100)}%
+              </text>
+            )}
+            <text x={x + w / 2} y={base + 16} textAnchor="middle" fontSize="11" fill={EIXO}>
+              {t.plant.months[Number(mes.slice(5, 7)) - 1]}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
 const GRADE = "var(--color-line)";
 
 /** Perda por hora do dia (% da energia cortada), eólica e solar lado a lado. */
