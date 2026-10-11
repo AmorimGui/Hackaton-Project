@@ -1,135 +1,142 @@
 # Vento Cortado
 
-Mercado de flexibilidade para o excesso de energia renovável do Nordeste brasileiro: previsão aberta das janelas em que o ONS manda cortar usinas eólicas e solares, liquidação em USDC na Solana e recibo verificável em duas fases.
+**An open atlas of the wind and solar power that Brazil's grid operator throws away, with a public forecast track record and hourly on-chain receipts on Solana.**
 
-Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypto World's Fair 2026.
+Built by team Nomos (Emmanuel Stein and Guilherme Amorim, university students in Brazil) for the Colosseum Crypto World's Fair 2026.
 
-**Site:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) — publicado na Vercel; cada `git push` na `main` atualiza o site.
+**Live app:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) (English by default, PT button in the header). No login or install is needed to explore it.
 
-## Estado
+## The problem
 
-| Etapa | Situação |
+In 2026, the Northeast of Brazil curtailed **3.4 GW of wind and solar power on average** (82 GWh of clean energy a day, January–August), because the grid could not absorb it. The national grid operator (ONS) orders plants to cut output and publishes what happened, half-hour by half-hour, about a day later.
+
+- From January 1 to October 9, the curtailed energy was worth **R$ 2.6 billion** at the actual hourly spot price (PLD). Two thirds of it was cut while the price was already at its legal floor.
+- **66%** of it was an *energy surplus* (ONS reason `ENE`), the predictable part. The rest was electrical: grid reliability limits (`CNF`, 24%) and lines or equipment out (`REL`, 10%).
+- According to the ONS data dictionary, only `REL` cuts enter the calculation of compensation to plants (ESS). The other 90% of the curtailed energy does not.
+
+## What Vento Cortado does
+
+**Today (the product): an open atlas and a neutral reference for contracts.** Loads that want to sit next to wind and solar plants, such as miners, data centers and other flexible compute, sign long contracts (around 2 years), and curtailment works as a discount in them. To price it, they need to know how much each plant loses, of which kind, at which hours, and how predictable it is. Plants have that history and paid intelligence; the other side has less. The atlas gives it for free, per plant:
+
+- curtailed energy, the reason mix and a month × hour heat map;
+- a daily forecast of curtailment windows for the next 8 days, with a reference value at the hourly PLD;
+- a public track record: a frozen backtest plus a live scoreboard that shows every miss.
+
+**The vision: an hourly certificate that a load used energy that would otherwise be lost.** Each window can be reserved for a compute job. The reservation leaves a chain of public records on Solana:
+
+1. **Forecast.** Every day, after the ONS publishes, the SHA-256 of the forecast file is recorded on-chain. This proves the forecast existed before the day.
+2. **Reservation and payment.** One transaction in Phantom pays the plant (70%), the compute operator (25%) and the platform (5%) in USDC. The platform never holds the money.
+3. **Receipt (phase 1).** The plant and the operator co-sign a memo that acknowledges the reservation.
+4. **Execution.** The operator waits for the window, runs a small AI job, and records its start and end on-chain. The block times show that it ran inside the window.
+5. **ONS stamp (phase 2).** The next day, the verdict (confirmed or wrong) is recorded with the official ONS file and its SHA-256.
+
+Hour-by-hour clean-energy claims are where large buyers are heading: Google's 24/7 carbon-free goal and EnergyTag's granular certificates. EU rules for renewable hydrogen already count grid power used during renewable curtailment as renewable (Delegated Regulation 2023/1184, Art. 4(3)). **Who would pay for this certificate in Brazil has not been validated yet**; it is the next thing we will test.
+
+## Try it in two minutes
+
+1. **[Track record](https://hackaton-project-liart.vercel.app/track-record):** the backtest, the live scoreboard and the three kinds of curtailment.
+2. **[A plant page](https://hackaton-project-liart.vercel.app/plants/CJU_BASAR):** why it is curtailed, the forecast windows and the history with the ONS verdict.
+3. **[A complete live cycle](https://hackaton-project-liart.vercel.app/verify?tx=5MHPTtL3KopV1hAZd2cd4cNZUB79FvdiVo2RZnJFNRTjkshaZC7atmyibwsokAKNYv4boUNx2G85Kxnuc4ofWhBv):**
+    - the forecast was published on Oct 7;
+    - the window was reserved at 4 pm on Oct 8;
+    - the AI job ran inside the window at 6:30 pm;
+    - the ONS confirmed the curtailment on Oct 9 (82% of the half-hours, 427 MWh).
+
+   Every record links to Solana Explorer.
+4. **Optional: reserve a window yourself.**
+    - Switch Phantom to Testnet mode on Solana Devnet.
+    - Get test SOL ([faucet.solana.com](https://faucet.solana.com)) and test USDC ([faucet.circle.com](https://faucet.circle.com)).
+    - Click **Reserve** on any forecast window, or **Replay** on a past one to see the whole cycle at once.
+
+## Results
+
+| | Value |
 | --- | --- |
-| 1. Dados reais do ONS e teste retroativo | Concluída (`dados/`) |
-| 2. Atlas (site) | Concluída (`site/`) |
-| 3. Pagamento na Solana (devnet) | Concluída (`site/src/lib/solana.ts`) |
-| 4. Recibo em duas fases e verificação pública | Concluída (`site/src/lib/recibo.ts`, página `/verify`) |
-| 5. Dados ao vivo e trabalho em lote | Em andamento (`operador/`, atualização diária) |
-| 6. Entrega | A fazer |
+| Curtailed energy inside our windows (backtest, 154 plants) | 90% in Aug 2026, 95% in Sep 2026 |
+| Precision / coverage of the production model | 89.5% / 82.4% (Aug), 84.8% / 90.2% (Sep) |
+| Error reduction vs. the plant's average rate (Brier skill) | 54% (Aug), 56% (Sep) |
+| Windows confirmed by the ONS, 8 featured plants | 564 of 614 (Aug–Sep) |
+| Live since Oct 1 | 60 of 89 confirmed (Oct 1–9); 20 of 20 for forecasts published before the day |
+| Captured by reason, backtest | energy surplus 95%, reliability 89%, line or equipment out 81% |
 
-## Etapa 1 em resumo
+The forecast parameters were fixed before the test. Early October was weaker: in two Rio Grande do Norte plants, the night-time reliability cuts stopped abruptly on Sep 28–29, and a model that only learns from past patterns kept offering those windows. This is exactly the kind of change an operator told us to expect from electrical curtailment.
 
-O Nordeste deixou de gerar **3,4 GW médios** de eólica e solar em jan–ago/2026 (cálculo direto do ONS). Usando só dados públicos disponíveis uma semana antes, as janelas previstas capturaram **90% da energia cortada em agosto e 95% em setembro de 2026**, em 154 usinas do RN, BA e CE. Detalhes em [`dados/RELATORIO_ETAPA1.md`](dados/RELATORIO_ETAPA1.md).
+Everything is reproducible. The pipeline writes byte-identical outputs on any machine, and their SHA-256 fingerprints are published. Our daily GitHub Actions run on Linux regenerates the same files the team produces on Windows.
 
-## Pagamento na Solana (Etapa 3)
+## What is real and what is simulated
 
-Cada janela prevista tem um botão **Comprar**: o comprador escolhe os MWh, o preço sai do PLD da janela convertido em USDC pela PTAX do Banco Central, e **uma única transação** assinada na Phantom paga usina (70%), operador (25%) e plataforma (5%) e grava um memo com o que foi comprado. A plataforma nunca segura o dinheiro. Roda na **devnet** com USDC de teste; usina e operador são carteiras de teste.
+| Part | Status |
+| --- | --- |
+| ONS curtailment data (with the reason for every cut), CCEE hourly PLD, Central Bank PTAX rate | Real, open data, updated daily |
+| Forecast, backtest, live scoreboard | Real |
+| Reservation, payment split, receipt, execution records, ONS stamp | Real on Solana devnet, with test USDC |
+| AI job | Real but small: a multilingual embedding model on a laptop CPU, which runs in seconds |
+| Plant and compute operator | Simulated (test wallets); we have no partner plant or operator yet |
+| Absorbing curtailed energy | Does not happen in the demo: the laptop is not at the plant |
+| Phase 2 oracle | Centralized and declared (the platform); a production version could let anyone challenge a stamp with the ONS file |
+| Selling electricity | We do not sell electricity: the energy never leaves the plant, the job travels over the internet |
 
-**Primeira compra (08/10/2026):** 0,5 MWh da Serra do Assuruá por 5,73846 USDC — [ver no Solana Explorer](https://explorer.solana.com/tx/5bRw4an8rY7hpYxVnoo217MN85dGUfycp5t6Q6mGQkFDubDdbLE2MABiYVGecacT9SkLoTL1ijtTrj9NjULy5Bg9?cluster=devnet).
+## How it is built
 
-## Recibo em duas fases (Etapa 4)
+| Component | Technology | Where |
+| --- | --- | --- |
+| Data pipeline | Python 3.12, pandas, NumPy, PyArrow | [`dados/scripts/`](dados/scripts) |
+| Site and API | Next.js 16, React 19, TypeScript, Tailwind CSS 4, Leaflet with OpenStreetMap, hosted on Vercel | [`site/`](site) |
+| Payments and records | `@solana/web3.js`, Phantom. Instructions are built by hand: SPL Token `TransferChecked`, Associated Token Account `CreateIdempotent` and Memo v2. No custom program. Devnet USDC mint `4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU`. | [`site/src/lib/solana.ts`](site/src/lib/solana.ts), [`site/src/lib/recibo.ts`](site/src/lib/recibo.ts) |
+| Compute operator | Python, fastembed (`paraphrase-multilingual-MiniLM-L12-v2`, ONNX on CPU), solders | [`operador/`](operador) |
+| Daily automation | GitHub Actions: download the ONS data, recompute, deploy, then record the forecast hash and pending stamps on Solana | [`.github/workflows/atualizacao-diaria.yml`](.github/workflows/atualizacao-diaria.yml) |
 
-Depois do pagamento, o site grava dois registros na Solana, cada um citando a transação da compra:
+The test wallets are the plant `5ygfGZrNKr5PmGn7o47bGDy7gjrqt3V17W1sxeWSBEg5`, the operator `8ufcDYFKXRjNsVa4PCzvwBa55y73NqAFmvMPVoPnx9BZ` and the platform `DqqMCkoiH1x3mAoYknCZQYn4aEGhyWP4ySqXaPAmNztN`. Every receipt, stamp, execution record and forecast hash can be found in their histories on Solana Explorer (devnet). Secret keys never touch the repository; the server reads them from environment variables.
 
-1. **Recibo (fase 1):** a usina e o operador assinam um memo reconhecendo a venda (a plataforma paga a taxa).
-2. **Carimbo do ONS (fase 2):** quando o ONS publica o dado da janela (cerca de uma semana depois), a plataforma, como oráculo declarado (v1), grava o veredito, *confirmado* ou *errado*, com o arquivo oficial do ONS e seu SHA-256.
+## Run it yourself
 
-A página [`/verify`](https://hackaton-project-liart.vercel.app/verify) lê tudo direto da blockchain e ensina a conferir sem confiar no site. O site guarda uma cópia exata de cada arquivo do ONS citado num carimbo (`site/public/ons/<sha256>/`), porque o ONS às vezes republica um mês: em 08/10/2026 ele renomeou usinas nos arquivos de setembro. Os números não mudaram, mas o SHA-256 mudou.
-
-**Ciclo completo (replay de 29/09/2026, janela confirmada pelo ONS):** [pagamento, recibo e carimbo](https://hackaton-project-liart.vercel.app/verify?tx=5pxHxeJt42bGkPxLN1pK78m8znCgBLgZMRNSqjuZVjM6SLu4EVSB6QqNkPrK5r71sPCNa8PYwxnaf14afkmuRcuN).
-
-Para testar sem Phantom, `node scripts/compra-teste.mjs CJU_BASAR 2026-09-29` (na pasta `site/`) faz a mesma compra com uma carteira de teste e pede o recibo ao site.
-
-## Dados ao vivo e atualização diária (Etapa 5)
-
-O ONS publica o dado de cada dia por volta das 12h do dia seguinte. Todo dia, depois disso, a [atualização diária](.github/workflows/atualizacao-diaria.yml) (GitHub Actions) faz o seguinte:
-
-1. baixa os arquivos novos do ONS;
-2. recalcula a previsão, o placar ao vivo e os vereditos;
-3. publica o site;
-4. grava na Solana o SHA-256 da previsão do dia, que prova que ela existia antes dos dias previstos;
-5. carimba as compras cujas janelas o ONS acabou de publicar.
-
-O teste de agosto e setembro continua congelado. De 1º/10 em diante, o placar **ao vivo** mostra cada janela prevista e o veredito do ONS, com os erros incluídos.
-
-## Operador de computação (Etapa 5)
-
-O operador de demonstração roda num notebook. Ele lê as compras na Solana, espera a janela começar e roda um trabalho real de IA:
-
-- **O modelo:** um modelo pequeno de embeddings multilíngues, que roda na CPU.
-- **O que ele faz:** classifica os motivos que o ONS registrou para os cortes da usina comprada, nas 8 semanas que a previsão usou, e diz por que aquela usina é cortada.
-- **O que fica gravado:** o operador grava na Solana o **início** e o **fim** da execução, com o SHA-256 da entrada e do resultado. Os horários dos blocos mostram que o trabalho rodou dentro da janela.
-- **Onde fica o resultado:** em `site/public/execucoes/<compra>.json`.
-- **Janela que já passou:** a execução fica marcada como *replay*.
-
-```bash
-.venv\Scripts\python.exe -m pip install -r operador\requirements.txt   # uma vez (modelo de ~220 MB baixado na 1ª execução)
-.venv\Scripts\python.exe operador\operador.py                         # fica esperando janelas; Ctrl+C para parar
-.venv\Scripts\python.exe operador\trabalho.py CJU_BASAR 2026-09-29     # só o trabalho, para conferir o SHA-256
-```
-
-A chave do operador fica fora do repositório (`../carteiras-teste/operador.json`). A demo não roda na usina, então não absorve energia cortada; a energia do notebook é estimada pela potência declarada.
-
-## Atlas (site)
-
-Site bilíngue (inglês e português) com o mapa das usinas, as janelas previstas, o placar público e o método. Veja [`site/README.md`](site/README.md).
-
-```bash
-python dados/scripts/atlas.py     # prepara os dados do site
-cd site && npm install && npm run dev
-```
-
-## Como rodar a parte de dados
-
-Requer Python 3.11 ou mais recente. Na primeira vez, crie o ambiente e instale as bibliotecas:
+The data pipeline needs Python 3.11 or later.
 
 ```bash
 python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt     # Windows: .venv\Scripts\python.exe
+.venv/bin/python dados/scripts/baixar_ons.py            # ~100 MB of ONS Parquet files, saved to ../dados-ons/brutos
+.venv/bin/python dados/scripts/etapa1.py                # forecast, backtest, live windows (~1 min)
+.venv/bin/python dados/scripts/atlas.py                 # site data
 ```
 
-Depois, chame o Python do ambiente pelo caminho completo. Isso dispensa "ativar" o ambiente, que o PowerShell do Windows costuma bloquear.
-
-**Windows**
-
-```powershell
-.venv\Scripts\python.exe -m pip install -r requirements.txt
-.venv\Scripts\python.exe dados\scripts\baixar_ons.py    # ~100 MB em Parquet, salvos em ..\dados-ons\brutos
-.venv\Scripts\python.exe dados\scripts\etapa1.py        # ~10 segundos; recria dados\saida\
-```
-
-**Mac/Linux**
+Compare `dados/saida/impressoes_digitais.txt` with the repository version (`git diff`): if nothing changed, you reached exactly the same numbers.
 
 ```bash
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python dados/scripts/baixar_ons.py
-.venv/bin/python dados/scripts/etapa1.py
+cd site && npm install && npm run dev                   # http://localhost:3000
 ```
 
-O download vai até o mês atual e sempre confere de novo os dois meses mais recentes, porque o ONS publica o mês corrente dia a dia e às vezes republica o anterior. Os meses antigos só são baixados se faltarem. O PLD horário da CCEE fica em `dados/ccee/`: a CCEE bloqueia download automático, então o arquivo é baixado pelo navegador. Os arquivos de `dados/saida/` só mudam quando os dados do ONS mudam.
+Reserving windows locally needs the three test-wallet keys in `site/.env.local` (`VC_CHAVE_USINA`, `VC_CHAVE_OPERADOR`, `VC_CHAVE_PLATAFORMA`). Generate your own with `node site/scripts/gerar-carteiras.mjs`.
 
-**Conferir o resultado:** os arquivos de saída são byte a byte iguais em qualquer sistema. Depois de rodar, compare `dados/saida/impressoes_digitais.txt` com a versão do repositório (`git diff`): se nada mudou, você chegou exatamente aos mesmos números.
+The compute operator runs like this:
 
-No VS Code, escolha o interpretador em **Ctrl+Shift+P → Python: Select Interpreter → .venv** para rodar com o botão ▶.
-
-## Estrutura
-
-```
-dados/
-  RELATORIO_ETAPA1.md       método, resultados e pontos de honestidade
-  scripts/
-    baixar_ons.py           baixa os arquivos mensais de constrained-off do ONS
-    etapa1.py               chance de corte por usina/mês/hora e teste retroativo
-    atlas.py                junta os resultados, a localização e o preço para o site
-  config/                   localização aproximada das usinas de destaque
-  saida/                    resultados usados pelo site (Atlas) e pelo pitch
-  ccee/                     PLD horário da CCEE (dados abertos)
-operador/
-  trabalho.py               trabalho de IA de demonstração (causas do corte, por usina)
-  operador.py               roda o trabalho dentro da janela comprada e grava a prova na Solana
-site/                       o Atlas (Next.js)
-.github/workflows/          atualização diária (ONS → site → Solana)
+```bash
+.venv/bin/python -m pip install -r operador/requirements.txt
+.venv/bin/python operador/operador.py                   # waits for reserved windows; Ctrl+C to stop
+.venv/bin/python operador/trabalho.py CJU_BASAR 2026-09-29   # only the AI job, to check its SHA-256
 ```
 
-## Dados
+## Repository layout
 
-ONS, dados abertos de restrição de operação por constrained-off de usinas eólicas e fotovoltaicas, licença CC-BY.
+```
+dados/scripts/      ONS download, forecast and backtest (etapa1.py), site data (atlas.py)
+dados/saida/        open outputs with SHA-256 fingerprints
+dados/ccee/         CCEE hourly PLD (open data, downloaded by hand: CCEE blocks bots)
+operador/           demo compute operator: AI job + on-chain start/end records
+site/               Next.js atlas, API routes for receipts, stamps and forecast hashes
+site/public/ons/    exact copies of every ONS file cited in a stamp (the ONS sometimes republishes a month)
+.github/workflows/  daily update
+```
+
+Code comments and internal names are in Portuguese; the app and this README are in English. A Portuguese README for the team is in [README.pt-BR.md](README.pt-BR.md).
+
+## Built during the hackathon
+
+All code in this repository was written between October 7 and October 12, 2026, during the Colosseum Crypto World's Fair (September 14 – October 12). No pre-existing code was used besides open-source libraries.
+
+## Data and licenses
+
+- Curtailment data: [ONS open data](https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_eolica_tm/DicionarioDados_RestricaoContrainedoff_UsiEolicas.pdf) (restrição de operação por constrained-off of wind and solar plants), CC-BY.
+- Hourly PLD: [CCEE open data](https://dadosabertos.ccee.org.br).
+- PTAX exchange rate: Central Bank of Brazil (Olinda API).
+- Map tiles: © OpenStreetMap contributors.
