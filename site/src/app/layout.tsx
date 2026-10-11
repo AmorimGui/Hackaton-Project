@@ -9,7 +9,7 @@ import { Rodape } from "@/components/Rodape";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 // Fonte do logotipo "noMos" (geométrica, como a da logo do time)
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400", "500"] });
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400"] }); // traço igual ao da logo (medido)
 
 export const metadata: Metadata = {
   title: "Nomos — Brazil's curtailed-energy atlas",

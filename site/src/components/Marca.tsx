@@ -23,12 +23,17 @@ export function SimboloNomos({ className = "", espessura = 17.5, titulo }: { cla
   );
 }
 
-/** O logotipo "noMos": as letras na fonte da marca e o símbolo no lugar do "m". */
+/**
+ * O logotipo "noMos": as letras na fonte da marca e o símbolo no lugar do "m".
+ * Proporções medidas na logo original (em alturas de minúscula, x): o M tem 1,16x de altura, topo alinhado
+ * às minúsculas e a "cauda" 0,16x abaixo da linha de base; o traço dele é 2/3 do das letras (Outfit 400 = 0,18x, como na logo); o respiro em
+ * volta do M é 0,28x. A Outfit tem x = 0,48em.
+ */
 export function LogotipoNomos({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-baseline font-marca lowercase leading-none ${className}`} role="img" aria-label="Nomos">
+    <span className={`inline-flex items-baseline font-marca font-normal lowercase leading-none ${className}`} role="img" aria-label="Nomos">
       <span aria-hidden>no</span>
-      <SimboloNomos className="mx-[0.05em] inline-block h-[0.56em] w-auto translate-y-[0.03em]" espessura={13} />
+      <SimboloNomos className="mx-[0.11em] inline-block h-[0.557em] w-auto translate-y-[0.077em] overflow-visible" espessura={21} />
       <span aria-hidden>os</span>
     </span>
   );

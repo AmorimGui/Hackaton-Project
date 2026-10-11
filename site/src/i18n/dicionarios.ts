@@ -2,7 +2,7 @@
 
 const en = {
   locale: "en-US",
-  nav: { atlas: "Atlas", track: "Track record", method: "Method", tagline: "Brazil's curtailed-energy atlas" },
+  nav: { atlas: "Atlas", track: "Track record", method: "Method", tagline: "Curtailed clean energy, mapped and proven." },
   common: {
     wind: "Wind",
     solar: "Solar",
@@ -346,7 +346,7 @@ export type Dicionario = typeof en;
 
 const pt: Dicionario = {
   locale: "pt-BR",
-  nav: { atlas: "Atlas", track: "Placar", method: "Método", tagline: "Atlas da energia cortada no Brasil" },
+  nav: { atlas: "Atlas", track: "Placar", method: "Método", tagline: "Energia limpa cortada, mapeada e provada." },
   common: {
     wind: "Eólica",
     solar: "Solar",

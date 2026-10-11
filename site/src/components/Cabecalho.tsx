@@ -19,8 +19,9 @@ export function Cabecalho() {
     <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur">
       {/* No celular, o menu desce para uma segunda linha; a partir de "sm" fica tudo numa linha só */}
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:flex-nowrap sm:px-6">
-        <Link href="/" className="flex items-baseline gap-2.5 whitespace-nowrap">
-          <LogotipoNomos className="text-[1.9rem] font-normal" />
+        <Link href="/" className="flex items-center gap-3 whitespace-nowrap">
+          <LogotipoNomos className="text-[1.75rem]" />
+          <span aria-hidden className="hidden h-5 w-px bg-line md:block" />
           <span className="hidden text-sm text-muted md:inline">{t.nav.tagline}</span>
         </Link>
         <nav className="order-last flex w-full items-center gap-1 text-sm sm:order-none sm:ml-auto sm:w-auto">
