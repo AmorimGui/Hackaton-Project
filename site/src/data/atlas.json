@@ -63,8 +63,8 @@
   "periodo": "2026-01 a 2026-08",
   "brasil_mw_medios": 4153,
   "valor_anual_piso_rs": 1714000000.0,
-  "valor_pld_real_rs": 2605000000.0,
-  "valor_pld_real_periodo": "2026-01-01 a 2026-10-08",
+  "valor_pld_real_rs": 2610000000.0,
+  "valor_pld_real_periodo": "2026-01-01 a 2026-10-09",
   "energia_capturada_ago": 0.903,
   "energia_capturada_set": 0.948,
   "usinas_avaliadas": 154
@@ -74,42 +74,42 @@
   "arquivos": [
    "pld_horario_2026.csv"
   ],
-  "periodo": "2026-01-01 a 2026-10-08",
+  "periodo": "2026-01-01 a 2026-10-11",
   "descricao": "PLD horário oficial do submercado Nordeste (CCEE, dados abertos)",
   "piso_2026_rs_mwh": 57.31,
   "cruzamento": {
-   "periodo": "2026-01-01 a 2026-10-08",
-   "energia_cortada_gwh": 24904.0,
-   "fracao_energia_com_pld_no_piso": 0.658,
-   "pld_medio_ponderado_rs_mwh": 104.59,
-   "valor_ao_pld_real_rs": 2605000000.0,
-   "valor_ao_piso_rs": 1427000000.0,
-   "fracao_horas_no_piso": 0.296,
+   "periodo": "2026-01-01 a 2026-10-09",
+   "energia_cortada_gwh": 25001.0,
+   "fracao_energia_com_pld_no_piso": 0.659,
+   "pld_medio_ponderado_rs_mwh": 104.41,
+   "valor_ao_pld_real_rs": 2610000000.0,
+   "valor_ao_piso_rs": 1433000000.0,
+   "fracao_horas_no_piso": 0.301,
    "piso_por_hora_pct": [
-    8.0,
-    15.0,
-    17.0,
-    17.0,
-    17.0,
+    9.0,
+    16.0,
+    18.0,
+    18.0,
+    18.0,
     14.0,
-    20.0,
-    41.0,
+    21.0,
+    42.0,
     67.0,
     75.0,
     76.0,
     75.0,
-    75.0,
-    66.0,
-    55.0,
-    32.0,
-    12.0,
+    76.0,
+    67.0,
+    56.0,
+    33.0,
+    13.0,
     3.0,
     2.0,
     3.0,
-    4.0,
     5.0,
     5.0,
-    5.0
+    5.0,
+    6.0
    ]
   }
  },
@@ -800,7 +800,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 78056.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -822,9 +822,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 133074.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 133555.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.52
     },
     {
      "id_ons": "CJU_BASAR",
@@ -843,9 +843,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 136283.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 136455.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.38
     },
     {
      "id_ons": "CJU_BASAR",
@@ -1936,7 +1936,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 100808.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -1958,9 +1958,9 @@
       "CNF": 5
      },
      "publicada_antes": true,
-     "valor_referencia_rs": 32552.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 32943.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 58.0
     }
    ],
    "proximas": [
@@ -1981,9 +1981,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 173076.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 173569.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.47
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -2002,9 +2002,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 40060.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 41974.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 60.05
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -2023,9 +2023,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 169580.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 169709.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.35
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -2044,9 +2044,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 39830.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 41035.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 59.04
     },
     {
      "id_ons": "CJU_RNRDV",
@@ -3272,7 +3272,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 114792.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -3294,9 +3294,9 @@
       "CNF": 9
      },
      "publicada_antes": true,
-     "valor_referencia_rs": 51808.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 53880.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 59.6
     }
    ],
    "proximas": [
@@ -3317,9 +3317,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 238352.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 244572.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 58.81
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -3338,9 +3338,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 233939.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 236588.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.96
     },
     {
      "id_ons": "CJU_RNRVE",
@@ -4276,7 +4276,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 52381.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -4298,9 +4298,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 67511.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 67977.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.71
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -4319,9 +4319,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 68371.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 68536.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.45
     },
     {
      "id_ons": "CJU_BANHZ",
@@ -5132,7 +5132,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 58456.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -5155,7 +5155,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 108201.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -5176,7 +5176,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 107915.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -5998,7 +5998,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 130036.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -6021,7 +6021,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 186544.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -6042,7 +6042,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 185341.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -6853,7 +6853,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 28368.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -6875,9 +6875,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 71179.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 71425.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.51
     },
     {
      "id_ons": "CJU_CEITC",
@@ -6896,9 +6896,9 @@
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 69861.0,
-     "pld_estimado": true,
-     "pld_medio_rs_mwh": 57.31
+     "valor_referencia_rs": 69945.0,
+     "pld_estimado": false,
+     "pld_medio_rs_mwh": 57.38
     },
     {
      "id_ons": "CJU_CEITC",
@@ -7708,7 +7708,7 @@
      },
      "publicada_antes": true,
      "valor_referencia_rs": 14442.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     }
    ],
@@ -7731,7 +7731,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 75764.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
@@ -7752,7 +7752,7 @@
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
      "valor_referencia_rs": 78629.0,
-     "pld_estimado": true,
+     "pld_estimado": false,
      "pld_medio_rs_mwh": 57.31
     },
     {
