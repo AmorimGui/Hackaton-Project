@@ -11,7 +11,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/plants/[id]">): Promise<Metadata> {
   const { id } = await params;
   const u = atlas.usinas.find((x) => x.id === id);
-  return { title: u ? `${u.nome.replace(/^Conj\. /, "")} — Vento Cortado` : "Vento Cortado" };
+  return { title: u ? `${u.nome.replace(/^Conj\. /, "")} — Nomos` : "Nomos" };
 }
 
 export default async function Page({ params }: PageProps<"/plants/[id]">) {

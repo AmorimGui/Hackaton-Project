@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { atlas } from "@/lib/atlas";
 import { Placar } from "@/components/Placar";
 
-export const metadata: Metadata = { title: "Track record — Vento Cortado" };
+export const metadata: Metadata = { title: "Track record — Nomos" };
 
 export default function Page() {
   return (

@@ -1,10 +1,10 @@
-# Vento Cortado
+# Nomos
 
 > English version: [README.md](README.md). Esta é a versão em português, para o time.
 
 Mercado de flexibilidade para o excesso de energia renovável do Nordeste brasileiro: previsão aberta das janelas em que o ONS manda cortar usinas eólicas e solares, liquidação em USDC na Solana e recibo verificável em duas fases.
 
-Projeto do time Nomos (Emmanuel Stein e Guilherme Amorim) para o Colosseum Crypto World's Fair 2026.
+Projeto de Emmanuel Stein e Guilherme Amorim (Nomos) para o Colosseum Crypto World's Fair 2026.
 
 **Site:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) — publicado na Vercel; cada `git push` na `main` atualiza o site.
 

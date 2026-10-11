@@ -1,4 +1,4 @@
-# Vento Cortado atlas (site)
+# Nomos atlas (site)
 
 Next.js 16, TypeScript and Tailwind CSS. The site is in English by default, with a Portuguese toggle; all texts live in [`src/i18n/dicionarios.ts`](src/i18n/dicionarios.ts).
 

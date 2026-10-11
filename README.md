@@ -1,8 +1,10 @@
-# Vento Cortado
+<p align="center"><img src="site/public/brand/nomos-logotipo.png" alt="Nomos" width="240"></p>
+
+# Nomos
 
 **An open atlas of the wind and solar power that Brazil's grid operator throws away, with a public forecast track record and hourly on-chain receipts on Solana.**
 
-Built by team Nomos (Emmanuel Stein and Guilherme Amorim, university students in Brazil) for the Colosseum Crypto World's Fair 2026.
+Built by Emmanuel Stein and Guilherme Amorim, university students in Brazil, for the Colosseum Crypto World's Fair 2026.
 
 **Live app:** [hackaton-project-liart.vercel.app](https://hackaton-project-liart.vercel.app) (English by default, PT button in the header). No login or install is needed to explore it.
 
@@ -14,7 +16,7 @@ In 2026, the Northeast of Brazil curtailed **3.4 GW of wind and solar power on a
 - **66%** of it was an *energy surplus* (ONS reason `ENE`), the predictable part. The rest was electrical: grid reliability limits (`CNF`, 24%) and lines or equipment out (`REL`, 10%).
 - According to the ONS data dictionary, only `REL` cuts enter the calculation of compensation to plants (ESS). The other 90% of the curtailed energy does not.
 
-## What Vento Cortado does
+## What Nomos does
 
 **Today (the product): an open atlas and a neutral reference for contracts.** Loads that want to sit next to wind and solar plants, such as miners, data centers and other flexible compute, sign long contracts (around 2 years), and curtailment works as a discount in them. To price it, they need to know how much each plant loses, of which kind, at which hours, and how predictable it is. Plants have that history and paid intelligence; the other side has less. The atlas gives it for free, per plant:
 
@@ -128,7 +130,7 @@ site/public/ons/    exact copies of every ONS file cited in a stamp (the ONS som
 .github/workflows/  daily update
 ```
 
-Code comments and internal names are in Portuguese; the app and this README are in English. A Portuguese README for the team is in [README.pt-BR.md](README.pt-BR.md).
+Code comments and internal names are in Portuguese; the app and this README are in English. The project's working name was *Vento Cortado* ("curtailed wind"), which is why the on-chain records keep the protocol prefix `vento-cortado v1`. A Portuguese README for the team is in [README.pt-BR.md](README.pt-BR.md).
 
 ## Built during the hackathon
 

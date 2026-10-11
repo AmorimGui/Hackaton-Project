@@ -118,7 +118,7 @@ export default function CompraJanela({ idUsina, nomeUsina, janela, cambio, repla
         .catch(() => setRecibo("falhou"));
     } catch (e) {
       const erro = e as { code?: number; message?: string };
-      console.error("Vento Cortado: falha no pagamento", e);
+      console.error("Nomos: falha no pagamento", e);
       if (erro.code === 4001 || /reject|cancel/i.test(erro.message ?? "")) {
         setEstado({ fase: "erro", mensagem: b.canceled });
         return;
