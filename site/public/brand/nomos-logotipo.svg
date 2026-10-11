@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 582 122" fill="none" stroke="#111111" aria-label="Nomos">
+  <!-- Logotipo "noMos" em vetor, redesenhado a partir da logo do time (medidas em alturas de minúscula: x = 100) -->
+  <g stroke-width="18" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M9 100V0M9 46C9 22 24 9 43.5 9C63 9 78 22 78 46V100"/>
+    <circle cx="153" cy="53" r="42"/>
+    <circle cx="433" cy="53" r="42"/>
+    <path d="M68 24C62 15 52 11 41 11C25 11 13 18 13 30C13 43 26 47 40 50C55 53 69 57 69 71C69 85 56 93 40 93C27 93 16 89 10 79" transform="translate(498 0)"/>
+  </g>
+  <g transform="translate(232 0) scale(0.61)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.75 178.25V8.75L168 172q16.5 14 16.5-6V8.75L99 101.3"/>
+  </g>
+</svg>
