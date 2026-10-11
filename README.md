@@ -1,4 +1,9 @@
-<p align="center"><img src="site/public/brand/nomos-logotipo.svg" alt="Nomos" width="260"></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="site/public/brand/nomos-logotipo-branco.svg">
+    <img src="site/public/brand/nomos-logotipo.svg" alt="Nomos" width="260">
+  </picture>
+</p>
 
 # Nomos
 
