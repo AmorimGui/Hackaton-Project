@@ -1,6 +1,6 @@
 {
-  "dados_ate": "2026-10-10",
-  "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), 2025-01-01 a 2026-10-10",
+  "dados_ate": "2026-10-11",
+  "fonte": "ONS, dados abertos de constrained-off de usinas eólicas e fotovoltaicas (CC-BY), 2025-01-01 a 2026-10-11",
   "parametros": {
     "UFS": [
       "RN",
