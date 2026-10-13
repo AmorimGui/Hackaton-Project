@@ -2316,7 +2316,7 @@
     "tipo": "solar",
     "agente": "STATKRAFT",
     "ponto_conexao": "GENTIO OURO II500kVA",
-    "disp_max_mw": 148,
+    "disp_max_mw": 147,
     "jan_jul_2026": {
       "energia_perdida_gwh": 0.0,
       "fracao_meias_horas_com_corte": null
