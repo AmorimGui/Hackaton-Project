@@ -120,8 +120,8 @@
       "gpu_horas_esperadas": 1681114,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 1.0,
-      "energia_cortada_mwh": 930,
-      "gpu_horas_equivalentes": 1093635,
+      "energia_cortada_mwh": 996,
+      "gpu_horas_equivalentes": 1171570,
       "razoes_do_corte": {
         "ENE": 16
       },
