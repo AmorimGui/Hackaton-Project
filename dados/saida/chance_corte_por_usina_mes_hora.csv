@@ -221,10 +221,10 @@ CJU_BAARA;Conj. Araçás;BA;eolica;10;2;100;0.040;1.6
 CJU_BAARA;Conj. Araçás;BA;eolica;10;3;100;0.050;2.1
 CJU_BAARA;Conj. Araçás;BA;eolica;10;4;100;0.070;4.1
 CJU_BAARA;Conj. Araçás;BA;eolica;10;5;100;0.200;10.8
-CJU_BAARA;Conj. Araçás;BA;eolica;10;6;100;0.630;39.1
-CJU_BAARA;Conj. Araçás;BA;eolica;10;7;100;0.850;58.3
-CJU_BAARA;Conj. Araçás;BA;eolica;10;8;100;0.920;68.6
-CJU_BAARA;Conj. Araçás;BA;eolica;10;9;100;0.940;72.6
+CJU_BAARA;Conj. Araçás;BA;eolica;10;6;100;0.640;39.1
+CJU_BAARA;Conj. Araçás;BA;eolica;10;7;100;0.850;58.5
+CJU_BAARA;Conj. Araçás;BA;eolica;10;8;100;0.920;68.7
+CJU_BAARA;Conj. Araçás;BA;eolica;10;9;100;0.940;72.7
 CJU_BAARA;Conj. Araçás;BA;eolica;10;10;100;0.950;68.4
 CJU_BAARA;Conj. Araçás;BA;eolica;10;11;100;0.960;57.5
 CJU_BAARA;Conj. Araçás;BA;eolica;10;12;100;0.950;49.4
@@ -1664,9 +1664,9 @@ CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;5;100;0.110;3.1
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;6;100;0.430;34.6
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;7;100;0.790;102.9
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;8;100;0.820;147.0
-CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;9;100;0.860;172.8
-CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;10;100;0.940;171.2
-CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;11;100;0.930;152.1
+CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;9;100;0.870;173.4
+CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;10;100;0.940;171.5
+CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;11;100;0.930;152.2
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;12;100;0.950;136.0
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;13;100;0.910;118.3
 CJU_BABBC;Conj. Babilônia Centro;BA;eolica;10;14;100;0.840;93.4
@@ -1952,7 +1952,7 @@ CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;5;100;0.050;1.2
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;6;100;0.320;15.1
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;7;100;0.560;48.3
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;8;100;0.670;77.0
-CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;9;100;0.780;92.8
+CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;9;100;0.780;92.9
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;10;100;0.760;83.8
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;11;100;0.780;69.8
 CJU_BABBS;Conj. Babilônia Sul;BA;eolica;10;12;100;0.700;58.9
@@ -2240,9 +2240,9 @@ CJU_BACTE;Conj. Caetité;BA;eolica;10;5;100;0.310;4.8
 CJU_BACTE;Conj. Caetité;BA;eolica;10;6;100;0.720;18.3
 CJU_BACTE;Conj. Caetité;BA;eolica;10;7;100;0.810;25.6
 CJU_BACTE;Conj. Caetité;BA;eolica;10;8;100;0.850;27.6
-CJU_BACTE;Conj. Caetité;BA;eolica;10;9;100;0.900;30.5
+CJU_BACTE;Conj. Caetité;BA;eolica;10;9;100;0.900;30.6
 CJU_BACTE;Conj. Caetité;BA;eolica;10;10;100;0.920;30.2
-CJU_BACTE;Conj. Caetité;BA;eolica;10;11;100;0.920;26.9
+CJU_BACTE;Conj. Caetité;BA;eolica;10;11;100;0.930;26.9
 CJU_BACTE;Conj. Caetité;BA;eolica;10;12;100;0.880;23.4
 CJU_BACTE;Conj. Caetité;BA;eolica;10;13;100;0.850;18.4
 CJU_BACTE;Conj. Caetité;BA;eolica;10;14;100;0.820;13.2
@@ -4112,10 +4112,10 @@ CJU_BACND;Conj. Casa Nova;BA;eolica;10;5;100;0.180;1.9
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;6;100;0.520;8.1
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;7;100;0.750;18.5
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;8;100;0.860;22.6
-CJU_BACND;Conj. Casa Nova;BA;eolica;10;9;100;0.920;22.8
-CJU_BACND;Conj. Casa Nova;BA;eolica;10;10;100;0.890;20.4
-CJU_BACND;Conj. Casa Nova;BA;eolica;10;11;100;0.860;19.3
-CJU_BACND;Conj. Casa Nova;BA;eolica;10;12;100;0.860;17.9
+CJU_BACND;Conj. Casa Nova;BA;eolica;10;9;100;0.940;23.2
+CJU_BACND;Conj. Casa Nova;BA;eolica;10;10;100;0.910;20.8
+CJU_BACND;Conj. Casa Nova;BA;eolica;10;11;100;0.880;19.8
+CJU_BACND;Conj. Casa Nova;BA;eolica;10;12;100;0.870;18.2
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;13;100;0.790;14.5
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;14;100;0.740;9.6
 CJU_BACND;Conj. Casa Nova;BA;eolica;10;15;100;0.580;5.8
@@ -6408,8 +6408,8 @@ CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;9;21;120;0.133;2.1
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;9;22;120;0.200;3.4
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;9;23;120;0.225;4.4
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;0;100;0.120;1.6
-CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;1;100;0.090;1.2
-CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;2;100;0.080;1.2
+CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;1;100;0.100;1.3
+CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;2;100;0.090;1.3
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;3;100;0.060;1.0
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;4;100;0.100;1.4
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;5;100;0.230;2.9
@@ -6418,7 +6418,7 @@ CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;7;100;0.740;28.1
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;8;100;0.800;37.5
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;9;100;0.880;43.1
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;10;100;0.940;45.0
-CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;11;100;0.920;42.9
+CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;11;100;0.920;42.8
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;12;100;0.930;41.8
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;13;100;0.850;36.4
 CJU_BAFLS;Conj. Folha Larga Sul;BA;eolica;10;14;100;0.820;30.5
@@ -6701,13 +6701,13 @@ CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;2;100;0.050;3.0
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;3;100;0.060;3.1
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;4;100;0.090;4.5
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;5;100;0.370;19.7
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;6;100;0.790;57.7
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;7;100;0.900;69.0
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;8;100;0.920;69.0
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;6;100;0.790;57.8
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;7;100;0.900;69.1
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;8;100;0.920;69.1
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;9;100;0.940;65.6
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;10;100;0.950;56.0
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;11;100;0.950;43.1
-CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;12;100;0.950;35.8
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;10;100;0.960;56.0
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;11;100;0.960;43.2
+CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;12;100;0.950;35.9
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;13;100;0.930;28.4
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;14;100;0.870;20.9
 CJU_BAGPX;Conj. GPEXPAN;BA;eolica;10;15;100;0.740;15.4
@@ -8433,8 +8433,8 @@ CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;6;100;0.650;66.0
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;7;100;0.770;104.6
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;8;100;0.790;119.2
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;9;100;0.840;127.6
-CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;10;100;0.850;114.7
-CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;11;100;0.850;93.5
+CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;10;100;0.850;114.8
+CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;11;100;0.850;93.6
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;12;100;0.840;80.5
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;13;100;0.750;68.3
 CJU_BAEMS2;Conj. Morro do Chapéu Sul II;BA;eolica;10;14;100;0.630;58.1
@@ -9870,12 +9870,12 @@ CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;3;100;0.060;0.5
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;4;100;0.110;0.9
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;5;100;0.340;3.5
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;6;100;0.670;12.5
-CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;7;100;0.810;17.4
+CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;7;100;0.810;17.5
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;8;100;0.850;19.0
-CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;9;100;0.890;21.1
+CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;9;100;0.890;21.2
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;10;100;0.930;21.0
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;11;100;0.920;19.8
-CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;12;100;0.920;17.0
+CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;12;100;0.930;17.0
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;13;100;0.880;14.1
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;14;100;0.810;10.4
 CJU_BAPEL;Conj. Pelourinho;BA;eolica;10;15;100;0.640;8.2
@@ -10448,7 +10448,7 @@ CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;5;100;0.390;15.7
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;6;100;0.700;35.6
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;7;100;0.820;52.1
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;8;100;0.840;56.3
-CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;9;100;0.910;53.6
+CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;9;100;0.930;53.6
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;10;100;0.940;48.6
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;11;100;0.930;40.7
 CJU_BASAZ;Conj. Serra Azul;BA;eolica;10;12;100;0.910;36.6
@@ -11888,7 +11888,7 @@ CJU_BATUC;Conj. Tucano;BA;eolica;10;5;100;0.140;2.9
 CJU_BATUC;Conj. Tucano;BA;eolica;10;6;100;0.480;14.7
 CJU_BATUC;Conj. Tucano;BA;eolica;10;7;100;0.630;33.3
 CJU_BATUC;Conj. Tucano;BA;eolica;10;8;100;0.780;44.4
-CJU_BATUC;Conj. Tucano;BA;eolica;10;9;100;0.800;52.7
+CJU_BATUC;Conj. Tucano;BA;eolica;10;9;100;0.800;52.8
 CJU_BATUC;Conj. Tucano;BA;eolica;10;10;100;0.870;59.6
 CJU_BATUC;Conj. Tucano;BA;eolica;10;11;100;0.830;62.1
 CJU_BATUC;Conj. Tucano;BA;eolica;10;12;100;0.850;75.9
@@ -14192,10 +14192,10 @@ CJU_CEFSA;Conj. Faísa;CE;eolica;10;5;100;0.160;2.9
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;6;100;0.550;20.3
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;7;100;0.780;60.1
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;8;100;0.860;83.3
-CJU_CEFSA;Conj. Faísa;CE;eolica;10;9;100;0.910;97.4
-CJU_CEFSA;Conj. Faísa;CE;eolica;10;10;100;0.930;110.7
-CJU_CEFSA;Conj. Faísa;CE;eolica;10;11;100;0.940;118.5
-CJU_CEFSA;Conj. Faísa;CE;eolica;10;12;100;0.940;121.1
+CJU_CEFSA;Conj. Faísa;CE;eolica;10;9;100;0.930;97.8
+CJU_CEFSA;Conj. Faísa;CE;eolica;10;10;100;0.950;111.0
+CJU_CEFSA;Conj. Faísa;CE;eolica;10;11;100;0.960;118.7
+CJU_CEFSA;Conj. Faísa;CE;eolica;10;12;100;0.950;121.3
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;13;100;0.920;116.7
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;14;100;0.850;93.1
 CJU_CEFSA;Conj. Faísa;CE;eolica;10;15;100;0.690;63.5
@@ -14480,7 +14480,7 @@ CJU_CEICR;Conj. Icaraí;CE;eolica;10;5;100;0.230;4.8
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;6;100;0.630;21.7
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;7;100;0.810;52.8
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;8;100;0.880;76.0
-CJU_CEICR;Conj. Icaraí;CE;eolica;10;9;100;0.940;89.3
+CJU_CEICR;Conj. Icaraí;CE;eolica;10;9;100;0.940;89.4
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;10;100;0.950;98.5
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;11;100;0.960;105.1
 CJU_CEICR;Conj. Icaraí;CE;eolica;10;12;100;0.950;106.4
@@ -14765,18 +14765,18 @@ CJU_CEITC;Conj. Itarema V;CE;eolica;10;2;100;0.020;0.0
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;3;100;0.020;0.2
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;4;100;0.030;0.1
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;5;100;0.220;1.8
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;6;100;0.620;18.1
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;7;100;0.820;57.2
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;8;100;0.890;91.8
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;9;100;0.940;111.7
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;10;100;0.960;124.8
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;11;100;0.960;131.2
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;12;100;0.940;133.6
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;13;100;0.920;123.5
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;14;100;0.870;99.0
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;15;100;0.700;69.3
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;16;100;0.510;34.6
-CJU_CEITC;Conj. Itarema V;CE;eolica;10;17;100;0.190;6.8
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;6;100;0.640;18.2
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;7;100;0.830;58.1
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;8;100;0.890;92.9
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;9;100;0.940;112.8
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;10;100;0.960;125.6
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;11;100;0.960;132.0
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;12;100;0.940;134.5
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;13;100;0.920;124.3
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;14;100;0.870;100.0
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;15;100;0.700;70.2
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;16;100;0.510;34.9
+CJU_CEITC;Conj. Itarema V;CE;eolica;10;17;100;0.200;6.8
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;18;100;0.010;0.1
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;19;100;0.010;0.1
 CJU_CEITC;Conj. Itarema V;CE;eolica;10;20;100;0.030;0.2
@@ -15342,10 +15342,10 @@ CJU_CEPPG;Conj. Papagaios;CE;eolica;10;3;100;0.040;0.8
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;4;100;0.060;1.5
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;5;100;0.250;6.8
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;6;100;0.690;19.2
-CJU_CEPPG;Conj. Papagaios;CE;eolica;10;7;100;0.850;35.7
-CJU_CEPPG;Conj. Papagaios;CE;eolica;10;8;100;0.900;47.7
-CJU_CEPPG;Conj. Papagaios;CE;eolica;10;9;100;0.950;53.7
-CJU_CEPPG;Conj. Papagaios;CE;eolica;10;10;100;0.960;59.5
+CJU_CEPPG;Conj. Papagaios;CE;eolica;10;7;100;0.850;35.8
+CJU_CEPPG;Conj. Papagaios;CE;eolica;10;8;100;0.900;47.8
+CJU_CEPPG;Conj. Papagaios;CE;eolica;10;9;100;0.950;53.8
+CJU_CEPPG;Conj. Papagaios;CE;eolica;10;10;100;0.960;59.6
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;11;100;0.960;61.2
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;12;100;0.950;62.3
 CJU_CEPPG;Conj. Papagaios;CE;eolica;10;13;100;0.930;58.9
@@ -17072,10 +17072,10 @@ CJU_CETBA;Conj. Taíba;CE;eolica;10;5;100;0.260;2.8
 CJU_CETBA;Conj. Taíba;CE;eolica;10;6;100;0.630;9.3
 CJU_CETBA;Conj. Taíba;CE;eolica;10;7;100;0.780;19.1
 CJU_CETBA;Conj. Taíba;CE;eolica;10;8;100;0.810;26.0
-CJU_CETBA;Conj. Taíba;CE;eolica;10;9;100;0.840;29.7
-CJU_CETBA;Conj. Taíba;CE;eolica;10;10;100;0.820;31.2
-CJU_CETBA;Conj. Taíba;CE;eolica;10;11;100;0.820;32.7
-CJU_CETBA;Conj. Taíba;CE;eolica;10;12;100;0.820;34.6
+CJU_CETBA;Conj. Taíba;CE;eolica;10;9;100;0.860;29.9
+CJU_CETBA;Conj. Taíba;CE;eolica;10;10;100;0.840;31.3
+CJU_CETBA;Conj. Taíba;CE;eolica;10;11;100;0.840;32.9
+CJU_CETBA;Conj. Taíba;CE;eolica;10;12;100;0.830;34.7
 CJU_CETBA;Conj. Taíba;CE;eolica;10;13;100;0.800;32.2
 CJU_CETBA;Conj. Taíba;CE;eolica;10;14;100;0.750;24.0
 CJU_CETBA;Conj. Taíba;CE;eolica;10;15;100;0.600;15.8
@@ -20525,23 +20525,23 @@ CJU_RNAVD;Conj. Aventura;RN;eolica;10;2;100;0.760;27.5
 CJU_RNAVD;Conj. Aventura;RN;eolica;10;3;100;0.730;25.0
 CJU_RNAVD;Conj. Aventura;RN;eolica;10;4;100;0.690;24.5
 CJU_RNAVD;Conj. Aventura;RN;eolica;10;5;100;0.700;24.6
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;6;100;0.740;25.5
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;7;100;0.940;38.3
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;8;100;0.970;48.6
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;9;100;0.990;52.3
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;10;100;0.970;53.9
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;11;100;0.960;54.0
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;12;100;0.950;54.3
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;13;100;0.940;51.3
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;14;100;0.920;45.2
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;15;100;0.890;39.5
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;16;100;0.850;32.2
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;17;100;0.760;21.6
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;18;100;0.780;24.2
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;19;100;0.810;28.7
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;20;100;0.800;32.6
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;21;100;0.790;34.0
-CJU_RNAVD;Conj. Aventura;RN;eolica;10;22;100;0.800;33.5
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;6;100;0.770;25.7
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;7;100;0.950;39.0
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;8;100;0.970;49.4
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;9;100;0.990;53.1
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;10;100;0.980;54.5
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;11;100;0.980;54.7
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;12;100;0.970;55.1
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;13;100;0.960;52.2
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;14;100;0.950;45.8
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;15;100;0.950;40.0
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;16;100;0.910;32.4
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;17;100;0.800;21.8
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;18;100;0.810;24.6
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;19;100;0.850;29.1
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;20;100;0.830;33.2
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;21;100;0.800;34.3
+CJU_RNAVD;Conj. Aventura;RN;eolica;10;22;100;0.820;33.8
 CJU_RNAVD;Conj. Aventura;RN;eolica;10;23;100;0.750;30.3
 CJU_RNAVD;Conj. Aventura;RN;eolica;11;0;60;0.467;8.2
 CJU_RNAVD;Conj. Aventura;RN;eolica;11;1;60;0.400;7.3
@@ -20814,16 +20814,16 @@ CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;3;100;0.710;25.3
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;4;100;0.660;22.9
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;5;100;0.680;25.3
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;6;100;0.850;44.3
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;7;100;0.980;84.0
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;8;100;0.980;90.8
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;9;100;0.980;86.7
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;10;100;0.950;79.6
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;7;100;0.980;84.3
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;8;100;0.980;91.0
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;9;100;0.990;87.0
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;10;100;0.950;79.8
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;11;100;0.930;73.8
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;12;100;0.930;74.0
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;13;100;0.910;71.9
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;14;100;0.940;67.9
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;15;100;0.960;63.5
-CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;16;100;0.960;58.2
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;15;100;0.960;63.6
+CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;16;100;0.960;58.4
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;17;100;0.940;40.8
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;18;100;0.920;39.0
 CJU_RNBFJ;Conj. Baixa do Feijão;RN;eolica;10;19;100;0.870;41.2
@@ -21390,22 +21390,22 @@ CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;3;100;0.550;24.3
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;4;100;0.580;24.1
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;5;100;0.610;24.2
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;6;100;0.780;39.6
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;7;100;0.950;79.7
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;8;100;0.980;90.3
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;9;100;0.990;93.1
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;10;100;1.000;94.7
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;11;100;0.980;95.6
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;12;100;0.970;97.3
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;13;100;0.960;92.7
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;14;100;0.950;83.4
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;15;100;0.970;74.8
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;16;100;0.940;63.0
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;17;100;0.860;39.7
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;18;100;0.830;36.3
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;19;100;0.810;40.2
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;20;100;0.790;43.1
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;21;100;0.770;41.9
-CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;22;100;0.700;36.6
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;7;100;0.950;80.6
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;8;100;0.980;91.2
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;9;100;0.990;94.0
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;10;100;1.000;95.5
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;11;100;0.980;96.4
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;12;100;0.970;98.3
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;13;100;0.960;93.8
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;14;100;0.950;84.3
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;15;100;0.980;75.5
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;16;100;0.960;63.7
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;17;100;0.880;40.0
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;18;100;0.840;36.5
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;19;100;0.830;40.4
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;20;100;0.790;43.2
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;21;100;0.770;42.0
+CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;22;100;0.700;36.7
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;10;23;100;0.660;31.7
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;11;0;60;0.267;4.9
 CJU_RNBP1;Conj. Brisa Potiguar I;RN;eolica;11;1;60;0.183;4.5
@@ -21959,29 +21959,29 @@ CJU_RNCAJ1;Conj. Caju;RN;eolica;9;20;120;0.775;211.6
 CJU_RNCAJ1;Conj. Caju;RN;eolica;9;21;120;0.775;220.1
 CJU_RNCAJ1;Conj. Caju;RN;eolica;9;22;120;0.783;203.4
 CJU_RNCAJ1;Conj. Caju;RN;eolica;9;23;120;0.750;181.0
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;0;100;0.780;191.5
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;1;100;0.830;178.0
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;2;100;0.740;164.0
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;0;100;0.780;191.8
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;1;100;0.830;178.3
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;2;100;0.740;164.4
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;3;100;0.650;148.5
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;4;100;0.690;136.8
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;5;100;0.720;143.3
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;6;100;0.780;208.7
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;7;100;0.840;281.0
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;8;100;0.860;302.1
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;7;100;0.840;281.4
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;8;100;0.860;302.5
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;9;100;0.860;294.0
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;10;100;0.860;264.0
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;11;100;0.850;226.1
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;12;100;0.860;199.1
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;13;100;0.830;174.8
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;14;100;0.850;151.3
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;15;100;0.880;159.6
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;10;100;0.880;264.7
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;11;100;0.870;227.1
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;12;100;0.870;199.8
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;13;100;0.830;175.1
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;14;100;0.850;151.4
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;15;100;0.880;159.7
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;16;100;0.930;170.6
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;17;100;0.860;154.4
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;18;100;0.890;187.4
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;19;100;0.880;207.4
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;20;100;0.880;235.7
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;21;100;0.870;237.2
-CJU_RNCAJ1;Conj. Caju;RN;eolica;10;22;100;0.840;232.4
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;17;100;0.860;154.5
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;18;100;0.890;187.5
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;19;100;0.880;207.6
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;20;100;0.880;236.2
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;21;100;0.870;237.3
+CJU_RNCAJ1;Conj. Caju;RN;eolica;10;22;100;0.840;232.6
 CJU_RNCAJ1;Conj. Caju;RN;eolica;10;23;100;0.810;210.3
 CJU_RNCAJ1;Conj. Caju;RN;eolica;11;0;60;0.517;87.9
 CJU_RNCAJ1;Conj. Caju;RN;eolica;11;1;60;0.450;77.0
@@ -22253,18 +22253,18 @@ CJU_RNCA1;Conj. Calango 1;RN;eolica;10;2;100;0.040;0.6
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;3;100;0.020;0.6
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;4;100;0.040;0.6
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;5;100;0.240;1.9
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;6;100;0.630;8.8
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;7;100;0.750;17.1
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;8;100;0.790;20.3
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;9;100;0.840;18.7
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;10;100;0.860;15.7
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;11;100;0.790;11.5
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;12;100;0.710;8.8
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;13;100;0.650;7.0
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;14;100;0.620;5.5
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;15;100;0.570;5.2
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;16;100;0.500;5.3
-CJU_RNCA1;Conj. Calango 1;RN;eolica;10;17;100;0.310;4.7
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;6;100;0.640;8.9
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;7;100;0.780;17.3
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;8;100;0.820;20.5
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;9;100;0.860;18.8
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;10;100;0.870;15.8
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;11;100;0.810;11.6
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;12;100;0.730;9.0
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;13;100;0.680;7.2
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;14;100;0.650;5.6
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;15;100;0.610;5.4
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;16;100;0.540;5.7
+CJU_RNCA1;Conj. Calango 1;RN;eolica;10;17;100;0.320;4.8
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;18;100;0.090;1.8
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;19;100;0.070;1.5
 CJU_RNCA1;Conj. Calango 1;RN;eolica;10;20;100;0.090;1.0
@@ -22541,18 +22541,18 @@ CJU_RNCA2;Conj. Calango 2;RN;eolica;10;2;100;0.000;0.0
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;3;100;0.000;0.0
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;4;100;0.000;0.0
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;5;100;0.090;0.9
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;6;100;0.370;8.2
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;7;100;0.660;17.6
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;8;100;0.720;23.2
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;9;100;0.790;23.6
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;10;100;0.790;20.9
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;11;100;0.800;17.4
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;12;100;0.800;14.5
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;13;100;0.740;11.5
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;14;100;0.690;9.4
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;15;100;0.490;6.2
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;16;100;0.390;5.2
-CJU_RNCA2;Conj. Calango 2;RN;eolica;10;17;100;0.200;2.7
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;6;100;0.390;8.8
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;7;100;0.710;18.8
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;8;100;0.770;24.0
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;9;100;0.830;24.1
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;10;100;0.820;21.3
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;11;100;0.830;17.8
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;12;100;0.830;14.8
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;13;100;0.790;11.8
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;14;100;0.730;9.7
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;15;100;0.530;6.7
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;16;100;0.430;6.0
+CJU_RNCA2;Conj. Calango 2;RN;eolica;10;17;100;0.210;3.0
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;18;100;0.070;1.3
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;19;100;0.040;0.8
 CJU_RNCA2;Conj. Calango 2;RN;eolica;10;20;100;0.040;0.8
@@ -22829,18 +22829,18 @@ CJU_RNCA3;Conj. Calango 3;RN;eolica;10;2;100;0.040;0.5
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;3;100;0.040;0.5
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;4;100;0.060;0.7
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;5;100;0.270;3.9
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;6;100;0.660;16.1
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;7;100;0.780;29.9
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;8;100;0.850;36.5
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;9;100;0.890;38.1
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;10;100;0.920;37.4
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;11;100;0.900;32.5
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;12;100;0.890;27.1
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;13;100;0.880;24.0
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;14;100;0.830;19.5
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;15;100;0.690;17.2
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;16;100;0.510;13.8
-CJU_RNCA3;Conj. Calango 3;RN;eolica;10;17;100;0.310;6.7
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;6;100;0.680;16.6
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;7;100;0.820;30.7
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;8;100;0.890;37.3
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;9;100;0.930;38.7
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;10;100;0.920;37.6
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;11;100;0.920;32.9
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;12;100;0.920;27.7
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;13;100;0.920;24.4
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;14;100;0.870;20.3
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;15;100;0.730;18.2
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;16;100;0.550;15.1
+CJU_RNCA3;Conj. Calango 3;RN;eolica;10;17;100;0.320;6.9
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;18;100;0.120;2.5
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;19;100;0.090;1.3
 CJU_RNCA3;Conj. Calango 3;RN;eolica;10;20;100;0.100;2.3
@@ -23410,11 +23410,11 @@ CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;7;100;0.840;42.3
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;8;100;0.890;57.6
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;9;100;0.950;64.4
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;10;100;0.960;67.6
-CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;11;100;0.970;69.6
-CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;12;100;0.950;71.0
-CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;13;100;0.930;68.4
-CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;14;100;0.880;55.9
-CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;15;100;0.780;41.7
+CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;11;100;0.980;70.0
+CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;12;100;0.970;71.5
+CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;13;100;0.940;68.9
+CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;14;100;0.900;56.3
+CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;15;100;0.790;41.9
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;16;100;0.610;24.8
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;17;100;0.500;15.8
 CJU_RNCNB;Conj. Carnaúbas;RN;eolica;10;18;100;0.460;14.0
@@ -23981,23 +23981,23 @@ CJU_RNCUT;Conj. Cutia;RN;eolica;10;2;100;0.650;43.1
 CJU_RNCUT;Conj. Cutia;RN;eolica;10;3;100;0.630;38.1
 CJU_RNCUT;Conj. Cutia;RN;eolica;10;4;100;0.590;31.2
 CJU_RNCUT;Conj. Cutia;RN;eolica;10;5;100;0.620;31.7
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;6;100;0.730;58.6
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;7;100;0.830;129.6
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;8;100;0.890;154.2
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;9;100;0.940;163.7
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;10;100;0.960;168.5
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;11;100;0.960;177.0
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;12;100;0.960;186.8
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;13;100;0.940;180.7
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;14;100;0.910;157.8
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;15;100;0.810;123.1
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;16;100;0.650;83.1
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;17;100;0.550;53.5
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;18;100;0.430;39.5
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;19;100;0.570;49.2
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;20;100;0.640;59.7
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;21;100;0.670;64.7
-CJU_RNCUT;Conj. Cutia;RN;eolica;10;22;100;0.680;60.1
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;6;100;0.740;59.0
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;7;100;0.830;130.9
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;8;100;0.890;155.4
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;9;100;0.940;166.3
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;10;100;0.960;171.4
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;11;100;0.980;181.0
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;12;100;0.970;191.3
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;13;100;0.950;184.6
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;14;100;0.910;161.2
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;15;100;0.820;125.7
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;16;100;0.690;84.4
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;17;100;0.570;54.2
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;18;100;0.450;39.9
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;19;100;0.580;49.4
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;20;100;0.660;60.1
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;21;100;0.680;65.0
+CJU_RNCUT;Conj. Cutia;RN;eolica;10;22;100;0.700;60.4
 CJU_RNCUT;Conj. Cutia;RN;eolica;10;23;100;0.650;49.9
 CJU_RNCUT;Conj. Cutia;RN;eolica;11;0;60;0.183;4.9
 CJU_RNCUT;Conj. Cutia;RN;eolica;11;1;60;0.183;3.2
@@ -26581,7 +26581,7 @@ CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;10;100;0.850;182.5
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;11;100;0.850;164.3
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;12;100;0.870;161.6
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;13;100;0.810;143.1
-CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;14;100;0.850;124.1
+CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;14;100;0.860;124.2
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;15;100;0.860;120.6
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;16;100;0.840;103.9
 CJU_RNEMVD;Conj. Monte Verde;RN;eolica;10;17;100;0.750;73.3
@@ -28302,22 +28302,22 @@ CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;3;100;0.680;10.4
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;4;100;0.690;8.1
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;5;100;0.660;7.2
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;6;100;0.800;21.8
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;7;100;0.970;52.1
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;8;100;0.980;58.8
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;9;100;0.990;62.0
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;10;100;0.990;63.1
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;11;100;0.960;64.4
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;12;100;0.950;66.9
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;13;100;0.920;65.2
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;14;100;0.920;60.2
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;15;100;0.940;53.1
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;16;100;0.940;43.3
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;17;100;0.880;28.6
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;18;100;0.850;24.6
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;7;100;0.970;52.5
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;8;100;0.980;59.2
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;9;100;0.990;62.5
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;10;100;1.000;63.7
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;11;100;0.980;64.9
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;12;100;0.970;67.5
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;13;100;0.950;65.5
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;14;100;0.940;60.4
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;15;100;0.980;53.3
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;16;100;0.970;43.7
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;17;100;0.880;28.8
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;18;100;0.870;24.7
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;19;100;0.850;24.0
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;20;100;0.820;23.9
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;21;100;0.800;22.7
-CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;22;100;0.740;19.0
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;20;100;0.850;24.0
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;21;100;0.820;22.7
+CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;22;100;0.760;19.0
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;10;23;100;0.650;13.6
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;11;0;60;0.383;2.9
 CJU_RNODA;Conj. Olho d'Água;RN;eolica;11;1;60;0.300;1.8
@@ -28589,10 +28589,10 @@ CJU_RNREN;Conj. Renascença;RN;eolica;10;2;100;0.720;27.4
 CJU_RNREN;Conj. Renascença;RN;eolica;10;3;100;0.710;24.8
 CJU_RNREN;Conj. Renascença;RN;eolica;10;4;100;0.660;24.4
 CJU_RNREN;Conj. Renascença;RN;eolica;10;5;100;0.700;24.9
-CJU_RNREN;Conj. Renascença;RN;eolica;10;6;100;0.820;38.6
-CJU_RNREN;Conj. Renascença;RN;eolica;10;7;100;0.970;74.3
-CJU_RNREN;Conj. Renascença;RN;eolica;10;8;100;0.980;82.1
-CJU_RNREN;Conj. Renascença;RN;eolica;10;9;100;0.960;84.3
+CJU_RNREN;Conj. Renascença;RN;eolica;10;6;100;0.830;38.6
+CJU_RNREN;Conj. Renascença;RN;eolica;10;7;100;0.970;74.9
+CJU_RNREN;Conj. Renascença;RN;eolica;10;8;100;0.980;82.4
+CJU_RNREN;Conj. Renascença;RN;eolica;10;9;100;0.970;84.3
 CJU_RNREN;Conj. Renascença;RN;eolica;10;10;100;0.980;84.9
 CJU_RNREN;Conj. Renascença;RN;eolica;10;11;100;0.980;85.9
 CJU_RNREN;Conj. Renascença;RN;eolica;10;12;100;0.970;85.9
@@ -29159,24 +29159,24 @@ CJU_RNRIA;Conj. Riachão;RN;eolica;9;20;120;0.642;18.7
 CJU_RNRIA;Conj. Riachão;RN;eolica;9;21;120;0.692;19.7
 CJU_RNRIA;Conj. Riachão;RN;eolica;9;22;120;0.650;15.8
 CJU_RNRIA;Conj. Riachão;RN;eolica;9;23;120;0.633;10.4
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;0;100;0.430;6.4
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;1;100;0.480;6.8
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;0;100;0.430;6.5
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;1;100;0.480;6.9
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;2;100;0.500;6.8
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;3;100;0.490;7.2
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;3;100;0.490;7.1
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;4;100;0.480;6.9
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;5;100;0.490;7.7
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;6;100;0.650;11.3
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;7;100;0.840;42.1
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;8;100;0.890;66.1
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;9;100;0.930;75.3
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;10;100;0.950;81.9
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;11;100;0.960;86.0
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;12;100;0.950;87.3
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;13;100;0.930;82.2
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;14;100;0.890;66.9
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;15;100;0.710;46.6
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;16;100;0.520;23.7
-CJU_RNRIA;Conj. Riachão;RN;eolica;10;17;100;0.440;11.2
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;6;100;0.660;11.5
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;7;100;0.850;43.0
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;8;100;0.890;67.1
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;9;100;0.930;76.4
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;10;100;0.950;82.9
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;11;100;0.960;86.9
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;12;100;0.950;88.3
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;13;100;0.930;83.2
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;14;100;0.890;67.7
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;15;100;0.740;47.2
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;16;100;0.560;24.0
+CJU_RNRIA;Conj. Riachão;RN;eolica;10;17;100;0.450;11.4
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;18;100;0.380;7.8
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;19;100;0.500;11.6
 CJU_RNRIA;Conj. Riachão;RN;eolica;10;20;100;0.570;13.0
@@ -29456,10 +29456,10 @@ CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;5;100;0.640;117.5
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;6;100;0.720;150.6
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;7;100;0.800;205.9
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;8;100;0.840;237.8
-CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;9;100;0.890;252.8
-CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;10;100;0.900;252.2
-CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;11;100;0.920;252.1
-CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;12;100;0.940;255.6
+CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;9;100;0.910;253.0
+CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;10;100;0.920;253.0
+CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;11;100;0.930;252.5
+CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;12;100;0.950;255.9
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;13;100;0.910;246.4
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;14;100;0.860;218.5
 CJU_RNRDV;Conj. Rio do Vento;RN;eolica;10;15;100;0.780;182.2
@@ -29737,17 +29737,17 @@ CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;9;22;120;0.717;146.1
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;9;23;120;0.725;135.1
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;0;100;0.560;87.1
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;1;100;0.560;85.2
-CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;2;100;0.570;83.9
+CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;2;100;0.560;83.8
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;3;100;0.570;81.6
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;4;100;0.530;80.5
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;5;100;0.600;87.5
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;6;100;0.690;125.3
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;7;100;0.790;171.9
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;8;100;0.820;206.5
-CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;9;100;0.890;218.3
-CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;10;100;0.850;214.6
-CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;11;100;0.920;208.3
-CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;12;100;0.890;204.5
+CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;9;100;0.870;217.9
+CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;10;100;0.840;214.6
+CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;11;100;0.920;208.1
+CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;12;100;0.900;204.6
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;13;100;0.870;190.3
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;14;100;0.790;166.1
 CJU_RNRVE;Conj. Rio do Vento Expansão;RN;eolica;10;15;100;0.720;130.7
@@ -30317,17 +30317,17 @@ CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;2;100;0.030;0.1
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;3;100;0.000;0.0
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;4;100;0.030;0.1
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;5;100;0.210;3.2
-CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;6;100;0.570;17.2
+CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;6;100;0.580;17.3
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;7;100;0.780;34.7
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;8;100;0.850;50.9
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;9;100;0.890;60.1
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;10;100;0.930;61.2
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;11;100;0.940;56.5
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;12;100;0.940;53.6
-CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;13;100;0.920;48.6
-CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;14;100;0.860;40.9
-CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;15;100;0.690;28.6
-CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;16;100;0.500;16.2
+CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;13;100;0.920;48.7
+CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;14;100;0.860;41.1
+CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;15;100;0.700;28.7
+CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;16;100;0.510;16.3
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;17;100;0.220;3.6
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;18;100;0.090;1.3
 CJU_RNSMN;Conj. Santa Rosa Mundo Novo;RN;eolica;10;19;100;0.030;1.8
@@ -30605,21 +30605,21 @@ CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;2;100;0.680;111.8
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;3;100;0.660;99.0
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;4;100;0.650;87.6
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;5;100;0.680;90.6
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;6;100;0.840;138.8
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;6;100;0.840;138.9
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;7;100;0.980;204.8
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;8;100;0.980;219.8
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;9;100;0.970;213.1
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;10;100;1.000;204.2
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;11;100;0.980;182.3
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;12;100;1.000;169.0
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;13;100;0.960;157.5
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;14;100;0.960;148.0
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;15;100;0.980;157.3
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;9;100;0.970;213.2
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;10;100;1.000;206.1
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;11;100;0.980;184.6
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;12;100;1.000;170.4
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;13;100;0.960;158.8
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;14;100;0.960;148.9
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;15;100;0.980;157.6
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;16;100;0.970;151.8
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;17;100;0.930;127.7
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;18;100;0.900;135.3
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;19;100;0.890;141.7
-CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;20;100;0.900;149.8
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;18;100;0.900;135.4
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;19;100;0.890;142.4
+CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;20;100;0.900;151.8
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;21;100;0.860;143.5
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;22;100;0.850;144.0
 CJU_RNSAG;Conj. Santo Agostinho;RN;eolica;10;23;100;0.790;131.1
@@ -33152,11 +33152,11 @@ RNUES3;Miassaba 3;RN;eolica;10;5;100;0.320;1.8
 RNUES3;Miassaba 3;RN;eolica;10;6;100;0.740;13.5
 RNUES3;Miassaba 3;RN;eolica;10;7;100;0.870;29.1
 RNUES3;Miassaba 3;RN;eolica;10;8;100;0.920;30.0
-RNUES3;Miassaba 3;RN;eolica;10;9;100;0.950;29.8
+RNUES3;Miassaba 3;RN;eolica;10;9;100;0.960;29.8
 RNUES3;Miassaba 3;RN;eolica;10;10;100;0.960;29.2
-RNUES3;Miassaba 3;RN;eolica;10;11;100;0.950;30.5
-RNUES3;Miassaba 3;RN;eolica;10;12;100;0.990;34.1
-RNUES3;Miassaba 3;RN;eolica;10;13;100;0.990;36.4
+RNUES3;Miassaba 3;RN;eolica;10;11;100;0.960;30.6
+RNUES3;Miassaba 3;RN;eolica;10;12;100;0.990;34.2
+RNUES3;Miassaba 3;RN;eolica;10;13;100;1.000;36.7
 RNUES3;Miassaba 3;RN;eolica;10;14;100;0.970;33.1
 RNUES3;Miassaba 3;RN;eolica;10;15;100;0.880;27.7
 RNUES3;Miassaba 3;RN;eolica;10;16;100;0.760;20.7
@@ -33440,16 +33440,16 @@ RNUERU;Rei dos Ventos 1;RN;eolica;10;5;100;0.290;1.8
 RNUERU;Rei dos Ventos 1;RN;eolica;10;6;100;0.680;8.0
 RNUERU;Rei dos Ventos 1;RN;eolica;10;7;100;0.880;21.3
 RNUERU;Rei dos Ventos 1;RN;eolica;10;8;100;0.920;23.9
-RNUERU;Rei dos Ventos 1;RN;eolica;10;9;100;0.940;23.4
-RNUERU;Rei dos Ventos 1;RN;eolica;10;10;100;0.960;24.6
-RNUERU;Rei dos Ventos 1;RN;eolica;10;11;100;0.940;25.7
-RNUERU;Rei dos Ventos 1;RN;eolica;10;12;100;0.920;26.3
-RNUERU;Rei dos Ventos 1;RN;eolica;10;13;100;0.980;29.9
-RNUERU;Rei dos Ventos 1;RN;eolica;10;14;100;0.970;27.8
-RNUERU;Rei dos Ventos 1;RN;eolica;10;15;100;0.870;22.3
-RNUERU;Rei dos Ventos 1;RN;eolica;10;16;100;0.800;15.5
+RNUERU;Rei dos Ventos 1;RN;eolica;10;9;100;0.940;23.5
+RNUERU;Rei dos Ventos 1;RN;eolica;10;10;100;0.960;24.5
+RNUERU;Rei dos Ventos 1;RN;eolica;10;11;100;0.940;25.6
+RNUERU;Rei dos Ventos 1;RN;eolica;10;12;100;0.920;26.2
+RNUERU;Rei dos Ventos 1;RN;eolica;10;13;100;0.990;29.9
+RNUERU;Rei dos Ventos 1;RN;eolica;10;14;100;0.970;27.7
+RNUERU;Rei dos Ventos 1;RN;eolica;10;15;100;0.870;22.2
+RNUERU;Rei dos Ventos 1;RN;eolica;10;16;100;0.800;15.4
 RNUERU;Rei dos Ventos 1;RN;eolica;10;17;100;0.650;10.4
-RNUERU;Rei dos Ventos 1;RN;eolica;10;18;100;0.580;8.9
+RNUERU;Rei dos Ventos 1;RN;eolica;10;18;100;0.570;8.9
 RNUERU;Rei dos Ventos 1;RN;eolica;10;19;100;0.550;8.0
 RNUERU;Rei dos Ventos 1;RN;eolica;10;20;100;0.570;8.3
 RNUERU;Rei dos Ventos 1;RN;eolica;10;21;100;0.530;7.8
@@ -33728,16 +33728,16 @@ RNUERT;Rei dos Ventos 3;RN;eolica;10;5;100;0.460;3.7
 RNUERT;Rei dos Ventos 3;RN;eolica;10;6;100;0.660;11.8
 RNUERT;Rei dos Ventos 3;RN;eolica;10;7;100;0.840;25.5
 RNUERT;Rei dos Ventos 3;RN;eolica;10;8;100;0.910;27.6
-RNUERT;Rei dos Ventos 3;RN;eolica;10;9;100;0.940;26.4
+RNUERT;Rei dos Ventos 3;RN;eolica;10;9;100;0.950;26.4
 RNUERT;Rei dos Ventos 3;RN;eolica;10;10;100;0.920;27.0
-RNUERT;Rei dos Ventos 3;RN;eolica;10;11;100;0.940;26.7
-RNUERT;Rei dos Ventos 3;RN;eolica;10;12;100;0.970;28.4
-RNUERT;Rei dos Ventos 3;RN;eolica;10;13;100;0.990;30.5
+RNUERT;Rei dos Ventos 3;RN;eolica;10;11;100;0.950;26.8
+RNUERT;Rei dos Ventos 3;RN;eolica;10;12;100;0.980;28.5
+RNUERT;Rei dos Ventos 3;RN;eolica;10;13;100;1.000;30.6
 RNUERT;Rei dos Ventos 3;RN;eolica;10;14;100;0.950;28.7
 RNUERT;Rei dos Ventos 3;RN;eolica;10;15;100;0.880;25.2
 RNUERT;Rei dos Ventos 3;RN;eolica;10;16;100;0.780;19.6
 RNUERT;Rei dos Ventos 3;RN;eolica;10;17;100;0.660;14.5
-RNUERT;Rei dos Ventos 3;RN;eolica;10;18;100;0.630;13.0
+RNUERT;Rei dos Ventos 3;RN;eolica;10;18;100;0.640;13.0
 RNUERT;Rei dos Ventos 3;RN;eolica;10;19;100;0.600;12.6
 RNUERT;Rei dos Ventos 3;RN;eolica;10;20;100;0.600;12.6
 RNUERT;Rei dos Ventos 3;RN;eolica;10;21;100;0.570;11.8
@@ -36077,17 +36077,17 @@ CJU_BAFFUT;Conj. Futura;BA;solar;10;2;100;0.000;0.0
 CJU_BAFFUT;Conj. Futura;BA;solar;10;3;100;0.000;0.0
 CJU_BAFFUT;Conj. Futura;BA;solar;10;4;100;0.000;0.0
 CJU_BAFFUT;Conj. Futura;BA;solar;10;5;100;0.030;0.6
-CJU_BAFFUT;Conj. Futura;BA;solar;10;6;100;0.570;53.1
+CJU_BAFFUT;Conj. Futura;BA;solar;10;6;100;0.570;53.2
 CJU_BAFFUT;Conj. Futura;BA;solar;10;7;100;0.800;169.8
-CJU_BAFFUT;Conj. Futura;BA;solar;10;8;100;0.830;221.2
-CJU_BAFFUT;Conj. Futura;BA;solar;10;9;100;0.850;268.4
-CJU_BAFFUT;Conj. Futura;BA;solar;10;10;100;0.890;277.7
-CJU_BAFFUT;Conj. Futura;BA;solar;10;11;100;0.900;253.4
-CJU_BAFFUT;Conj. Futura;BA;solar;10;12;100;0.870;243.7
-CJU_BAFFUT;Conj. Futura;BA;solar;10;13;100;0.770;163.7
-CJU_BAFFUT;Conj. Futura;BA;solar;10;14;100;0.560;83.9
-CJU_BAFFUT;Conj. Futura;BA;solar;10;15;100;0.360;31.0
-CJU_BAFFUT;Conj. Futura;BA;solar;10;16;100;0.070;3.1
+CJU_BAFFUT;Conj. Futura;BA;solar;10;8;100;0.830;221.3
+CJU_BAFFUT;Conj. Futura;BA;solar;10;9;100;0.850;268.7
+CJU_BAFFUT;Conj. Futura;BA;solar;10;10;100;0.890;278.3
+CJU_BAFFUT;Conj. Futura;BA;solar;10;11;100;0.900;253.9
+CJU_BAFFUT;Conj. Futura;BA;solar;10;12;100;0.870;244.2
+CJU_BAFFUT;Conj. Futura;BA;solar;10;13;100;0.770;164.2
+CJU_BAFFUT;Conj. Futura;BA;solar;10;14;100;0.560;84.4
+CJU_BAFFUT;Conj. Futura;BA;solar;10;15;100;0.360;31.4
+CJU_BAFFUT;Conj. Futura;BA;solar;10;16;100;0.080;3.2
 CJU_BAFFUT;Conj. Futura;BA;solar;10;17;100;0.000;0.0
 CJU_BAFFUT;Conj. Futura;BA;solar;10;18;100;0.000;0.0
 CJU_BAFFUT;Conj. Futura;BA;solar;10;19;100;0.000;0.0
@@ -40880,13 +40880,13 @@ RNFVAE;Assú V;RN;solar;10;5;100;0.060;0.2
 RNFVAE;Assú V;RN;solar;10;6;100;0.640;5.9
 RNFVAE;Assú V;RN;solar;10;7;100;0.790;10.2
 RNFVAE;Assú V;RN;solar;10;8;100;0.820;10.9
-RNFVAE;Assú V;RN;solar;10;9;100;0.830;11.0
-RNFVAE;Assú V;RN;solar;10;10;100;0.820;11.6
-RNFVAE;Assú V;RN;solar;10;11;100;0.810;11.4
-RNFVAE;Assú V;RN;solar;10;12;100;0.800;10.4
-RNFVAE;Assú V;RN;solar;10;13;100;0.690;6.3
-RNFVAE;Assú V;RN;solar;10;14;100;0.510;4.1
-RNFVAE;Assú V;RN;solar;10;15;100;0.280;1.6
+RNFVAE;Assú V;RN;solar;10;9;100;0.850;11.1
+RNFVAE;Assú V;RN;solar;10;10;100;0.840;11.6
+RNFVAE;Assú V;RN;solar;10;11;100;0.820;11.4
+RNFVAE;Assú V;RN;solar;10;12;100;0.810;10.4
+RNFVAE;Assú V;RN;solar;10;13;100;0.710;6.3
+RNFVAE;Assú V;RN;solar;10;14;100;0.530;4.3
+RNFVAE;Assú V;RN;solar;10;15;100;0.300;1.7
 RNFVAE;Assú V;RN;solar;10;16;100;0.040;0.1
 RNFVAE;Assú V;RN;solar;10;17;100;0.000;0.0
 RNFVAE;Assú V;RN;solar;10;18;100;0.000;0.0
@@ -41169,13 +41169,13 @@ CJU_RNASO;Conj. Assu Sol;RN;solar;10;6;100;0.320;59.8
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;7;100;0.420;91.7
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;8;100;0.430;99.9
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;9;100;0.440;116.9
-CJU_RNASO;Conj. Assu Sol;RN;solar;10;10;100;0.460;125.1
+CJU_RNASO;Conj. Assu Sol;RN;solar;10;10;100;0.460;125.2
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;11;100;0.420;109.5
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;12;100;0.380;97.7
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;13;100;0.360;77.2
-CJU_RNASO;Conj. Assu Sol;RN;solar;10;14;100;0.320;63.8
+CJU_RNASO;Conj. Assu Sol;RN;solar;10;14;100;0.320;63.9
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;15;100;0.280;43.8
-CJU_RNASO;Conj. Assu Sol;RN;solar;10;16;100;0.220;11.5
+CJU_RNASO;Conj. Assu Sol;RN;solar;10;16;100;0.220;11.6
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;17;100;0.000;0.0
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;18;100;0.000;0.0
 CJU_RNASO;Conj. Assu Sol;RN;solar;10;19;100;0.000;0.0
@@ -42032,11 +42032,11 @@ CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;5;100;0.090;0.9
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;6;100;0.760;39.2
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;7;100;0.960;75.9
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;8;100;0.980;83.7
-CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;9;100;0.960;91.6
+CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;9;100;0.970;92.0
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;10;100;0.980;91.4
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;11;100;0.940;80.4
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;12;100;0.950;73.0
-CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;13;100;0.800;46.3
+CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;13;100;0.810;46.7
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;14;100;0.730;34.4
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;15;100;0.600;23.2
 CJU_RNMVS;Conj. Monte Verde Solar;RN;solar;10;16;100;0.330;4.6
@@ -43182,16 +43182,16 @@ CJU_CELINS;Conj. Lins;CE;solar;10;3;100;0.000;0.0
 CJU_CELINS;Conj. Lins;CE;solar;10;4;100;0.000;0.0
 CJU_CELINS;Conj. Lins;CE;solar;10;5;100;0.000;0.0
 CJU_CELINS;Conj. Lins;CE;solar;10;6;100;0.350;8.0
-CJU_CELINS;Conj. Lins;CE;solar;10;7;100;0.540;16.1
+CJU_CELINS;Conj. Lins;CE;solar;10;7;100;0.530;16.1
 CJU_CELINS;Conj. Lins;CE;solar;10;8;100;0.560;20.6
-CJU_CELINS;Conj. Lins;CE;solar;10;9;100;0.560;24.2
-CJU_CELINS;Conj. Lins;CE;solar;10;10;100;0.590;25.4
+CJU_CELINS;Conj. Lins;CE;solar;10;9;100;0.560;24.1
+CJU_CELINS;Conj. Lins;CE;solar;10;10;100;0.590;25.3
 CJU_CELINS;Conj. Lins;CE;solar;10;11;100;0.510;23.6
-CJU_CELINS;Conj. Lins;CE;solar;10;12;100;0.470;24.4
+CJU_CELINS;Conj. Lins;CE;solar;10;12;100;0.470;24.3
 CJU_CELINS;Conj. Lins;CE;solar;10;13;100;0.350;19.3
-CJU_CELINS;Conj. Lins;CE;solar;10;14;100;0.370;19.0
-CJU_CELINS;Conj. Lins;CE;solar;10;15;100;0.210;6.8
-CJU_CELINS;Conj. Lins;CE;solar;10;16;100;0.080;1.4
+CJU_CELINS;Conj. Lins;CE;solar;10;14;100;0.370;18.8
+CJU_CELINS;Conj. Lins;CE;solar;10;15;100;0.200;6.8
+CJU_CELINS;Conj. Lins;CE;solar;10;16;100;0.080;1.3
 CJU_CELINS;Conj. Lins;CE;solar;10;17;100;0.000;0.0
 CJU_CELINS;Conj. Lins;CE;solar;10;18;100;0.000;0.0
 CJU_CELINS;Conj. Lins;CE;solar;10;19;100;0.000;0.0
@@ -44049,10 +44049,10 @@ CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;6;38;0.474;25.5
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;7;38;0.711;34.7
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;8;38;0.789;39.7
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;9;38;0.842;51.1
-CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;10;38;0.947;53.0
+CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;10;38;0.947;53.1
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;11;38;0.947;55.9
-CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;12;38;0.947;54.1
-CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;13;38;0.895;46.4
+CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;12;38;0.947;54.4
+CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;13;38;0.921;46.7
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;14;38;0.763;30.8
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;15;38;0.526;14.7
 CJU_BA3FIRE;Conj. Irecê 138 kV;BA;solar;10;16;38;0.132;3.0

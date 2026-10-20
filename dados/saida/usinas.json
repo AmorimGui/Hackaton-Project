@@ -930,7 +930,7 @@
     "tipo": "eolica",
     "agente": "AUREN OPERAÇÕES",
     "ponto_conexao": "PECEM II - 230 kV (A)",
-    "disp_max_mw": 218,
+    "disp_max_mw": 220,
     "jan_jul_2026": {
       "energia_perdida_gwh": 62.7,
       "fracao_meias_horas_com_corte": 0.304
