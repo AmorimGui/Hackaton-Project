@@ -392,14 +392,14 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 1321.9,
-        "mw_medios": 2899,
-        "chance_corte": 0.426
+        "energia_perdida_gwh": 1380.1,
+        "mw_medios": 2875,
+        "chance_corte": 0.425
       },
       "solar": {
-        "energia_perdida_gwh": 345.6,
-        "mw_medios": 758,
-        "chance_corte": 0.27
+        "energia_perdida_gwh": 360.6,
+        "mw_medios": 751,
+        "chance_corte": 0.272
       }
     }
   },
@@ -410,16 +410,16 @@
     "fracao_confirmadas": 0.919
   },
   "janelas_ao_vivo": {
-    "periodo": "2026-10-01 a 2026-10-19",
-    "total": 187,
-    "confirmadas": 122,
-    "erradas": 65,
-    "fracao_confirmadas": 0.652,
+    "periodo": "2026-10-01 a 2026-10-20",
+    "total": 197,
+    "confirmadas": 129,
+    "erradas": 68,
+    "fracao_confirmadas": 0.655,
     "publicadas_antes": {
-      "total": 118,
-      "confirmadas": 80,
-      "erradas": 38,
-      "fracao_confirmadas": 0.678
+      "total": 128,
+      "confirmadas": 87,
+      "erradas": 41,
+      "fracao_confirmadas": 0.68
     }
   },
   "corte_oficial_ons": {
@@ -462,21 +462,21 @@
     }
   },
   "janelas_proximos_dias": {
-    "periodo": "2026-10-20 a 2026-10-27",
-    "total": 1470,
+    "periodo": "2026-10-21 a 2026-10-28",
+    "total": 1490,
     "usinas_com_janela": 154
   },
   "razoes": {
     "nordeste_2026": {
-      "periodo": "2026-01-01 a 2026-10-19",
+      "periodo": "2026-01-01 a 2026-10-20",
       "fracao": {
         "ENE": 0.67,
-        "CNF": 0.236,
-        "REL": 0.095
+        "CNF": 0.235,
+        "REL": 0.094
       },
       "twh": {
-        "CNF": 6.13,
-        "ENE": 17.43,
+        "CNF": 6.14,
+        "ENE": 17.51,
         "REL": 2.46
       }
     },
@@ -527,8 +527,8 @@
         "REL": 0.032
       },
       "2026-10": {
-        "ENE": 0.784,
-        "CNF": 0.206,
+        "ENE": 0.79,
+        "CNF": 0.201,
         "REL": 0.01
       }
     },
@@ -549,30 +549,30 @@
       },
       "ao_vivo": {
         "ENE": {
-          "fracao_do_corte": 0.736,
-          "capturado": 0.965
+          "fracao_do_corte": 0.743,
+          "capturado": 0.962
         },
         "CNF": {
-          "fracao_do_corte": 0.254,
+          "fracao_do_corte": 0.248,
           "capturado": 0.969
         },
         "REL": {
-          "fracao_do_corte": 0.01,
+          "fracao_do_corte": 0.009,
           "capturado": 0.874
         }
       }
     },
     "por_usina_2026": {
       "CJU_BASAR": {
-        "gwh": 465.5,
+        "gwh": 468.7,
         "fracao": {
-          "ENE": 0.661,
-          "REL": 0.273,
+          "ENE": 0.664,
+          "REL": 0.272,
           "CNF": 0.065
         }
       },
       "CJU_BANHZ": {
-        "gwh": 331.0,
+        "gwh": 331.3,
         "fracao": {
           "ENE": 0.571,
           "REL": 0.335,
@@ -580,31 +580,31 @@
         }
       },
       "CJU_RNRDV": {
-        "gwh": 492.2,
+        "gwh": 493.1,
         "fracao": {
-          "ENE": 0.538,
+          "ENE": 0.539,
           "CNF": 0.447,
           "REL": 0.015
         }
       },
       "CJU_RNRVE": {
-        "gwh": 505.1,
+        "gwh": 506.4,
         "fracao": {
-          "CNF": 0.539,
-          "ENE": 0.451,
+          "CNF": 0.537,
+          "ENE": 0.452,
           "REL": 0.011
         }
       },
       "CJU_CEITC": {
-        "gwh": 144.1,
+        "gwh": 144.9,
         "fracao": {
-          "ENE": 0.858,
+          "ENE": 0.859,
           "CNF": 0.097,
           "REL": 0.044
         }
       },
       "CJU_BASSD": {
-        "gwh": 340.4,
+        "gwh": 341.5,
         "fracao": {
           "ENE": 0.758,
           "REL": 0.171,
@@ -612,7 +612,7 @@
         }
       },
       "CJU_RNASO": {
-        "gwh": 389.2,
+        "gwh": 390.1,
         "fracao": {
           "ENE": 0.774,
           "CNF": 0.189,
@@ -620,11 +620,11 @@
         }
       },
       "CJU_CEMTD": {
-        "gwh": 130.4,
+        "gwh": 131.3,
         "fracao": {
-          "ENE": 0.941,
+          "ENE": 0.942,
           "CNF": 0.04,
-          "REL": 0.019
+          "REL": 0.018
         }
       }
     }
