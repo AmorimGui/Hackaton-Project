@@ -6,7 +6,7 @@
       "uf": "BA",
       "tipo": "eolica",
       "agente": "ENGIE",
-      "disp_max_mw": 819,
+      "disp_max_mw": 846,
       "energia_perdida_gwh": 336.6,
       "fracao_meias_horas_com_corte": 0.353
     },
@@ -392,14 +392,14 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 1458.8,
-        "mw_medios": 2894,
-        "chance_corte": 0.426
+        "energia_perdida_gwh": 1471.4,
+        "mw_medios": 2919,
+        "chance_corte": 0.427
       },
       "solar": {
-        "energia_perdida_gwh": 381.6,
-        "mw_medios": 757,
-        "chance_corte": 0.275
+        "energia_perdida_gwh": 385.3,
+        "mw_medios": 764,
+        "chance_corte": 0.276
       }
     }
   },
@@ -471,12 +471,12 @@
       "periodo": "2026-01-01 a 2026-10-21",
       "fracao": {
         "ENE": 0.672,
-        "CNF": 0.235,
+        "CNF": 0.234,
         "REL": 0.094
       },
       "twh": {
         "CNF": 6.16,
-        "ENE": 17.63,
+        "ENE": 17.65,
         "REL": 2.46
       }
     },
@@ -527,8 +527,8 @@
         "REL": 0.032
       },
       "2026-10": {
-        "ENE": 0.795,
-        "CNF": 0.196,
+        "ENE": 0.797,
+        "CNF": 0.194,
         "REL": 0.009
       }
     },
@@ -549,11 +549,11 @@
       },
       "ao_vivo": {
         "ENE": {
-          "fracao_do_corte": 0.749,
+          "fracao_do_corte": 0.751,
           "capturado": 0.961
         },
         "CNF": {
-          "fracao_do_corte": 0.242,
+          "fracao_do_corte": 0.24,
           "capturado": 0.969
         },
         "REL": {
@@ -564,11 +564,11 @@
     },
     "por_usina_2026": {
       "CJU_BASAR": {
-        "gwh": 470.0,
+        "gwh": 472.9,
         "fracao": {
-          "ENE": 0.665,
-          "REL": 0.271,
-          "CNF": 0.065
+          "ENE": 0.667,
+          "REL": 0.269,
+          "CNF": 0.064
         }
       },
       "CJU_BANHZ": {
@@ -604,7 +604,7 @@
         }
       },
       "CJU_BASSD": {
-        "gwh": 343.3,
+        "gwh": 343.5,
         "fracao": {
           "ENE": 0.76,
           "REL": 0.17,

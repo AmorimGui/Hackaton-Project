@@ -6,7 +6,7 @@
     "tipo": "eolica",
     "agente": "ENGIE",
     "ponto_conexao": "GENTIO OURO II230kVA",
-    "disp_max_mw": 819,
+    "disp_max_mw": 846,
     "jan_jul_2026": {
       "energia_perdida_gwh": 336.6,
       "fracao_meias_horas_com_corte": 0.353
