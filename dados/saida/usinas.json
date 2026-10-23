@@ -846,7 +846,7 @@
     "tipo": "eolica",
     "agente": "ENGIE",
     "ponto_conexao": "PECEM II - 230 kV (A)",
-    "disp_max_mw": 212,
+    "disp_max_mw": 213,
     "jan_jul_2026": {
       "energia_perdida_gwh": 69.3,
       "fracao_meias_horas_com_corte": 0.305
