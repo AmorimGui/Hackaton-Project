@@ -5,8 +5,8 @@
   "RESTRICAO_COFF_EOLICA_2026_09.parquet": "ac7750210a8798038f9cf8fa0ddd043b2edee94f0590b30e5fd063fb4bda5772",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_08.parquet": "7c609a08af4aece39f0cf42583b7713ab64d73cd347ab572d49124ad592fa791",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_09.parquet": "3c038ed2d4906d7ec8c9aab7e6aba2c35f5217121a06123b396623593b5aaf5b",
-  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "f8527e4ecbfd130c633ce5c7901b2934b1d047a74ae9e5afa00482b9eedccd3b",
-  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "083d0037cec8cde77c85ee2c45a8f3d530894dfaaad422bd9a55edd5f263cf3f"
+  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "bdb441c264267eb4bb12889a78238d52e98f90b2105189b2882a07230b326016",
+  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "92da0ba2fb6189de827c6db52575d9740fa1420ba17c93007868601b5c012d0f"
  },
  "url_fontes": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_{eolica|fotovoltaica}_tm/<arquivo>",
  "janelas": {
@@ -5896,7 +5896,7 @@
   "CJU_BASAR|2026-10-21|07:30-15:30": {
    "resultado": "confirmado",
    "fracao_com_corte": 1.0,
-   "energia_cortada_mwh": 1202,
+   "energia_cortada_mwh": 2319,
    "razoes": {
     "ENE": 16
    },
@@ -5924,6 +5924,15 @@
    "resultado": "confirmado",
    "fracao_com_corte": 0.77,
    "energia_cortada_mwh": 594,
+   "razoes": {
+    "ENE": 17
+   },
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
+  "CJU_BASAR|2026-10-25|06:30-17:30": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.77,
+   "energia_cortada_mwh": 593,
    "razoes": {
     "ENE": 17
    },
@@ -6139,6 +6148,15 @@
    "resultado": "confirmado",
    "fracao_com_corte": 0.67,
    "energia_cortada_mwh": 83,
+   "razoes": {
+    "ENE": 14
+   },
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
+  "CJU_BANHZ|2026-10-25|07:00-17:30": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.67,
+   "energia_cortada_mwh": 305,
    "razoes": {
     "ENE": 14
    },
@@ -6560,6 +6578,22 @@
    "razoes": {},
    "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
   },
+  "CJU_RNRDV|2026-10-25|00:00-17:30": {
+   "resultado": "errado",
+   "fracao_com_corte": 0.49,
+   "energia_cortada_mwh": 991,
+   "razoes": {
+    "ENE": 17
+   },
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
+  "CJU_RNRDV|2026-10-25|19:00-24:00": {
+   "resultado": "errado",
+   "fracao_com_corte": 0.0,
+   "energia_cortada_mwh": 0,
+   "razoes": {},
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
   "CJU_RNRVE|2026-10-01|00:00-15:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.5,
@@ -6955,6 +6989,22 @@
    "razoes": {},
    "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
   },
+  "CJU_RNRVE|2026-10-25|00:00-17:00": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.5,
+   "energia_cortada_mwh": 430,
+   "razoes": {
+    "ENE": 17
+   },
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
+  "CJU_RNRVE|2026-10-25|19:00-24:00": {
+   "resultado": "errado",
+   "fracao_com_corte": 0.0,
+   "energia_cortada_mwh": 0,
+   "razoes": {},
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
   "CJU_CEITC|2026-10-01|08:00-15:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.86,
@@ -7167,6 +7217,15 @@
    },
    "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
   },
+  "CJU_CEITC|2026-10-25|06:30-17:00": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.9,
+   "energia_cortada_mwh": 549,
+   "razoes": {
+    "ENE": 19
+   },
+   "fonte": "RESTRICAO_COFF_EOLICA_2026_10.parquet"
+  },
   "CJU_BASSD|2026-10-01|07:00-14:30": {
    "resultado": "errado",
    "fracao_com_corte": 0.33,
@@ -7349,7 +7408,7 @@
   "CJU_BASSD|2026-10-21|07:00-14:30": {
    "resultado": "confirmado",
    "fracao_com_corte": 1.0,
-   "energia_cortada_mwh": 1331,
+   "energia_cortada_mwh": 1321,
    "razoes": {
     "ENE": 15
    },
@@ -7358,7 +7417,7 @@
   "CJU_BASSD|2026-10-22|07:00-14:30": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.93,
-   "energia_cortada_mwh": 919,
+   "energia_cortada_mwh": 913,
    "razoes": {
     "ENE": 14
    },
@@ -7380,6 +7439,15 @@
    "energia_cortada_mwh": 682,
    "razoes": {
     "ENE": 16
+   },
+   "fonte": "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet"
+  },
+  "CJU_BASSD|2026-10-25|06:30-16:30": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.85,
+   "energia_cortada_mwh": 991,
+   "razoes": {
+    "ENE": 17
    },
    "fonte": "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet"
   },
@@ -7613,6 +7681,15 @@
    },
    "fonte": "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet"
   },
+  "CJU_RNASO|2026-10-25|06:00-16:30": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.81,
+   "energia_cortada_mwh": 1734,
+   "razoes": {
+    "ENE": 17
+   },
+   "fonte": "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet"
+  },
   "CJU_CEMTD|2026-10-01|09:00-14:00": {
    "resultado": "errado",
    "fracao_com_corte": 0.2,
@@ -7820,6 +7897,15 @@
    "resultado": "confirmado",
    "fracao_com_corte": 0.85,
    "energia_cortada_mwh": 805,
+   "razoes": {
+    "ENE": 17
+   },
+   "fonte": "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet"
+  },
+  "CJU_CEMTD|2026-10-25|06:30-16:30": {
+   "resultado": "confirmado",
+   "fracao_com_corte": 0.85,
+   "energia_cortada_mwh": 982,
    "razoes": {
     "ENE": 17
    },
