@@ -392,14 +392,14 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 1710.2,
-        "mw_medios": 2850,
-        "chance_corte": 0.421
+        "energia_perdida_gwh": 1721.1,
+        "mw_medios": 2869,
+        "chance_corte": 0.422
       },
       "solar": {
-        "energia_perdida_gwh": 452.1,
-        "mw_medios": 753,
-        "chance_corte": 0.275
+        "energia_perdida_gwh": 454.7,
+        "mw_medios": 758,
+        "chance_corte": 0.277
       }
     }
   },
@@ -476,7 +476,7 @@
       },
       "twh": {
         "CNF": 6.18,
-        "ENE": 17.94,
+        "ENE": 17.95,
         "REL": 2.53
       }
     },
@@ -564,10 +564,10 @@
     },
     "por_usina_2026": {
       "CJU_BASAR": {
-        "gwh": 481.1,
+        "gwh": 483.0,
         "fracao": {
-          "ENE": 0.672,
-          "REL": 0.265,
+          "ENE": 0.674,
+          "REL": 0.264,
           "CNF": 0.063
         }
       },
