@@ -4818,13 +4818,13 @@
       "energia_esperada_mwh": 2218,
       "gpu_horas_esperadas": 2609803,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.86,
-      "energia_cortada_mwh": 2351,
-      "gpu_horas_equivalentes": 2765335,
+      "fracao_com_corte": 1.0,
+      "energia_cortada_mwh": 2672,
+      "gpu_horas_equivalentes": 3143725,
       "razoes_do_corte": {
         "CNF": 1,
-        "REL": 12,
-        "ENE": 5
+        "REL": 13,
+        "ENE": 7
       },
       "publicada_antes": true
     },
