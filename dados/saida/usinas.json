@@ -2268,6 +2268,20 @@
     "destaque": false
   },
   {
+    "id": "CJU_CEESER",
+    "nome": "Conj. Serrote",
+    "uf": "CE",
+    "tipo": "eolica",
+    "agente": "QAIR BRASIL",
+    "ponto_conexao": "PECEM II - 230 kV (A)",
+    "disp_max_mw": 155,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
     "id": "CJU_BAJZS",
     "nome": "Conj. Juazeiro Solar",
     "uf": "BA",
@@ -2316,7 +2330,7 @@
     "tipo": "solar",
     "agente": "STATKRAFT",
     "ponto_conexao": "GENTIO OURO II500kVA",
-    "disp_max_mw": 154,
+    "disp_max_mw": 155,
     "jan_jul_2026": {
       "energia_perdida_gwh": 0.0,
       "fracao_meias_horas_com_corte": null
