@@ -3998,8 +3998,8 @@
       "gpu_horas_esperadas": 645020,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.8,
-      "energia_cortada_mwh": 462,
-      "gpu_horas_equivalentes": 543591,
+      "energia_cortada_mwh": 564,
+      "gpu_horas_equivalentes": 664069,
       "razoes_do_corte": {
         "ENE": 12
       },
@@ -4517,11 +4517,11 @@
       "energia_esperada_mwh": 800,
       "gpu_horas_esperadas": 941310,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.57,
-      "energia_cortada_mwh": 556,
-      "gpu_horas_equivalentes": 654462,
+      "fracao_com_corte": 0.64,
+      "energia_cortada_mwh": 597,
+      "gpu_horas_equivalentes": 701773,
       "razoes_do_corte": {
-        "ENE": 8
+        "ENE": 9
       },
       "publicada_antes": true
     },
@@ -4537,11 +4537,11 @@
       "energia_esperada_mwh": 771,
       "gpu_horas_esperadas": 906750,
       "resultado_ons": "errado",
-      "fracao_com_corte": 0.36,
-      "energia_cortada_mwh": 79,
-      "gpu_horas_equivalentes": 93452,
+      "fracao_com_corte": 0.43,
+      "energia_cortada_mwh": 178,
+      "gpu_horas_equivalentes": 209699,
       "razoes_do_corte": {
-        "ENE": 5
+        "ENE": 6
       },
       "publicada_antes": true
     },
