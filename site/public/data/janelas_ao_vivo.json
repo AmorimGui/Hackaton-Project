@@ -2064,11 +2064,13 @@
       "chance_prevista": 0.76,
       "energia_esperada_mwh": 865,
       "gpu_horas_esperadas": 1017457,
-      "resultado_ons": "errado",
-      "fracao_com_corte": 0.0,
-      "energia_cortada_mwh": 0,
-      "gpu_horas_equivalentes": 0,
-      "razoes_do_corte": {},
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.53,
+      "energia_cortada_mwh": 197,
+      "gpu_horas_equivalentes": 231718,
+      "razoes_do_corte": {
+        "ENE": 9
+      },
       "publicada_antes": true
     },
     {
@@ -2100,12 +2102,13 @@
       "chance_prevista": 0.8,
       "energia_esperada_mwh": 2807,
       "gpu_horas_esperadas": 3302148,
-      "resultado_ons": "errado",
-      "fracao_com_corte": 0.46,
-      "energia_cortada_mwh": 1077,
-      "gpu_horas_equivalentes": 1266778,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.54,
+      "energia_cortada_mwh": 1984,
+      "gpu_horas_equivalentes": 2334219,
       "razoes_do_corte": {
-        "ENE": 16
+        "CNF": 2,
+        "ENE": 17
       },
       "publicada_antes": true
     },
@@ -3254,11 +3257,11 @@
       "energia_esperada_mwh": 787,
       "gpu_horas_esperadas": 925527,
       "resultado_ons": "errado",
-      "fracao_com_corte": 0.25,
-      "energia_cortada_mwh": 61,
-      "gpu_horas_equivalentes": 71538,
+      "fracao_com_corte": 0.06,
+      "energia_cortada_mwh": 9,
+      "gpu_horas_equivalentes": 10966,
       "razoes_do_corte": {
-        "ENE": 4
+        "ENE": 1
       },
       "publicada_antes": true
     },
@@ -3292,11 +3295,11 @@
       "energia_esperada_mwh": 2841,
       "gpu_horas_esperadas": 3342494,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.53,
-      "energia_cortada_mwh": 1743,
-      "gpu_horas_equivalentes": 2050631,
+      "fracao_com_corte": 0.5,
+      "energia_cortada_mwh": 1285,
+      "gpu_horas_equivalentes": 1511788,
       "razoes_do_corte": {
-        "CNF": 2,
+        "CNF": 1,
         "ENE": 17
       },
       "publicada_antes": true
@@ -4187,12 +4190,12 @@
       "energia_esperada_mwh": 566,
       "gpu_horas_esperadas": 666325,
       "resultado_ons": "errado",
-      "fracao_com_corte": 0.25,
-      "energia_cortada_mwh": 39,
-      "gpu_horas_equivalentes": 45637,
+      "fracao_com_corte": 0.44,
+      "energia_cortada_mwh": 148,
+      "gpu_horas_equivalentes": 174199,
       "razoes_do_corte": {
-        "ENE": 2,
-        "REL": 2
+        "ENE": 4,
+        "REL": 3
       },
       "publicada_antes": true
     },
