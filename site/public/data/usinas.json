@@ -2274,7 +2274,7 @@
     "tipo": "eolica",
     "agente": "QAIR BRASIL",
     "ponto_conexao": "PECEM II - 230 kV (A)",
-    "disp_max_mw": 160,
+    "disp_max_mw": 178,
     "jan_jul_2026": {
       "energia_perdida_gwh": 0.0,
       "fracao_meias_horas_com_corte": null
