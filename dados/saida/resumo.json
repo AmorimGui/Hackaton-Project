@@ -392,26 +392,26 @@
     },
     "2026-10": {
       "eolica": {
-        "energia_perdida_gwh": 1931.3,
-        "mw_medios": 2596,
-        "chance_corte": 0.395
+        "energia_perdida_gwh": 1942.3,
+        "mw_medios": 2611,
+        "chance_corte": 0.396
       },
       "solar": {
-        "energia_perdida_gwh": 530.7,
-        "mw_medios": 713,
+        "energia_perdida_gwh": 531.2,
+        "mw_medios": 714,
         "chance_corte": 0.265
       }
     },
     "2026-11": {
       "eolica": {
-        "energia_perdida_gwh": 164.9,
-        "mw_medios": 3435,
-        "chance_corte": 0.483
+        "energia_perdida_gwh": 201.7,
+        "mw_medios": 2801,
+        "chance_corte": 0.433
       },
       "solar": {
-        "energia_perdida_gwh": 45.6,
-        "mw_medios": 950,
-        "chance_corte": 0.345
+        "energia_perdida_gwh": 57.7,
+        "mw_medios": 802,
+        "chance_corte": 0.325
       }
     }
   },
@@ -422,16 +422,16 @@
     "fracao_confirmadas": 0.919
   },
   "janelas_ao_vivo": {
-    "periodo": "2026-10-01 a 2026-11-02",
-    "total": 347,
-    "confirmadas": 211,
-    "erradas": 136,
-    "fracao_confirmadas": 0.608,
+    "periodo": "2026-10-01 a 2026-11-03",
+    "total": 359,
+    "confirmadas": 219,
+    "erradas": 140,
+    "fracao_confirmadas": 0.61,
     "publicadas_antes": {
-      "total": 278,
-      "confirmadas": 169,
-      "erradas": 109,
-      "fracao_confirmadas": 0.608
+      "total": 290,
+      "confirmadas": 177,
+      "erradas": 113,
+      "fracao_confirmadas": 0.61
     }
   },
   "corte_oficial_ons": {
@@ -474,22 +474,22 @@
     }
   },
   "janelas_proximos_dias": {
-    "periodo": "2026-11-03 a 2026-11-10",
-    "total": 1604,
-    "usinas_com_janela": 154
+    "periodo": "2026-11-04 a 2026-11-11",
+    "total": 1602,
+    "usinas_com_janela": 155
   },
   "razoes": {
     "nordeste_2026": {
-      "periodo": "2026-01-01 a 2026-11-02",
+      "periodo": "2026-01-01 a 2026-11-03",
       "fracao": {
-        "ENE": 0.676,
-        "CNF": 0.228,
+        "ENE": 0.677,
+        "CNF": 0.227,
         "REL": 0.096
       },
       "twh": {
         "CNF": 6.22,
-        "ENE": 18.45,
-        "REL": 2.62
+        "ENE": 18.51,
+        "REL": 2.63
       }
     },
     "nordeste_por_mes": {
@@ -539,14 +539,14 @@
         "REL": 0.032
       },
       "2026-10": {
-        "ENE": 0.786,
-        "CNF": 0.161,
+        "ENE": 0.785,
+        "CNF": 0.16,
         "REL": 0.054
       },
       "2026-11": {
-        "ENE": 0.908,
-        "CNF": 0.061,
-        "REL": 0.031
+        "ENE": 0.903,
+        "CNF": 0.053,
+        "REL": 0.044
       }
     },
     "captura": {
@@ -566,30 +566,30 @@
       },
       "ao_vivo": {
         "ENE": {
-          "fracao_do_corte": 0.753,
+          "fracao_do_corte": 0.755,
           "capturado": 0.963
         },
         "CNF": {
-          "fracao_do_corte": 0.187,
+          "fracao_do_corte": 0.183,
           "capturado": 0.961
         },
         "REL": {
-          "fracao_do_corte": 0.06,
-          "capturado": 0.951
+          "fracao_do_corte": 0.062,
+          "capturado": 0.953
         }
       }
     },
     "por_usina_2026": {
       "CJU_BASAR": {
-        "gwh": 495.7,
+        "gwh": 497.0,
         "fracao": {
-          "ENE": 0.681,
-          "REL": 0.257,
+          "ENE": 0.682,
+          "REL": 0.256,
           "CNF": 0.062
         }
       },
       "CJU_BANHZ": {
-        "gwh": 334.6,
+        "gwh": 334.7,
         "fracao": {
           "ENE": 0.574,
           "REL": 0.332,
@@ -597,51 +597,51 @@
         }
       },
       "CJU_RNRDV": {
-        "gwh": 506.8,
+        "gwh": 507.5,
         "fracao": {
           "ENE": 0.55,
-          "CNF": 0.436,
+          "CNF": 0.435,
           "REL": 0.014
         }
       },
       "CJU_RNRVE": {
-        "gwh": 516.3,
+        "gwh": 517.2,
         "fracao": {
-          "CNF": 0.529,
-          "ENE": 0.46,
+          "CNF": 0.528,
+          "ENE": 0.461,
           "REL": 0.011
         }
       },
       "CJU_CEITC": {
-        "gwh": 152.7,
+        "gwh": 154.2,
         "fracao": {
-          "ENE": 0.866,
-          "CNF": 0.092,
+          "ENE": 0.867,
+          "CNF": 0.091,
           "REL": 0.042
         }
       },
       "CJU_BASSD": {
-        "gwh": 351.8,
+        "gwh": 352.4,
         "fracao": {
           "ENE": 0.764,
-          "REL": 0.168,
+          "REL": 0.167,
           "CNF": 0.069
         }
       },
       "CJU_RNASO": {
-        "gwh": 411.9,
+        "gwh": 413.7,
         "fracao": {
           "ENE": 0.772,
-          "CNF": 0.18,
+          "CNF": 0.179,
           "REL": 0.048
         }
       },
       "CJU_CEMTD": {
-        "gwh": 138.1,
+        "gwh": 138.8,
         "fracao": {
           "ENE": 0.944,
           "CNF": 0.039,
-          "REL": 0.018
+          "REL": 0.017
         }
       }
     }
