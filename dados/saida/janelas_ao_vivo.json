@@ -2483,12 +2483,12 @@
       "chance_prevista": 0.75,
       "energia_esperada_mwh": 807,
       "gpu_horas_esperadas": 948903,
-      "resultado_ons": "errado",
-      "fracao_com_corte": 0.25,
-      "energia_cortada_mwh": 126,
-      "gpu_horas_equivalentes": 147778,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.75,
+      "energia_cortada_mwh": 594,
+      "gpu_horas_equivalentes": 698426,
       "razoes_do_corte": {
-        "ENE": 4
+        "ENE": 12
       },
       "publicada_antes": true
     },
@@ -2539,12 +2539,12 @@
       "chance_prevista": 0.75,
       "energia_esperada_mwh": 833,
       "gpu_horas_esperadas": 980485,
-      "resultado_ons": "errado",
-      "fracao_com_corte": 0.19,
-      "energia_cortada_mwh": 16,
-      "gpu_horas_equivalentes": 18829,
+      "resultado_ons": "confirmado",
+      "fracao_com_corte": 0.88,
+      "energia_cortada_mwh": 405,
+      "gpu_horas_equivalentes": 476948,
       "razoes_do_corte": {
-        "ENE": 3
+        "ENE": 14
       },
       "publicada_antes": true
     },
@@ -3882,11 +3882,11 @@
       "energia_esperada_mwh": 743,
       "gpu_horas_esperadas": 874012,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.81,
-      "energia_cortada_mwh": 649,
-      "gpu_horas_equivalentes": 763295,
+      "fracao_com_corte": 0.63,
+      "energia_cortada_mwh": 261,
+      "gpu_horas_equivalentes": 307409,
       "razoes_do_corte": {
-        "ENE": 13
+        "ENE": 10
       },
       "publicada_antes": true
     },
@@ -3955,12 +3955,12 @@
       "chance_prevista": 0.73,
       "energia_esperada_mwh": 763,
       "gpu_horas_esperadas": 897499,
-      "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.56,
-      "energia_cortada_mwh": 259,
-      "gpu_horas_equivalentes": 304996,
+      "resultado_ons": "errado",
+      "fracao_com_corte": 0.31,
+      "energia_cortada_mwh": 72,
+      "gpu_horas_equivalentes": 84816,
       "razoes_do_corte": {
-        "ENE": 9
+        "ENE": 5
       },
       "publicada_antes": true
     },
@@ -3976,12 +3976,10 @@
       "energia_esperada_mwh": 408,
       "gpu_horas_esperadas": 479821,
       "resultado_ons": "errado",
-      "fracao_com_corte": 0.43,
-      "energia_cortada_mwh": 51,
-      "gpu_horas_equivalentes": 59922,
-      "razoes_do_corte": {
-        "CNF": 3
-      },
+      "fracao_com_corte": 0.0,
+      "energia_cortada_mwh": 0,
+      "gpu_horas_equivalentes": 0,
+      "razoes_do_corte": {},
       "publicada_antes": true
     },
     {
@@ -5444,8 +5442,8 @@
       "gpu_horas_esperadas": 1985737,
       "resultado_ons": "confirmado",
       "fracao_com_corte": 0.95,
-      "energia_cortada_mwh": 1189,
-      "gpu_horas_equivalentes": 1398859,
+      "energia_cortada_mwh": 1233,
+      "gpu_horas_equivalentes": 1450341,
       "razoes_do_corte": {
         "ENE": 18
       },
@@ -5463,11 +5461,11 @@
       "energia_esperada_mwh": 1605,
       "gpu_horas_esperadas": 1888446,
       "resultado_ons": "confirmado",
-      "fracao_com_corte": 0.74,
-      "energia_cortada_mwh": 762,
-      "gpu_horas_equivalentes": 896914,
+      "fracao_com_corte": 0.84,
+      "energia_cortada_mwh": 834,
+      "gpu_horas_equivalentes": 981739,
       "razoes_do_corte": {
-        "ENE": 14
+        "ENE": 16
       },
       "publicada_antes": true
     },
