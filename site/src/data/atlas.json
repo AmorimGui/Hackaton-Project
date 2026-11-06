@@ -31,27 +31,27 @@
    "2026-11-08": {
     "janelas": 200,
     "usinas": 154,
-    "energia_esperada_mwh": 123912
+    "energia_esperada_mwh": 123919
    },
    "2026-11-09": {
     "janelas": 199,
     "usinas": 151,
-    "energia_esperada_mwh": 76740
+    "energia_esperada_mwh": 76744
    },
    "2026-11-10": {
     "janelas": 199,
     "usinas": 151,
-    "energia_esperada_mwh": 76740
+    "energia_esperada_mwh": 76744
    },
    "2026-11-11": {
     "janelas": 197,
     "usinas": 150,
-    "energia_esperada_mwh": 71254
+    "energia_esperada_mwh": 71294
    },
    "2026-11-12": {
     "janelas": 194,
     "usinas": 151,
-    "energia_esperada_mwh": 68855
+    "energia_esperada_mwh": 69061
    }
   },
   "usinas_com_janela": 155,
@@ -5627,7 +5627,7 @@
      "resultado_ons": "confirmado",
      "fracao_com_corte": 1.0,
      "energia_cortada_mwh": 1675,
-     "gpu_horas_equivalentes": 1971174,
+     "gpu_horas_equivalentes": 1970774,
      "razoes_do_corte": {
       "ENE": 19
      },
@@ -5649,8 +5649,8 @@
      "gpu_horas_esperadas": 889789,
      "resultado_ons": "confirmado",
      "fracao_com_corte": 0.93,
-     "energia_cortada_mwh": 555,
-     "gpu_horas_equivalentes": 652868,
+     "energia_cortada_mwh": 556,
+     "gpu_horas_equivalentes": 653659,
      "razoes_do_corte": {
       "ENE": 13
      },
@@ -5821,7 +5821,7 @@
      "fim": "14:00",
      "chance_prevista": 0.67,
      "energia_esperada_mwh": 629,
-     "gpu_horas_esperadas": 740398,
+     "gpu_horas_esperadas": 740418,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
@@ -5842,7 +5842,7 @@
      "fim": "13:30",
      "chance_prevista": 0.69,
      "energia_esperada_mwh": 590,
-     "gpu_horas_esperadas": 694246,
+     "gpu_horas_esperadas": 694267,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
@@ -7006,7 +7006,7 @@
      0.029,
      0.029,
      0.162,
-     0.691,
+     0.706,
      0.838,
      0.897,
      0.926,
@@ -7079,10 +7079,10 @@
     "confirmadas": 29
    },
    "razoes_2026": {
-    "gwh": 154.7,
+    "gwh": 155.2,
     "fracao": {
-     "ENE": 0.867,
-     "CNF": 0.091,
+     "ENE": 0.868,
+     "CNF": 0.09,
      "REL": 0.042
     }
    },
@@ -7375,8 +7375,8 @@
      "gpu_horas_esperadas": 664927,
      "resultado_ons": "confirmado",
      "fracao_com_corte": 0.88,
-     "energia_cortada_mwh": 725,
-     "gpu_horas_equivalentes": 852759,
+     "energia_cortada_mwh": 914,
+     "gpu_horas_equivalentes": 1074750,
      "razoes_do_corte": {
       "ENE": 14
      },
@@ -7398,8 +7398,8 @@
      "gpu_horas_esperadas": 662051,
      "resultado_ons": "confirmado",
      "fracao_com_corte": 0.81,
-     "energia_cortada_mwh": 531,
-     "gpu_horas_equivalentes": 625180,
+     "energia_cortada_mwh": 690,
+     "gpu_horas_equivalentes": 811834,
      "razoes_do_corte": {
       "ENE": 13
      },
@@ -7546,14 +7546,14 @@
      "inicio": "07:00",
      "fim": "14:30",
      "chance_prevista": 0.74,
-     "energia_esperada_mwh": 521,
-     "gpu_horas_esperadas": 612606,
+     "energia_esperada_mwh": 526,
+     "gpu_horas_esperadas": 618448,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 29859.0,
+     "valor_referencia_rs": 30145.0,
      "pld_estimado": true,
      "pld_medio_rs_mwh": 57.31
     },
@@ -7567,14 +7567,14 @@
      "inicio": "07:00",
      "fim": "14:30",
      "chance_prevista": 0.74,
-     "energia_esperada_mwh": 529,
-     "gpu_horas_esperadas": 622056,
+     "energia_esperada_mwh": 538,
+     "gpu_horas_esperadas": 632810,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 30317.0,
+     "valor_referencia_rs": 30833.0,
      "pld_estimado": true,
      "pld_medio_rs_mwh": 57.31
     }
@@ -8670,7 +8670,7 @@
    },
    "twh": {
     "CNF": 6.22,
-    "ENE": 18.58,
+    "ENE": 18.59,
     "REL": 2.64
    }
   },
@@ -8726,9 +8726,9 @@
     "REL": 0.055
    },
    "2026-11": {
-    "ENE": 0.885,
+    "ENE": 0.887,
     "REL": 0.067,
-    "CNF": 0.048
+    "CNF": 0.047
    }
   },
   "captura": {
@@ -8941,13 +8941,13 @@
    },
    {
     "mes": "2026-10",
-    "eolica": 3096.0,
+    "eolica": 3097.0,
     "solar": 1070.0
    },
    {
     "mes": "2026-11",
-    "eolica": 3052.0,
-    "solar": 1118.0
+    "eolica": 3112.0,
+    "solar": 1155.0
    }
   ]
  },
@@ -8991,13 +8991,13 @@
   }
  },
  "impressoes": [
-  "e60ecf757bddeac1cb01af1f7d84e05a1b6fd35e6a35af4c51988252de66b45e  chance_corte_por_usina_mes_hora.csv",
-  "043ed051af1e6176116ecaace7e8674c4d33a65ab42a2dd376dfcbab438dbc15  corte_por_estado_mes.csv",
-  "91b19894812e46a4988bca5e47d907ca6e6f77ca299f8d1c3d29b80b707ff4f7  corte_por_razao_mes.csv",
-  "7b6dd83297b151abc45db4922dfb86147d35739790cc108d83740ed83249fbbb  janelas_ao_vivo.json",
+  "973c63e26f68b18caba2ced225f5ffc584c566bd40d1692fb12ace502f3390d0  chance_corte_por_usina_mes_hora.csv",
+  "af927095485709b7a16ad2d81febd069ae1ab2a47f153830be9747f62425e96a  corte_por_estado_mes.csv",
+  "651e97cbda2ddc709f156f5ee201aea755cea87146b5e2e759012658727f5d1e  corte_por_razao_mes.csv",
+  "924a750419a54c36925218b838e45617bafa260679ded500b49bc5abf2098a1a  janelas_ao_vivo.json",
   "23380cbc8bd55eb44c59d22826a0f23ca69b606d312b2c058b2180109d822638  janelas_previstas_ago_set_2026.json",
-  "8fd0456a80ac410fc6c45382b4a1db7d23ad221ca2f6675b7832930a0696ccf1  janelas_previstas_proximos_dias.json",
-  "92a012ab01a89575ce317e0fca95176f2bc6b03bd235db0bf41a9a8cf0704eaa  resumo.json",
+  "c238c2391331e13762fda8116bb8a9adb01f52e2237eec84118d442f8e1ca052  janelas_previstas_proximos_dias.json",
+  "864be9e3852d6ef2a3192705ce7d022a9803eb07fcabad7cd05b4b9d099ef6db  resumo.json",
   "4afb9d7d480dcf8ead5df0920668e00adadd1be8f5e6c1ef3be440d2c26540f7  teste_retroativo.json",
   "71dfb92a4abd259307af6524cf4fc17bfcd9b5b4fed2fa6f9e850322422208af  usinas.json"
  ]

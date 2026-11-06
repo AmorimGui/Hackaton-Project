@@ -5,10 +5,10 @@
   "RESTRICAO_COFF_EOLICA_2026_09.parquet": "ac7750210a8798038f9cf8fa0ddd043b2edee94f0590b30e5fd063fb4bda5772",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_08.parquet": "7c609a08af4aece39f0cf42583b7713ab64d73cd347ab572d49124ad592fa791",
   "RESTRICAO_COFF_FOTOVOLTAICA_2026_09.parquet": "3c038ed2d4906d7ec8c9aab7e6aba2c35f5217121a06123b396623593b5aaf5b",
-  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "9c17f80121a4018cd35f74130c4389419e5d1bf32d20396f0bc057562ec04141",
-  "RESTRICAO_COFF_EOLICA_2026_11.parquet": "879b6949acc76edaae08c32c7040f458baaf537b808f12cce9ac8e1b72371522",
-  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "4a1fe66104fb5945681755d2098aace8f3fd50e847488e20ba91fb8d1f6d6af0",
-  "RESTRICAO_COFF_FOTOVOLTAICA_2026_11.parquet": "798615e87079ced6e3fbb2af9cb97fee0ad4cd85832448a82874e6f240c08908"
+  "RESTRICAO_COFF_EOLICA_2026_10.parquet": "65b2a70759c5c6b5d961bd9cdf2ba9b593ca87fb80856424ee31a67a52425380",
+  "RESTRICAO_COFF_EOLICA_2026_11.parquet": "91938ef955af5d58db4529ea6c1c4d6651e4b14e6783f5d338e91d73f7c8e9c1",
+  "RESTRICAO_COFF_FOTOVOLTAICA_2026_10.parquet": "7f9e08d34be06fb86e2842c583a0afa7fa4c1d53ec1074a4896ad1be000155de",
+  "RESTRICAO_COFF_FOTOVOLTAICA_2026_11.parquet": "440667e6256246def2b29f39897d3490171d0d3b4fcaed0869d5eebc8117139d"
  },
  "url_fontes": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/restricao_coff_{eolica|fotovoltaica}_tm/<arquivo>",
  "janelas": {
@@ -7945,7 +7945,7 @@
   "CJU_CEITC|2026-11-03|07:00-15:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.88,
-   "energia_cortada_mwh": 725,
+   "energia_cortada_mwh": 914,
    "razoes": {
     "ENE": 14
    },
@@ -7954,7 +7954,7 @@
   "CJU_CEITC|2026-11-04|07:00-15:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.81,
-   "energia_cortada_mwh": 531,
+   "energia_cortada_mwh": 690,
    "razoes": {
     "ENE": 13
    },
@@ -8258,7 +8258,7 @@
   "CJU_BASSD|2026-11-03|07:00-14:00": {
    "resultado": "confirmado",
    "fracao_com_corte": 0.93,
-   "energia_cortada_mwh": 555,
+   "energia_cortada_mwh": 556,
    "razoes": {
     "ENE": 13
    },
