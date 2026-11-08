@@ -404,8 +404,8 @@
     },
     "2026-11": {
       "eolica": {
-        "energia_perdida_gwh": 330.5,
-        "mw_medios": 2295,
+        "energia_perdida_gwh": 331.2,
+        "mw_medios": 2300,
         "chance_corte": 0.391
       },
       "solar": {
@@ -544,8 +544,8 @@
         "REL": 0.055
       },
       "2026-11": {
-        "ENE": 0.851,
-        "REL": 0.108,
+        "ENE": 0.85,
+        "REL": 0.109,
         "CNF": 0.04
       }
     },
