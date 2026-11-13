@@ -31,27 +31,27 @@
    "2026-11-15": {
     "janelas": 197,
     "usinas": 153,
-    "energia_esperada_mwh": 124128
+    "energia_esperada_mwh": 124132
    },
    "2026-11-16": {
     "janelas": 193,
     "usinas": 152,
-    "energia_esperada_mwh": 66452
+    "energia_esperada_mwh": 66458
    },
    "2026-11-17": {
     "janelas": 189,
     "usinas": 152,
-    "energia_esperada_mwh": 63881
+    "energia_esperada_mwh": 63941
    },
    "2026-11-18": {
     "janelas": 187,
     "usinas": 152,
-    "energia_esperada_mwh": 62607
+    "energia_esperada_mwh": 62687
    },
    "2026-11-19": {
     "janelas": 188,
     "usinas": 152,
-    "energia_esperada_mwh": 61325
+    "energia_esperada_mwh": 61497
    }
   },
   "usinas_com_janela": 153,
@@ -414,7 +414,7 @@
      0.951,
      0.927,
      0.829,
-     0.768,
+     0.78,
      0.488,
      0.183,
      0.0,
@@ -478,10 +478,10 @@
     "confirmadas": 38
    },
    "razoes_2026": {
-    "gwh": 513.7,
+    "gwh": 515.0,
     "fracao": {
-     "ENE": 0.692,
-     "REL": 0.248,
+     "ENE": 0.693,
+     "REL": 0.247,
      "CNF": 0.06
     }
    },
@@ -727,8 +727,8 @@
      "gpu_horas_esperadas": 2408308,
      "resultado_ons": "confirmado",
      "fracao_com_corte": 0.82,
-     "energia_cortada_mwh": 328,
-     "gpu_horas_equivalentes": 385372,
+     "energia_cortada_mwh": 640,
+     "gpu_horas_equivalentes": 753501,
      "razoes_do_corte": {
       "ENE": 18
      },
@@ -750,8 +750,8 @@
      "gpu_horas_esperadas": 1319234,
      "resultado_ons": "confirmado",
      "fracao_com_corte": 1.0,
-     "energia_cortada_mwh": 385,
-     "gpu_horas_equivalentes": 452359,
+     "energia_cortada_mwh": 1173,
+     "gpu_horas_equivalentes": 1379775,
      "razoes_do_corte": {
       "ENE": 15
      },
@@ -923,14 +923,14 @@
      "inicio": "07:00",
      "fim": "14:30",
      "chance_prevista": 0.78,
-     "energia_esperada_mwh": 1148,
-     "gpu_horas_esperadas": 1351172,
+     "energia_esperada_mwh": 1169,
+     "gpu_horas_esperadas": 1375443,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 65792.0,
+     "valor_referencia_rs": 66995.0,
      "pld_estimado": true,
      "pld_medio_rs_mwh": 57.31
     },
@@ -944,14 +944,14 @@
      "inicio": "07:00",
      "fim": "14:30",
      "chance_prevista": 0.78,
-     "energia_esperada_mwh": 1172,
-     "gpu_horas_esperadas": 1379378,
+     "energia_esperada_mwh": 1193,
+     "gpu_horas_esperadas": 1403649,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 67167.0,
+     "valor_referencia_rs": 68371.0,
      "pld_estimado": true,
      "pld_medio_rs_mwh": 57.31
     },
@@ -965,14 +965,14 @@
      "inicio": "07:00",
      "fim": "14:30",
      "chance_prevista": 0.78,
-     "energia_esperada_mwh": 1187,
-     "gpu_horas_esperadas": 1396492,
+     "energia_esperada_mwh": 1208,
+     "gpu_horas_esperadas": 1420764,
      "resultado_ons": "aguardando_ons",
      "fracao_com_corte": null,
      "energia_cortada_mwh": null,
      "gpu_horas_equivalentes": null,
      "razoes_do_corte": {},
-     "valor_referencia_rs": 68027.0,
+     "valor_referencia_rs": 69230.0,
      "pld_estimado": true,
      "pld_medio_rs_mwh": 57.31
     }
@@ -8194,7 +8194,7 @@
    },
    "twh": {
     "CNF": 6.23,
-    "ENE": 19.03,
+    "ENE": 19.04,
     "REL": 2.71
    }
   },
@@ -8250,9 +8250,9 @@
     "REL": 0.055
    },
    "2026-11": {
-    "ENE": 0.871,
-    "REL": 0.102,
-    "CNF": 0.027
+    "ENE": 0.873,
+    "REL": 0.101,
+    "CNF": 0.026
    }
   },
   "captura": {
@@ -8276,11 +8276,11 @@
      "capturado": 0.961
     },
     "CNF": {
-     "fracao_do_corte": 0.159,
+     "fracao_do_corte": 0.158,
      "capturado": 0.959
     },
     "REL": {
-     "fracao_do_corte": 0.079,
+     "fracao_do_corte": 0.078,
      "capturado": 0.957
     }
    }
@@ -8470,8 +8470,8 @@
    },
    {
     "mes": "2026-11",
-    "eolica": 2613.0,
-    "solar": 893.0
+    "eolica": 2643.0,
+    "solar": 907.0
    }
   ]
  },
@@ -8515,13 +8515,13 @@
   }
  },
  "impressoes": [
-  "ae83900423d66f8ebc66130e1cd6c915787f84bb2663fdb4347f5632b87797ad  chance_corte_por_usina_mes_hora.csv",
-  "bb899ca59fcbae9d500f02698503f7ceb1fe74987e327a2b7efc091d60a91f8e  corte_por_estado_mes.csv",
-  "f50add82119cee62b923741a67cadefc017d98c31e34f2adadb280dac633b61c  corte_por_razao_mes.csv",
-  "618d24633ba5fc2855b04ff2928392925241fd5fc6a056cc1b19316560c7e622  janelas_ao_vivo.json",
+  "72c23c3a934ea976a06722201e3a1b8a3f56d4904ae61bec32d319ddf6656e55  chance_corte_por_usina_mes_hora.csv",
+  "4634d040dd6cf8d0cf9030141412cfca7c19a018e415a9f80acc2ef3ae7e9c56  corte_por_estado_mes.csv",
+  "cdbc5754c780507e7ef2829a9995a9a84ceef78a82aa75a85d023e25fef68c01  corte_por_razao_mes.csv",
+  "e5d85f88f6042e753b3237879a991bf2ff359cb635e59d0053dcaec5a5219b15  janelas_ao_vivo.json",
   "23380cbc8bd55eb44c59d22826a0f23ca69b606d312b2c058b2180109d822638  janelas_previstas_ago_set_2026.json",
-  "df4357a7b36bb523e56d7e2b2481e4762eea8abba573237e909f5486cf48ba6e  janelas_previstas_proximos_dias.json",
-  "f9ca2a89de7726383298cbc246ce1e8d8e677051f59bedf5630e954f335abc58  resumo.json",
+  "cd7fa18ed50d8d39d5bc1ae28a45270427f52eda5486e01e58670331ee2b4dbb  janelas_previstas_proximos_dias.json",
+  "788f01c63ffecf7b692888292ac10240c615a58d6196264f65ed39b552ea81cc  resumo.json",
   "acc703d6c60afd973a8893526b153be66b30098b690974ac7aaab729ae6c5027  teste_retroativo.json",
   "dac53771bde7e38abe27002f0dfaba650562e539e3bd9b3a4aa01c6cc4102e69  usinas.json"
  ]
