@@ -454,7 +454,7 @@
     "tipo": "eolica",
     "agente": "EDP BRASIL",
     "ponto_conexao": "J. CAMARA III - 500 kV (A)",
-    "disp_max_mw": 210,
+    "disp_max_mw": 214,
     "jan_jul_2026": {
       "energia_perdida_gwh": 125.5,
       "fracao_meias_horas_com_corte": 0.5
