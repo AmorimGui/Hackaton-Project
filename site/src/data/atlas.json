@@ -31,27 +31,27 @@
    "2026-11-22": {
     "janelas": 194,
     "usinas": 153,
-    "energia_esperada_mwh": 108230
+    "energia_esperada_mwh": 108315
    },
    "2026-11-23": {
     "janelas": 185,
     "usinas": 152,
-    "energia_esperada_mwh": 59295
+    "energia_esperada_mwh": 59337
    },
    "2026-11-24": {
     "janelas": 179,
     "usinas": 152,
-    "energia_esperada_mwh": 55118
+    "energia_esperada_mwh": 55171
    },
    "2026-11-25": {
     "janelas": 170,
     "usinas": 151,
-    "energia_esperada_mwh": 53516
+    "energia_esperada_mwh": 53569
    },
    "2026-11-26": {
     "janelas": 168,
     "usinas": 151,
-    "energia_esperada_mwh": 52805
+    "energia_esperada_mwh": 52859
    }
   },
   "usinas_com_janela": 153,
@@ -7768,7 +7768,7 @@
    "2026-11": {
     "ENE": 0.878,
     "REL": 0.099,
-    "CNF": 0.024
+    "CNF": 0.023
    }
   },
   "captura": {
@@ -7987,7 +7987,7 @@
    {
     "mes": "2026-11",
     "eolica": 2371.0,
-    "solar": 799.0
+    "solar": 806.0
    }
   ]
  },
@@ -8031,13 +8031,13 @@
   }
  },
  "impressoes": [
-  "499c9a80f17bc035bf149b17ef9864765a642a3fcc5cda16791cac903980964a  chance_corte_por_usina_mes_hora.csv",
-  "03b749503259e2e5a25c7cc86a00d7f60efd49e25bca58b957e26bf0e7696836  corte_por_estado_mes.csv",
-  "93593ec67973d319a384bc49017d13eb12887db4343105f8fd64e20968301f08  corte_por_razao_mes.csv",
+  "cc2fd25f3b4e20c944aa8d23b6f0cd09f627a1ec2fb5072f23b6081ce147d167  chance_corte_por_usina_mes_hora.csv",
+  "e4facfde22b4e2cf06c052c42ecad22ed3695111e26d570cfea69aeb797ee27c  corte_por_estado_mes.csv",
+  "b68b0895c1506a88363254de7ce02cc96b897e707b2d4389329a298a21eecca6  corte_por_razao_mes.csv",
   "5e9cdeecb9172e2dcd90ed33e745f1fa3c163af1e57cc00e21bea7f69b51b1f3  janelas_ao_vivo.json",
   "23380cbc8bd55eb44c59d22826a0f23ca69b606d312b2c058b2180109d822638  janelas_previstas_ago_set_2026.json",
-  "ab91f7a901b2074b9f65e6545c2eb432b4afabd48425aff5647d525a4d9a7ded  janelas_previstas_proximos_dias.json",
-  "d287e431df85dc3d30d1c102f0c1c336c5650702babc358f2fd5320eb4c491cb  resumo.json",
+  "95efad4b38064c9da73a0c0cdbf45ca1e5c24e9b7f200bfc0cadcfdd2dbfb432  janelas_previstas_proximos_dias.json",
+  "00aa7f48dee04c8b8206aa21c81a77549b226d005ea852a3ce96f7ff77beaff7  resumo.json",
   "b61231c08b9d04b27eee8509790f268d90074e6f40b3917f49712d03da969902  teste_retroativo.json",
   "d1459b4871181bb5b05d0e502eaebc79633ce6720220e36aa87e1430d8b9d268  usinas.json"
  ]

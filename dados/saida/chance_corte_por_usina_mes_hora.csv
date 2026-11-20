@@ -32312,14 +32312,14 @@ CJU_RNSMG;Conj. São Miguel;RN;eolica;11;5;96;0.188;2.3
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;6;96;0.562;3.6
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;7;96;0.844;13.9
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;8;96;0.938;21.3
-CJU_RNSMG;Conj. São Miguel;RN;eolica;11;9;96;0.927;24.4
+CJU_RNSMG;Conj. São Miguel;RN;eolica;11;9;96;0.938;24.5
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;10;96;0.927;26.2
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;11;96;0.917;27.4
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;12;96;0.958;28.0
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;13;96;0.948;25.3
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;14;96;0.958;21.2
-CJU_RNSMG;Conj. São Miguel;RN;eolica;11;15;96;0.958;17.6
-CJU_RNSMG;Conj. São Miguel;RN;eolica;11;16;96;0.812;12.5
+CJU_RNSMG;Conj. São Miguel;RN;eolica;11;15;96;0.969;17.7
+CJU_RNSMG;Conj. São Miguel;RN;eolica;11;16;96;0.823;12.5
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;17;96;0.594;5.8
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;18;96;0.469;4.9
 CJU_RNSMG;Conj. São Miguel;RN;eolica;11;19;96;0.615;5.7
@@ -32888,7 +32888,7 @@ CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;5;96;0.208;2.3
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;6;96;0.604;15.0
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;7;96;0.802;72.9
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;8;96;0.885;103.8
-CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;9;96;0.896;127.2
+CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;9;96;0.906;127.5
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;10;96;0.917;142.7
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;11;96;0.917;151.0
 CJU_RNUVT;Conj. União dos Ventos;RN;eolica;11;12;96;0.948;155.9
@@ -39245,16 +39245,16 @@ CJU_CEPTN;Conj. Banabuiú;CE;solar;11;2;96;0.000;0.0
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;3;96;0.000;0.0
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;4;96;0.000;0.0
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;5;96;0.000;0.0
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;6;96;0.479;17.9
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;7;96;0.719;51.4
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;8;96;0.844;59.0
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;9;96;0.885;77.3
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;10;96;0.854;80.9
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;11;96;0.833;76.0
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;12;96;0.854;74.0
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;13;96;0.750;51.2
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;14;96;0.531;25.9
-CJU_CEPTN;Conj. Banabuiú;CE;solar;11;15;96;0.375;10.6
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;6;96;0.510;19.2
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;7;96;0.729;54.5
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;8;96;0.854;62.2
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;9;96;0.906;82.0
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;10;96;0.875;85.9
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;11;96;0.875;81.7
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;12;96;0.896;79.0
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;13;96;0.781;53.5
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;14;96;0.531;26.7
+CJU_CEPTN;Conj. Banabuiú;CE;solar;11;15;96;0.385;10.8
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;16;96;0.125;2.1
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;17;96;0.000;0.0
 CJU_CEPTN;Conj. Banabuiú;CE;solar;11;18;96;0.000;0.0
@@ -39821,16 +39821,16 @@ CJU_CELAV;Conj. Lavras;CE;solar;11;2;96;0.000;0.0
 CJU_CELAV;Conj. Lavras;CE;solar;11;3;96;0.000;0.0
 CJU_CELAV;Conj. Lavras;CE;solar;11;4;96;0.000;0.0
 CJU_CELAV;Conj. Lavras;CE;solar;11;5;96;0.000;0.0
-CJU_CELAV;Conj. Lavras;CE;solar;11;6;96;0.531;17.7
-CJU_CELAV;Conj. Lavras;CE;solar;11;7;96;0.750;41.5
-CJU_CELAV;Conj. Lavras;CE;solar;11;8;96;0.792;50.5
-CJU_CELAV;Conj. Lavras;CE;solar;11;9;96;0.875;62.5
-CJU_CELAV;Conj. Lavras;CE;solar;11;10;96;0.854;70.1
-CJU_CELAV;Conj. Lavras;CE;solar;11;11;96;0.833;74.1
-CJU_CELAV;Conj. Lavras;CE;solar;11;12;96;0.812;71.3
-CJU_CELAV;Conj. Lavras;CE;solar;11;13;96;0.719;53.5
-CJU_CELAV;Conj. Lavras;CE;solar;11;14;96;0.490;31.3
-CJU_CELAV;Conj. Lavras;CE;solar;11;15;96;0.375;17.4
+CJU_CELAV;Conj. Lavras;CE;solar;11;6;96;0.562;19.7
+CJU_CELAV;Conj. Lavras;CE;solar;11;7;96;0.792;45.8
+CJU_CELAV;Conj. Lavras;CE;solar;11;8;96;0.865;55.4
+CJU_CELAV;Conj. Lavras;CE;solar;11;9;96;0.938;67.3
+CJU_CELAV;Conj. Lavras;CE;solar;11;10;96;0.896;75.2
+CJU_CELAV;Conj. Lavras;CE;solar;11;11;96;0.875;79.9
+CJU_CELAV;Conj. Lavras;CE;solar;11;12;96;0.854;77.1
+CJU_CELAV;Conj. Lavras;CE;solar;11;13;96;0.781;57.4
+CJU_CELAV;Conj. Lavras;CE;solar;11;14;96;0.521;32.7
+CJU_CELAV;Conj. Lavras;CE;solar;11;15;96;0.385;17.8
 CJU_CELAV;Conj. Lavras;CE;solar;11;16;96;0.135;3.5
 CJU_CELAV;Conj. Lavras;CE;solar;11;17;96;0.000;0.0
 CJU_CELAV;Conj. Lavras;CE;solar;11;18;96;0.000;0.0
