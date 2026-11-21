@@ -888,7 +888,7 @@
     "tipo": "eolica",
     "agente": "COPEL-GT",
     "ponto_conexao": "J. CAMARA III230kVA",
-    "disp_max_mw": 87,
+    "disp_max_mw": 90,
     "jan_jul_2026": {
       "energia_perdida_gwh": 66.3,
       "fracao_meias_horas_com_corte": 0.488
