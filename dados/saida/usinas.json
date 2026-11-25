@@ -1868,7 +1868,7 @@
     "tipo": "eolica",
     "agente": "ENEL",
     "ponto_conexao": "JOAO CAMARA 269kVA",
-    "disp_max_mw": 55,
+    "disp_max_mw": 56,
     "jan_jul_2026": {
       "energia_perdida_gwh": 23.0,
       "fracao_meias_horas_com_corte": 0.425
