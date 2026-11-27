@@ -2282,6 +2282,20 @@
     "destaque": false
   },
   {
+    "id": "CJU_RNPAM",
+    "nome": "Conj. Pedra de Amolar",
+    "uf": "RN",
+    "tipo": "eolica",
+    "agente": "SPIC BRASIL ENERGIA",
+    "ponto_conexao": "J. CAMARA II - 230 kV (A)",
+    "disp_max_mw": 43,
+    "jan_jul_2026": {
+      "energia_perdida_gwh": 0.0,
+      "fracao_meias_horas_com_corte": null
+    },
+    "destaque": false
+  },
+  {
     "id": "CJU_BAJZS",
     "nome": "Conj. Juazeiro Solar",
     "uf": "BA",
